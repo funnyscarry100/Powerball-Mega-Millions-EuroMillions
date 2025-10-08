@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Live lottery results for Powerball, Mega Millions, EuroMillions. Check winning numbers, jackpot amounts, and next drawing dates.">
+    <meta name="keywords" content="lottery results, powerball, mega millions, euro millions, winning numbers, jackpot">
+    <meta name="author" content="Lottery Results Hub">
+    
+    <!-- Google Verification -->
+    <meta name="google-site-verification" content="r2yewgzagcwp" />
+    
+    <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-6029541871212501">
-    <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6029541871212501" crossorigin="anonymous"></script>
+    
+    <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions Winning Numbers</title>
+    
     <style>
         :root {
             --powerball-color: #e74c3c;
@@ -16,205 +26,396 @@
             --danger-color: #e74c3c;
         }
         
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-            color: #333;
-            background-color: #f5f5f5;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Verification Banner */
+        .verification-banner {
+            background: linear-gradient(135deg, #4285f4, #34a853);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        /* Header Styles */
         header {
             background: linear-gradient(135deg, #2c3e50, #1a1a2e);
             color: white;
-            padding: 30px 20px;
-            border-radius: 8px;
+            padding: 40px 30px;
+            border-radius: 12px;
             margin-bottom: 30px;
             text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e74c3c, #3498db, #9b59b6);
         }
         
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            margin-bottom: 15px;
             color: white;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
         }
         
         .subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
             color: #ecf0f1;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .current-date {
             font-size: 1.8rem;
             font-weight: bold;
             color: #f1c40f;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: rgba(0,0,0,0.2);
-            border-radius: 5px;
+            margin: 25px 0;
+            padding: 18px;
+            background-color: rgba(0,0,0,0.25);
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
+        /* Tabs */
+        .tab-container {
+            display: flex;
+            margin-bottom: 25px;
+            background: white;
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 15px 20px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .tab.active {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+        
+        .tab:hover:not(.active) {
+            background: #f8f9fa;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Lottery Sections */
         .lottery-section {
             background-color: #fff;
-            border-radius: 8px;
-            padding: 25px;
+            border-radius: 12px;
+            padding: 30px;
             margin-bottom: 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-            border-left: 5px solid;
-            transition: transform 0.3s ease;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            border-left: 6px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .lottery-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--section-color), transparent);
         }
         
         .lottery-section:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
         }
         
         .powerball {
+            --section-color: var(--powerball-color);
             border-left-color: var(--powerball-color);
         }
         
         .megamillions {
+            --section-color: var(--megamillions-color);
             border-left-color: var(--megamillions-color);
         }
         
         .euromillions {
+            --section-color: var(--euromillions-color);
             border-left-color: var(--euromillions-color);
         }
         
         .lottery-name {
             color: #2c3e50;
             margin-top: 0;
-            font-size: 1.8rem;
+            font-size: 2rem;
             display: flex;
             align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .lottery-icon {
+            font-size: 1.8rem;
+            margin-right: 12px;
         }
         
         .update-time {
             color: #7f8c8d;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
+            font-size: 1rem;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
         }
         
         .update-time::before {
             content: "🔄";
-            margin-right: 5px;
+            margin-right: 8px;
         }
         
         .prize-info {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-            border: 1px solid #eee;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
         }
         
         .jackpot-amount {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #e74c3c;
             font-weight: bold;
-            margin: 10px 0;
+            margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .next-drawing {
             font-weight: bold;
             color: #27ae60;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
         
         .winning-numbers {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 15px;
+            margin: 25px 0;
+            justify-content: center;
         }
         
         .number-ball {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .number-ball:hover {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .powerball-ball {
-            background-color: var(--powerball-color);
+            background: var(--powerball-color);
         }
         
         .megaball-ball {
-            background-color: var(--megamillions-color);
+            background: var(--megamillions-color);
         }
         
         .euro-star {
-            background-color: #f1c40f;
+            background: #f1c40f;
             color: #2c3e50;
         }
         
         .regular-ball {
-            background-color: #2c3e50;
+            background: #2c3e50;
         }
         
         .check-results {
-            background-color: #2ecc71;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
-            padding: 12px 25px;
+            padding: 14px 30px;
             border: none;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
             cursor: pointer;
-            margin-top: 15px;
-            transition: background-color 0.3s;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-weight: 600;
         }
         
         .check-results:hover {
-            background-color: #27ae60;
+            background: linear-gradient(135deg, #27ae60, #219653);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
         
+        /* Ad Container */
+        .ad-container {
+            margin: 30px 0;
+            text-align: center;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px dashed #dee2e6;
+        }
+        
+        /* Additional Content */
+        .content-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+        }
+        
+        .content-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .content-section h3 {
+            color: #34495e;
+            margin: 25px 0 15px;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .content-section ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .content-section li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 40px;
-            padding: 20px;
+            margin-top: 50px;
+            padding: 30px 20px;
             border-top: 1px solid #ddd;
             color: #7f8c8d;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
         }
         
-        .last-update {
-            text-align: right;
-            font-size: 0.8rem;
-            color: #95a5a6;
-            margin-top: 10px;
+        .privacy-policy {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 25px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
+        .privacy-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .privacy-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
+        /* Loading and Error States */
         .loading {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             color: #7f8c8d;
+            font-size: 1.1rem;
         }
         
         .error-message {
             background-color: #ffeaa7;
             color: #d63031;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 10px 0;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #d63031;
         }
         
         .lottery-status {
             display: inline-block;
-            padding: 5px 10px;
+            padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.8rem;
-            margin-left: 10px;
+            font-size: 0.85rem;
+            margin-left: 12px;
+            font-weight: 600;
         }
         
         .status-live {
@@ -227,193 +428,355 @@
             color: white;
         }
         
-        .tab-container {
-            display: flex;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .tab {
-            padding: 10px 20px;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .tab.active {
-            border-bottom-color: var(--powerball-color);
-            font-weight: bold;
-        }
-        
-        .tab-content {
-            display: none;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            body {
+            .container {
                 padding: 15px;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.1rem;
             }
             
             .current-date {
                 font-size: 1.4rem;
-            }
-            
-            .jackpot-amount {
-                font-size: 1.5rem;
-            }
-            
-            .number-ball {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+                padding: 14px;
             }
             
             .tab-container {
                 flex-direction: column;
+                gap: 5px;
             }
             
             .tab {
                 text-align: center;
-                border-bottom: none;
-                border-left: 3px solid transparent;
+                border-radius: 8px;
             }
             
-            .tab.active {
-                border-bottom-color: transparent;
-                border-left-color: var(--powerball-color);
+            .lottery-section {
+                padding: 20px;
+            }
+            
+            .lottery-name {
+                font-size: 1.6rem;
+            }
+            
+            .jackpot-amount {
+                font-size: 1.8rem;
+            }
+            
+            .number-ball {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .winning-numbers {
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .current-date {
+                font-size: 1.2rem;
+            }
+            
+            .number-ball {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
+            .jackpot-amount {
+                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Live Lottery Results</h1>
-        <p class="subtitle">Stay updated with the latest lottery results, jackpot amounts, and winning numbers for Powerball, Mega Millions, and EuroMillions</p>
-        <div class="current-date" id="current-date">Loading date...</div>
-    </header>
-    
-    <div class="tab-container">
-        <div class="tab active" data-tab="today">Today's Results</div>
-        <div class="tab" data-tab="powerball">Powerball</div>
-        <div class="tab" data-tab="megamillions">Mega Millions</div>
-        <div class="tab" data-tab="euromillions">EuroMillions</div>
-    </div>
-    
-    <div class="tab-content active" id="today-tab">
-        <h2>Today's Lottery Results – <span id="today-date"></span></h2>
-        
-        <div class="lottery-section powerball">
-            <h2 class="lottery-name">Powerball Results</h2>
-            <p class="update-time">Updated: <span id="powerball-update-time"></span></p>
-            <div class="prize-info">
-                <h3>Current Estimated Jackpot:</h3>
-                <div class="jackpot-amount" id="powerball-jackpot">Loading...</div>
-            </div>
-            <h3>Winning Numbers for <span id="powerball-last-draw-date"></span>:</h3>
-            <div class="winning-numbers" id="powerball-numbers">
-                <div class="loading">Loading winning numbers...</div>
-            </div>
-            <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing"></span></p>
-            <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+    <div class="container">
+        <!-- Verification Banner -->
+        <div class="verification-banner">
+            ✅ Google Verification Active | CNAME: r2yewgzagcwp → gv-3mxfk22pxkir5q.dv.googlehosted.com
         </div>
         
-        <div class="lottery-section megamillions">
-            <h2 class="lottery-name">Mega Millions Results</h2>
-            <p class="update-time">Updated: <span id="megamillions-update-time"></span></p>
-            <div class="prize-info">
-                <h3>Current Estimated Jackpot:</h3>
-                <div class="jackpot-amount" id="megamillions-jackpot">Loading...</div>
-            </div>
-            <h3>Winning Numbers for <span id="megamillions-last-draw-date"></span>:</h3>
-            <div class="winning-numbers" id="megamillions-numbers">
-                <div class="loading">Loading winning numbers...</div>
-            </div>
-            <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing"></span></p>
-            <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
+        <!-- Header -->
+        <header>
+            <h1>Live Lottery Results</h1>
+            <p class="subtitle">Stay updated with the latest lottery results, jackpot amounts, and winning numbers for Powerball, Mega Millions, and EuroMillions</p>
+            <div class="current-date" id="current-date">Loading date...</div>
+        </header>
+        
+        <!-- Ad Container -->
+        <div class="ad-container">
+            <!-- AdSense Auto Ads will place ads here -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-6029541871212501"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
         
-        <div class="lottery-section euromillions">
-            <h2 class="lottery-name">EuroMillions Results</h2>
-            <p class="update-time">Updated: <span id="euromillions-update-time"></span></p>
-            <div class="prize-info">
-                <h3>Current Estimated Jackpot:</h3>
-                <div class="jackpot-amount" id="euromillions-jackpot">Loading...</div>
-            </div>
-            <h3>Winning Numbers for <span id="euromillions-last-draw-date"></span>:</h3>
-            <div class="winning-numbers" id="euromillions-numbers">
-                <div class="loading">Loading winning numbers...</div>
-            </div>
-            <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing"></span></p>
-            <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
+        <!-- Tabs -->
+        <div class="tab-container">
+            <div class="tab active" data-tab="today">Today's Results</div>
+            <div class="tab" data-tab="powerball">Powerball</div>
+            <div class="tab" data-tab="megamillions">Mega Millions</div>
+            <div class="tab" data-tab="euromillions">EuroMillions</div>
         </div>
-    </div>
-    
-    <div class="tab-content" id="powerball-tab">
-        <h2>Powerball Details</h2>
-        <div class="lottery-section powerball">
-            <h2 class="lottery-name">Powerball Results</h2>
-            <p class="update-time">Updated: <span id="powerball-update-time-detail"></span></p>
-            <div class="prize-info">
-                <h3>Current Estimated Jackpot:</h3>
-                <div class="jackpot-amount" id="powerball-jackpot-detail">Loading...</div>
+        
+        <!-- Today's Results Tab -->
+        <div class="tab-content active" id="today-tab">
+            <h2>Today's Lottery Results – <span id="today-date"></span></h2>
+            
+            <div class="lottery-section powerball">
+                <h2 class="lottery-name"><span class="lottery-icon">🎯</span> Powerball Results</h2>
+                <p class="update-time">Updated: <span id="powerball-update-time"></span> <span class="lottery-status status-live">LIVE</span></p>
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="powerball-jackpot">Loading...</div>
+                </div>
+                <h3>Winning Numbers for <span id="powerball-last-draw-date"></span>:</h3>
+                <div class="winning-numbers" id="powerball-numbers">
+                    <div class="loading">Loading winning numbers...</div>
+                </div>
+                <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing"></span></p>
+                <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+                <button class="check-results">Check Official Results</button>
             </div>
-            <h3>Winning Numbers for <span id="powerball-last-draw-date-detail"></span>:</h3>
-            <div class="winning-numbers" id="powerball-numbers-detail">
-                <div class="loading">Loading winning numbers...</div>
+            
+            <div class="lottery-section megamillions">
+                <h2 class="lottery-name"><span class="lottery-icon">🌟</span> Mega Millions Results</h2>
+                <p class="update-time">Updated: <span id="megamillions-update-time"></span> <span class="lottery-status status-live">LIVE</span></p>
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="megamillions-jackpot">Loading...</div>
+                </div>
+                <h3>Winning Numbers for <span id="megamillions-last-draw-date"></span>:</h3>
+                <div class="winning-numbers" id="megamillions-numbers">
+                    <div class="loading">Loading winning numbers...</div>
+                </div>
+                <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing"></span></p>
+                <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
+                <button class="check-results">Check Official Results</button>
             </div>
-            <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing-detail"></span></p>
-            <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+            
+            <div class="lottery-section euromillions">
+                <h2 class="lottery-name"><span class="lottery-icon">💶</span> EuroMillions Results</h2>
+                <p class="update-time">Updated: <span id="euromillions-update-time"></span> <span class="lottery-status status-live">LIVE</span></p>
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="euromillions-jackpot">Loading...</div>
+                </div>
+                <h3>Winning Numbers for <span id="euromillions-last-draw-date"></span>:</h3>
+                <div class="winning-numbers" id="euromillions-numbers">
+                    <div class="loading">Loading winning numbers...</div>
+                </div>
+                <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing"></span></p>
+                <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
+                <button class="check-results">Check Official Results</button>
+            </div>
         </div>
-    </div>
-    
-    <div class="tab-content" id="megamillions-tab">
-        <h2>Mega Millions Details</h2>
-        <div class="lottery-section megamillions">
-            <h2 class="lottery-name">Mega Millions Results</h2>
-            <p class="update-time">Updated: <span id="megamillions-update-time-detail"></span></p>
-            <div class="prize-info">
-                <h3>Current Estimated Jackpot:</h3>
-                <div class="jackpot-amount" id="megamillions-jackpot-detail">Loading...</div>
+        
+        <!-- Powerball Tab -->
+        <div class="tab-content" id="powerball-tab">
+            <h2>Powerball Details</h2>
+            <div class="lottery-section powerball">
+                <h2 class="lottery-name"><span class="lottery-icon">🎯</span> Powerball Results</h2>
+                <p class="update-time">Updated: <span id="powerball-update-time-detail"></span> <span class="lottery-status status-live">LIVE</span></p>
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="powerball-jackpot-detail">Loading...</div>
+                </div>
+                <h3>Winning Numbers for <span id="powerball-last-draw-date-detail"></span>:</h3>
+                <div class="winning-numbers" id="powerball-numbers-detail">
+                    <div class="loading">Loading winning numbers...</div>
+                </div>
+                <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing-detail"></span></p>
+                <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+                <button class="check-results">Check Official Results</button>
             </div>
-            <h3>Winning Numbers for <span id="megamillions-last-draw-date-detail"></span>:</h3>
-            <div class="winning-numbers" id="megamillions-numbers-detail">
-                <div class="loading">Loading winning numbers...</div>
+            
+            <!-- Additional Powerball Information -->
+            <div class="content-section">
+                <h2>About Powerball</h2>
+                <p>Powerball is an American lottery game offered by 45 states, the District of Columbia, Puerto Rico and the U.S. Virgin Islands. It is coordinated by the Multi-State Lottery Association (MUSL).</p>
+                
+                <h3>How to Play Powerball</h3>
+                <p>To play Powerball, you need to select 5 numbers from 1 to 69 for the white balls, and 1 number from 1 to 26 for the red Powerball. You can choose your own numbers or use a Quick Pick.</p>
+                
+                <h3>Powerball Prizes</h3>
+                <ul>
+                    <li><strong>Jackpot:</strong> Match all 5 white balls and the Powerball</li>
+                    <li><strong>$1 Million:</strong> Match all 5 white balls</li>
+                    <li><strong>$50,000:</strong> Match 4 white balls and the Powerball</li>
+                    <li><strong>$100:</strong> Match 4 white balls or 3 white balls and the Powerball</li>
+                    <li><strong>$7:</strong> Match 3 white balls or 2 white balls and the Powerball</li>
+                    <li><strong>$4:</strong> Match 1 white ball and the Powerball or just the Powerball</li>
+                </ul>
+                
+                <h3>Power Play</h3>
+                <p>For an additional $1 per play, you can add Power Play to multiply non-jackpot prizes by 2x, 3x, 4x, 5x, or 10x. The 10x multiplier is only available when the jackpot is $150 million or less.</p>
             </div>
-            <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing-detail"></span></p>
-            <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
         </div>
-    </div>
-    
-    <div class="tab-content" id="euromillions-tab">
-        <h2>EuroMillions Details</h2>
-        <div class="lottery-section euromillions">
-            <h2 class="lottery-name">EuroMillions Results</h2>
-            <p class="update-time">Updated: <span id="euromillions-update-time-detail"></span></p>
-            <div class="prize-info">
-                <h3>Current Estimated Jackpot:</h3>
-                <div class="jackpot-amount" id="euromillions-jackpot-detail">Loading...</div>
+        
+        <!-- Mega Millions Tab -->
+        <div class="tab-content" id="megamillions-tab">
+            <h2>Mega Millions Details</h2>
+            <div class="lottery-section megamillions">
+                <h2 class="lottery-name"><span class="lottery-icon">🌟</span> Mega Millions Results</h2>
+                <p class="update-time">Updated: <span id="megamillions-update-time-detail"></span> <span class="lottery-status status-live">LIVE</span></p>
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="megamillions-jackpot-detail">Loading...</div>
+                </div>
+                <h3>Winning Numbers for <span id="megamillions-last-draw-date-detail"></span>:</h3>
+                <div class="winning-numbers" id="megamillions-numbers-detail">
+                    <div class="loading">Loading winning numbers...</div>
+                </div>
+                <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing-detail"></span></p>
+                <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
+                <button class="check-results">Check Official Results</button>
             </div>
-            <h3>Winning Numbers for <span id="euromillions-last-draw-date-detail"></span>:</h3>
-            <div class="winning-numbers" id="euromillions-numbers-detail">
-                <div class="loading">Loading winning numbers...</div>
+            
+            <!-- Additional Mega Millions Information -->
+            <div class="content-section">
+                <h2>About Mega Millions</h2>
+                <p>Mega Millions is one of the two largest lottery jackpot games in the United States, along with Powerball. It is offered in 45 states, the District of Columbia, and the U.S. Virgin Islands.</p>
+                
+                <h3>How to Play Mega Millions</h3>
+                <p>To play Mega Millions, select five numbers from 1 to 70 for the white balls, and one number from 1 to 25 for the gold Mega Ball. You can choose your own numbers or use a Quick Pick.</p>
+                
+                <h3>Mega Millions Prizes</h3>
+                <ul>
+                    <li><strong>Jackpot:</strong> Match all 5 white balls and the Mega Ball</li>
+                    <li><strong>$1 Million:</strong> Match all 5 white balls</li>
+                    <li><strong>$10,000:</strong> Match 4 white balls and the Mega Ball</li>
+                    <li><strong>$500:</strong> Match 4 white balls</li>
+                    <li><strong>$200:</strong> Match 3 white balls and the Mega Ball</li>
+                    <li><strong>$10:</strong> Match 3 white balls or 2 white balls and the Mega Ball</li>
+                    <li><strong>$4:</strong> Match 1 white ball and the Mega Ball or just the Mega Ball</li>
+                </ul>
+                
+                <h3>Megaplier</h3>
+                <p>For an additional $1 per play, you can add the Megaplier to multiply non-jackpot prizes by 2x, 3x, 4x, or 5x. The Megaplier number is drawn before each Mega Millions drawing from a pool of 15 balls.</p>
             </div>
-            <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing-detail"></span></p>
-            <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
         </div>
+        
+        <!-- EuroMillions Tab -->
+        <div class="tab-content" id="euromillions-tab">
+            <h2>EuroMillions Details</h2>
+            <div class="lottery-section euromillions">
+                <h2 class="lottery-name"><span class="lottery-icon">💶</span> EuroMillions Results</h2>
+                <p class="update-time">Updated: <span id="euromillions-update-time-detail"></span> <span class="lottery-status status-live">LIVE</span></p>
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="euromillions-jackpot-detail">Loading...</div>
+                </div>
+                <h3>Winning Numbers for <span id="euromillions-last-draw-date-detail"></span>:</h3>
+                <div class="winning-numbers" id="euromillions-numbers-detail">
+                    <div class="loading">Loading winning numbers...</div>
+                </div>
+                <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing-detail"></span></p>
+                <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
+                <button class="check-results">Check Official Results</button>
+            </div>
+            
+            <!-- Additional EuroMillions Information -->
+            <div class="content-section">
+                <h2>About EuroMillions</h2>
+                <p>EuroMillions is a transnational lottery that was launched in 2004 by France's Française des Jeux, Spain's Loterías y Apuestas del Estado, and the United Kingdom's Camelot. The game is available in nine European countries.</p>
+                
+                <h3>How to Play EuroMillions</h3>
+                <p>To play EuroMillions, select five main numbers from 1 to 50 and two Lucky Star numbers from 1 to 12. You can choose your own numbers or use a Lucky Dip.</p>
+                
+                <h3>EuroMillions Prizes</h3>
+                <ul>
+                    <li><strong>Jackpot:</strong> Match 5 main numbers and 2 Lucky Stars</li>
+                    <li><strong>€</strong> Match 5 main numbers and 1 Lucky Star</li>
+                    <li><strong>€</strong> Match 5 main numbers</li>
+                    <li><strong>€</strong> Match 4 main numbers and 2 Lucky Stars</li>
+                    <li><strong>€</strong> Match 4 main numbers and 1 Lucky Star</li>
+                    <li><strong>€</strong> Match 3 main numbers and 2 Lucky Stars</li>
+                    <li><strong>€</strong> Match 4 main numbers</li>
+                    <li><strong>€</strong> Match 2 main numbers and 2 Lucky Stars</li>
+                    <li><strong>€</strong> Match 3 main numbers and 1 Lucky Star</li>
+                    <li><strong>€</strong> Match 3 main numbers</li>
+                    <li><strong>€</strong> Match 1 main number and 2 Lucky Stars</li>
+                    <li><strong>€</strong> Match 2 main numbers and 1 Lucky Star</li>
+                    <li><strong>€</strong> Match 2 main numbers</li>
+                </ul>
+                
+                <h3>EuroMillions Countries</h3>
+                <p>EuroMillions is available in Austria, Belgium, France, Ireland, Luxembourg, Portugal, Spain, Switzerland, and the United Kingdom.</p>
+            </div>
+        </div>
+        
+        <!-- Additional Content Section -->
+        <div class="content-section">
+            <h2>About Our Lottery Results Service</h2>
+            <p>We provide up-to-date lottery results for the world's most popular lottery games. Our service is updated in real-time to ensure you have access to the latest winning numbers and jackpot information.</p>
+            
+            <h3>Why Use Our Lottery Results Service?</h3>
+            <ul>
+                <li><strong>Real-time Updates:</strong> Get the latest results as soon as they're available</li>
+                <li><strong>Multiple Lotteries:</strong> Track results for Powerball, Mega Millions, and EuroMillions in one place</li>
+                <li><strong>User-Friendly Interface:</strong> Easy-to-read displays with clear number visualization</li>
+                <li><strong>Mobile Optimized:</strong> Access our results on any device</li>
+                <li><strong>Free Service:</strong> No subscription or payment required</li>
+            </ul>
+            
+            <h3>Lottery Drawing Schedule</h3>
+            <p>Stay informed about when each lottery draws its winning numbers:</p>
+            <ul>
+                <li><strong>Powerball:</strong> Wednesdays and Saturdays at 10:59 PM ET</li>
+                <li><strong>Mega Millions:</strong> Tuesdays and Fridays at 11:00 PM ET</li>
+                <li><strong>EuroMillions:</strong> Tuesdays and Fridays at 8:45 PM CET</li>
+            </ul>
+            
+            <p>Remember to play responsibly and within your means. Lottery games are for entertainment purposes, and the odds of winning are typically very low.</p>
+        </div>
+        
+        <!-- Ad Container -->
+        <div class="ad-container">
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="ca-pub-6029541871212501"
+                 data-ad-slot="0987654321"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>© <script>document.write(new Date().getFullYear());</script> Lottery Results Hub. All rights reserved.</p>
+            <p>This is not an official lottery site. For official information, please visit your local lottery website.</p>
+            
+            <div class="privacy-policy">
+                <a href="/privacy-policy.html" class="privacy-link">Privacy Policy</a> | 
+                <a href="/terms-of-service.html" class="privacy-link">Terms of Service</a> | 
+                <a href="/contact.html" class="privacy-link">Contact Us</a>
+                <p>We are not affiliated with any official lottery organization. All lottery results are for informational purposes only. Please verify winning numbers with official sources before claiming any prizes.</p>
+                <p>Google Verification: CNAME record "r2yewgzagcwp" points to "gv-3mxfk22pxkir5q.dv.googlehosted.com"</p>
+            </div>
+        </footer>
     </div>
-    
-    <footer>
-        <p>© <script>document.write(new Date().getFullYear());</script> Lottery Results Hub. All rights reserved.</p>
-        <p>This is not an official lottery site. For official information, please visit your local lottery website.</p>
-    </footer>
-    
+
     <script>
         // Tab functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -440,6 +803,11 @@
             // Update every minute
             setInterval(updateAllTimes, 60000);
             setInterval(fetchLotteryData, 300000); // Update data every 5 minutes
+            
+            // Initialize ads
+            if (typeof adsbygoogle !== 'undefined') {
+                adsbygoogle.push({});
+            }
         });
         
         // Update all time elements on the page
@@ -554,7 +922,7 @@
                     }
                     
                     resolve(data);
-                }, 500); // Simulate network delay
+                }, 800); // Simulate network delay
             });
         }
         
@@ -653,6 +1021,11 @@
             date.setHours(hour, 0, 0, 0);
             return date;
         }
+        
+        // Verification status
+        console.log('Google Verification: r2yewgzagcwp');
+        console.log('CNAME Target: gv-3mxfk22pxkir5q.dv.googlehosted.com');
+        console.log('AdSense Account: ca-pub-6029541871212501');
     </script>
 </body>
 </html>
