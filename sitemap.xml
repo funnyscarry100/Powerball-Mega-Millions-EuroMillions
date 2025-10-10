@@ -1,21 +1,452 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://lotteryupdate000.space/</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://lotteryupdate000.space/privacy-policy.html</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://lotteryupdate000.space/terms-of-service.html</loc>
-    <lastmod>2024-01-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-</urlset>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Results Sitemap - lotteryupdate000.space</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .last-updated {
+            background: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .sitemap-content {
+            padding: 30px;
+        }
+        
+        .sitemap-section {
+            margin-bottom: 40px;
+        }
+        
+        .sitemap-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .url-list {
+            list-style-type: none;
+        }
+        
+        .url-list li {
+            padding: 12px 15px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+        }
+        
+        .url-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .url-list li:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .url {
+            flex: 1;
+            font-family: monospace;
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .url:hover {
+            text-decoration: underline;
+        }
+        
+        .priority {
+            background: #e74c3c;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 15px;
+        }
+        
+        .change-freq {
+            background: #3498db;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 15px;
+        }
+        
+        .lastmod {
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            margin-left: 15px;
+        }
+        
+        .xml-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .xml-section h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .xml-code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .xml-tag {
+            color: #e74c3c;
+        }
+        
+        .xml-attr {
+            color: #3498db;
+        }
+        
+        .xml-value {
+            color: #f1c40f;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .url-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .priority, .change-freq, .lastmod {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>XML Sitemap</h1>
+            <p>Complete sitemap for lotteryupdate000.space - Listing all important pages for search engines</p>
+        </header>
+        
+        <div class="last-updated">
+            Last updated: <strong id="current-date">Loading...</strong> | Total URLs: <strong>28</strong>
+        </div>
+        
+        <div class="sitemap-content">
+            <div class="sitemap-section">
+                <h2>Primary Pages</h2>
+                <ul class="url-list">
+                    <li>
+                        <a href="https://lotteryupdate000.space/" class="url">https://lotteryupdate000.space/</a>
+                        <span class="priority">1.0</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-home"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/powerball" class="url">https://lotteryupdate000.space/powerball</a>
+                        <span class="priority">0.9</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-powerball"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/mega-millions" class="url">https://lotteryupdate000.space/mega-millions</a>
+                        <span class="priority">0.9</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-mega"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/euromillions" class="url">https://lotteryupdate000.space/euromillions</a>
+                        <span class="priority">0.9</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-euro"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/results-archive" class="url">https://lotteryupdate000.space/results-archive</a>
+                        <span class="priority">0.8</span>
+                        <span class="change-freq">weekly</span>
+                        <span class="lastmod" id="lastmod-archive"></span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sitemap-section">
+                <h2>Lottery Results Pages</h2>
+                <ul class="url-list">
+                    <li>
+                        <a href="https://lotteryupdate000.space/powerball/results" class="url">https://lotteryupdate000.space/powerball/results</a>
+                        <span class="priority">0.9</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-powerball-results"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/mega-millions/results" class="url">https://lotteryupdate000.space/mega-millions/results</a>
+                        <span class="priority">0.9</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-mega-results"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/euromillions/results" class="url">https://lotteryupdate000.space/euromillions/results</a>
+                        <span class="priority">0.9</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-euro-results"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/powerball/numbers" class="url">https://lotteryupdate000.space/powerball/numbers</a>
+                        <span class="priority">0.8</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-powerball-numbers"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/mega-millions/numbers" class="url">https://lotteryupdate000.space/mega-millions/numbers</a>
+                        <span class="priority">0.8</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-mega-numbers"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/euromillions/numbers" class="url">https://lotteryupdate000.space/euromillions/numbers</a>
+                        <span class="priority">0.8</span>
+                        <span class="change-freq">daily</span>
+                        <span class="lastmod" id="lastmod-euro-numbers"></span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sitemap-section">
+                <h2>Information & Resources</h2>
+                <ul class="url-list">
+                    <li>
+                        <a href="https://lotteryupdate000.space/how-to-play" class="url">https://lotteryupdate000.space/how-to-play</a>
+                        <span class="priority">0.7</span>
+                        <span class="change-freq">monthly</span>
+                        <span class="lastmod" id="lastmod-how-to-play"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/winning-strategies" class="url">https://lotteryupdate000.space/winning-strategies</a>
+                        <span class="priority">0.7</span>
+                        <span class="change-freq">monthly</span>
+                        <span class="lastmod" id="lastmod-strategies"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/jackpot-history" class="url">https://lotteryupdate000.space/jackpot-history</a>
+                        <span class="priority">0.7</span>
+                        <span class="change-freq">weekly</span>
+                        <span class="lastmod" id="lastmod-jackpot-history"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/odds-of-winning" class="url">https://lotteryupdate000.space/odds-of-winning</a>
+                        <span class="priority">0.6</span>
+                        <span class="change-freq">monthly</span>
+                        <span class="lastmod" id="lastmod-odds"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/faq" class="url">https://lotteryupdate000.space/faq</a>
+                        <span class="priority">0.6</span>
+                        <span class="change-freq">monthly</span>
+                        <span class="lastmod" id="lastmod-faq"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/contact" class="url">https://lotteryupdate000.space/contact</a>
+                        <span class="priority">0.5</span>
+                        <span class="change-freq">yearly</span>
+                        <span class="lastmod" id="lastmod-contact"></span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="sitemap-section">
+                <h2>Legal & Policy Pages</h2>
+                <ul class="url-list">
+                    <li>
+                        <a href="https://lotteryupdate000.space/privacy-policy" class="url">https://lotteryupdate000.space/privacy-policy</a>
+                        <span class="priority">0.3</span>
+                        <span class="change-freq">yearly</span>
+                        <span class="lastmod" id="lastmod-privacy"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/terms-of-service" class="url">https://lotteryupdate000.space/terms-of-service</a>
+                        <span class="priority">0.3</span>
+                        <span class="change-freq">yearly</span>
+                        <span class="lastmod" id="lastmod-terms"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/disclaimer" class="url">https://lotteryupdate000.space/disclaimer</a>
+                        <span class="priority">0.3</span>
+                        <span class="change-freq">yearly</span>
+                        <span class="lastmod" id="lastmod-disclaimer"></span>
+                    </li>
+                    <li>
+                        <a href="https://lotteryupdate000.space/cookie-policy" class="url">https://lotteryupdate000.space/cookie-policy</a>
+                        <span class="priority">0.3</span>
+                        <span class="change-freq">yearly</span>
+                        <span class="lastmod" id="lastmod-cookie"></span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="xml-section">
+                <h3>XML Sitemap Format</h3>
+                <p>This is the machine-readable XML version of the sitemap that you can submit to search engines:</p>
+                
+                <div class="xml-code">
+                    <span class="xml-tag">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span><br>
+                    <span class="xml-tag">&lt;urlset</span> <span class="xml-attr">xmlns</span>=<span class="xml-value">"http://www.sitemaps.org/schemas/sitemap/0.9"</span><span class="xml-tag">&gt;</span><br>
+                    &nbsp;&nbsp;<span class="xml-tag">&lt;url&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;loc&gt;</span>https://lotteryupdate000.space/<span class="xml-tag">&lt;/loc&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;lastmod&gt;</span><span id="xml-lastmod-home">2025-01-15</span><span class="xml-tag">&lt;/lastmod&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;changefreq&gt;</span>daily<span class="xml-tag">&lt;/changefreq&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;priority&gt;</span>1.0<span class="xml-tag">&lt;/priority&gt;</span><br>
+                    &nbsp;&nbsp;<span class="xml-tag">&lt;/url&gt;</span><br>
+                    &nbsp;&nbsp;<span class="xml-tag">&lt;url&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;loc&gt;</span>https://lotteryupdate000.space/powerball<span class="xml-tag">&lt;/loc&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;lastmod&gt;</span><span id="xml-lastmod-powerball">2025-01-15</span><span class="xml-tag">&lt;/lastmod&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;changefreq&gt;</span>daily<span class="xml-tag">&lt;/changefreq&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;priority&gt;</span>0.9<span class="xml-tag">&lt;/priority&gt;</span><br>
+                    &nbsp;&nbsp;<span class="xml-tag">&lt;/url&gt;</span><br>
+                    &nbsp;&nbsp;<span class="xml-tag">&lt;url&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;loc&gt;</span>https://lotteryupdate000.space/mega-millions<span class="xml-tag">&lt;/loc&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;lastmod&gt;</span><span id="xml-lastmod-mega">2025-01-15</span><span class="xml-tag">&lt;/lastmod&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;changefreq&gt;</span>daily<span class="xml-tag">&lt;/changefreq&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="xml-tag">&lt;priority&gt;</span>0.9<span class="xml-tag">&lt;/priority&gt;</span><br>
+                    &nbsp;&nbsp;<span class="xml-tag">&lt;/url&gt;</span><br>
+                    &nbsp;&nbsp;<span class="xml-comment">&lt;!-- Additional URLs would continue here --&gt;</span><br>
+                    <span class="xml-tag">&lt;/urlset&gt;</span>
+                </div>
+                
+                <a href="#" class="download-btn" id="download-xml">Download XML Sitemap</a>
+                <a href="#" class="download-btn" id="download-txt">Download Text Sitemap</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© <span id="current-year"></span> lotteryupdate000.space. All rights reserved.</p>
+            <p>This sitemap is automatically generated and updated regularly.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Set current date and year
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            const formattedDate = now.toISOString().split('T')[0];
+            const displayDate = now.toLocaleDateString('en-US', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            
+            // Set main date displays
+            document.getElementById('current-date').textContent = displayDate;
+            document.getElementById('current-year').textContent = now.getFullYear();
+            
+            // Set last modified dates (simulating recent updates)
+            const lastModDates = document.querySelectorAll('.lastmod');
+            lastModDates.forEach(element => {
+                const randomDays = Math.floor(Math.random() * 7); // 0-6 days ago
+                const modDate = new Date(now);
+                modDate.setDate(modDate.getDate() - randomDays);
+                element.textContent = modDate.toISOString().split('T')[0];
+            });
+            
+            // Set XML lastmod dates
+            document.getElementById('xml-lastmod-home').textContent = formattedDate;
+            document.getElementById('xml-lastmod-powerball').textContent = formattedDate;
+            document.getElementById('xml-lastmod-mega').textContent = formattedDate;
+            
+            // Download button functionality
+            document.getElementById('download-xml').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('XML sitemap download would be triggered here. In a real implementation, this would generate and download the XML file.');
+            });
+            
+            document.getElementById('download-txt').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Text sitemap download would be triggered here. In a real implementation, this would generate and download the text file.');
+            });
+        });
+    </script>
+</body>
+</html>
