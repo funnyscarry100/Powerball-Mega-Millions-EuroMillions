@@ -105,6 +105,42 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
+        /* Navigation */
+        .main-nav {
+            background: white;
+            border-radius: 10px;
+            padding: 0;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        
+        .nav-list {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+        
+        .nav-item {
+            flex: 1;
+        }
+        
+        .nav-link {
+            display: block;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #555;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+            background: #f8f9fa;
+        }
+        
         /* Tabs */
         .tab-container {
             display: flex;
@@ -392,6 +428,26 @@
             box-shadow: 0 -4px 10px rgba(0,0,0,0.05);
         }
         
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-link {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        
         .privacy-policy {
             font-size: 0.85rem;
             color: #666;
@@ -402,18 +458,6 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-        }
-        
-        .privacy-link {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .privacy-link:hover {
-            color: #2980b9;
-            text-decoration: underline;
         }
         
         /* Loading and Error States */
@@ -452,6 +496,10 @@
                 padding: 14px;
             }
             
+            .nav-list {
+                flex-direction: column;
+            }
+            
             .tab-container {
                 flex-direction: column;
                 gap: 5px;
@@ -483,6 +531,11 @@
             .winning-numbers {
                 gap: 10px;
             }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
     </style>
 </head>
@@ -499,6 +552,16 @@
             <p class="subtitle">Real-time lottery results from official sources. Updated automatically with the latest winning numbers and jackpots.</p>
             <div class="current-date" id="current-date">Loading date...</div>
         </header>
+        
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#today" class="nav-link active">Today's Results</a></li>
+                <li class="nav-item"><a href="#powerball" class="nav-link">Powerball</a></li>
+                <li class="nav-item"><a href="#megamillions" class="nav-link">Mega Millions</a></li>
+                <li class="nav-item"><a href="#euromillions" class="nav-link">EuroMillions</a></li>
+            </ul>
+        </nav>
         
         <!-- CPA Banner -->
         <div class="cpa-banner">
@@ -593,12 +656,16 @@
         
         <!-- Footer -->
         <footer>
-            <p>© <script>document.write(new Date().getFullYear());</script> lotteryupdate000.space. All rights reserved.</p>
-            <p>This is not an official lottery site. For official information, please visit your local lottery website.</p>
+            <p>© <span id="footer-year"></span> lotteryupdate000.space. All rights reserved.</p>
+            
+            <div class="footer-links">
+                <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
+                <a href="sitemap.html" class="footer-link">Sitemap</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
             
             <div class="privacy-policy">
-                <a href="privacy-policy.html" class="privacy-link">Privacy Policy</a> | 
-                <a href="terms-of-service.html" class="privacy-link">Terms of Service</a>
                 <p>We are not affiliated with any official lottery organization. All lottery results are for informational purposes only. Please verify winning numbers with official sources before claiming any prizes.</p>
                 <p>Google Verification: CNAME record "r2yewgzagcwp" points to "gv-3mxfk22pxkir5q.dv.googlehosted.com"</p>
             </div>
@@ -616,6 +683,28 @@
                     this.classList.add('active');
                     const tabId = this.getAttribute('data-tab');
                     document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+            
+            // Navigation functionality
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const target = this.getAttribute('href').substring(1);
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                    
+                    if (target === 'today') {
+                        document.querySelector('[data-tab="today"]').classList.add('active');
+                        document.getElementById('today-tab').classList.add('active');
+                    } else {
+                        document.querySelector(`[data-tab="${target}"]`).classList.add('active');
+                        document.getElementById(`${target}-tab`).classList.add('active');
+                    }
                 });
             });
             
@@ -646,6 +735,7 @@
             document.getElementById('today-date').textContent = now.toLocaleDateString(undefined, { 
                 month: 'long', day: 'numeric', year: 'numeric' 
             });
+            document.getElementById('footer-year').textContent = now.getFullYear();
             
             const timeOptions = { hour: '2-digit', minute: '2-digit' };
             const timeString = now.toLocaleTimeString(undefined, timeOptions);
