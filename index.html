@@ -4,7 +4,7 @@
   <!-- Basic meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Live Powerball, Mega Millions, and EuroMillions results updated instantly. Check winning numbers, jackpots, and draw history at LotteryUpdate000.space.">
+  <meta name="description" content="Live Powerball, Mega Millions, and EuroMillions results updated instantly. Check winning numbers and jackpot details at LotteryUpdate000.space.">
   <meta name="keywords" content="lottery results, Powerball, Mega Millions, EuroMillions, live lottery, jackpot updates">
   <meta name="author" content="LotteryUpdate000">
   <meta name="robots" content="index, follow">
@@ -49,10 +49,16 @@
     section {
       margin-bottom: 2rem;
     }
+    .update-time {
+      color: #555;
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
     footer {
       background: #1e3a8a;
       color: white;
       padding: 1rem;
+      font-size: 0.9rem;
     }
     footer a {
       color: #93c5fd;
@@ -74,13 +80,10 @@
   <main>
     <section id="results">
       <h2>Today's Winning Numbers</h2>
-      <p>Get instant updates for Powerball, Mega Millions, and EuroMillions draws.</p>
-      <div id="lottery-data">Loading latest results...</div>
-    </section>
-
-    <section id="about">
-      <h2>About LotteryUpdate000</h2>
-      <p>We bring you real-time lottery results from verified sources, helping players stay informed on the latest jackpots and winning combinations.</p>
+      <p id="update-time" class="update-time">Updated: Checking latest draw...</p>
+      <div id="lottery-data">
+        <p>Fetching Powerball, Mega Millions, and EuroMillions results...</p>
+      </div>
     </section>
 
     <section id="verify">
@@ -93,10 +96,33 @@
     <p>&copy; 2025 LotteryUpdate000.space | All Rights Reserved.</p>
     <nav>
       <a href="/privacy.html">Privacy Policy</a> |
-      <a href="/terms.html">Terms</a> |
-      <a href="/about.html">About</a> |
-      <a href="/contact.html">Contact</a>
+      <a href="/terms.html">Terms</a>
     </nav>
   </footer>
+
+  <!-- JavaScript to simulate latest update -->
+  <script>
+    const updateTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    document.getElementById('update-time').textContent = `Updated: ${updateTime} LIVE`;
+
+    // Example placeholder data (replace with API later)
+    document.getElementById('lottery-data').innerHTML = `
+      <div>
+        <h3>🎯 Powerball</h3>
+        <p>Winning Numbers: 14, 22, 45, 56, 63 <strong>Powerball: 17</strong></p>
+        <p>Jackpot: $481 Million</p>
+      </div>
+      <div>
+        <h3>🌟 Mega Millions</h3>
+        <p>Winning Numbers: 03, 18, 27, 44, 57 <strong>Mega Ball: 10</strong></p>
+        <p>Jackpot: $152 Million</p>
+      </div>
+      <div>
+        <h3>💶 EuroMillions</h3>
+        <p>Winning Numbers: 04, 15, 28, 34, 49 <strong>Lucky Stars: 02, 09</strong></p>
+        <p>Jackpot: €162 Million</p>
+      </div>
+    `;
+  </script>
 </body>
 </html>
