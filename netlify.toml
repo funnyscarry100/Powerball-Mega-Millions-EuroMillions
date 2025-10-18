@@ -1,8 +1,13 @@
 [build]
   publish = "."
   functions = "."
+  command = "npm run build"
 
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/proxy"
-  status = 200
+[context.production.environment]
+  NODE_ENV = "production"
+
+[context.dev.environment]
+  NODE_ENV = "development"
+
+[context.staging.environment]
+  NODE_ENV = "staging"
