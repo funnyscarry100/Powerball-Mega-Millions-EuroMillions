@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms of Service — lotteryupdate000.space</title>
+  <meta name="description" content="Terms of Service for lotteryupdate000.space — rules and disclaimers for use of the live lottery results service." />
+  <meta name="google-site-verification" content="r2yewgzagcwp" />
+  <link rel="canonical" href="https://lotteryupdate000.space/terms.html" />
+  <style>
+    :root{--blue-1:#0047ab;--blue-2:#007bff}
+    html,body{height:100%;margin:0;font-family:Inter,system-ui, -apple-system,"Segoe UI",Roboto;}
+    #bg-canvas{position:fixed;inset:0;z-index:-1}
+    header{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));color:#fff;padding:16px 12px;text-align:center;}
+    nav{background:#003c99;padding:8px 0}
+    .nav-list{display:flex;gap:28px;justify-content:center;list-style:none;margin:0;padding:0}
+    .nav-list a{color:#fff;text-decoration:none;font-weight:600}
+    .nav-list a.active{text-decoration:underline}
+    .wrap{max-width:900px;margin:28px auto;padding:18px;background:rgba(255,255,255,0.96);border-radius:12px;box-shadow:0 8px 24px rgba(6,30,60,0.06)}
+    h1{color:var(--blue-1)}
+    h2{color:var(--blue-1)}
+    p{color:#334}
+    footer{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));color:#fff;text-align:center;padding:14px}
+    .contact-box{background:#f8fbfa;padding:14px;border-radius:8px;margin-top:16px;border:1px solid #e9f4f1}
+  </style>
+</head>
+<body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header><div style="font-weight:700;font-size:1.25rem">lotteryupdate000.space</div></header>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="terms.html" class="active">Terms</a></li>
+      <li><a href="privacy.html">Privacy</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap" role="main">
+    <h1>Terms of Service</h1>
+    <p>By using <strong>lotteryupdate000.space</strong> you agree to the terms set out here. The service provides lottery results for informational and entertainment purposes only.</p>
+
+    <h2>Accuracy & Liability</h2>
+    <p>We strive for accuracy but do not guarantee correctness or timeliness. Verify results with the official lottery provider before claiming prizes. We are not responsible for losses resulting from reliance on content.</p>
+
+    <h2>Use Restrictions</h2>
+    <p>Do not scrape or republish content without permission. Respect intellectual property rights and use the site lawfully.</p>
+
+    <div class="contact-box" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>For questions about these Terms, email: <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a></p>
+      <p style="font-size:0.9rem;color:#556">Verification: CNAME r2yewgzagcwp → gv-3mxfk22pxkir5q.dv.googlehosted.com</p>
+    </div>
+  </main>
+
+  <footer>
+    <div>© <span id="year-terms"></span> lotteryupdate000.space</div>
+  </footer>
+
+  <script>
+    // set year
+    document.getElementById('year-terms').textContent = new Date().getFullYear();
+    // re-use same canvas animation as index (reduced complexity)
+    (function(){
+      const canvas = document.getElementById('bg-canvas'), ctx = canvas.getContext('2d');
+      function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; }
+      resize(); window.addEventListener('resize', resize);
+      function draw(){
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        const g = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
+        g.addColorStop(0,'#06251a'); g.addColorStop(1,'#0b2a20');
+        ctx.fillStyle=g; ctx.fillRect(0,0,canvas.width,canvas.height);
+      }
+      draw();
+      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        let t=0; (function anim(){ t+=0.01; draw(); requestAnimationFrame(anim); })();
+      }
+    })();
+  </script>
+</body>
+</html>
