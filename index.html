@@ -6,13 +6,12 @@
   <title>lotteryupdate000.space — Live Lottery Results & Past Draws</title>
   <meta name="description" content="lotteryupdate000.space — live and historical lottery results (Powerball, Mega Millions, EuroMillions). Fast updates, verified sources." />
   <meta name="keywords" content="lottery results, Powerball, Mega Millions, EuroMillions, latest results, past draws, jackpots" />
-  <!-- Google verification (visible and meta) -->
+  <!-- Google verification -->
   <meta name="google-site-verification" content="r2yewgzagcwp" />
-  <!-- (CNAME target shown in footer too) -->
+  <meta name="google-site-verification" content="gv-3mxfk22pxkir5q.dv.googlehosted.com" />
   <link rel="canonical" href="https://lotteryupdate000.space/" />
   <meta name="robots" content="index,follow" />
 
-  <!-- JSON-LD (Organization + Website) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -127,7 +126,7 @@
     <div class="hero">
       <div class="hero-left">
         <h1>Live & Historical Lottery Results — lotteryupdate000.space</h1>
-        <p>Verified numbers, jackpots, and past draws for major lotteries. Results shown are sample placeholders — replace with official sources or your Netlify proxy when ready.</p>
+        <p>Verified numbers, jackpots, and past draws for major lotteries. Results shown are sample placeholders — replace with official sources or your serverless proxy when ready.</p>
         <p class="small">Structured, fast, and optimized for search engines.</p>
       </div>
       <div class="hero-right">
@@ -191,16 +190,7 @@
 
       <aside class="card" aria-labelledby="about-heading">
         <h3 id="about-heading" style="color:var(--blue-1)">About lotteryupdate000.space</h3>
-        <p class="small">We provide fast, clearly presented lottery results and archives. Integrate official APIs via your serverless proxy for live updates.</p>
-
-        <div style="margin-top:16px">
-          <h4 style="margin:0 0 8px 0;color:var(--blue-1)">Quick facts</h4>
-          <ul style="color:var(--muted);margin-left:16px">
-            <li>Optimized for accessibility & SEO</li>
-            <li>Animated green 3D background (canvas)</li>
-            <li>No contact page — email is on Terms/Privacy</li>
-          </ul>
-        </div>
+        <p class="small">We provide clear presentation of lottery results and archives. Integrate official APIs via your serverless proxy when ready.</p>
 
         <div style="margin-top:18px;font-size:0.9rem;color:var(--muted)">
           <strong>Verification:</strong>
@@ -221,23 +211,19 @@
     const pad = n => (n<10? '0'+n : n);
     function formatTime(d){ return d.toLocaleDateString() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()); }
 
-    // sample generator
     function randomInts(count, max){ const a=[]; while(a.length<count){ const n= Math.floor(Math.random()*max)+1; if(!a.includes(n)) a.push(n);} return a.sort((x,y)=>x-y); }
 
     function setLatest(){
       const now=new Date();
       document.getElementById('latest-time').textContent = formatTime(now) + ' (LOCAL)';
-      // Powerball (5 numbers 1-69 + pb 1-26)
       const pb = randomInts(5,69); const pbBall = Math.floor(Math.random()*26)+1;
       renderNumbers('powerball-numbers', pb, 'power', pbBall);
       document.getElementById('powerball-meta').textContent = 'Jackpot estimate: $' + (Math.floor(Math.random()*400)+200) + 'M';
 
-      // Mega Millions (5 numbers 1-70 + mega 1-25)
       const mm = randomInts(5,70); const mmBall = Math.floor(Math.random()*25)+1;
       renderNumbers('megamillions-numbers', mm, 'mega', mmBall);
       document.getElementById('megamillions-meta').textContent = 'Jackpot estimate: $' + (Math.floor(Math.random()*350)+150) + 'M';
 
-      // EuroMillions (5 numbers 1-50 + 2 stars 1-12)
       const em = randomInts(5,50); const stars = randomInts(2,12);
       renderNumbers('euromillions-numbers', em, 'euro', stars);
       document.getElementById('euromillions-meta').textContent = 'Jackpot estimate: €' + (Math.floor(Math.random()*180)+50) + 'M';
@@ -252,7 +238,6 @@
         b.textContent = n;
         container.appendChild(b);
       });
-      // extra ball(s)
       if(Array.isArray(extra)){
         extra.forEach(s=>{
           const b = document.createElement('div');
@@ -268,7 +253,6 @@
       }
     }
 
-    // Past draws table
     const pastBody = document.getElementById('past-body');
     function addPastRow(date, lottery, nums, jackpot){
       const tr=document.createElement('tr');
@@ -291,7 +275,6 @@
     }
 
     document.getElementById('load-more').addEventListener('click', function(){
-      // append 3 more days
       const last = pastBody.querySelectorAll('tr').length;
       for(let i=0;i<3;i++){
         const d=new Date(Date.now() - (last/3 + i +1)*86400000);
@@ -299,19 +282,15 @@
       }
     });
 
-    // initial render
     setLatest();
     seedPast(6);
-
-    // update times every minute
     setInterval(setLatest, 60000);
-    // set year
     document.getElementById('year').textContent = new Date().getFullYear();
   })();
   </script>
 
   <script>
-  /* ---------- Animated canvas background: green 3D-style floating spheres ---------- */
+  /* Animated canvas background: green 3D-style floating spheres */
   (function(){
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d', { alpha:true });
@@ -320,14 +299,11 @@
     const DPR = Math.max(1, window.devicePixelRatio || 1);
     canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
 
-    // Respect reduced-motion
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     const balls = [];
     const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
 
     function rand(min,max){ return Math.random()*(max-min)+min; }
-
     function Ball(){
       this.r = rand(20,70);
       this.x = rand(this.r, w - this.r);
@@ -335,72 +311,46 @@
       this.vx = rand(-0.25,0.25);
       this.vy = rand(-0.15,0.15);
       this.color = colors[Math.floor(rand(0,colors.length))];
-      this.shadow = rgba(this.color,0.18);
     }
     function rgba(hex, a){
       const bigint = parseInt(hex.replace('#',''),16);
       const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
       return 'rgba('+r+','+g+','+b+','+a+')';
     }
-    // create balls
     const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
     for(let i=0;i<count;i++) balls.push(new Ball());
 
     function draw(){
-      // subtle gradient background
       ctx.clearRect(0,0,w,h);
       const g = ctx.createLinearGradient(0,0,w,h);
-      g.addColorStop(0,'#071b10');
-      g.addColorStop(1,'#0b2a20');
-      ctx.fillStyle = g;
-      ctx.globalAlpha = 0.85;
-      ctx.fillRect(0,0,w,h);
-      ctx.globalAlpha = 1;
+      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
 
-      // soft vignette
       const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
-      vg.addColorStop(0,'rgba(6,30,20,0)');
-      vg.addColorStop(1,'rgba(6,30,20,0.45)');
-      ctx.fillStyle = vg;
-      ctx.fillRect(0,0,w,h);
+      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
+      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
 
-      // draw floating balls with highlights for 3D look
       balls.forEach(b=>{
-        // move
-        if(!reduce){
-          b.x += b.vx;
-          b.y += b.vy;
-        }
-        // wrap
+        if(!reduce){ b.x += b.vx; b.y += b.vy; }
         if(b.x - b.r > w) b.x = -b.r;
         if(b.x + b.r < 0) b.x = w + b.r;
         if(b.y - b.r > h) b.y = -b.r;
         if(b.y + b.r < 0) b.y = h + b.r;
 
-        // draw shadow
         ctx.beginPath();
         const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
-        shadowGrad.addColorStop(0, rgba('#000',0.08));
-        shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = shadowGrad;
-        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2);
-        ctx.fill();
+        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
 
-        // main sphere
         ctx.beginPath();
         const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
-        rg.addColorStop(0, 'rgba(255,255,255,0.22)');
-        rg.addColorStop(0.18, b.color);
-        rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
-        ctx.fillStyle = rg;
-        ctx.arc(b.x, b.y, b.r, 0, Math.PI*2);
-        ctx.fill();
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
 
-        // sheen
         ctx.beginPath();
         ctx.fillStyle = 'rgba(255,255,255,0.18)';
-        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2);
-        ctx.fill();
+        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
       });
     }
 
@@ -413,16 +363,11 @@
     }
 
     let raf;
-    function loop(){
-      draw();
-      raf = requestAnimationFrame(loop);
-    }
+    function loop(){ draw(); raf = requestAnimationFrame(loop); }
     loop();
 
-    // resizing
     window.addEventListener('resize', ()=> {
-      w = canvas.width = innerWidth;
-      h = canvas.height = innerHeight;
+      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
       canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
     });
 
