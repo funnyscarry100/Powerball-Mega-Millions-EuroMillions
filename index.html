@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- ✅ Basic Meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Check live Powerball, Mega Millions, and EuroMillions lottery results updated instantly. View today’s winning numbers, jackpots, and draw schedules on LotteryUpdate000.space.">
   <meta name="keywords" content="lottery results, powerball, mega millions, euromillions, live draw, jackpots, winning numbers, LotteryUpdate000">
   <meta name="author" content="LotteryUpdate000.space">
 
-  <!-- ✅ Open Graph (Facebook / WhatsApp) -->
+  <!-- ✅ Open Graph (Facebook / WhatsApp Preview) -->
   <meta property="og:title" content="Live Lottery Results - Powerball, Mega Millions, EuroMillions">
   <meta property="og:description" content="Get the latest Powerball, Mega Millions, and EuroMillions results updated live on LotteryUpdate000.space.">
   <meta property="og:url" content="https://lotteryupdate000.space/">
@@ -20,56 +21,102 @@
   <meta name="twitter:description" content="Get instant lottery updates and winning numbers. Check Powerball, Mega Millions, and EuroMillions live draws now.">
   <meta name="twitter:image" content="https://lotteryupdate000.space/images/lottery-preview.jpg">
 
+  <!-- ✅ Canonical -->
   <link rel="canonical" href="https://lotteryupdate000.space/">
+
   <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions</title>
 
+  <!-- ✅ Styles -->
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Segoe UI", Arial, sans-serif;
       margin: 0;
-      padding: 20px;
-      background-color: #f7f9fb;
-      color: #222;
-      text-align: center;
+      padding: 0;
+      background-color: #f8fafc;
+      color: #111;
     }
+
     header {
       background-color: #0047ab;
-      color: #fff;
-      padding: 20px;
-      border-radius: 10px;
+      color: white;
+      text-align: center;
+      padding: 30px 15px;
+      border-bottom: 4px solid #003b8e;
     }
-    h1 {
+
+    header h1 {
+      font-size: 2rem;
       margin: 0;
-      font-size: 1.8em;
     }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.1rem;
+      color: #e5e7eb;
+    }
+
+    main {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
     .results {
-      background: #fff;
+      background: white;
       border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      margin: 20px auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 15px 0;
       padding: 20px;
       max-width: 600px;
-      text-align: left;
+      width: 90%;
+      transition: transform 0.2s ease-in-out;
     }
+
+    .results:hover {
+      transform: scale(1.01);
+    }
+
     h2 {
       color: #0047ab;
       margin-top: 0;
     }
-    footer {
-      margin-top: 40px;
-      font-size: 14px;
-      color: #555;
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
     }
+
+    footer {
+      background-color: #f1f5f9;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: #555;
+      border-top: 1px solid #e2e8f0;
+    }
+
     a.footer-link {
       color: #0047ab;
       text-decoration: none;
-      margin: 0 5px;
+      margin: 0 8px;
     }
+
     a.footer-link:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+      .results {
+        padding: 15px;
+      }
+    }
   </style>
 </head>
+
 <body>
   <header>
     <h1>🎲 Live Lottery Results</h1>
@@ -77,16 +124,19 @@
   </header>
 
   <main>
+    <!-- Powerball -->
     <div class="results" id="powerball">
       <h2>Powerball</h2>
       <p>Loading latest draw...</p>
     </div>
 
+    <!-- Mega Millions -->
     <div class="results" id="megamillions">
       <h2>Mega Millions</h2>
       <p>Loading latest draw...</p>
     </div>
 
+    <!-- EuroMillions -->
     <div class="results" id="euromillions">
       <h2>EuroMillions</h2>
       <p>Loading latest draw...</p>
@@ -94,48 +144,57 @@
   </main>
 
   <footer>
-    © 2025 LotteryUpdate000.space · 
+    © <span id="footer-year"></span> LotteryUpdate000.space · 
     <a href="privacy-policy.html" class="footer-link">Privacy Policy</a> · 
     <a href="terms-of-service.html" class="footer-link">Terms of Service</a>
   </footer>
 
+  <!-- ✅ JavaScript -->
   <script>
+    document.getElementById("footer-year").textContent = new Date().getFullYear();
+
     // --- Powerball ---
     fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://www.powerball.com/api/v1/numbers/powerball/recent10"))
       .then(res => res.json())
       .then(data => {
-        const result = JSON.parse(data.contents)[0];
-        const numbers = result.winning_numbers.split(" ");
-        document.getElementById("powerball").innerHTML =
-          `<h2>Powerball</h2>
-           <p><strong>Draw Date:</strong> ${result.draw_date}</p>
-           <p><strong>Winning Numbers:</strong> ${numbers.join(", ")}</p>
-           <p><strong>Jackpot:</strong> $${result.jackpot.toLocaleString()}</p>`;
+        const results = JSON.parse(data.contents);
+        const latest = results[0];
+        const numbers = latest.winning_numbers.split(" ");
+        document.getElementById("powerball").innerHTML = `
+          <h2>Powerball</h2>
+          <p><strong>Draw Date:</strong> ${latest.draw_date}</p>
+          <p><strong>Winning Numbers:</strong> ${numbers.join(", ")}</p>
+          <p><strong>Jackpot:</strong> $${latest.jackpot.toLocaleString()}</p>
+        `;
       })
       .catch(() => {
-        document.getElementById("powerball").innerHTML = "<p>Error loading Powerball data.</p>";
+        document.getElementById("powerball").innerHTML = "<p>⚠️ Error loading Powerball data.</p>";
       });
 
     // --- Mega Millions ---
     fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://www.megamillions.com/cmspages/utilservice.asmx/GetLatestDrawData"))
       .then(res => res.json())
       .then(data => {
-        document.getElementById("megamillions").innerHTML =
-          `<h2>Mega Millions</h2><pre>${data.contents}</pre>`;
+        document.getElementById("megamillions").innerHTML = `
+          <h2>Mega Millions</h2>
+          <pre>${data.contents}</pre>
+        `;
       })
       .catch(() => {
-        document.getElementById("megamillions").innerHTML = "<p>Error loading Mega Millions data.</p>";
+        document.getElementById("megamillions").innerHTML = "<p>⚠️ Error loading Mega Millions data.</p>";
       });
 
     // --- EuroMillions ---
     fetch("https://api.allorigins.win/get?url=" + encodeURIComponent("https://www.lottery.co.uk/euro-millions/results/json"))
       .then(res => res.json())
       .then(data => {
-        document.getElementById("euromillions").innerHTML =
-          `<h2>EuroMillions</h2><pre>${data.contents}</pre>`;
+        document.getElementById("euromillions").innerHTML = `
+          <h2>EuroMillions</h2>
+          <pre>${data.contents}</pre>
+        `;
       })
       .catch(() => {
-        document.getElementById("euromillions").innerHTML = "<p>Error loading EuroMillions data.</p>";
+        document.getElementById("euromillions").innerHTML = "<p>⚠️ Error loading EuroMillions data.</p>";
       });
   </script>
 </body>
