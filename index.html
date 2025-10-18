@@ -1,428 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic -->
-  <meta charset="utf-8">
+  <!-- Basic meta -->
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions</title>
-  <meta name="description" content="Check live Powerball, Mega Millions and EuroMillions results updated instantly. View winning numbers, jackpots, draw dates and history on LotteryUpdate000.space.">
-  <meta name="keywords" content="lottery results, powerball, mega millions, euromillions, winning numbers, jackpots, live draw">
-  <meta name="author" content="LotteryUpdate000.space">
+  <meta name="description" content="Live Powerball, Mega Millions, and EuroMillions results updated instantly. Check winning numbers, jackpots, and draw history at LotteryUpdate000.space.">
+  <meta name="keywords" content="lottery results, Powerball, Mega Millions, EuroMillions, live lottery, jackpot updates">
+  <meta name="author" content="LotteryUpdate000">
+  <meta name="robots" content="index, follow">
+
+  <!-- GitHub Pages domain verification -->
+  <meta name="github-pages-verification" content="bf637cb6e31ded16b866a0193be742">
+
+  <!-- SEO essentials -->
   <link rel="canonical" href="https://lotteryupdate000.space/">
+  <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions</title>
 
-  <!-- Social / Sharing -->
-  <meta property="og:title" content="Live Lottery Results - Powerball, Mega Millions, EuroMillions">
-  <meta property="og:description" content="Get live Powerball, Mega Millions and EuroMillions winning numbers and jackpot updates on LotteryUpdate000.space.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://lotteryupdate000.space/">
-  <meta property="og:image" content="https://lotteryupdate000.space/images/lottery-preview.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Live Lottery Results - Powerball, Mega Millions, EuroMillions">
-  <meta name="twitter:description" content="Get live Powerball, Mega Millions and EuroMillions winning numbers and jackpot updates on LotteryUpdate000.space.">
-  <meta name="twitter:image" content="https://lotteryupdate000.space/images/lottery-preview.jpg">
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- Security (meta CSP is limited; set strong CSP via server headers for production) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' https://api.allorigins.win 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; connect-src 'self' https://api.allorigins.win https://www.powerball.com https://www.megamillions.com https://www.lottery.co.uk;">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-
-  <!-- Preload fonts (use local copy in production if possible) -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
-  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"></noscript>
-
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "url": "https://lotteryupdate000.space/",
-    "name": "LotteryUpdate000.space",
-    "description": "Live lottery updates for Powerball, Mega Millions, and EuroMillions.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "LotteryUpdate000.space",
-      "url": "https://lotteryupdate000.space/"
-    }
-  }
-  </script>
-
+  <!-- Styles -->
   <style>
-    /* Accessible color palette (WCAG AA) */
-    :root{
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --muted:#6b7280; /* dark enough for contrast */
-      --text:#0b1a33;  /* deep navy for main text */
-      --brand:#0047ab; /* brand blue */
-      --accent-red:#d90429;
-      --success:#16a34a;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #222;
+      text-align: center;
     }
-
-    /* Base */
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      font-size:16px;
-      line-height:1.5;
+    header {
+      background: #1e3a8a;
+      color: white;
+      padding: 1.5rem 1rem;
     }
-
-    /* Layout */
-    .site-header{
-      background:linear-gradient(180deg,var(--brand),#003b8e);
-      color:#fff;
-      padding:28px 18px;
-      text-align:center;
-      box-shadow:0 3px 8px rgba(2,6,23,0.08);
+    header h1 {
+      margin: 0.2rem 0;
+      font-size: 2rem;
     }
-    .site-header h1{margin:0;font-size:1.6rem}
-    .site-header p{margin:6px 0 0;color: #e6eefc;font-size:1rem}
-
-    main{max-width:1100px;margin:22px auto;padding:0 18px}
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap:18px;
-      align-items:start;
+    header p {
+      font-size: 1.1rem;
     }
-
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      padding:18px;
-      box-shadow:0 6px 18px rgba(13,20,30,0.06);
-      min-height:180px; /* reserve space to avoid CLS */
-      position:relative;
-      overflow:hidden;
+    main {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
     }
-
-    .card h2{color:var(--brand);margin:0 0 8px;font-size:1.1rem}
-    .meta { font-size:0.95rem;color:var(--muted);margin-bottom:12px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
-    .numbers{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .ball{
-      width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;
-      box-shadow:0 6px 12px rgba(2,6,23,0.12);font-size:1.05rem;
+    section {
+      margin-bottom: 2rem;
     }
-    .ball.reg{background:#111827} /* regular */
-    .ball.power{background:var(--accent-red)}
-    .ball.mega{background:var(--brand)}
-    .ball.star{background:#f1c40f;color:#111827}
-
-    .jackpot{font-size:1.15rem;font-weight:700;margin-top:10px;color:var(--accent-red)}
-    .next-draw{color:var(--success);font-weight:600;margin-top:8px}
-
-    /* CTA / buttons */
-    .cta-row{display:flex;gap:10px;align-items:center;margin-top:14px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:10px 16px;border-radius:8px;border:0;cursor:pointer;font-weight:600}
-    .btn-primary{background:var(--brand);color:#fff}
-    .btn-secondary{background:#eef2ff;color:var(--brand)}
-    .btn-cta{background:var(--accent-red);color:#fff}
-
-    /* API status pill */
-    .status {display:inline-block;padding:6px 10px;border-radius:20px;font-weight:700;font-size:0.85rem}
-    .status.live{background:var(--success);color:#fff}
-    .status.updating{background:#f59e0b;color:#fff}
-    .status.error{background:#ef4444;color:#fff}
-
-    /* Footer */
-    footer{margin-top:28px;background:transparent;padding:18px 0;text-align:center;color:var(--muted);font-size:0.95rem}
-    footer a{color:var(--brand);text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
-    /* Responsive tweaks */
-    @media (max-width:600px){
-      .ball{width:48px;height:48px;font-size:1rem}
-      .card{min-height:160px;padding:14px}
-      .site-header h1{font-size:1.25rem}
+    footer {
+      background: #1e3a8a;
+      color: white;
+      padding: 1rem;
+    }
+    footer a {
+      color: #93c5fd;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
+
 <body>
-  <header class="site-header" role="banner">
-    <h1>🎲 Live Lottery Results</h1>
-    <p>Powerball • Mega Millions • EuroMillions — updated from official sources</p>
+  <header>
+    <h1>Live Lottery Results</h1>
+    <p>Powerball • Mega Millions • EuroMillions</p>
   </header>
 
-  <main role="main" aria-labelledby="main-heading">
-    <h2 id="main-heading" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Live Lottery Results (Main)</h2>
+  <main>
+    <section id="results">
+      <h2>Today's Winning Numbers</h2>
+      <p>Get instant updates for Powerball, Mega Millions, and EuroMillions draws.</p>
+      <div id="lottery-data">Loading latest results...</div>
+    </section>
 
-    <!-- Grid of lottery cards -->
-    <section class="grid" aria-label="Lottery results">
-      <!-- Powerball -->
-      <article class="card" id="powerball-card" aria-labelledby="powerball-title">
-        <h2 id="powerball-title">Powerball</h2>
-        <div class="meta">
-          <span id="powerball-updated" class="meta-item">Updated: —</span>
-          <span id="powerball-status" class="status updating" aria-live="polite">UPDATING</span>
-        </div>
-        <div id="powerball-jackpot" class="jackpot" aria-hidden="false">—</div>
-        <div id="powerball-lastdraw" class="meta" aria-hidden="false">Draw: —</div>
+    <section id="about">
+      <h2>About LotteryUpdate000</h2>
+      <p>We bring you real-time lottery results from verified sources, helping players stay informed on the latest jackpots and winning combinations.</p>
+    </section>
 
-        <div id="powerball-numbers" class="numbers" aria-live="polite" aria-relevant="additions">
-          <!-- number balls -->
-        </div>
-
-        <div class="cta-row" aria-hidden="false">
-          <button class="btn btn-primary" id="powerball-official" onclick="window.open('https://www.powerball.com','_blank','noopener')">Official Results</button>
-          <button class="btn btn-secondary" id="powerball-refresh">Refresh</button>
-        </div>
-      </article>
-
-      <!-- Mega Millions -->
-      <article class="card" id="megamillions-card" aria-labelledby="megamillions-title">
-        <h2 id="megamillions-title">Mega Millions</h2>
-        <div class="meta">
-          <span id="megamillions-updated">Updated: —</span>
-          <span id="megamillions-status" class="status updating">UPDATING</span>
-        </div>
-        <div id="megamillions-jackpot" class="jackpot">—</div>
-        <div id="megamillions-lastdraw" class="meta">Draw: —</div>
-
-        <div id="megamillions-numbers" class="numbers" aria-live="polite"></div>
-
-        <div class="cta-row">
-          <button class="btn btn-primary" onclick="window.open('https://www.megamillions.com','_blank','noopener')">Official Results</button>
-          <button class="btn btn-secondary" id="megamillions-refresh">Refresh</button>
-        </div>
-      </article>
-
-      <!-- EuroMillions -->
-      <article class="card" id="euromillions-card" aria-labelledby="euromillions-title">
-        <h2 id="euromillions-title">EuroMillions</h2>
-        <div class="meta">
-          <span id="euromillions-updated">Updated: —</span>
-          <span id="euromillions-status" class="status updating">UPDATING</span>
-        </div>
-        <div id="euromillions-jackpot" class="jackpot">—</div>
-        <div id="euromillions-lastdraw" class="meta">Draw: —</div>
-
-        <div id="euromillions-numbers" class="numbers" aria-live="polite"></div>
-
-        <div class="cta-row">
-          <button class="btn btn-primary" onclick="window.open('https://www.euro-millions.com','_blank','noopener')">Official Results</button>
-          <button class="btn btn-secondary" id="euromillions-refresh">Refresh</button>
-        </div>
-      </article>
+    <section id="verify">
+      <h2>GitHub Pages Verification</h2>
+      <p><strong>Verification Code:</strong> bf637cb6e31ded16b866a0193be742</p>
     </section>
   </main>
 
-  <footer role="contentinfo">
-    © <span id="footer-year"></span> LotteryUpdate000.space ·
-    <a href="/privacy-policy.html">Privacy Policy</a> ·
-    <a href="/terms-of-service.html">Terms of Service</a>
+  <footer>
+    <p>&copy; 2025 LotteryUpdate000.space | All Rights Reserved.</p>
+    <nav>
+      <a href="/privacy.html">Privacy Policy</a> |
+      <a href="/terms.html">Terms</a> |
+      <a href="/about.html">About</a> |
+      <a href="/contact.html">Contact</a>
+    </nav>
   </footer>
-
-  <script>
-  // ========== Configuration ==========
-  // IMPORTANT: For production you should implement a server-side proxy (recommended)
-  // Example server endpoints (Node/Express, PHP, etc.): /api/powerball, /api/megamillions, /api/euromillions
-  // The proxy fetches data server-side and returns JSON with appropriate CORS headers.
-  // For convenience and testing only we use api.allorigins.win as a fallback CORS proxy.
-  const PROXY = "https://api.allorigins.win/get?url="; // fallback only
-  const USE_PROXY_FALLBACK = true;
-
-  // Helper utilities
-  function el(id){return document.getElementById(id)}
-  function setStatus(id, statusText, cls){
-    const s = el(id);
-    if(!s) return;
-    s.textContent = statusText;
-    s.className = 'status ' + cls;
-  }
-  function createBall(num, type='reg'){
-    const d = document.createElement('div');
-    d.className = 'ball ' + (type==='reg' ? 'reg' : type==='power' ? 'power' : type==='mega' ? 'mega' : 'star');
-    d.textContent = num;
-    d.setAttribute('aria-label','Number '+num);
-    return d;
-  }
-  function formatDateISO(iso){
-    try{
-      const dt = new Date(iso);
-      return dt.toLocaleString();
-    }catch(e){return iso}
-  }
-
-  // ========== Powerball (official API) ==========
-  async function fetchPowerball(){
-    setStatus('powerball-status','UPDATING','updating');
-    el('powerball-numbers').innerHTML = '';
-    el('powerball-jackpot').textContent = 'Loading...';
-
-    // Preferred: server-side endpoint - uncomment and point to your server proxy
-    // const url = '/api/powerball';
-    // Fallback (client-side)
-    const url = 'https://www.powerball.com/api/v1/numbers/powerball/recent10';
-    try{
-      let response;
-      if(USE_PROXY_FALLBACK){
-        response = await fetch(PROXY + encodeURIComponent(url));
-        if(!response.ok) throw new Error('proxy fetch failed');
-        const wrapper = await response.json();
-        const data = JSON.parse(wrapper.contents);
-        const latest = data[0];
-        updatePowerballUI(latest);
-      } else {
-        // direct fetch (may fail due to CORS)
-        response = await fetch(url);
-        if(!response.ok) throw new Error('fetch failed');
-        const data = await response.json();
-        updatePowerballUI(data[0]);
-      }
-      setStatus('powerball-status','LIVE','live');
-    }catch(err){
-      console.warn('Powerball fetch error',err);
-      setStatus('powerball-status','ERROR','error');
-      el('powerball-jackpot').textContent = 'Unavailable';
-      el('powerball-lastdraw').textContent = 'Draw: unavailable';
-    }
-  }
-
-  function updatePowerballUI(latest){
-    try{
-      el('powerball-jackpot').textContent = latest.jackpot ? '$' + Number(latest.jackpot).toLocaleString() : '—';
-      el('powerball-lastdraw').textContent = 'Draw: ' + (latest.draw_date || latest.drawDate || '—');
-      el('powerball-updated').textContent = 'Updated: ' + formatDateISO(latest.updated_at || latest.draw_date || new Date().toISOString());
-      // numbers
-      const nums = (latest.winning_numbers || latest.winningNumbers || '').split(/\s+|,/).filter(Boolean);
-      el('powerball-numbers').innerHTML = '';
-      if(nums && nums.length >= 6){
-        // first 5 regular, last one is powerball
-        nums.slice(0,5).forEach(n => el('powerball-numbers').appendChild(createBall(n,'reg')));
-        el('powerball-numbers').appendChild(createBall(nums[5],'power'));
-      } else {
-        el('powerball-numbers').textContent = 'Numbers unavailable';
-      }
-    }catch(e){
-      console.error('updatePowerballUI error',e);
-    }
-  }
-
-  // ========== Mega Millions ==========
-  async function fetchMegaMillions(){
-    setStatus('megamillions-status','UPDATING','updating');
-    el('megamillions-numbers').innerHTML = '';
-    el('megamillions-jackpot').textContent = 'Loading...';
-
-    // Recommended: server-side proxy at /api/megamillions
-    const url = 'https://www.megamillions.com/cmspages/utilservice.asmx/GetLatestDrawData';
-    try{
-      let response;
-      if(USE_PROXY_FALLBACK){
-        response = await fetch(PROXY + encodeURIComponent(url));
-        if(!response.ok) throw new Error('proxy failed');
-        const wrapper = await response.json();
-        // Megamillions returns XML wrapped in <string> with JSON text inside; attempt to parse
-        const text = wrapper.contents;
-        // if XML string contains JSON inside <string>, attempt to extract
-        let parsed;
-        try{
-          const xmlDoc = new DOMParser().parseFromString(text,'text/xml');
-          const stringNode = xmlDoc.getElementsByTagName('string')[0];
-          if(stringNode && stringNode.textContent){
-            parsed = JSON.parse(stringNode.textContent);
-          } else {
-            // fallback: treat contents as raw JSON
-            parsed = JSON.parse(text);
-          }
-        }catch(e){
-          console.warn('MegaMillions parse fallback',e);
-        }
-        if(parsed){
-          // parsed should have fields like WinningNumbers, MegaBall, DrawDate
-          el('megamillions-jackpot').textContent = parsed.EstimatedJackpot ? '$' + Number(parsed.EstimatedJackpot).toLocaleString() : '—';
-          el('megamillions-lastdraw').textContent = 'Draw: ' + (parsed.DrawDate || parsed.drawDate || '—');
-          el('megamillions-updated').textContent = 'Updated: ' + (parsed.DrawDate || new Date().toISOString());
-          const numbers = parsed.WinningNumbers ? parsed.WinningNumbers.split(',').map(n=>n.trim()) : [];
-          el('megamillions-numbers').innerHTML = '';
-          numbers.slice(0,5).forEach(n=>el('megamillions-numbers').appendChild(createBall(n,'reg')));
-          if(parsed.MegaBall) el('megamillions-numbers').appendChild(createBall(parsed.MegaBall,'mega'));
-        } else {
-          throw new Error('MegaMillions: parsed empty');
-        }
-      } else {
-        // direct fetch (likely CORS blocked)
-        response = await fetch(url);
-        const text = await response.text();
-        // parse like above...
-        // omitted for brevity
-      }
-      setStatus('megamillions-status','LIVE','live');
-    }catch(err){
-      console.warn('MegaMillions fetch error', err);
-      setStatus('megamillions-status','ERROR','error');
-      el('megamillions-jackpot').textContent = 'Unavailable';
-      el('megamillions-lastdraw').textContent = 'Draw: unavailable';
-    }
-  }
-
-  // ========== EuroMillions ==========
-  async function fetchEuroMillions(){
-    setStatus('euromillions-status','UPDATING','updating');
-    el('euromillions-numbers').innerHTML = '';
-    el('euromillions-jackpot').textContent = 'Loading...';
-
-    // recommended server-side /api/euromillions
-    const url = 'https://www.lottery.co.uk/euro-millions/results/json';
-    try{
-      let response;
-      if(USE_PROXY_FALLBACK){
-        response = await fetch(PROXY + encodeURIComponent(url));
-        if(!response.ok) throw new Error('proxy failed');
-        const wrapper = await response.json();
-        // wrapper.contents should be JSON text
-        const parsed = JSON.parse(wrapper.contents);
-        if(parsed && parsed.results && parsed.results.length){
-          const latest = parsed.results[0];
-          el('euromillions-jackpot').textContent = latest.jackpot || '—';
-          el('euromillions-lastdraw').textContent = 'Draw: ' + (latest.date || latest.drawDate || '—');
-          el('euromillions-updated').textContent = 'Updated: ' + (latest.date || new Date().toISOString());
-          el('euromillions-numbers').innerHTML = '';
-          if(latest.numbers){
-            latest.numbers.split(',').map(n=>n.trim()).forEach(n=>el('euromillions-numbers').appendChild(createBall(n,'reg')));
-          }
-          if(latest.stars){
-            latest.stars.split(',').map(n=>n.trim()).forEach(n=>el('euromillions-numbers').appendChild(createBall(n,'star')));
-          }
-        } else {
-          throw new Error('EuroMillions parsed empty');
-        }
-      } else {
-        // direct fetch (likely CORS blocked)
-        response = await fetch(url);
-        // parse...
-      }
-      setStatus('euromillions-status','LIVE','live');
-    }catch(err){
-      console.warn('EuroMillions fetch error', err);
-      setStatus('euromillions-status','ERROR','error');
-      el('euromillions-jackpot').textContent = 'Unavailable';
-      el('euromillions-lastdraw').textContent = 'Draw: unavailable';
-    }
-  }
-
-  // ========== Init & UI actions ==========
-  function init(){
-    el('footer-year').textContent = new Date().getFullYear();
-    // initial load
-    fetchPowerball();
-    fetchMegaMillions();
-    fetchEuroMillions();
-    // refresh buttons
-    el('powerball-refresh').addEventListener('click', fetchPowerball);
-    el('megamillions-refresh').addEventListener('click', fetchMegaMillions);
-    el('euromillions-refresh').addEventListener('click', fetchEuroMillions);
-    // periodic refresh every 5 minutes
-    setInterval(()=>{ fetchPowerball(); fetchMegaMillions(); fetchEuroMillions(); }, 300000);
-  }
-
-  // Start
-  init();
-  </script>
 </body>
 </html>
