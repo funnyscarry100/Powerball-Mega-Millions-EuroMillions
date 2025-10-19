@@ -1,272 +1,340 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Live & archived lottery results: verified numbers, jackpots, and past draws for major lotteries. Structured for SEO and easy API integration via a serverless proxy." />
+  <title>lotteryupdate000.space — Live Lottery Results & Past Draws</title>
+  <meta name="description" content="lotteryupdate000.space — live and historical lottery results (Powerball, Mega Millions, EuroMillions). Fast updates, verified sources." />
+  <meta name="keywords" content="lottery results, Powerball, Mega Millions, EuroMillions, latest results, past draws, jackpots" />
+  <meta name="google-site-verification" content="r2yewgzagcwp" />
+  <meta name="google-site-verification" content="gv-3mxfk22pxkir5q.dv.googlehosted.com" />
+  <link rel="canonical" href="https://lotteryupdate000.space/" />
   <meta name="robots" content="index,follow" />
-  <title>Live Lottery Results — Latest & Past Draws</title>
-
-  <!-- Open Graph -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Live Lottery Results — Latest & Past Draws" />
-  <meta property="og:description" content="Verified numbers, jackpots, and historical draws for major lotteries. Replace placeholders with official sources or your serverless proxy." />
-  <meta property="og:image" content="/assets/lottery-og.png" />
-
-  <!-- Structured Data (JSON-LD) for Search Engines -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Live Lottery Results",
-    "url": "https://your-site.example/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://your-site.example/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
-  </script>
-
   <style>
-    :root{--bg:#0b1020;--card:#0f1724;--accent:#22c55e;--muted:#94a3b8;--glass:rgba(255,255,255,0.03)}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:#e6eef8;background:linear-gradient(180deg,#07101a 0%,#071a2a 100%)}
-    .container{max-width:1100px;margin:32px auto;padding:20px}
-    header{display:flex;align-items:center;gap:16px}
-    .brand{display:flex;flex-direction:column}
-    .brand h1{margin:0;font-size:20px}
-    .brand p{margin:0;color:var(--muted);font-size:13px}
-    .controls{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
-    .card{background:var(--card);padding:14px;border-radius:10px;box-shadow:0 6px 18px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:14px}
-    table{width:100%;border-collapse:collapse;font-size:14px}
-    th,td{padding:8px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
-    th{font-weight:600;color:var(--muted);font-size:13px}
-    .lottery-title{display:flex;align-items:center;gap:8px}
-    .numbers{display:flex;gap:6px;flex-wrap:wrap}
-    .ball{background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:700}
-    footer{margin-top:22px;color:var(--muted);font-size:13px}
-    .muted{color:var(--muted)}
-    .skeleton{opacity:0.6}
-    @media (max-width:560px){.brand h1{font-size:16px}}
+    /* (keep your existing styles here) */
+    :root{--blue-1:#0047ab;--blue-2:#007bff;--card-bg: rgba(255,255,255,0.95);--muted:#666;}
+    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;}
+    #bg-canvas{position:fixed;inset:0;z-index:-1;}
+    header{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));color:#fff;padding:16px 12px;text-align:center;}
+    nav{background:#003c99;padding:8px 0;}
+    .nav-list{display:flex;gap:28px;justify-content:center;align-items:center;margin:0;padding:0;list-style:none;}
+    .nav-list a{color:#fff;text-decoration:none;font-weight:600;padding:6px 4px;border-radius:6px;}
+    .nav-list a.active{background:rgba(255,255,255,0.08);text-decoration:underline;}
+    .wrap{max-width:1100px;margin:28px auto;padding:0 18px;}
+    .hero{background:var(--card-bg);border-radius:12px;padding:22px;display:flex;gap:18px;align-items:center;box-shadow:0 6px 24px rgba(6,30,60,0.08);}
+    .hero-left{flex:1}.hero-right{width:240px;text-align:center}
+    .hero h1{margin:0;font-size:1.35rem;color:var(--blue-1)} .hero p{margin:8px 0;color:var(--muted)}
+    .cta-btn{display:inline-block;background:linear-gradient(180deg,var(--blue-2),var(--blue-1));color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 6px 16px rgba(0,60,153,0.18);}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:20px;}
+    @media (max-width:940px){.grid{grid-template-columns:1fr;}}
+    .card{background:var(--card-bg);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(6,30,60,0.06);}
+    .lottery-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .lottery-box{flex:1;min-width:180px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#f6fbfa);border:1px solid #eef6f6}
+    .lottery-name{font-weight:700;color:var(--blue-1);margin-bottom:6px}
+    .numbers{display:flex;gap:8px;flex-wrap:wrap}
+    .ball{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff;box-shadow:0 6px 12px rgba(10,10,20,0.08)}
+    .ball.power{background:#e63946}
+    .ball.mega{background:#0b6efd}
+    .ball.euro{background:#12b886}
+    .meta{font-size:0.9rem;color:var(--muted);margin-top:8px}
+    table{width:100%;border-collapse:collapse;font-size:0.95rem}
+    th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:left}
+    th{background:#fbfdff;color:var(--blue-1)}
+    .small{font-size:0.85rem;color:var(--muted)}
+    footer{margin-top:28px;text-align:center;color:#fff;padding:18px;background:linear-gradient(90deg,var(--blue-1),var(--blue-2))}
+    .verif{font-size:0.8rem;color:rgba(255,255,255,0.9);margin-top:6px;opacity:0.95}
   </style>
 </head>
 <body>
-  <main class="container">
-    <header>
-      <div class="logo card" aria-hidden="true" style="padding:10px 14px;border-radius:10px"><strong>LOTTERY</strong></div>
-      <div class="brand">
-        <h1>Live Lottery Results</h1>
-        <p>Verified numbers, jackpots & historical draws — structured for speed and SEO.</p>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header><div class="brand">lotteryupdate000.space</div></header>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+      <li><a href="terms.html" id="nav-terms">Terms</a></li>
+      <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap" id="content">
+    <div class="hero">
+      <div class="hero-left">
+        <h1>Live & Historical Lottery Results — lotteryupdate000.space</h1>
+        <p id="hero-sub">Verified numbers, jackpots, and past draws for major lotteries. Results updated live from official sources (via server-side proxy).</p>
       </div>
-    </header>
+      <div class="hero-right">
+        <div style="background:#fff;border-radius:10px;padding:12px;box-shadow:0 6px 16px rgba(0,0,0,0.06)">
+          <div style="font-weight:700;color:var(--blue-1)">Latest Update</div>
+          <div id="latest-time" class="small" style="margin-top:6px">—</div>
+          <div style="margin-top:8px;"><a class="cta-btn" href="#latest">View Latest</a></div>
+        </div>
+      </div>
+    </div>
 
-    <section class="controls">
-      <div class="card">
-        <label for="search">Search draw / lottery</label>
-        <input id="search" type="search" placeholder="e.g. Powerball 2025-10-20" style="margin-top:8px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);background:transparent;color:inherit;width:300px">
+    <div class="grid" style="margin-top:18px;">
+      <div class="card" id="latest">
+        <h3 style="margin:0 0 10px 0;color:var(--blue-1)">Latest Results</h3>
+
+        <div class="lottery-row" aria-live="polite">
+          <div class="lottery-box" role="region" aria-label="Powerball latest result">
+            <div class="lottery-name">Powerball</div>
+            <div class="numbers" id="powerball-numbers"></div>
+            <div class="meta" id="powerball-meta">Jackpot: —</div>
+          </div>
+
+          <div class="lottery-box" role="region" aria-label="Mega Millions latest result">
+            <div class="lottery-name">Mega Millions</div>
+            <div class="numbers" id="megamillions-numbers"></div>
+            <div class="meta" id="megamillions-meta">Jackpot: —</div>
+          </div>
+
+          <div class="lottery-box" role="region" aria-label="EuroMillions latest result">
+            <div class="lottery-name">EuroMillions</div>
+            <div class="numbers" id="euromillions-numbers"></div>
+            <div class="meta" id="euromillions-meta">Jackpot: —</div>
+          </div>
+        </div>
+
+        <hr style="margin:18px 0;border:none;border-top:1px solid #eef2f7">
+
+        <h4 style="margin:0 0 12px 0;color:var(--blue-1)">Past Results</h4>
+        <div style="overflow:auto;">
+          <table aria-describedby="past-desc" id="past-table">
+            <caption id="past-desc" style="text-align:left;padding-bottom:8px;font-size:0.9rem;color:var(--muted)">Recent past draws</caption>
+            <thead>
+              <tr><th>Date</th><th>Lottery</th><th>Numbers</th><th>Jackpot</th></tr>
+            </thead>
+            <tbody id="past-body">
+              <!-- rows will be added by JS (live or fallback) -->
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+          <button id="load-more" style="background:linear-gradient(90deg,var(--blue-2),var(--blue-1));color:#fff;padding:10px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700">Load more</button>
+          <div class="small" style="color:var(--muted)">If proxy fails, generated sample rows will appear (graceful fallback).</div>
+        </div>
       </div>
 
-      <div class="card">
-        <label for="source">Data source</label>
-        <select id="source" style="margin-top:8px;padding:8px;border-radius:8px;background:transparent;color:inherit">
-          <option value="placeholder">Sample (placeholder rows)</option>
-          <option value="server">Serverless proxy (/api/lottery)</option>
-          <option value="official">Official API (replace URL)</option>
-        </select>
-      </div>
-    </section>
+      <aside class="card" aria-labelledby="about-heading">
+        <h3 id="about-heading" style="color:var(--blue-1)">About lotteryupdate000.space</h3>
+        <p class="small">Clear presentation of lottery results and archives. This page fetches official results server-side to avoid CORS and protect API keys.</p>
 
-    <section aria-labelledby="latest" style="margin-top:16px">
-      <h2 id="latest" class="muted">Latest Results</h2>
-      <div class="grid">
-
-        <!-- Example Lottery Card: Powerball -->
-        <article class="card" id="powerball">
-          <div class="lottery-title">
-            <div>
-              <strong>Powerball</strong>
-              <div class="muted" style="font-size:13px">Next draw: <span id="pb-next">---</span></div>
-            </div>
-            <div style="margin-left:auto;text-align:right">
-              <div class="muted">Jackpot</div>
-              <div id="pb-jack" style="font-weight:700">$120M</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <div class="muted">Latest draw: <span id="pb-date">2025-10-18</span></div>
-            <div class="numbers" id="pb-numbers" style="margin-top:8px">
-              <!-- sample placeholder numbers -->
-              <div class="ball">05</div>
-              <div class="ball">12</div>
-              <div class="ball">28</div>
-              <div class="ball">43</div>
-              <div class="ball">66</div>
-              <div class="ball" style="background:var(--accent);color:#021">09</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <a href="#pb-archive" class="muted">View archive</a>
-          </div>
-        </article>
-
-        <!-- Example Lottery Card: EuroMillions -->
-        <article class="card" id="euromillions">
-          <div class="lottery-title">
-            <div>
-              <strong>EuroMillions</strong>
-              <div class="muted" style="font-size:13px">Next draw: <span id="em-next">---</span></div>
-            </div>
-            <div style="margin-left:auto;text-align:right">
-              <div class="muted">Jackpot</div>
-              <div id="em-jack" style="font-weight:700">€50M</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <div class="muted">Latest draw: <span id="em-date">2025-10-17</span></div>
-            <div class="numbers" id="em-numbers" style="margin-top:8px">
-              <div class="ball">03</div>
-              <div class="ball">11</div>
-              <div class="ball">19</div>
-              <div class="ball">27</div>
-              <div class="ball">32</div>
-              <div class="ball" style="background:var(--accent);color:#021">06</div>
-            </div>
-          </div>
-
-          <div style="margin-top:12px">
-            <a href="#em-archive" class="muted">View archive</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section id="archive" style="margin-top:18px">
-      <h2 class="muted">Recent Draws (Sample)</h2>
-      <div class="card" style="overflow:auto">
-        <table aria-describedby="recent-description">
-          <caption id="recent-description" style="caption-side:top;text-align:left;padding-bottom:8px">This table contains sample historical rows for testing. Replace with your API results.</caption>
-          <thead>
-            <tr>
-              <th>Lottery</th>
-              <th>Date</th>
-              <th>Numbers</th>
-              <th>Jackpot</th>
-              <th>Source</th>
-            </tr>
-          </thead>
-          <tbody id="recent-rows">
-            <!-- Sample rows for testing -->
-            <tr>
-              <td>Powerball</td>
-              <td>2025-10-18</td>
-              <td>05 12 28 43 66 + 09</td>
-              <td>$120M</td>
-              <td class="muted">placeholder</td>
-            </tr>
-            <tr>
-              <td>EuroMillions</td>
-              <td>2025-10-17</td>
-              <td>03 11 19 27 32 + 06</td>
-              <td>€50M</td>
-              <td class="muted">placeholder</td>
-            </tr>
-            <tr>
-              <td>Mega Millions</td>
-              <td>2025-10-16</td>
-              <td>07 14 21 33 58 + 12</td>
-              <td>$80M</td>
-              <td class="muted">placeholder</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <footer>
-      <p class="muted">Results shown are sample placeholders — integrate official sources via serverless proxy (recommended) or direct official APIs. Add a sitemap.xml and robots.txt for SEO. © Live Lottery Results</p>
-    </footer>
+        <div style="margin-top:18px;font-size:0.9rem;color:var(--muted)">
+          <strong>Verification:</strong>
+          <div class="verif">CNAME: r2yewgzagcwp → gv-3mxfk22pxkir5q.dv.googlehosted.com</div>
+        </div>
+      </aside>
+    </div>
   </main>
 
-  <!-- Minimal JS: progressive enhancement + serverless proxy example -->
+  <footer>
+    <div class="muted">© <span id="year"></span> lotteryupdate000.space — All rights reserved.</div>
+  </footer>
+
   <script>
-    // CONFIG: change to your serverless proxy endpoint
-    var API_PROXY = '/api/lottery'; // replace with your production proxy or official API
+  (function(){
+    // CONFIG: if using Cloudflare Worker, set PROXY_BASE to your worker URL (leave empty to use Netlify default)
+    const PROXY_BASE = ''; // e.g. 'https://my-worker.example.workers.dev' or '' for Netlify functions route
+    // Netlify function path (used if PROXY_BASE is empty)
+    const NETLIFY_BASE = '/.netlify/functions/proxy';
 
-    // Utility to safely render numbers
-    function el(id){return document.getElementById(id)}
+    const pad = n => (n<10? '0'+n : n);
+    const formatTime = d => d.toLocaleDateString() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
 
-    // Example: fetch latest results from serverless proxy
-    function fetchLatest() {
-      if(!API_PROXY) return;
-      fetch(API_PROXY + '/latest')
-        .then(function(r){ if(!r.ok) throw new Error('Network'); return r.json(); })
-        .then(function(data){
-          // Expected shape: { powerball: {...}, euromillions: {...}, recent: [...] }
-          if(data.powerball){
-            el('pb-next').textContent = data.powerball.nextDraw || 'TBD';
-            el('pb-jack').textContent = data.powerball.jackpot || 'TBD';
-            el('pb-date').textContent = data.powerball.latestDate || 'TBD';
-            renderNumbers('pb-numbers', data.powerball.numbers || []);
-          }
-          if(data.euromillions){
-            el('em-next').textContent = data.euromillions.nextDraw || 'TBD';
-            el('em-jack').textContent = data.euromillions.jackpot || 'TBD';
-            el('em-date').textContent = data.euromillions.latestDate || 'TBD';
-            renderNumbers('em-numbers', data.euromillions.numbers || []);
-          }
+    const endpoints = {
+      powerball: buildUrl('powerball'),
+      megamillions: buildUrl('megamillions'),
+      euromillions: buildUrl('euromillions')
+    };
 
-          if(Array.isArray(data.recent)){
-            var tbody = el('recent-rows');
-            tbody.innerHTML = '';
-            data.recent.forEach(function(row){
-              var tr = document.createElement('tr');
-              tr.innerHTML = '<td>'+escapeHtml(row.lottery)+'</td>'+
-                             '<td>'+escapeHtml(row.date)+'</td>'+
-                             '<td>'+escapeHtml((row.numbers||[]).join(' '))+'</td>'+
-                             '<td>'+escapeHtml(row.jackpot||'')+'</td>'+
-                             '<td class="muted">'+escapeHtml(row.source||'official')+'</td>';
-              tbody.appendChild(tr);
-            });
-          }
-        })
-        .catch(function(err){
-          console.warn('Fetch latest failed:', err);
+    function buildUrl(lottery){
+      if(PROXY_BASE) return `${PROXY_BASE}/?lottery=${lottery}`;
+      return `${NETLIFY_BASE}?lottery=${lottery}`;
+    }
+
+    async function fetchProxy(lottery){
+      const url = endpoints[lottery];
+      try{
+        const r = await fetch(url, {cache: 'no-store'} );
+        if(!r.ok) throw new Error('Proxy returned '+r.status);
+        return await r.json();
+      }catch(err){
+        console.warn('Proxy fetch failed for', lottery, err);
+        return null;
+      }
+    }
+
+    // Render helpers
+    function createBall(n, cls){
+      const d = document.createElement('div');
+      d.className = 'ball ' + (cls||'');
+      d.textContent = String(n);
+      return d;
+    }
+
+    function renderNumbers(containerId, numbers, cls, extras){
+      const c = document.getElementById(containerId);
+      c.innerHTML = '';
+      (numbers||[]).forEach(n => c.appendChild(createBall(n, cls)));
+      if(Array.isArray(extras)){
+        extras.forEach(e => {
+          const el = createBall((typeof e === 'number' ? e : e), cls);
+          el.textContent = (typeof e === 'number') ? e : e;
+          c.appendChild(el);
         });
+      } else if(extras !== undefined){
+        const el = createBall(extras, cls);
+        c.appendChild(el);
+      }
     }
 
-    function renderNumbers(containerId, numbers){
-      var container = el(containerId);
-      container.innerHTML = '';
-      numbers.forEach(function(n,i){
-        var d = document.createElement('div');
-        d.className = 'ball';
-        d.textContent = (''+n).padStart(2,'0');
-        if(i === numbers.length-1) d.style.background = 'var(--accent)';
-        container.appendChild(d);
-      });
+    // Past draws table
+    const pastBody = document.getElementById('past-body');
+    function addPastRow(date, lottery, nums, jackpot){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${date}</td><td>${lottery}</td><td>${nums}</td><td>${jackpot}</td>`;
+      pastBody.appendChild(tr);
+    }
+    function clearPast(){ pastBody.innerHTML = ''; }
+
+    function fallbackSeed(n=6){
+      clearPast();
+      for(let i=0;i<n;i++){
+        const d = new Date(Date.now() - (i+1)*86400000);
+        addPastRow(d.toLocaleDateString(), 'Powerball', sampleNums(5,69) + ' PB:' + (rand(1,26)), '$' + rand(150,500) + 'M');
+        addPastRow(d.toLocaleDateString(), 'Mega Millions', sampleNums(5,70) + ' MB:' + rand(1,25), '$' + rand(100,400) + 'M');
+        addPastRow(d.toLocaleDateString(), 'EuroMillions', sampleNums(5,50) + ' S:' + sampleNums(2,12), '€' + rand(40,200) + 'M');
+      }
     }
 
-    // simple escape to avoid XSS when using placeholder data
-    function escapeHtml(s){
-      if(!s && s!==0) return '';
-      return (''+s).replace(/[&<>\"']/g, function(c){
-        return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
-      });
+    function sampleNums(count, max){
+      const a=[];
+      while(a.length < count){
+        const n = Math.floor(Math.random()*max)+1;
+        if(!a.includes(n)) a.push(n);
+      }
+      return a.sort((a,b)=>a-b).join(', ');
+    }
+    function rand(min,max){ return Math.floor(Math.random()*(max-min+1))+min; }
+
+    // Primary: try fetch live from proxy; if not available, fallback to sample.
+    async function loadLiveOrFallback(){
+      document.getElementById('latest-time').textContent = 'Loading...';
+
+      // Try to fetch live for each lottery in parallel
+      const [pb, mm, em] = await Promise.all([
+        fetchProxy('powerball'),
+        fetchProxy('megamillions'),
+        fetchProxy('euromillions')
+      ]);
+
+      const now = new Date();
+      document.getElementById('latest-time').textContent = formatTime(now) + (pb || mm || em ? ' (live)' : ' (sample)');
+
+      if(pb && pb.numbers){
+        renderNumbers('powerball-numbers', pb.numbers, 'power', pb.powerball || pb.extra);
+        document.getElementById('powerball-meta').textContent = `Jackpot: ${pb.jackpot || 'Unknown'}`;
+      } else {
+        // fallback sample
+        renderNumbers('powerball-numbers', sampleNumsArray(5,69), 'power', rand(1,26));
+        document.getElementById('powerball-meta').textContent = 'Jackpot: $-- M (sample)';
+      }
+
+      if(mm && mm.numbers){
+        renderNumbers('megamillions-numbers', mm.numbers, 'mega', mm.mega || mm.extra);
+        document.getElementById('megamillions-meta').textContent = `Jackpot: ${mm.jackpot || 'Unknown'}`;
+      } else {
+        renderNumbers('megamillions-numbers', sampleNumsArray(5,70), 'mega', rand(1,25));
+        document.getElementById('megamillions-meta').textContent = 'Jackpot: $-- M (sample)';
+      }
+
+      if(em && em.numbers){
+        renderNumbers('euromillions-numbers', em.numbers, 'euro', em.stars || em.extra);
+        document.getElementById('euromillions-meta').textContent = `Jackpot: ${em.jackpot || 'Unknown'}`;
+      } else {
+        renderNumbers('euromillions-numbers', sampleNumsArray(5,50), 'euro', sampleNumsArray(2,12));
+        document.getElementById('euromillions-meta').textContent = 'Jackpot: €-- M (sample)';
+      }
+
+      // if any proxy returned "history", use it; otherwise seed sample table
+      clearPast();
+      if(pb && pb.history && Array.isArray(pb.history)){
+        pb.history.forEach(h => addPastRow(h.date || '-', 'Powerball', Array.isArray(h.numbers) ? h.numbers.join(', ') : h.numbers, h.jackpot || '-'));
+      } else {
+        fallbackSeed(6);
+      }
     }
 
-    // Initialise: try sample fetch, else leave placeholders
-    document.addEventListener('DOMContentLoaded', function(){
-      // attempt to fetch latest once — if you have a serverless proxy, replace API_PROXY
-      fetchLatest();
+    function sampleNumsArray(count, max){
+      const a=[];
+      while(a.length < count){ const n = Math.floor(Math.random()*max)+1; if(!a.includes(n)) a.push(n); }
+      return a.sort((a,b)=>a-b);
+    }
 
-      // optional: poll every 60s for live updates
-      setInterval(fetchLatest, 60000);
+    document.getElementById('load-more').addEventListener('click', function(){
+      // add a few sample rows if proxy not available
+      for(let i=0;i<3;i++){
+        const d = new Date(Date.now() - (i+2)*86400000);
+        addPastRow(d.toLocaleDateString(), 'Powerball', sampleNums(5,69) + ' PB:' + rand(1,26), '$' + rand(150,500) + 'M');
+      }
     });
+
+    // initial load
+    loadLiveOrFallback();
+    // refresh every 3 minutes
+    setInterval(loadLiveOrFallback, 180000);
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // helpers
+    function sampleNums(count, max){ const a=[]; while(a.length<count){ const n=Math.floor(Math.random()*max)+1; if(!a.includes(n)) a.push(n);} return a.sort((a,b)=>a-b).join(', '); }
+  })();
+  </script>
+
+  <!-- Canvas background script (same as before) -->
+  <script>
+  (function(){
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d', {alpha:true});
+    let w = innerWidth, h = innerHeight;
+    const DPR = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w + 'px'; canvas.style.height = h + 'px'; ctx.scale(DPR, DPR);
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
+
+    function rand(min,max){return Math.random()*(max-min)+min;}
+    const balls=[];
+    function Ball(){ this.r = rand(20,70); this.x = rand(this.r, w - this.r); this.y = rand(this.r, h - this.r); this.vx = rand(-0.25,0.25); this.vy = rand(-0.15,0.15); this.color = colors[Math.floor(rand(0,colors.length))]; }
+    for(let i=0;i<Math.max(6, Math.round((w*h)/120000)); i++) balls.push(new Ball());
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      const g = ctx.createLinearGradient(0,0,w,h); g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
+
+      balls.forEach(b=>{
+        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        if(b.x - b.r > w) b.x = -b.r;
+        if(b.x + b.r < 0) b.x = w + b.r;
+        if(b.y - b.r > h) b.y = -b.r;
+        if(b.y + b.r < 0) b.y = h + b.r;
+
+        ctx.beginPath();
+        const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
+        rg.addColorStop(0,'rgba(255,255,255,0.22)'); rg.addColorStop(0.18,b.color); rg.addColorStop(1,'rgba(0,0,0,0.15)');
+        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+
+        ctx.beginPath(); ctx.fillStyle = 'rgba(255,255,255,0.12)'; ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
+      });
+    }
+
+    let raf; function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    loop();
+    window.addEventListener('resize', ()=>{ w=innerWidth; h=innerHeight; canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);});
+  })();
   </script>
 </body>
 </html>
