@@ -12,18 +12,22 @@
   <meta name="CNAME" content="r2yewgzagcwp → gv-3mxfk22pxkir5q.dv.googlehosted.com">
 
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+    }
     body {
-      background: linear-gradient(135deg, #002b00, #004d00);
+      background: #002b00;
       color: #fff;
-      overflow-x: hidden;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
     header {
-      background: rgba(0, 64, 0, 0.85);
-      padding: 15px 25px;
+      background: #004400;
+      padding: 20px;
       text-align: center;
       font-size: 1.8em;
       font-weight: bold;
@@ -32,74 +36,62 @@
     nav {
       display: flex;
       justify-content: center;
-      background: rgba(0, 80, 0, 0.75);
+      background: #005500;
       padding: 10px;
       gap: 25px;
     }
     nav a {
-      color: #c0ffc0;
+      color: #b8ffb8;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.3s;
     }
-    nav a:hover { color: #fff; }
-
+    nav a:hover {
+      color: #ffffff;
+    }
     section {
       flex: 1;
       text-align: center;
       padding: 60px 20px;
     }
-
     h1 {
       font-size: 2.4em;
       margin-bottom: 15px;
     }
-
     p.tagline {
       font-size: 1.2em;
       color: #b6ffb6;
       margin-bottom: 30px;
     }
-
     table {
       margin: 0 auto;
       width: 90%;
       border-collapse: collapse;
-      background: rgba(0, 40, 0, 0.7);
+      background: #003300;
       border-radius: 10px;
       overflow: hidden;
     }
-
     th, td {
       padding: 15px;
       border-bottom: 1px solid #006600;
     }
-
     th {
-      background: rgba(0, 128, 0, 0.4);
+      background: #004d00;
       font-size: 1.1em;
     }
-
-    tr:hover { background: rgba(0, 128, 0, 0.3); }
-
+    tr:hover {
+      background: #005500;
+    }
     footer {
-      background: rgba(0, 64, 0, 0.85);
+      background: #004400;
       padding: 15px;
       text-align: center;
       font-size: 0.9em;
       color: #9cff9c;
     }
-
-    canvas#bgAnim {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      z-index: -1;
-    }
   </style>
 </head>
 <body>
-  <canvas id="bgAnim"></canvas>
   <header>lotteryupdate000.space</header>
 
   <nav>
@@ -147,53 +139,5 @@
   <footer>
     © 2025 lotteryupdate000.space — All Rights Reserved.
   </footer>
-
-  <script>
-    // Animated green 3D particle background
-    const canvas = document.getElementById('bgAnim');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', resize);
-    resize();
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.6;
-        this.vy = (Math.random() - 0.5) * 0.6;
-        this.size = Math.random() * 2 + 1;
-      }
-      move() {
-        this.x += this.vx;
-        this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0,255,100,0.5)';
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < 90; i++) particles.push(new Particle());
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let p of particles) {
-        p.move();
-        p.draw();
-      }
-      requestAnimationFrame(animate);
-    }
-    animate();
-  </script>
 </body>
 </html>
