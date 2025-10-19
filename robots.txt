@@ -1,44 +1,4 @@
-# robots.txt for lotteryupdate000.space
-# Last updated: 2025-01-15
-
 User-agent: *
-Allow: /$
-Allow: /privacy-policy.html$
-Allow: /terms-of-service.html$
-Allow: /sitemap.html$
+Allow: /
 
-Disallow: /admin/
-Disallow: /cgi-bin/
-Disallow: /tmp/
-Disallow: /private/
-Disallow: /api/
-Disallow: /search/
-Disallow: /?
-Disallow: /*?
-Disallow: /*.php$
-Disallow: /*.js$
-Disallow: /*.css$
-
-# Sitemap location
 Sitemap: https://lotteryupdate000.space/sitemap.xml
-
-# Specific rules for major search engines
-User-agent: Googlebot
-Allow: /*.html$
-Allow: /*.htm$
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /*.html$
-Allow: /*.htm$
-Crawl-delay: 2
-
-# Block AI training crawlers
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
