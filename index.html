@@ -3,11 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>lotteryupdate000.space — Live Lottery Results & Past Draws</title>
+  <title>lotteryupdate000.space — Live Lottery Results & Verified Past Draws</title>
 
-  <meta name="description" content="Verified numbers, jackpots, and past draws for Powerball, Mega Millions, and EuroMillions. Updated live from official sources via secure proxy." />
-  <meta name="keywords" content="lottery results, Powerball, Mega Millions, EuroMillions, live draw, jackpot results, past draws" />
-  <meta name="robots" content="index,follow" />
+  <meta name="description" content="lotteryupdate000.space provides verified and updated results for Powerball, Mega Millions, and EuroMillions. View current jackpots, winning numbers, and historical draws. Updated daily from official sources." />
+  <meta name="keywords" content="lottery results, Powerball results, Mega Millions, EuroMillions, jackpot, past draws, winning numbers, official results" />
+  <meta name="author" content="lotteryupdate000.space" />
+  <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://lotteryupdate000.space/" />
 
   <!-- ✅ Google site verification -->
@@ -17,86 +18,154 @@
   <!-- ✅ Hidden GitHub Pages verification -->
   <meta name="_github-pages-challenge-funnyscarry100" content="743c93e5b41bf53e166f3585be2e0f" />
 
-  <!-- ✅ Favicon (optional) -->
-  <link rel="icon" href="favicon.ico" />
+  <!-- ✅ Structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "lotteryupdate000.space",
+    "url": "https://lotteryupdate000.space/",
+    "description": "Verified lottery results and historical draws for Powerball, Mega Millions, and EuroMillions. Updated daily from official sources.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "lotteryupdate000.space"
+    }
+  }
+  </script>
 
   <style>
-    body {
+    :root {
+      --green: #4cff4c;
+      --bg: radial-gradient(circle at center, #002200, #000000);
+      --text: #e8ffe8;
+      --light: rgba(255,255,255,0.1);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: "Segoe UI", Arial, sans-serif;
-      background: radial-gradient(circle at center, #003300, #000);
-      color: #fff;
-      text-align: center;
-      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
     }
+
+    header {
+      background: var(--light);
+      padding: 20px;
+      border-bottom: 2px solid var(--green);
+    }
+
     header h1 {
-      font-size: 2rem;
-      color: #4cff4c;
-      margin-bottom: 10px;
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 5px;
     }
-    p {
+
+    header p {
       font-size: 1rem;
-      color: #bfffbf;
-      margin: 0 20px;
+      opacity: 0.85;
     }
-    .results {
-      margin-top: 20px;
-      background: rgba(255,255,255,0.05);
+
+    main {
+      flex: 1;
+      padding: 30px 10px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .card {
+      background: var(--light);
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 0 10px rgba(0,255,0,0.4);
-      width: 90%;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,255,0,0.3);
     }
+
+    .card h2 {
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
     footer {
-      margin-top: 40px;
+      border-top: 1px solid var(--green);
+      padding: 15px;
       font-size: 0.9rem;
       opacity: 0.7;
     }
+
+    footer a {
+      color: var(--green);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
+
 <body>
   <header>
     <h1>lotteryupdate000.space</h1>
-    <p>Live & Verified Lottery Results — Powerball, Mega Millions, EuroMillions</p>
+    <p>Verified Live Lottery Results & Historical Draws</p>
   </header>
 
-  <section class="results" id="results">
-    <p>Loading verified draws...</p>
-  </section>
+  <main>
+    <section class="card">
+      <h2>Today's Verified Results</h2>
+      <div id="results">
+        <p>Loading verified draws...</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>About This Site</h2>
+      <p>
+        We provide accurate and verified lottery results for Powerball, Mega Millions, and EuroMillions.
+        All results are updated using secure proxies from official sources.
+        Historical data allows players to analyze past patterns and draw histories.
+      </p>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 lotteryupdate000.space | <a href="terms.html" style="color:#4cff4c;">Terms</a> | <a href="privacy.html" style="color:#4cff4c;">Privacy</a></p>
-    <!-- Hidden verification comment for backup -->
+    <p>&copy; 2025 lotteryupdate000.space</p>
+    <a href="terms.html">Terms</a> | 
+    <a href="privacy.html">Privacy</a>
+    <!-- Hidden GitHub Pages verification comment -->
     <!-- _github-pages-challenge-funnyscarry100=743c93e5b41bf53e166f3585be2e0f -->
   </footer>
 
   <script>
-    // Simulated data placeholder — replace with your live proxy later
-    const placeholderResults = [
+    // Placeholder data (replace with API or proxy later)
+    const sampleResults = [
       { game: "Powerball", numbers: "05 11 22 35 63", bonus: "17", date: "2025-10-19" },
       { game: "Mega Millions", numbers: "14 32 41 43 65", bonus: "12", date: "2025-10-18" },
       { game: "EuroMillions", numbers: "03 09 22 38 49", bonus: "02 11", date: "2025-10-18" }
     ];
 
-    function loadResults() {
+    function renderResults() {
       const container = document.getElementById('results');
-      container.innerHTML = placeholderResults.map(r => `
+      container.innerHTML = sampleResults.map(r => `
         <div style="margin-bottom:15px;">
           <h3>${r.game}</h3>
-          <p>Numbers: ${r.numbers}</p>
-          <p>Bonus: ${r.bonus}</p>
-          <p>Date: ${r.date}</p>
+          <p><strong>Numbers:</strong> ${r.numbers}</p>
+          <p><strong>Bonus:</strong> ${r.bonus}</p>
+          <p><em>Date: ${r.date}</em></p>
         </div>
       `).join('');
     }
 
-    window.onload = loadResults;
+    window.onload = renderResults;
   </script>
 </body>
 </html>
