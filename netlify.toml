@@ -1,3 +1,8 @@
 [build]
-  command = ""      # don't run npm
-  publish = "."     # serve current folder (index.html)
+  command = "echo Build complete"
+  publish = "."
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
