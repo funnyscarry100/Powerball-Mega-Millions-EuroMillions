@@ -1,295 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>lotteryupdate000.space — Live Lottery Results & Verified Past Draws</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LotteryUpdate000.Space — Live Lottery Results</title>
 
-  <meta name="description" content="lotteryupdate000.space provides verified and updated results for Powerball, Mega Millions, and EuroMillions. View current jackpots, winning numbers, and historical draws." />
-  <meta name="keywords" content="lottery results, Powerball, Mega Millions, EuroMillions, jackpot, past draws, winning numbers" />
-  <meta name="author" content="lotteryupdate000.space" />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://lotteryupdate000.space/" />
+  <!-- SEO Meta -->
+  <meta name="description" content="Live lottery results, verified winning numbers, and historical draws updated in real time. Powered by LotteryUpdate000.Space." />
+  <meta name="keywords" content="lottery, results, winning numbers, jackpot, draw, live update, lotteryupdate000.space" />
+  <meta name="author" content="LotteryUpdate000.Space" />
 
-  <!-- Google verification -->
-  <meta name="google-site-verification" content="r2yewgzagcwp" />
-  <meta name="google-site-verification" content="gv-3mxfk22pxkir5q.dv.googlehosted.com" />
+  <!-- Favicon -->
+  <link rel="icon" href="assets/logo.png" type="image/png" />
 
-  <!-- Hidden GitHub Pages verification -->
-  <meta name="_github-pages-challenge-funnyscarry100" content="743c93e5b41bf53e166f3585be2e0f" />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "name":"lotteryupdate000.space",
-    "url":"https://lotteryupdate000.space/",
-    "description":"Verified lottery results and historical draws for Powerball, Mega Millions, and EuroMillions."
-  }
-  </script>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --blue-1:#0047ab;
-      --blue-2:#007bff;
-      --card-bg: rgba(255,255,255,0.95);
-      --muted:#666;
-      --accent:#0ea5a0;
-      --max-width:1100px;
-    }
-
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-    body {background: linear-gradient(180deg,#eaf4ff 0%, #f7fbff 100%); color:#0b2140;}
-
-    /* Header / navigation */
-    header{
-      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
-      color:#fff;
-      padding:18px 12px;
-      text-align:center;
-    }
-    header .brand{font-weight:700;font-size:1.25rem;letter-spacing:0.2px;}
-    nav{background:#003c99;padding:10px 0;box-shadow:0 1px 0 rgba(0,0,0,0.05);}
-    .nav-list{display:flex;gap:20px;justify-content:center;align-items:center;margin:0;padding:0;list-style:none;}
-    .nav-list a{color:#fff;text-decoration:none;font-weight:600;padding:8px 6px;border-radius:6px;}
-    .nav-list a.active{background:rgba(255,255,255,0.08);text-decoration:underline;}
-
-    /* Page shell */
-    .wrap{max-width:var(--max-width);margin:28px auto;padding:0 18px;}
-    .hero{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:24px;
-      display:flex;
-      gap:20px;
-      align-items:center;
-      box-shadow:0 8px 28px rgba(6,30,60,0.08);
-    }
-    .hero-left{flex:1}
-    .hero-right{width:260px;text-align:center}
-    .hero h1{margin:0;font-size:1.35rem;color:var(--blue-1)}
-    .hero p{margin:8px 0;color:var(--muted)}
-    .cta-btn{
-      display:inline-block;background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
-      color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;
-      box-shadow:0 6px 16px rgba(0,60,153,0.18);
-    }
-
-    /* Grid & cards */
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:20px;margin-top:20px;}
-    @media (max-width:940px){.grid{grid-template-columns:1fr;}}
-    .card{
-      background:var(--card-bg);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(6,30,60,0.06);
-    }
-
-    /* Results */
-    .lottery-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-    .lottery-box{flex:1;min-width:180px;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#f6fbfa);border:1px solid #eef6f6}
-    .lottery-name{font-weight:700;color:var(--blue-1);margin-bottom:6px}
-    .numbers{display:flex;gap:8px;flex-wrap:wrap}
-    .ball{
-      width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:#fff;
-      box-shadow:0 6px 12px rgba(10,10,20,0.08)
-    }
-    .ball.power{background:#e63946} /* red */
-    .ball.mega{background:#0b6efd} /* blue */
-    .ball.euro{background:#12b886} /* green */
-    .meta{font-size:0.9rem;color:var(--muted);margin-top:8px}
-
-    /* Table */
-    table{width:100%;border-collapse:collapse;font-size:0.95rem}
-    th,td{padding:10px;border-bottom:1px solid #eef2f7;text-align:left}
-    th{background:#fbfdff;color:var(--blue-1)}
-    .small{font-size:0.85rem;color:var(--muted)}
-
-    /* Footer */
-    footer{margin-top:28px;text-align:center;color:#fff;padding:18px;background:linear-gradient(90deg,var(--blue-1),var(--blue-2))}
-    footer .muted{color:rgba(255,255,255,0.85);font-size:0.95rem}
-    .verif{font-size:0.8rem;color:rgba(255,255,255,0.9);margin-top:6px;opacity:0.95}
-
-    /* Accessibility */
-    @media (prefers-reduced-motion: reduce){
-      * {animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
-    }
-  </style>
+  <!-- Open Graph -->
+  <meta property="og:title" content="LotteryUpdate000.Space — Live Lottery Results" />
+  <meta property="og:description" content="Check verified live lottery results, winning numbers, and historical draws instantly." />
+  <meta property="og:image" content="assets/logo.png" />
+  <meta property="og:url" content="https://lotteryupdate000.space/" />
+  <meta property="og:type" content="website" />
 </head>
 <body>
-  <!-- Hidden verification fallback (backup) -->
-  <!-- _github-pages-challenge-funnyscarry100=743c93e5b41bf53e166f3585be2e0f -->
-
+  <!-- Header -->
   <header>
-    <div class="brand">lotteryupdate000.space</div>
+    <div class="container">
+      <img src="assets/logo.png" alt="LotteryUpdate000.Space Logo" class="logo" />
+      <h1>Live Lottery Results</h1>
+    </div>
   </header>
 
-  <nav aria-label="Main navigation">
-    <ul class="nav-list">
-      <li><a href="index.html" class="active" id="nav-home">Home</a></li>
-      <li><a href="terms.html" id="nav-terms">Terms</a></li>
-      <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
-    </ul>
-  </nav>
-
-  <main class="wrap" id="content">
-    <div class="hero">
-      <div class="hero-left">
-        <h1>Live & Verified Lottery Results</h1>
-        <p>Powerball, Mega Millions, EuroMillions — verified numbers, jackpot estimates, and historical draws. Replace sample data with your secure proxy feed when ready.</p>
-        <p class="small">Structured, fast, and optimized for search engines.</p>
+  <!-- Main Content -->
+  <main class="container">
+    <!-- Live Results Section -->
+    <section id="live-results">
+      <h2>Today's Winning Numbers</h2>
+      <div id="results-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Lottery</th>
+              <th>Draw Date</th>
+              <th>Winning Numbers</th>
+              <th>Jackpot</th>
+            </tr>
+          </thead>
+          <tbody id="results-body">
+            <!-- JavaScript will populate live results here -->
+          </tbody>
+        </table>
       </div>
-      <div class="hero-right">
-        <div style="background:#fff;border-radius:10px;padding:12px;box-shadow:0 6px 16px rgba(0,0,0,0.06)">
-          <div style="font-weight:700;color:var(--blue-1)">Latest Update</div>
-          <div id="latest-time" class="small" style="margin-top:6px">—</div>
-          <div style="margin-top:8px;"><a class="cta-btn" href="#latest">View Latest</a></div>
-        </div>
+    </section>
+
+    <!-- Historical Results Section -->
+    <section id="historical-results">
+      <h2>Past Draws</h2>
+      <div id="history-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Lottery</th>
+              <th>Date</th>
+              <th>Winning Numbers</th>
+              <th>Jackpot</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <!-- JavaScript will populate historical results here -->
+          </tbody>
+        </table>
       </div>
-    </div>
-
-    <div class="grid" style="margin-top:18px;">
-      <div class="card" id="latest">
-        <h3 style="margin:0 0 10px 0;color:var(--blue-1)">Latest Results</h3>
-
-        <div class="lottery-row" aria-live="polite">
-          <!-- Powerball -->
-          <div class="lottery-box" role="region" aria-label="Powerball latest result">
-            <div class="lottery-name">Powerball</div>
-            <div class="numbers" id="powerball-numbers"></div>
-            <div class="meta" id="powerball-meta">Jackpot estimate: —</div>
-          </div>
-
-          <!-- Mega Millions -->
-          <div class="lottery-box" role="region" aria-label="Mega Millions latest result">
-            <div class="lottery-name">Mega Millions</div>
-            <div class="numbers" id="megamillions-numbers"></div>
-            <div class="meta" id="megamillions-meta">Jackpot estimate: —</div>
-          </div>
-
-          <!-- EuroMillions -->
-          <div class="lottery-box" role="region" aria-label="EuroMillions latest result">
-            <div class="lottery-name">EuroMillions</div>
-            <div class="numbers" id="euromillions-numbers"></div>
-            <div class="meta" id="euromillions-meta">Jackpot estimate: —</div>
-          </div>
-        </div>
-
-        <hr style="margin:18px 0;border:none;border-top:1px solid #eef2f7">
-
-        <h4 style="margin:0 0 12px 0;color:var(--blue-1)">Past Results</h4>
-        <div style="overflow:auto;">
-          <table aria-describedby="past-desc" id="past-table">
-            <caption id="past-desc" style="text-align:left;padding-bottom:8px;font-size:0.9rem;color:var(--muted)">Recent past draws — sample data</caption>
-            <thead>
-              <tr><th>Date</th><th>Lottery</th><th>Numbers</th><th>Jackpot</th></tr>
-            </thead>
-            <tbody id="past-body"></tbody>
-          </table>
-        </div>
-
-        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-          <button id="load-more" style="background:linear-gradient(90deg,var(--blue-2),var(--blue-1));color:#fff;padding:10px 12px;border-radius:8px;border:none;cursor:pointer;font-weight:700">Load more</button>
-          <div class="small" style="color:var(--muted)">Sample historical rows for testing — replace with real data source later.</div>
-        </div>
-      </div>
-
-      <aside class="card" aria-labelledby="about-heading">
-        <h3 id="about-heading" style="color:var(--blue-1)">About lotteryupdate000.space</h3>
-        <p class="small">We provide clear presentation of lottery results and archives. Integrate official APIs via your serverless proxy when ready.</p>
-
-        <div style="margin-top:18px;font-size:0.9rem;color:var(--muted)">
-          <strong>Verification:</strong>
-          <div class="verif">CNAME: r2yewgzagcwp → gv-3mxfk22pxkir5q.dv.googlehosted.com</div>
-        </div>
-      </aside>
-    </div>
-
+    </section>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="muted">© <span id="year"></span> lotteryupdate000.space — All rights reserved.</div>
+    <div class="container">
+      <p>&copy; 2025 LotteryUpdate000.Space. All Rights Reserved.</p>
+      <nav>
+        <a href="/terms.html">Terms of Service</a> |
+        <a href="/privacy.html">Privacy Policy</a>
+      </nav>
+    </div>
   </footer>
 
-  <script>
-    (function(){
-      const pad = n => (n<10? '0'+n : n);
-      function formatTime(d){ return d.toLocaleDateString() + ' ' + pad(d.getHours()) + ':' + pad(d.getMinutes()); }
-
-      function randomInts(count, max){ const a=[]; while(a.length<count){ const n= Math.floor(Math.random()*max)+1; if(!a.includes(n)) a.push(n);} return a.sort((x,y)=>x-y); }
-
-      function setLatest(){
-        const now=new Date();
-        document.getElementById('latest-time').textContent = formatTime(now) + ' (LOCAL)';
-        const pb = randomInts(5,69); const pbBall = Math.floor(Math.random()*26)+1;
-        renderNumbers('powerball-numbers', pb, 'power', pbBall);
-        document.getElementById('powerball-meta').textContent = 'Jackpot estimate: $' + (Math.floor(Math.random()*400)+200) + 'M';
-
-        const mm = randomInts(5,70); const mmBall = Math.floor(Math.random()*25)+1;
-        renderNumbers('megamillions-numbers', mm, 'mega', mmBall);
-        document.getElementById('megamillions-meta').textContent = 'Jackpot estimate: $' + (Math.floor(Math.random()*350)+150) + 'M';
-
-        const em = randomInts(5,50); const stars = randomInts(2,12);
-        renderNumbers('euromillions-numbers', em, 'euro', stars);
-        document.getElementById('euromillions-meta').textContent = 'Jackpot estimate: €' + (Math.floor(Math.random()*180)+50) + 'M';
-      }
-
-      function renderNumbers(containerId, mainNums, styleClass, extra){
-        const container = document.getElementById(containerId);
-        container.innerHTML = '';
-        mainNums.forEach(n => {
-          const b = document.createElement('div');
-          b.className = 'ball '+ (styleClass || '');
-          b.textContent = n;
-          container.appendChild(b);
-        });
-        if(Array.isArray(extra)){
-          extra.forEach(s=>{
-            const b = document.createElement('div');
-            b.className = 'ball '+ (styleClass || '');
-            b.textContent = '★'+s;
-            container.appendChild(b);
-          });
-        } else if(extra !== undefined){
-          const b = document.createElement('div');
-          b.className = 'ball '+ (styleClass || '');
-          b.textContent = extra;
-          container.appendChild(b);
-        }
-      }
-
-      const pastBody = document.getElementById('past-body');
-      function addPastRow(date, lottery, nums, jackpot){
-        const tr=document.createElement('tr');
-        const tdDate=document.createElement('td'); tdDate.textContent = date;
-        const tdLottery=document.createElement('td'); tdLottery.textContent = lottery;
-        const tdNums=document.createElement('td'); tdNums.textContent = nums;
-        const tdJack=document.createElement('td'); tdJack.textContent = jackpot;
-        tr.append(tdDate,tdLottery,tdNums,tdJack);
-        pastBody.appendChild(tr);
-      }
-
-      function seedPast(n=6){
-        pastBody.innerHTML='';
-        for(let i=0;i<n;i++){
-          const d=new Date(Date.now() - (i+1)*86400000);
-          addPastRow(d.toLocaleDateString(), 'Powerball', randomInts(5,69).join(', ') + ' PB:'+ (Math.floor(Math.random()*26)+1), '$'+(Math.floor(Math.random()*400)+150)+'M');
-          addPastRow(d.toLocaleDateString(), 'Mega Millions', randomInts(5,70).join(', ') + ' MB:'+ (Math.floor(Math.random()*25)+1), '$'+(Math.floor(Math.random()*300)+100)+'M');
-          addPastRow(d.toLocaleDateString(), 'EuroMillions', randomInts(5,50).join(', ') + ' S:' + randomInts(2,12).join(','), '€'+(Math.floor(Math.random()*150)+40)+'M');
-        }
-      }
-
-      document.getElementById('load-more').addEventListener('click', function(){
-        const last = pastBody.querySelectorAll('tr').length;
-        for(let i=0;i<3;i++){
-          const d=new Date(Date.now() - (last/3 + i +1)*86400000);
-          addPastRow(d.toLocaleDateString(), 'Powerball', randomInts(5,69).join(', ') + ' PB:'+ (Math.floor(Math.random()*26)+1), '$'+(Math.floor(Math.random()*400)+150)+'M');
-        }
-      });
-
-      setLatest();
-      seedPast(6);
-      setInterval(setLatest, 60000);
-      document.getElementById('year').textContent = new Date().getFullYear();
-    })();
-  </script>
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
 </body>
 </html>
