@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LotteryUpdate000.Space — Live Lottery Results</title>
+
+  <!-- SEO Meta -->
+  <meta name="description" content="Live lottery results — Powerball, Mega Millions, EuroMillions — updating securely via verified APIs.">
+  <meta name="keywords" content="lottery, powerball, mega millions, euro millions, live results">
+  <meta name="author" content="LotteryUpdate000.Space">
+
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Icons -->
+  <link rel="icon" type="image/png" href="/assets/logo.png" />
+
+  <!-- Preload -->
+  <link rel="preload" href="/assets/background.png" as="image">
+
+  <style>
+    body {
+      background: url('/assets/background.png') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="/assets/logo.png" alt="LotteryUpdate000 Logo" id="logo">
+  <h1>Live Lottery Results</h1>
+  <p>Powered by secure, verified APIs — auto refresh enabled ✅</p>
+</header>
+
+<main>
+
+  <section class="lottery-box" id="powerball-box">
+    <h2>Powerball</h2>
+    <div class="numbers" id="powerball-numbers">Fetching… ⏳</div>
+    <div class="date" id="powerball-date"></div>
+  </section>
+
+  <section class="lottery-box" id="megamillions-box">
+    <h2>Mega Millions</h2>
+    <div class="numbers" id="mega-numbers">Fetching… ⏳</div>
+    <div class="date" id="mega-date"></div>
+  </section>
+
+  <section class="lottery-box" id="euromillions-box">
+    <h2>EuroMillions</h2>
+    <div class="numbers" id="euro-numbers">Fetching… ⏳</div>
+    <div class="date" id="euro-date"></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>© <span id="year"></span> LotteryUpdate000.Space — All rights reserved ✅</p>
+</footer>
+
+<!-- Load main data script -->
+<script type="module" src="/js/app.js"></script>
+
+<script>
+// Year auto update
+document.querySelector("#year").textContent = new Date().getFullYear();
+
+// Background floating animation
+document.addEventListener("DOMContentLoaded", () => {
+  const bubbles = document.createElement("div");
+  bubbles.id = "bubbles";
+  document.body.appendChild(bubbles);
+  for (let i = 0; i < 15; i++) {
+    const b = document.createElement("span");
+    b.className = "bubble";
+    b.style.left = Math.random() * 100 + "%";
+    b.style.animationDelay = (i * 0.5) + "s";
+    bubbles.appendChild(b);
+  }
+});
+</script>
+
+</body>
+</html>
