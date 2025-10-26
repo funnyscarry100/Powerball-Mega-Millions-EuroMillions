@@ -1,86 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LotteryUpdate000.Space — Live Lottery Results</title>
-
-  <!-- SEO Meta -->
-  <meta name="description" content="Live lottery results — Powerball, Mega Millions, EuroMillions — updating securely via verified APIs.">
-  <meta name="keywords" content="lottery, powerball, mega millions, euro millions, live results">
-  <meta name="author" content="LotteryUpdate000.Space">
-
-  <link rel="stylesheet" href="/css/style.css" />
-
-  <!-- Icons -->
-  <link rel="icon" type="image/png" href="/assets/logo.png" />
-
-  <!-- Preload -->
-  <link rel="preload" href="/assets/background.png" as="image">
-
-  <style>
-    body {
-      background: url('/assets/background.png') no-repeat center center fixed;
-      background-size: cover;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Live Lottery Results - Powerball, Mega Millions, EuroMillions</title>
+<meta name="description" content="Live lottery results for Powerball, Mega Millions and EuroMillions.">
+<link rel="stylesheet" href="css/style.css">
+<!-- Adsense example (keep if configured) -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6029541871212501" crossorigin="anonymous"></script>
+<style>
+/* small inline rules for number balls (if not in css/style.css) */
+.number-ball{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin:6px}
+.regular-ball{background:#2c3e50}
+.powerball-ball{background:#e74c3c}
+.megaball-ball{background:#3498db}
+.euro-star{background:#f1c40f;color:#2c3e50}
+</style>
 </head>
-
 <body>
-
 <header>
-  <img src="/assets/logo.png" alt="LotteryUpdate000 Logo" id="logo">
   <h1>Live Lottery Results</h1>
-  <p>Powered by secure, verified APIs — auto refresh enabled ✅</p>
+  <p class="subtitle">Latest winning numbers, jackpots and next draws</p>
+  <div class="current-date" id="current-date">Loading date...</div>
 </header>
 
-<main>
+<main class="wrap">
+  <h2>Today's Lottery Results – <span id="today-date"></span></h2>
 
-  <section class="lottery-box" id="powerball-box">
-    <h2>Powerball</h2>
-    <div class="numbers" id="powerball-numbers">Fetching… ⏳</div>
-    <div class="date" id="powerball-date"></div>
+  <section class="lottery-section powerball">
+    <h2 class="lottery-name">Powerball Results</h2>
+    <p class="update-time">Updated: <span id="powerball-update-time">—</span></p>
+    <div class="prize-info">
+      <h3>Current Estimated Jackpot:</h3>
+      <div class="jackpot-amount" id="powerball-jackpot">—</div>
+    </div>
+    <h3>Winning Numbers for <span id="powerball-last-draw-date">—</span>:</h3>
+    <div class="winning-numbers" id="powerball-numbers"></div>
+    <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing">—</span></p>
+    <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
   </section>
 
-  <section class="lottery-box" id="megamillions-box">
-    <h2>Mega Millions</h2>
-    <div class="numbers" id="mega-numbers">Fetching… ⏳</div>
-    <div class="date" id="mega-date"></div>
+  <section class="lottery-section megamillions">
+    <h2 class="lottery-name">Mega Millions Results</h2>
+    <p class="update-time">Updated: <span id="megamillions-update-time">—</span></p>
+    <div class="prize-info">
+      <h3>Current Estimated Jackpot:</h3>
+      <div class="jackpot-amount" id="megamillions-jackpot">—</div>
+    </div>
+    <h3>Winning Numbers for <span id="megamillions-last-draw-date">—</span>:</h3>
+    <div class="winning-numbers" id="megamillions-numbers"></div>
+    <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing">—</span></p>
+    <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
   </section>
 
-  <section class="lottery-box" id="euromillions-box">
-    <h2>EuroMillions</h2>
-    <div class="numbers" id="euro-numbers">Fetching… ⏳</div>
-    <div class="date" id="euro-date"></div>
+  <section class="lottery-section euromillions">
+    <h2 class="lottery-name">EuroMillions Results</h2>
+    <p class="update-time">Updated: <span id="euromillions-update-time">—</span></p>
+    <div class="prize-info">
+      <h3>Current Estimated Jackpot:</h3>
+      <div class="jackpot-amount" id="euromillions-jackpot">—</div>
+    </div>
+    <h3>Winning Numbers for <span id="euromillions-last-draw-date">—</span>:</h3>
+    <div class="winning-numbers" id="euromillions-numbers"></div>
+    <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing">—</span></p>
+    <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
   </section>
 
 </main>
 
 <footer>
-  <p>© <span id="year"></span> LotteryUpdate000.Space — All rights reserved ✅</p>
+  <p>© <span id="year"></span> Lottery Results Hub. All rights reserved.</p>
+  <p>This is not an official lottery site. For official information, visit your local lottery.</p>
 </footer>
 
-<!-- Load main data script -->
-<script type="module" src="/js/app.js"></script>
-
 <script>
-// Year auto update
-document.querySelector("#year").textContent = new Date().getFullYear();
-
-// Background floating animation
-document.addEventListener("DOMContentLoaded", () => {
-  const bubbles = document.createElement("div");
-  bubbles.id = "bubbles";
-  document.body.appendChild(bubbles);
-  for (let i = 0; i < 15; i++) {
-    const b = document.createElement("span");
-    b.className = "bubble";
-    b.style.left = Math.random() * 100 + "%";
-    b.style.animationDelay = (i * 0.5) + "s";
-    bubbles.appendChild(b);
+  // small client-side time helpers for static elements
+  function updateStaticTimes(){
+    const now = new Date();
+    document.getElementById('current-date').textContent = now.toLocaleDateString(undefined, {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+    document.getElementById('today-date').textContent = now.toLocaleDateString(undefined, {month:'long', day:'numeric', year:'numeric'});
+    document.getElementById('year').textContent = now.getFullYear();
+    // compute next drawing placeholders (you can customize)
+    function nextDrawing(dayOfWeek, hour){
+      const d=new Date(); const cur=d.getDay(); let days=(dayOfWeek-cur+7)%7; if(days===0 && d.getHours()>=hour) days=7; d.setDate(d.getDate()+days); d.setHours(hour,0,0,0); return d;
+    }
+    document.getElementById('powerball-next-drawing').textContent = nextDrawing(3,22).toLocaleString();
+    document.getElementById('megamillions-next-drawing').textContent = nextDrawing(2,23).toLocaleString();
+    document.getElementById('euromillions-next-drawing').textContent = nextDrawing(2,20).toLocaleString();
   }
-});
+  updateStaticTimes();
+  setInterval(updateStaticTimes, 60000);
 </script>
 
+<!-- Load module-based app (Netlify supports modules) -->
+<script type="module" src="/js/app.js"></script>
 </body>
 </html>
