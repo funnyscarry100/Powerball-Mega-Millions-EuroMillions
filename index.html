@@ -105,199 +105,114 @@
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
-        /* Navigation */
-        .main-nav {
+        /* Today's Results Box */
+        .todays-results {
             background: white;
-            border-radius: 10px;
-            padding: 0;
-            margin-bottom: 25px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-        
-        .nav-list {
-            display: flex;
-            list-style: none;
-            justify-content: center;
-        }
-        
-        .nav-item {
-            flex: 1;
-        }
-        
-        .nav-link {
-            display: block;
-            padding: 20px;
-            text-align: center;
-            text-decoration: none;
-            color: #555;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border-bottom: 3px solid transparent;
-        }
-        
-        .nav-link:hover, .nav-link.active {
-            color: #3498db;
-            border-bottom-color: #3498db;
-            background: #f8f9fa;
-        }
-        
-        /* Tabs */
-        .tab-container {
-            display: flex;
-            margin-bottom: 25px;
-            background: white;
-            border-radius: 10px;
-            padding: 5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-        }
-        
-        .tab {
-            flex: 1;
-            padding: 15px 20px;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: #555;
-        }
-        
-        .tab.active {
-            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
-            color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        
-        .tab:hover:not(.active) {
-            background: #f8f9fa;
-        }
-        
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Lottery Sections */
-        .lottery-section {
-            background-color: #fff;
             border-radius: 12px;
             padding: 30px;
             margin-bottom: 30px;
             box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-            border-left: 6px solid;
+            border: 2px solid #3498db;
+        }
+        
+        .todays-results h2 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 15px;
+        }
+        
+        .lottery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .lottery-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
         
-        .lottery-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--section-color), transparent);
+        .lottery-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
         }
         
-        .lottery-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-        }
-        
-        .powerball {
-            --section-color: var(--powerball-color);
+        .powerball-card {
             border-left-color: var(--powerball-color);
         }
         
-        .megamillions {
-            --section-color: var(--megamillions-color);
+        .megamillions-card {
             border-left-color: var(--megamillions-color);
         }
         
-        .euromillions {
-            --section-color: var(--euromillions-color);
+        .euromillions-card {
             border-left-color: var(--euromillions-color);
         }
         
-        .lottery-name {
-            color: #2c3e50;
-            margin-top: 0;
-            font-size: 2rem;
+        .lottery-header {
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
         
         .lottery-icon {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-right: 12px;
+        }
+        
+        .lottery-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            font-weight: 600;
         }
         
         .update-time {
             color: #7f8c8d;
-            font-size: 1rem;
-            margin-bottom: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
         }
         
         .update-time::before {
             content: "🔄";
-            margin-right: 8px;
-        }
-        
-        .prize-info {
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-            padding: 25px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border: 1px solid #e9ecef;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-right: 6px;
         }
         
         .jackpot-amount {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             color: #e74c3c;
             font-weight: bold;
             margin: 15px 0;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
-        .next-drawing {
-            font-weight: bold;
-            color: #27ae60;
-            font-size: 1.2rem;
-        }
-        
         .winning-numbers {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
-            margin: 25px 0;
+            gap: 10px;
+            margin: 20px 0;
             justify-content: center;
         }
         
         .number-ball {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.2);
             transition: transform 0.3s ease;
         }
         
@@ -322,18 +237,33 @@
             background: #2c3e50;
         }
         
+        .drawing-info {
+            background: #e8f4fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .next-drawing {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1rem;
+        }
+        
         .check-results {
             background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
-            padding: 14px 30px;
+            padding: 12px 25px;
             border: none;
             border-radius: 8px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 15px;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             font-weight: 600;
+            width: 100%;
         }
         
         .check-results:hover {
@@ -346,9 +276,9 @@
         .api-status {
             display: inline-flex;
             align-items: center;
-            padding: 6px 12px;
+            padding: 4px 10px;
             border-radius: 20px;
-            font-size: 0.8rem;
+            font-size: 0.7rem;
             margin-left: 10px;
             font-weight: 600;
         }
@@ -463,18 +393,19 @@
         /* Loading and Error States */
         .loading {
             text-align: center;
-            padding: 30px;
+            padding: 20px;
             color: #7f8c8d;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
         
         .error-message {
             background-color: #ffeaa7;
             color: #d63031;
-            padding: 20px;
+            padding: 15px;
             border-radius: 8px;
-            margin: 15px 0;
+            margin: 10px 0;
             border-left: 4px solid #d63031;
+            font-size: 0.9rem;
         }
         
         /* Responsive Design */
@@ -496,40 +427,31 @@
                 padding: 14px;
             }
             
-            .nav-list {
-                flex-direction: column;
+            .lottery-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .tab-container {
-                flex-direction: column;
-                gap: 5px;
-            }
-            
-            .tab {
-                text-align: center;
-                border-radius: 8px;
-            }
-            
-            .lottery-section {
+            .lottery-card {
                 padding: 20px;
             }
             
-            .lottery-name {
-                font-size: 1.6rem;
-            }
-            
-            .jackpot-amount {
-                font-size: 1.8rem;
-            }
-            
-            .number-ball {
-                width: 50px;
-                height: 50px;
+            .lottery-title {
                 font-size: 1.2rem;
             }
             
+            .jackpot-amount {
+                font-size: 1.5rem;
+            }
+            
+            .number-ball {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+            
             .winning-numbers {
-                gap: 10px;
+                gap: 8px;
             }
             
             .footer-links {
@@ -553,82 +475,96 @@
             <div class="current-date" id="current-date">Loading date...</div>
         </header>
         
-        <!-- Navigation -->
-        <nav class="main-nav">
-            <ul class="nav-list">
-                <li class="nav-item"><a href="#today" class="nav-link active">Today's Results</a></li>
-                <li class="nav-item"><a href="#powerball" class="nav-link">Powerball</a></li>
-                <li class="nav-item"><a href="#megamillions" class="nav-link">Mega Millions</a></li>
-                <li class="nav-item"><a href="#euromillions" class="nav-link">EuroMillions</a></li>
-            </ul>
-        </nav>
+        <!-- Today's Results Box -->
+        <div class="todays-results">
+            <h2>Today's Lottery Results – <span id="today-date"></span></h2>
+            
+            <div class="lottery-grid">
+                <!-- Powerball Card -->
+                <div class="lottery-card powerball-card">
+                    <div class="lottery-header">
+                        <span class="lottery-icon">🎯</span>
+                        <span class="lottery-title">Powerball</span>
+                        <span class="api-status status-updating" id="powerball-status">UPDATING</span>
+                    </div>
+                    <p class="update-time">Updated: <span id="powerball-update-time"></span></p>
+                    
+                    <div class="jackpot-amount" id="powerball-jackpot">Loading...</div>
+                    
+                    <h4>Winning Numbers for <span id="powerball-last-draw-date"></span>:</h4>
+                    <div class="winning-numbers" id="powerball-numbers">
+                        <div class="loading">Fetching latest results...</div>
+                    </div>
+                    
+                    <div class="drawing-info">
+                        <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing"></span></p>
+                        <p>Drawings: Wednesday & Saturday, 10:59 PM ET</p>
+                    </div>
+                    
+                    <button class="check-results" onclick="window.open('https://www.powerball.com/', '_blank')">
+                        Check Official Powerball Results
+                    </button>
+                </div>
+                
+                <!-- Mega Millions Card -->
+                <div class="lottery-card megamillions-card">
+                    <div class="lottery-header">
+                        <span class="lottery-icon">🌟</span>
+                        <span class="lottery-title">Mega Millions</span>
+                        <span class="api-status status-updating" id="megamillions-status">UPDATING</span>
+                    </div>
+                    <p class="update-time">Updated: <span id="megamillions-update-time"></span></p>
+                    
+                    <div class="jackpot-amount" id="megamillions-jackpot">Loading...</div>
+                    
+                    <h4>Winning Numbers for <span id="megamillions-last-draw-date"></span>:</h4>
+                    <div class="winning-numbers" id="megamillions-numbers">
+                        <div class="loading">Fetching latest results...</div>
+                    </div>
+                    
+                    <div class="drawing-info">
+                        <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing"></span></p>
+                        <p>Drawings: Tuesday & Friday, 11:00 PM ET</p>
+                    </div>
+                    
+                    <button class="check-results" onclick="window.open('https://www.megamillions.com/', '_blank')">
+                        Check Official Mega Millions Results
+                    </button>
+                </div>
+                
+                <!-- EuroMillions Card -->
+                <div class="lottery-card euromillions-card">
+                    <div class="lottery-header">
+                        <span class="lottery-icon">💶</span>
+                        <span class="lottery-title">EuroMillions</span>
+                        <span class="api-status status-updating" id="euromillions-status">UPDATING</span>
+                    </div>
+                    <p class="update-time">Updated: <span id="euromillions-update-time"></span></p>
+                    
+                    <div class="jackpot-amount" id="euromillions-jackpot">Loading...</div>
+                    
+                    <h4>Winning Numbers for <span id="euromillions-last-draw-date"></span>:</h4>
+                    <div class="winning-numbers" id="euromillions-numbers">
+                        <div class="loading">Fetching latest results...</div>
+                    </div>
+                    
+                    <div class="drawing-info">
+                        <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing"></span></p>
+                        <p>Drawings: Tuesday & Friday Evening</p>
+                    </div>
+                    
+                    <button class="check-results" onclick="window.open('https://www.euro-millions.com/', '_blank')">
+                        Check Official EuroMillions Results
+                    </button>
+                </div>
+            </div>
+        </div>
         
         <!-- CPA Banner -->
         <div class="cpa-banner">
             <h3>💰 Special Limited Time Offer! 💰</h3>
             <p>Claim your exclusive bonus when you sign up today!</p>
             <button class="cpa-button" id="cpa-offer-button">Claim Your Bonus Now</button>
-        </div>
-        
-        <!-- Tabs -->
-        <div class="tab-container">
-            <div class="tab active" data-tab="today">Today's Results</div>
-            <div class="tab" data-tab="powerball">Powerball</div>
-            <div class="tab" data-tab="megamillions">Mega Millions</div>
-            <div class="tab" data-tab="euromillions">EuroMillions</div>
-        </div>
-        
-        <!-- Today's Results Tab -->
-        <div class="tab-content active" id="today-tab">
-            <h2>Today's Lottery Results – <span id="today-date"></span></h2>
-            
-            <div class="lottery-section powerball">
-                <h2 class="lottery-name"><span class="lottery-icon">🎯</span> Powerball Results</h2>
-                <p class="update-time">Updated: <span id="powerball-update-time"></span> <span class="api-status status-updating" id="powerball-status">UPDATING</span></p>
-                <div class="prize-info">
-                    <h3>Current Estimated Jackpot:</h3>
-                    <div class="jackpot-amount" id="powerball-jackpot">Loading...</div>
-                </div>
-                <h3>Winning Numbers for <span id="powerball-last-draw-date"></span>:</h3>
-                <div class="winning-numbers" id="powerball-numbers">
-                    <div class="loading">Fetching latest results...</div>
-                </div>
-                <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing"></span></p>
-                <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
-                <button class="check-results" onclick="window.open('https://www.powerball.com/', '_blank')">Check Official Powerball Results</button>
-            </div>
-            
-            <div class="lottery-section megamillions">
-                <h2 class="lottery-name"><span class="lottery-icon">🌟</span> Mega Millions Results</h2>
-                <p class="update-time">Updated: <span id="megamillions-update-time"></span> <span class="api-status status-updating" id="megamillions-status">UPDATING</span></p>
-                <div class="prize-info">
-                    <h3>Current Estimated Jackpot:</h3>
-                    <div class="jackpot-amount" id="megamillions-jackpot">Loading...</div>
-                </div>
-                <h3>Winning Numbers for <span id="megamillions-last-draw-date"></span>:</h3>
-                <div class="winning-numbers" id="megamillions-numbers">
-                    <div class="loading">Fetching latest results...</div>
-                </div>
-                <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing"></span></p>
-                <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
-                <button class="check-results" onclick="window.open('https://www.megamillions.com/', '_blank')">Check Official Mega Millions Results</button>
-            </div>
-            
-            <div class="lottery-section euromillions">
-                <h2 class="lottery-name"><span class="lottery-icon">💶</span> EuroMillions Results</h2>
-                <p class="update-time">Updated: <span id="euromillions-update-time"></span> <span class="api-status status-updating" id="euromillions-status">UPDATING</span></p>
-                <div class="prize-info">
-                    <h3>Current Estimated Jackpot:</h3>
-                    <div class="jackpot-amount" id="euromillions-jackpot">Loading...</div>
-                </div>
-                <h3>Winning Numbers for <span id="euromillions-last-draw-date"></span>:</h3>
-                <div class="winning-numbers" id="euromillions-numbers">
-                    <div class="loading">Fetching latest results...</div>
-                </div>
-                <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing"></span></p>
-                <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
-                <button class="check-results" onclick="window.open('https://www.euro-millions.com/', '_blank')">Check Official EuroMillions Results</button>
-            </div>
         </div>
         
         <!-- Additional Content Section -->
@@ -671,41 +607,8 @@
     </div>
 
     <script>
-        // Tab functionality
+        // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
-            const tabs = document.querySelectorAll('.tab');
-            tabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    this.classList.add('active');
-                    const tabId = this.getAttribute('data-tab');
-                    document.getElementById(`${tabId}-tab`).classList.add('active');
-                });
-            });
-            
-            // Navigation functionality
-            const navLinks = document.querySelectorAll('.nav-link');
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const target = this.getAttribute('href').substring(1);
-                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                    
-                    if (target === 'today') {
-                        document.querySelector('[data-tab="today"]').classList.add('active');
-                        document.getElementById('today-tab').classList.add('active');
-                    } else {
-                        document.querySelector(`[data-tab="${target}"]`).classList.add('active');
-                        document.getElementById(`${target}-tab`).classList.add('active');
-                    }
-                });
-            });
-            
             // CPA Button Event
             document.getElementById('cpa-offer-button').addEventListener('click', function() {
                 window.open('https://singingfiles.com/1822542', '_blank');
