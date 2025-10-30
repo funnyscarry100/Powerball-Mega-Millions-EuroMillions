@@ -418,4 +418,44 @@
         
         <footer>
             <p>© <span id="current-year"></span> lotteryupdate000.space. All rights reserved.</p>
-            <p>This is not an official lottery website.
+            <p>This is not an official lottery website. Always verify winning numbers with official sources.</p>
+        </footer>
+    </div>
+    
+    <a href="#" class="back-to-top" id="back-to-top">↑</a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current dates
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            document.getElementById('last-updated').textContent = formattedDate;
+            document.getElementById('current-year').textContent = now.getFullYear();
+            
+            // Back to top functionality
+            const backToTop = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
