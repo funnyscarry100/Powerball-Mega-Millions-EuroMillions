@@ -1,82 +1,546 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Terms of Service — lotteryupdate000.space</title>
-  <meta name="description" content="Terms of Service for lotteryupdate000.space — rules and disclaimers for use of the live lottery results service." />
-  <meta name="google-site-verification" content="r2yewgzagcwp" />
-  <link rel="canonical" href="https://lotteryupdate000.space/terms.html" />
-  <style>
-    :root{--blue-1:#0047ab;--blue-2:#007bff}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui, -apple-system,"Segoe UI",Roboto;}
-    #bg-canvas{position:fixed;inset:0;z-index:-1}
-    header{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));color:#fff;padding:16px 12px;text-align:center;}
-    nav{background:#003c99;padding:8px 0}
-    .nav-list{display:flex;gap:28px;justify-content:center;list-style:none;margin:0;padding:0}
-    .nav-list a{color:#fff;text-decoration:none;font-weight:600}
-    .nav-list a.active{text-decoration:underline}
-    .wrap{max-width:900px;margin:28px auto;padding:18px;background:rgba(255,255,255,0.96);border-radius:12px;box-shadow:0 8px 24px rgba(6,30,60,0.06)}
-    h1{color:var(--blue-1)}
-    h2{color:var(--blue-1)}
-    p{color:#334}
-    footer{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));color:#fff;text-align:center;padding:14px}
-    .contact-box{background:#f8fbfa;padding:14px;border-radius:8px;margin-top:16px;border:1px solid #e9f4f1}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - lotteryupdate000.space</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .last-updated {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+        }
+        
+        .policy-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .policy-section h3 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            font-size: 1.4rem;
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .policy-section ul, .policy-section ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .highlight-box {
+            background: #e8f4fd;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin: 25px 0;
+        }
+        
+        .warning-box {
+            background: #fff8e1;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f1c40f;
+            margin: 25px 0;
+        }
+        
+        .danger-box {
+            background: #ffeaa7;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #e74c3c;
+            margin: 25px 0;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .nav-btn {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            background: #f8f9fa;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .back-to-top:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
-
-  <header><div style="font-weight:700;font-size:1.25rem">lotteryupdate000.space</div></header>
-
-  <nav aria-label="Main navigation">
-    <ul class="nav-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="terms.html" class="active">Terms</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-    </ul>
-  </nav>
-
-  <main class="wrap" role="main">
-    <h1>Terms of Service</h1>
-    <p>By using <strong>lotteryupdate000.space</strong> you agree to the terms set out here. The service provides lottery results for informational and entertainment purposes only.</p>
-
-    <h2>Accuracy & Liability</h2>
-    <p>We strive for accuracy but do not guarantee correctness or timeliness. Verify results with the official lottery provider before claiming prizes. We are not responsible for losses resulting from reliance on content.</p>
-
-    <h2>Use Restrictions</h2>
-    <p>Do not scrape or republish content without permission. Respect intellectual property rights and use the site lawfully.</p>
-
-    <div class="contact-box" aria-labelledby="contact-heading">
-      <h2 id="contact-heading">Contact</h2>
-      <p>For questions about these Terms, email: <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a></p>
-      <p style="font-size:0.9rem;color:#556">Verification: CNAME r2yewgzagcwp → gv-3mxfk22pxkir5q.dv.googlehosted.com</p>
+    <div class="container">
+        <header>
+            <h1>Terms of Service</h1>
+            <p>Rules and guidelines for using lotteryupdate000.space</p>
+        </header>
+        
+        <div class="last-updated">
+            <strong>Last Updated:</strong> <span id="last-updated"></span>
+        </div>
+        
+        <div class="content">
+            <div class="policy-section">
+                <div class="highlight-box">
+                    <p>By accessing and using lotteryupdate000.space, you agree to be bound by these Terms of Service and our Privacy Policy. Please read these terms carefully before using our service.</p>
+                </div>
+                
+                <div class="danger-box">
+                    <p><strong>Important Disclaimer:</strong> We are not an official lottery website. All information is provided for entertainment and informational purposes only. Always verify winning numbers with official lottery sources before claiming prizes. We are not responsible for any financial losses resulting from reliance on our information.</p>
+                </div>
+            </div>
+            
+            <div class="policy-section">
+                <h2>1. Acceptance of Terms</h2>
+                <p>By accessing or using lotteryupdate000.space, you acknowledge that:</p>
+                <ul>
+                    <li>You have read, understood, and agree to be bound by these Terms of Service</li>
+                    <li>You are at least 18 years of age or the legal age in your jurisdiction</li>
+                    <li>You comply with all applicable laws and regulations regarding lottery participation</li>
+                    <li>You accept our Privacy Policy and how we handle your information</li>
+                </ul>
+                
+                <p>If you do not agree with these terms, please do not use our service.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>2. Service Description</h2>
+                <p>lotteryupdate000.space provides the following services:</p>
+                
+                <h3>Primary Services</h3>
+                <ul>
+                    <li><strong>Real-time Results:</strong> Current lottery results for Powerball, Mega Millions, and EuroMillions</li>
+                    <li><strong>Jackpot Information:</strong> Current and estimated jackpot amounts</li>
+                    <li><strong>Drawing Schedules:</strong> Upcoming drawing dates and times</li>
+                    <li><strong>Historical Data:</strong> Archive of past lottery results</li>
+                </ul>
+                
+                <h3>Additional Features</h3>
+                <ul>
+                    <li>Lottery result notifications (optional subscription)</li>
+                    <li>Winning number analysis and statistics</li>
+                    <li>Lottery rules and how-to-play guides</li>
+                    <li>Odds calculators and probability information</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <p><strong>Service Limitations:</strong> While we strive for accuracy, lottery results are provided as-is. There may be delays in result updates, and we cannot guarantee 100% accuracy at all times.</p>
+                </div>
+            </div>
+            
+            <div class="policy-section">
+                <h2>3. User Responsibilities</h2>
+                <p>When using our service, you agree to:</p>
+                
+                <h3>Permitted Uses</h3>
+                <ul>
+                    <li>Use the service only for lawful purposes</li>
+                    <li>Verify all lottery results with official sources</li>
+                    <li>Maintain the security of your account (if applicable)</li>
+                    <li>Respect our intellectual property rights</li>
+                    <li>Comply with all applicable gambling laws</li>
+                </ul>
+                
+                <h3>Prohibited Activities</h3>
+                <ul>
+                    <li>Attempt to disrupt or interfere with service operation</li>
+                    <li>Use automated systems to access our service excessively</li>
+                    <li>Scrape, copy, or reproduce content without permission</li>
+                    <li>Impersonate others or provide false information</li>
+                    <li>Use the service for any illegal or unauthorized purpose</li>
+                    <li>Attempt to gain unauthorized access to our systems</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>4. Intellectual Property</h2>
+                
+                <h3>Our Content</h3>
+                <p>All content on lotteryupdate000.space is protected by intellectual property laws, including:</p>
+                <ul>
+                    <li>Website design, layout, and user interface</li>
+                    <li>Text content, articles, and written materials</li>
+                    <li>Graphics, logos, and visual elements</li>
+                    <li>Data compilation and presentation methods</li>
+                    <li>Software code and technical implementations</li>
+                </ul>
+                
+                <h3>Third-Party Content</h3>
+                <p>We respect third-party intellectual property:</p>
+                <ul>
+                    <li>Lottery names and logos are trademarks of their respective owners</li>
+                    <li>Official lottery results are typically public information</li>
+                    <li>We attribute third-party content when required</li>
+                    <li>We respond to legitimate copyright infringement claims</li>
+                </ul>
+                
+                <h3>Limited License</h3>
+                <p>We grant you a limited, non-exclusive license to:</p>
+                <ul>
+                    <li>Access and use our service for personal, non-commercial purposes</li>
+                    <li>Share lottery results with proper attribution</li>
+                    <li>Use our RSS feeds and APIs according to their terms</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>5. Disclaimer of Warranties</h2>
+                <p>Our service is provided "as is" and "as available" without warranties of any kind:</p>
+                
+                <h3>Service Availability</h3>
+                <ul>
+                    <li>We do not guarantee uninterrupted or error-free service</li>
+                    <li>We may perform maintenance that temporarily affects availability</li>
+                    <li>Service may be unavailable due to circumstances beyond our control</li>
+                </ul>
+                
+                <h3>Information Accuracy</h3>
+                <ul>
+                    <li>We strive for accuracy but cannot guarantee error-free information</li>
+                    <li>Lottery results may be delayed or contain inaccuracies</li>
+                    <li>Jackpot amounts are estimates and may change</li>
+                    <li>Always verify information with official lottery sources</li>
+                </ul>
+                
+                <h3>No Professional Advice</h3>
+                <ul>
+                    <li>Our service does not constitute financial or legal advice</li>
+                    <li>We do not provide gambling or investment advice</li>
+                    <li>Users should make independent decisions about lottery participation</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>6. Limitation of Liability</h2>
+                <p>To the fullest extent permitted by law, lotteryupdate000.space shall not be liable for:</p>
+                
+                <h3>Direct Damages</h3>
+                <ul>
+                    <li>Financial losses from lottery participation</li>
+                    <li>Errors or inaccuracies in lottery results</li>
+                    <li>Missed winning opportunities due to incorrect information</li>
+                    <li>Service interruptions or technical issues</li>
+                </ul>
+                
+                <h3>Indirect Damages</h3>
+                <ul>
+                    <li>Loss of profits or business opportunities</li>
+                    <li>Data loss or corruption</li>
+                    <li>Reputational damage</li>
+                    <li>Emotional distress</li>
+                </ul>
+                
+                <h3>Third-Party Actions</h3>
+                <ul>
+                    <li>Actions of official lottery organizations</li>
+                    <li>Content on linked third-party websites</li>
+                    <li>Security breaches by external parties</li>
+                    <li>Government regulations or legal changes</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>7. Gambling Responsibility</h2>
+                
+                <h3>Responsible Gaming</h3>
+                <p>We promote responsible gambling practices:</p>
+                <ul>
+                    <li>Our service is intended for entertainment purposes only</li>
+                    <li>Lottery participation should be within personal financial means</li>
+                    <li>Set spending limits and stick to them</li>
+                    <li>Never chase losses or gamble with borrowed money</li>
+                </ul>
+                
+                <h3>Age Restrictions</h3>
+                <ul>
+                    <li>You must be at least 18 years old to use our service</li>
+                    <li>Some jurisdictions may have higher age requirements</li>
+                    <li>We do not knowingly provide services to minors</li>
+                </ul>
+                
+                <h3>Problem Gambling Resources</h3>
+                <p>If you or someone you know has a gambling problem, seek help from:</p>
+                <ul>
+                    <li>National Council on Problem Gambling: 1-800-522-4700</li>
+                    <li>Gamblers Anonymous meetings in your area</li>
+                    <li>Local mental health and addiction services</li>
+                    <li>Online self-exclusion programs</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>8. Third-Party Links and Services</h2>
+                <p>Our website contains links to external services:</p>
+                
+                <h3>Official Lottery Websites</h3>
+                <ul>
+                    <li>We provide links to verify results with official sources</li>
+                    <li>We are not responsible for content on official lottery sites</li>
+                    <li>Official lottery terms and conditions apply to ticket purchases</li>
+                </ul>
+                
+                <h3>Advertising and Partnerships</h3>
+                <ul>
+                    <li>We may display advertisements from third parties</li>
+                    <li>We are not responsible for advertiser claims or offers</li>
+                    <li>Users should review advertiser terms and policies</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>9. Service Modifications</h2>
+                <p>We reserve the right to modify our service:</p>
+                
+                <h3>Service Changes</h3>
+                <ul>
+                    <li>Add, remove, or modify features and functionality</li>
+                    <li>Change subscription terms or pricing (if applicable)</li>
+                    <li>Discontinue parts of the service with notice</li>
+                </ul>
+                
+                <h3>Termination Rights</h3>
+                <ul>
+                    <li>We may suspend or terminate service for policy violations</li>
+                    <li>Users may discontinue use at any time</li>
+                    <li>Some provisions survive termination of service</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>10. Governing Law and Dispute Resolution</h2>
+                
+                <h3>Governing Law</h3>
+                <p>These Terms shall be governed by the laws of the jurisdiction where lotteryupdate000.space operates, without regard to conflict of law principles.</p>
+                
+                <h3>Dispute Resolution</h3>
+                <ul>
+                    <li>Attempt informal resolution before formal proceedings</li>
+                    <li>Mediation or arbitration may be required</li>
+                    <li>Legal actions must be filed in proper jurisdiction</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>11. Changes to Terms</h2>
+                <p>We may update these Terms of Service:</p>
+                
+                <h3>Modification Process</h3>
+                <ul>
+                    <li>We will post updated terms on this page</li>
+                    <li>We will update the "Last Updated" date</li>
+                    <li>We may notify users of significant changes</li>
+                </ul>
+                
+                <h3>Continued Use</h3>
+                <p>Continued use of the service after changes constitutes acceptance of the modified terms. Please review these terms periodically.</p>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>For questions about these Terms of Service, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> cryptodr987@gmail.com</li>
+                    <li><strong>Response Time:</strong> We aim to respond within 48 hours</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <a href="privacy-policy.html" class="nav-btn">
+                    ← Privacy Policy
+                </a>
+                <a href="index.html" class="nav-btn">
+                    Back to Home →
+                </a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© <span id="current-year"></span> lotteryupdate000.space. All rights reserved.</p>
+            <p>This is not an official lottery website. Always verify winning numbers with official sources.</p>
+        </footer>
     </div>
-  </main>
+    
+    <a href="#" class="back-to-top" id="back-to-top">↑</a>
 
-  <footer>
-    <div>© <span id="year-terms"></span> lotteryupdate000.space</div>
-  </footer>
-
-  <script>
-    // set year
-    document.getElementById('year-terms').textContent = new Date().getFullYear();
-    // re-use same canvas animation as index (reduced complexity)
-    (function(){
-      const canvas = document.getElementById('bg-canvas'), ctx = canvas.getContext('2d');
-      function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; }
-      resize(); window.addEventListener('resize', resize);
-      function draw(){
-        ctx.clearRect(0,0,canvas.width,canvas.height);
-        const g = ctx.createLinearGradient(0,0,canvas.width,canvas.height);
-        g.addColorStop(0,'#06251a'); g.addColorStop(1,'#0b2a20');
-        ctx.fillStyle=g; ctx.fillRect(0,0,canvas.width,canvas.height);
-      }
-      draw();
-      if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-        let t=0; (function anim(){ t+=0.01; draw(); requestAnimationFrame(anim); })();
-      }
-    })();
-  </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current dates
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+            
+            document.getElementById('last-updated').textContent = formattedDate;
+            document.getElementById('current-year').textContent = now.getFullYear();
+            
+            // Back to top functionality
+            const backToTop = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+            
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
