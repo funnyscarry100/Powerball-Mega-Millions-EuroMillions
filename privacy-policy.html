@@ -1,70 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Privacy Policy — lotteryupdate000.space</title>
-  <meta name="description" content="Privacy Policy for lotteryupdate000.space — how we collect and protect data for the live lottery results service." />
-  <meta name="google-site-verification" content="r2yewgzagcwp" />
-  <link rel="canonical" href="https://lotteryupdate000.space/privacy.html" />
-  <style>
-    :root{--blue-1:#0047ab;--blue-2:#007bff}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui, -apple-system,"Segoe UI",Roboto;}
-    #bg-canvas{position:fixed;inset:0;z-index:-1}
-    header{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));color:#fff;padding:16px;text-align:center}
-    nav{background:#003c99;padding:8px 0}
-    .nav-list{display:flex;gap:28px;justify-content:center;list-style:none;margin:0;padding:0}
-    .nav-list a{color:#fff;text-decoration:none;font-weight:600}
-    .nav-list a.active{text-decoration:underline}
-    .wrap{max-width:900px;margin:28px auto;padding:18px;background:rgba(255,255,255,0.96);border-radius:12px;box-shadow:0 8px 24px rgba(6,30,60,0.06)}
-    h1{color:var(--blue-1)}
-    p{color:#334}
-    footer{background:linear-gradient(90deg,var(--blue-1),var(--blue-2));color:#fff;text-align:center;padding:14px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - lotteryupdate000.space</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .last-updated {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .policy-section {
+            margin-bottom: 40px;
+        }
+        
+        .policy-section h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .policy-section h3 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            font-size: 1.4rem;
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .policy-section ul, .policy-section ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        .highlight-box {
+            background: #e8f4fd;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+            margin: 25px 0;
+        }
+        
+        .warning-box {
+            background: #fff8e1;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #f1c40f;
+            margin: 25px 0;
+        }
+        
+        .contact-info {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid #e9ecef;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            background: #f8f9fa;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 25px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .navigation {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
-
-  <header><div style="font-weight:700;font-size:1.25rem">lotteryupdate000.space</div></header>
-
-  <nav aria-label="Main navigation">
-    <ul class="nav-list">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="terms.html">Terms</a></li>
-      <li><a href="privacy.html" class="active">Privacy</a></li>
-    </ul>
-  </nav>
-
-  <main class="wrap" role="main">
-    <h1>Privacy Policy</h1>
-    <p>This Privacy Policy explains how <strong>lotteryupdate000.space</strong> collects and uses information when you visit our site. We prioritize user privacy and limit personal data collection.</p>
-
-    <h2>Data Collected</h2>
-    <p>We collect non-personal analytics (IP, browser information, pages visited) and only collect personal details if you email us for support. We do not sell personal data.</p>
-
-    <h2>Cookies</h2>
-    <p>Cookies are used for preferences and analytics. You can opt out via browser settings.</p>
-
-    <div style="margin-top:18px;background:#f8fbfa;padding:12px;border-radius:8px;border:1px solid #e9f4f1">
-      <h3>Contact</h3>
-      <p>For privacy questions, email: <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a></p>
-      <p style="font-size:0.9rem;color:#2b6b5b">Verification CNAME: r2yewgzagcwp → gv-3mxfk22pxkir5q.dv.googlehosted.com</p>
-    </div>
-  </main>
-
-  <footer>
-    <div>© <span id="year-privacy"></span> lotteryupdate000.space</div>
-  </footer>
-
-  <script>
-    document.getElementById('year-privacy').textContent = new Date().getFullYear();
-    // simple static canvas background similar to terms page
-    (function(){
-      const canvas = document.getElementById('bg-canvas'), ctx = canvas.getContext('2d');
-      function resize(){ canvas.width=innerWidth; canvas.height=innerHeight; }
-      resize(); window.addEventListener('resize', resize);
-      ctx.fillStyle='#071b10'; ctx.fillRect(0,0,canvas.width,canvas.height);
-    })();
-  </script>
-</body>
-</html>
+    <div class="container">
+        <header>
+            <h1>Privacy Policy</h1>
+            <p>How we collect, use, and protect your information at lotteryupdate000.space</p>
+        </header>
+        
+        <div class="last-updated">
+            <strong>Last Updated:</strong> <span id="last-updated"></span>
+        </div>
+        
+        <div class="content">
+            <div class="policy-section">
+                <div class="highlight-box">
+                    <p>This Privacy Policy describes how lotteryupdate000.space collects, uses, and protects your personal information when you use our lottery results service. We are committed to protecting your privacy and being transparent about our data practices.</p>
+                </div>
+            </div>
+            
+            <div class="policy-section">
+                <h2>1. Information We Collect</h2>
+                
+                <h3>Personal Information</h3>
+                <p>We collect minimal personal information to provide our services:</p>
+                <ul>
+                    <li><strong>Contact Information:</strong> Email address (if you subscribe to lottery result notifications)</li>
+                    <li><strong>Technical Data:</strong> IP address, browser type, device information</li>
+                    <li><strong>Usage Data:</strong> Pages visited, time spent, click patterns</li>
+                    <li><strong>Location Data:</strong> General geographic location based on IP address</li>
+                </ul>
+                
+                <h3>Automatically Collected Information</h3>
+                <p>When you visit our website, we automatically collect:</p>
+                <ul>
+                    <li>IP address and internet service provider details</li>
+                    <li>Browser type, version, and language settings</li>
+                    <li>Operating system and device type</li>
+                    <li>Pages visited, time stamps, and session duration</li>
+                    <li>Referring websites and search queries</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>2. How We Use Your Information</h2>
+                <p>We use the collected information for the following purposes:</p>
+                <ul>
+                    <li><strong>Service Provision:</strong> To provide and maintain our lottery results service</li>
+                    <li><strong>Improvements:</strong> To enhance website functionality and user experience</li>
+                    <li><strong>Communication:</strong> To send lottery result notifications and updates (if subscribed)</li>
+                    <li><strong>Analytics:</strong> To analyze website traffic and usage patterns</li>
+                    <li><strong>Security:</strong> To prevent fraud, abuse, and ensure website security</li>
+                    <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>3. Data Sharing and Disclosure</h2>
+                <p>We value your privacy and do not sell, trade, or rent your personal information to third parties. We may share information in the following circumstances:</p>
+                
+                <h3>Service Providers</h3>
+                <p>We may share information with trusted third-party service providers who assist in:</p>
+                <ul>
+                    <li>Website hosting and maintenance</li>
+                    <li>Data analysis and analytics services</li>
+                    <li>Email delivery and communication services</li>
+                    <li>Customer support operations</li>
+                </ul>
+                
+                <h3>Legal Requirements</h3>
+                <p>We may disclose your information when required by:</p>
+                <ul>
+                    <li>Law enforcement or government agencies</li>
+                    <li>Court orders or legal processes</li>
+                    <li>To protect our rights, property, or safety</li>
+                    <li>To investigate potential violations of our policies</li>
+                </ul>
+                
+                <div class="warning-box">
+                    <p><strong>Important Notice:</strong> We are not affiliated with official lottery organizations. All lottery results are provided for informational purposes only. Always verify winning numbers with official lottery sources before claiming any prizes.</p>
+                </div>
+            </div>
+            
+            <div class="policy-section">
+                <h2>4. Cookies and Tracking Technologies</h2>
+                
+                <h3>What Are Cookies?</h3>
+                <p>Cookies are small text files stored on your device when you visit websites. We use cookies and similar technologies to:</p>
+                <ul>
+                    <li>Remember your preferences and settings</li>
+                    <li>Analyze website traffic and performance</li>
+                    <li>Provide personalized content and recommendations</li>
+                    <li>Enable social media features and sharing</li>
+                    <li>Measure advertising effectiveness</li>
+                </ul>
+                
+                <h3>Cookie Control</h3>
+                <p>You can control cookie settings through your browser preferences:</p>
+                <ul>
+                    <li>Most browsers allow you to refuse cookies</li>
+                    <li>You can delete existing cookies from your device</li>
+                    <li>Blocking cookies may affect website functionality</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>5. Data Security</h2>
+                <p>We implement comprehensive security measures to protect your personal information:</p>
+                <ul>
+                    <li><strong>SSL Encryption:</strong> All data transmissions are encrypted using SSL technology</li>
+                    <li><strong>Access Controls:</strong> Limited access to personal data on a need-to-know basis</li>
+                    <li><strong>Regular Audits:</strong> Periodic security assessments and vulnerability testing</li>
+                    <li><strong>Secure Infrastructure:</strong> Protected server environments with firewalls</li>
+                    <li><strong>Data Backup:</strong> Regular backups to prevent data loss</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>6. Your Privacy Rights</h2>
+                <p>Depending on your location, you may have the following rights regarding your personal information:</p>
+                <ul>
+                    <li><strong>Access:</strong> Right to access and receive copies of your data</li>
+                    <li><strong>Correction:</strong> Right to correct inaccurate or incomplete information</li>
+                    <li><strong>Deletion:</strong> Right to request deletion of your personal data</li>
+                    <li><strong>Objection:</strong> Right to object to certain data processing activities</li>
+                    <li><strong>Portability:</strong> Right to receive your data in a portable format</li>
+                    <li><strong>Restriction:</strong> Right to restrict processing of your data</li>
+                </ul>
+                
+                <p>To exercise these rights, please contact us using the information provided below.</p>
+            </div>
+            
+            <div class="policy-section">
+                <h2>7. Third-Party Links</h2>
+                <p>Our website contains links to official lottery websites and other third-party sites:</p>
+                <ul>
+                    <li>We are not responsible for the privacy practices of external sites</li>
+                    <li>We recommend reviewing the privacy policies of linked websites</li>
+                    <li>Third-party sites may collect information independently</li>
+                    <li>We do not endorse or guarantee the security of external sites</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>8. Children's Privacy</h2>
+                <p>Our service is not intended for children under 13 years of age:</p>
+                <ul>
+                    <li>We do not knowingly collect personal information from children under 13</li>
+                    <li>If we discover we have collected information from a child under 13, we will delete it promptly</li>
+                    <li>Parents or guardians can contact us to request deletion of children's information</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>9. International Data Transfers</h2>
+                <p>Your information may be transferred to and processed in countries other than your own:</p>
+                <ul>
+                    <li>We ensure appropriate safeguards for international data transfers</li>
+                    <li>We comply with international data protection regulations</li>
+                    <li>Data processing occurs in jurisdictions with adequate protection</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>10. Data Retention</h2>
+                <p>We retain personal information only for as long as necessary:</p>
+                <ul>
+                    <li>To fulfill the purposes outlined in this policy</li>
+                    <li>To comply with legal obligations</li>
+                    <li>To resolve disputes and enforce agreements</li>
+                    <li>Subscription data is retained while active and for a reasonable period after cancellation</li>
+                </ul>
+            </div>
+            
+            <div class="policy-section">
+                <h2>11. Changes to This Policy</h2>
+                <p>We may update this Privacy Policy periodically to reflect:</p>
+                <ul>
+                    <li>Changes in our data practices</li>
+                    <li>Legal and regulatory requirements</li>
+                    <li>Technological advancements</li>
+                    <li>User feedback and industry standards</li>
+                </ul>
+                
+                <p>We will notify you of significant changes by:</p>
+                <ul>
+                    <li>Posting the updated policy on this page</li>
+                    <li>Updating the "Last Updated" date</li>
+                    <li>Sending notifications to subscribers (for major changes)</li>
+                </ul>
+            </div>
+            
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
+                <ul>
+                    <li><strong>Email:</strong> cryptodr987@gmail.com</li>
+                    <li><strong>Response Time:</strong> We aim to respond to all inquiries within 48 hours</li>
+                </ul>
+            </div>
+            
+            <div class="navigation">
+                <a href="index.html" class="nav-btn">
+                    ← Back to Home
+                </a>
+                <a href="terms-of-service.html" class="nav-btn">
+                    View Terms of Service →
+                </a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© <span id="current-year"></span> lotteryupdate000.space. All rights reserved.</p>
+            <p>This is not an official lottery website.
