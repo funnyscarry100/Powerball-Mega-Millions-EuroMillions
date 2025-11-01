@@ -1,16 +1,10 @@
-# robots.txt for lotteryupdate000.space
 User-agent: *
 Allow: /
+Disallow: /privacy-policy.html
+Disallow: /terms-of-service.html
 
-# Sitemap
+# Crawl delay to prevent overloading
+Crawl-delay: 2
+
+# Sitemap location (if you have one)
 Sitemap: https://lotteryupdate000.space/sitemap.xml
-
-# Block AI crawlers
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
