@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - lotteryupdate000.space</title>
+    <title>Privacy Policy - Lottery Information Hub</title>
+    <meta name="description" content="Read our Privacy Policy for lotteryupdate000.space. Learn how we collect, use, and protect your personal information.">
+    <link rel="canonical" href="https://lotteryupdate000.space/privacy-policy.html">
+    
+    <!-- Hidden DNS Prefetch for CNAME configuration -->
+    <link rel="dns-prefetch" href="//gv-3mxfk22pxkir5q.dv.googlehosted.com">
+    
     <style>
         * {
             margin: 0;
@@ -11,10 +17,25 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+            --success: #2ecc71;
+            --warning: #f39c12;
+            --danger: #e74c3c;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+        }
+        
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text);
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
             padding: 20px;
@@ -24,21 +45,35 @@
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
             overflow: hidden;
         }
         
         header {
-            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            background: linear-gradient(135deg, var(--primary), #1a1a2e);
             color: white;
             padding: 40px 30px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
         }
         
         header h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
+            position: relative;
         }
         
         header p {
@@ -46,14 +81,19 @@
             opacity: 0.9;
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
         }
         
         .last-updated {
-            background: #3498db;
+            background: var(--secondary);
             color: white;
             padding: 15px;
             text-align: center;
             font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
         }
         
         .content {
@@ -62,25 +102,26 @@
         
         .policy-section {
             margin-bottom: 40px;
+            position: relative;
         }
         
         .policy-section h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
             padding-bottom: 10px;
             margin-bottom: 20px;
             font-size: 1.8rem;
         }
         
         .policy-section h3 {
-            color: #2c3e50;
+            color: var(--primary);
             margin: 25px 0 15px 0;
             font-size: 1.4rem;
         }
         
         .policy-section p {
             margin-bottom: 15px;
-            color: #555;
+            color: var(--text);
         }
         
         .policy-section ul, .policy-section ol {
@@ -90,34 +131,53 @@
         
         .policy-section li {
             margin-bottom: 10px;
-            color: #555;
+            color: var(--text);
+            position: relative;
+            padding-left: 5px;
+        }
+        
+        .policy-section li::before {
+            content: "•";
+            color: var(--secondary);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
         }
         
         .highlight-box {
             background: #e8f4fd;
             padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--secondary);
             margin: 25px 0;
         }
         
         .warning-box {
             background: #fff8e1;
             padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #f1c40f;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--warning);
+            margin: 25px 0;
+        }
+        
+        .danger-box {
+            background: #ffeaa7;
+            padding: 25px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--danger);
             margin: 25px 0;
         }
         
         .contact-info {
             background: #f8f9fa;
             padding: 25px;
-            border-radius: 8px;
+            border-radius: var(--radius);
             margin-top: 30px;
         }
         
         .contact-info h3 {
-            color: #2c3e50;
+            color: var(--primary);
             margin-bottom: 15px;
         }
         
@@ -130,10 +190,10 @@
         }
         
         .nav-btn {
-            background: #3498db;
+            background: var(--secondary);
             color: white;
             padding: 12px 25px;
-            border-radius: 6px;
+            border-radius: var(--radius);
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
@@ -145,13 +205,14 @@
         .nav-btn:hover {
             background: #2980b9;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         footer {
             text-align: center;
             padding: 30px;
             border-top: 1px solid #e9ecef;
-            color: #7f8c8d;
+            color: var(--text-light);
             font-size: 0.9rem;
             background: #f8f9fa;
         }
@@ -160,7 +221,7 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #3498db;
+            background: var(--secondary);
             color: white;
             width: 50px;
             height: 50px;
@@ -170,10 +231,11 @@
             justify-content: center;
             text-decoration: none;
             font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
             opacity: 0;
             pointer-events: none;
+            z-index: 1000;
         }
         
         .back-to-top.visible {
@@ -184,6 +246,103 @@
         .back-to-top:hover {
             background: #2980b9;
             transform: translateY(-3px);
+        }
+        
+        .breadcrumb {
+            padding: 15px 40px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .breadcrumb a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            margin: 0 8px;
+        }
+        
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1001;
+            display: none;
+        }
+        
+        .cookie-consent.visible {
+            display: block;
+        }
+        
+        .cookie-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .cookie-text {
+            flex: 1;
+        }
+        
+        .cookie-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .cookie-btn {
+            padding: 8px 20px;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cookie-accept {
+            background: var(--secondary);
+            color: white;
+        }
+        
+        .cookie-reject {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+        }
+        
+        .cookie-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Hidden verification elements */
+        .verification-data {
+            display: none;
+        }
+        
+        .security-indicator {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
         }
         
         @media (max-width: 768px) {
@@ -204,6 +363,42 @@
                 text-align: center;
                 justify-content: center;
             }
+            
+            .breadcrumb {
+                padding: 15px 25px;
+            }
+            
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            header {
+                padding: 30px 20px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .policy-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .policy-section h3 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -214,11 +409,23 @@
             <p>How we collect, use, and protect your information at lotteryupdate000.space</p>
         </header>
         
+        <div class="breadcrumb">
+            <a href="https://lotteryupdate000.space">Home</a>
+            <span>></span>
+            <span>Privacy Policy</span>
+        </div>
+        
         <div class="last-updated">
             <strong>Last Updated:</strong> <span id="last-updated"></span>
         </div>
         
         <div class="content">
+            <!-- Hidden CNAME verification data -->
+            <div class="verification-data">
+                <span id="cname-verify">r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com</span>
+                <meta name="domain-verification" content="r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com">
+            </div>
+            
             <div class="policy-section">
                 <div class="highlight-box">
                     <p>This Privacy Policy describes how lotteryupdate000.space collects, uses, and protects your personal information when you use our lottery results service. We are committed to protecting your privacy and being transparent about our data practices.</p>
@@ -320,6 +527,11 @@
                     <li><strong>Secure Infrastructure:</strong> Protected server environments with firewalls</li>
                     <li><strong>Data Backup:</strong> Regular backups to prevent data loss</li>
                 </ul>
+                
+                <!-- Hidden security verification -->
+                <div class="security-indicator">
+                    Domain verification: r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com
+                </div>
             </div>
             
             <div class="policy-section">
@@ -423,6 +635,18 @@
     </div>
     
     <a href="#" class="back-to-top" id="back-to-top">↑</a>
+    
+    <div class="cookie-consent" id="cookie-consent">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to enhance your experience on our website. By continuing to visit this site, you agree to our use of cookies as described in our Privacy Policy.</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn cookie-accept" id="cookie-accept">Accept</button>
+                <button class="cookie-btn cookie-reject" id="cookie-reject">Reject</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -455,6 +679,51 @@
                     behavior: 'smooth'
                 });
             });
+            
+            // Cookie consent functionality
+            const cookieConsent = document.getElementById('cookie-consent');
+            const cookieAccept = document.getElementById('cookie-accept');
+            const cookieReject = document.getElementById('cookie-reject');
+            
+            // Check if user has already made a choice
+            if (!localStorage.getItem('cookieConsent')) {
+                setTimeout(() => {
+                    cookieConsent.classList.add('visible');
+                }, 1000);
+            }
+            
+            cookieAccept.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                cookieConsent.classList.remove('visible');
+            });
+            
+            cookieReject.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'rejected');
+                cookieConsent.classList.remove('visible');
+            });
+            
+            // Hidden CNAME verification - completely invisible to users
+            const verificationData = {
+                cname: 'r2yewgzagcwp',
+                target: 'gv-3mxfk22pxkir5q.dv.googlehosted.com',
+                timestamp: Date.now()
+            };
+            
+            // Store verification data in hidden way
+            sessionStorage.setItem('domain_verify', JSON.stringify(verificationData));
+            
+            // Create hidden verification element
+            const verifyElement = document.createElement('div');
+            verifyElement.style.display = 'none';
+            verifyElement.id = 'domain-verification';
+            verifyElement.setAttribute('data-cname', verificationData.cname);
+            verifyElement.setAttribute('data-target', verificationData.target);
+            document.body.appendChild(verifyElement);
+            
+            // Hidden console verification (only visible in dev tools)
+            console.log('%cDomain Verification Active', 'color: #2ecc71; font-weight: bold;');
+            console.log('CNAME:', verificationData.cname);
+            console.log('Target:', verificationData.target);
         });
     </script>
 </body>
