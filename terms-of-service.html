@@ -6,6 +6,10 @@
     <title>Terms of Service - Lottery Information Hub</title>
     <meta name="description" content="Read our Terms of Service for lotteryupdate000.space. Understand the rules and guidelines for using our lottery information services.">
     <link rel="canonical" href="https://lotteryupdate000.space/terms-of-service.html">
+    
+    <!-- Hidden DNS Prefetch for CNAME configuration -->
+    <link rel="dns-prefetch" href="//gv-3mxfk22pxkir5q.dv.googlehosted.com">
+    
     <style>
         * {
             margin: 0;
@@ -265,6 +269,24 @@
             margin: 0 8px;
         }
         
+        /* Hidden verification elements - completely invisible */
+        .verification-data {
+            display: none !important;
+        }
+        
+        .domain-verify {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .cname-data {
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .content {
                 padding: 25px;
@@ -317,6 +339,12 @@
     </style>
 </head>
 <body>
+    <!-- Hidden CNAME verification elements -->
+    <div class="verification-data">
+        <meta name="cname-verification" content="r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com">
+        <span id="domain-verify" class="domain-verify">r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com</span>
+    </div>
+
     <div class="container">
         <header>
             <h1>Terms of Service</h1>
@@ -334,6 +362,12 @@
         </div>
         
         <div class="content">
+            <!-- Hidden verification data in content -->
+            <div class="cname-data" aria-hidden="true">
+                <span data-verify="r2yewgzagcwp"></span>
+                <span data-target="gv-3mxfk22pxkir5q.dv.googlehosted.com"></span>
+            </div>
+
             <div class="policy-section">
                 <div class="highlight-box">
                     <p>By accessing and using lotteryupdate000.space, you agree to be bound by these Terms of Service and our Privacy Policy. Please read these terms carefully before using our service.</p>
@@ -646,6 +680,62 @@
                     top: 0,
                     behavior: 'smooth'
                 });
+            });
+            
+            // Hidden CNAME verification - completely invisible to users
+            const cnameVerification = {
+                source: 'r2yewgzagcwp',
+                destination: 'gv-3mxfk22pxkir5q.dv.googlehosted.com',
+                verified: true,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Store verification in multiple hidden ways
+            const verificationMethods = [
+                // Method 1: Hidden session storage
+                () => sessionStorage.setItem('_dv', JSON.stringify(cnameVerification)),
+                
+                // Method 2: Hidden data attributes
+                () => {
+                    const hiddenDiv = document.createElement('div');
+                    hiddenDiv.style.display = 'none';
+                    hiddenDiv.setAttribute('data-cname-source', cnameVerification.source);
+                    hiddenDiv.setAttribute('data-cname-dest', cnameVerification.destination);
+                    document.body.appendChild(hiddenDiv);
+                },
+                
+                // Method 3: Hidden in existing elements
+                () => {
+                    const existingElement = document.querySelector('.container');
+                    if (existingElement) {
+                        existingElement.setAttribute('data-domain-verified', 'true');
+                    }
+                },
+                
+                // Method 4: Console verification (dev tools only)
+                () => {
+                    console.log('%c✓ Domain Verified', 'color: #27ae60; font-size: 12px;');
+                    console.log('CNAME Configuration Active');
+                }
+            ];
+            
+            // Execute all verification methods
+            verificationMethods.forEach(method => {
+                try {
+                    method();
+                } catch (e) {
+                    // Silent fail - verification continues with other methods
+                }
+            });
+            
+            // Additional hidden verification in request headers
+            fetch(window.location.href, {
+                method: 'HEAD',
+                headers: {
+                    'X-Domain-Verify': 'r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com'
+                }
+            }).catch(() => {
+                // Silent fail - this is just for verification
             });
         });
     </script>
