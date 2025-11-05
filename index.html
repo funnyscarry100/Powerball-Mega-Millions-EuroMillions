@@ -12,24 +12,25 @@
     
     <!-- Hidden DNS Prefetch for CNAME configuration -->
     <link rel="dns-prefetch" href="//gv-3mxfk22pxkir5q.dv.googlehosted.com">
+    <link rel="dns-prefetch" href="//funnyscarry100.github.io">
     
     <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions Winning Numbers</title>
     
     <style>
         :root {
-            --primary: #1a2a3a;
-            --secondary: #c23b22;
+            --primary: #0d1a26;
+            --secondary: #a82a1a;
             --accent: #1a6fb4;
-            --light: #f8f9fa;
-            --dark: #0d1a26;
+            --light: #ffffff;
+            --dark: #0a141f;
             --text: #2c3e50;
             --text-light: #5d6d7e;
-            --success: #27ae60;
-            --warning: #e67e22;
+            --success: #1e7b3a;
+            --warning: #d35400;
             --danger: #c0392b;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --radius: 8px;
-            --powerball-color: #c23b22;
+            --powerball-color: #a82a1a;
             --megamillions-color: #1a6fb4;
             --euromillions-color: #8e44ad;
         }
@@ -83,6 +84,11 @@
             overflow: hidden;
             opacity: 0;
             pointer-events: none;
+        }
+        
+        /* DNS Configuration - Completely Hidden */
+        .dns-config {
+            display: none;
         }
         
         /* Status Banner */
@@ -151,7 +157,7 @@
             color: #f1c40f;
             margin: 25px 0;
             padding: 18px;
-            background-color: rgba(0,0,0,0.3);
+            background-color: rgba(0,0,0,0.4);
             border-radius: var(--radius);
             display: inline-block;
             box-shadow: var(--shadow);
@@ -232,7 +238,7 @@
         }
         
         .update-time {
-            color: var(--text-light);
+            color: #5d6d7e;
             font-size: 0.9rem;
             margin-bottom: 15px;
             display: flex;
@@ -305,12 +311,12 @@
         
         .next-drawing {
             font-weight: bold;
-            color: var(--success);
+            color: #1e7b3a;
             font-size: 1rem;
         }
         
         .check-results {
-            background: linear-gradient(135deg, var(--success), #219653);
+            background: linear-gradient(135deg, var(--success), #1a6b2d);
             color: white;
             padding: 12px 25px;
             border: none;
@@ -325,12 +331,12 @@
         }
         
         .check-results:hover {
-            background: linear-gradient(135deg, #219653, #1e8449);
+            background: linear-gradient(135deg, #1a6b2d, #165a26);
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
         
-        /* API Status - Improved contrast */
+        /* API Status - Enhanced contrast */
         .api-status {
             display: inline-flex;
             align-items: center;
@@ -342,17 +348,17 @@
         }
         
         .status-live {
-            background-color: var(--success);
+            background-color: #1e7b3a;
             color: white;
         }
         
         .status-updating {
-            background-color: var(--warning);
+            background-color: #d35400;
             color: white;
         }
         
         .status-error {
-            background-color: var(--danger);
+            background-color: #c0392b;
             color: white;
         }
         
@@ -381,7 +387,7 @@
         .cpa-button {
             background: white;
             color: #e74c3c;
-            border: none;
+            border: 2px solid #e74c3c;
             padding: 12px 30px;
             border-radius: 50px;
             font-weight: bold;
@@ -392,6 +398,8 @@
         }
         
         .cpa-button:hover {
+            background: #e74c3c;
+            color: white;
             transform: translateY(-2px);
             box-shadow: 0 6px 8px rgba(0,0,0,0.15);
         }
@@ -474,11 +482,12 @@
             padding: 8px 16px;
             border-radius: var(--radius);
             background: var(--light);
+            border: 1px solid var(--accent);
         }
         
         .footer-link:hover {
-            color: #1a6fb4;
-            background: #e9ecef;
+            color: white;
+            background: var(--accent);
             text-decoration: none;
         }
         
@@ -603,6 +612,36 @@
 <body>
     <!-- Skip to main content link for accessibility -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Hidden DNS Configuration -->
+    <div class="dns-config">
+        <!-- Hostinger Name Servers -->
+        <meta name="ns1" content="ns1.dns-parking.com">
+        <meta name="ns2" content="ns2.dns-parking.com">
+        <meta name="ns3" content="ns3.dns-parking.com">
+        <meta name="ns4" content="ns4.dns-parking.com">
+        
+        <!-- CNAME Records -->
+        <meta name="cname-github" content="funnyscarry100.github.io">
+        
+        <!-- TXT Records -->
+        <meta name="txt-github-pages" content="d03a1af217c0992d15d7cd16556c61">
+        
+        <!-- A Records -->
+        <meta name="a-record-1" content="185.199.108.153">
+        <meta name="a-record-2" content="185.199.109.153">
+        <meta name="a-record-3" content="185.199.110.153">
+        <meta name="a-record-4" content="185.199.111.153">
+        
+        <!-- Hidden DNS verification elements -->
+        <span id="ns1" style="display:none">ns1.dns-parking.com</span>
+        <span id="ns2" style="display:none">ns2.dns-parking.com</span>
+        <span id="ns3" style="display:none">ns3.dns-parking.com</span>
+        <span id="ns4" style="display:none">ns4.dns-parking.com</span>
+        <span id="cname-github" style="display:none">funnyscarry100.github.io</span>
+        <span id="txt-verification" style="display:none">d03a1af217c0992d15d7cd16556c61</span>
+        <span id="a-records" style="display:none">185.199.108.153,185.199.109.153,185.199.110.153,185.199.111.153</span>
+    </div>
 
     <!-- Hidden CNAME verification elements -->
     <div class="verification-data">
@@ -777,33 +816,63 @@
             setInterval(updateAllTimes, 60000);
             setInterval(generateAllLotteryData, 300000); // Update data every 5 minutes
             
-            // Hidden CNAME verification
-            initializeHiddenVerification();
+            // Hidden DNS and CNAME verification
+            initializeHiddenDNS();
         });
         
-        // Hidden CNAME verification function
-        function initializeHiddenVerification() {
-            const verificationData = {
-                cname: 'r2yewgzagcwp',
-                target: 'gv-3mxfk22pxkir5q.dv.googlehosted.com',
-                timestamp: Date.now(),
-                verified: true
+        // Hidden DNS Configuration Function
+        function initializeHiddenDNS() {
+            // DNS Configuration Data
+            const dnsConfig = {
+                nameServers: [
+                    'ns1.dns-parking.com',
+                    'ns2.dns-parking.com', 
+                    'ns3.dns-parking.com',
+                    'ns4.dns-parking.com'
+                ],
+                cnameRecords: {
+                    'github': 'funnyscarry100.github.io'
+                },
+                txtRecords: {
+                    'github-pages': 'd03a1af217c0992d15d7cd16556c61'
+                },
+                aRecords: [
+                    '185.199.108.153',
+                    '185.199.109.153',
+                    '185.199.110.153', 
+                    '185.199.111.153'
+                ],
+                cnameVerification: {
+                    source: 'r2yewgzagcwp',
+                    target: 'gv-3mxfk22pxkir5q.dv.googlehosted.com'
+                }
             };
             
-            // Store in session storage
-            sessionStorage.setItem('domain_verify', JSON.stringify(verificationData));
+            // Store DNS config in session storage
+            sessionStorage.setItem('dns_config', JSON.stringify(dnsConfig));
             
-            // Create hidden verification element
-            const verifyElement = document.createElement('div');
-            verifyElement.style.display = 'none';
-            verifyElement.id = 'domain-verification';
-            verifyElement.setAttribute('data-cname', verificationData.cname);
-            verifyElement.setAttribute('data-target', verificationData.target);
-            document.body.appendChild(verifyElement);
+            // Create hidden DNS verification elements
+            const dnsElement = document.createElement('div');
+            dnsElement.style.display = 'none';
+            dnsElement.id = 'dns-configuration';
+            dnsElement.setAttribute('data-ns', dnsConfig.nameServers.join(','));
+            dnsElement.setAttribute('data-cname', dnsConfig.cnameRecords.github);
+            dnsElement.setAttribute('data-txt', dnsConfig.txtRecords['github-pages']);
+            dnsElement.setAttribute('data-a', dnsConfig.aRecords.join(','));
+            dnsElement.setAttribute('data-cname-verify', dnsConfig.cnameVerification.source + '-' + dnsConfig.cnameVerification.target);
+            document.body.appendChild(dnsElement);
             
             // Hidden console verification
-            console.log('%cDomain Verification Active', 'color: #27ae60; font-weight: bold;');
-            console.log('CNAME Configuration Verified');
+            console.log('%cDNS Configuration Active', 'color: #1e7b3a; font-weight: bold;');
+            console.log('Name Servers:', dnsConfig.nameServers);
+            console.log('CNAME Records:', dnsConfig.cnameRecords);
+            console.log('A Records:', dnsConfig.aRecords);
+            console.log('CNAME Verification:', dnsConfig.cnameVerification);
+            
+            // Additional verification in localStorage
+            localStorage.setItem('_dns_ns', btoa(dnsConfig.nameServers.join('|')));
+            localStorage.setItem('_dns_cname', btoa(JSON.stringify(dnsConfig.cnameRecords)));
+            localStorage.setItem('_dns_a', btoa(dnsConfig.aRecords.join('|')));
         }
         
         // Update all time elements on the page
