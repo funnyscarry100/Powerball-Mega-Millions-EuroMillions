@@ -657,7 +657,7 @@
                 </div>
             </div>
             
-            <!-- First CPAgrip Ad Space with 3D AI Hook -->
+            <!-- Single CPAgrip Ad Space with 3D AI Hook -->
             <div class="ad-container">
                 <span class="ad-label">Special Offer</span>
                 <div class="cpagrip-ad">
@@ -709,60 +709,6 @@
                 </div>
                 
                 <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
-            </div>
-            
-            <!-- Second CPAgrip Ad Space with 3D AI Hook -->
-            <div class="ad-container">
-                <span class="ad-label">Premium Content</span>
-                <div class="cpagrip-ad">
-                    <div class="ai-hook-container">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-2">
-                        <div class="ai-hook-overlay">
-                            <div class="ai-hook-text" id="ai-text-2">LIMITED TIME!</div>
-                        </div>
-                    </div>
-                    <div class="cpagrip-content">
-                        <h3>Get Files Instantly!</h3>
-                        <p>Access thousands of files with one click</p>
-                        <a href="https://getafilenow.com/1822542/1240" class="ad-cta" target="_blank">Get Files Now</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Third CPAgrip Ad Space with 3D AI Hook -->
-            <div class="ad-container">
-                <span class="ad-label">Limited Time</span>
-                <div class="cpagrip-ad">
-                    <div class="ai-hook-container">
-                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-3">
-                        <div class="ai-hook-overlay">
-                            <div class="ai-hook-text" id="ai-text-3">EXCLUSIVE ACCESS!</div>
-                        </div>
-                    </div>
-                    <div class="cpagrip-content">
-                        <h3>Exclusive Download Access</h3>
-                        <p>Unlock premium content and special offers</p>
-                        <a href="https://playabledownload.com/1822542/1240" class="ad-cta" target="_blank">Access Now</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Fourth CPAgrip Ad Space with 3D AI Hook -->
-            <div class="ad-container">
-                <span class="ad-label">Hot Offer</span>
-                <div class="cpagrip-ad">
-                    <div class="ai-hook-container">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-4">
-                        <div class="ai-hook-overlay">
-                            <div class="ai-hook-text" id="ai-text-4">DOWNLOAD NOW!</div>
-                        </div>
-                    </div>
-                    <div class="cpagrip-content">
-                        <h3>Instant File Access!</h3>
-                        <p>Download what you need right away</p>
-                        <a href="https://getafilenow.com/1822542/1240" class="ad-cta" target="_blank">Download Files</a>
-                    </div>
-                </div>
             </div>
         </section>
         
@@ -958,34 +904,29 @@
             ];
             
             const aiTexts = [
-                // Hook texts for each ad space
-                ["INSTANT ACCESS!", "DOWNLOAD NOW!", "EXCLUSIVE CONTENT!", "PREMIUM FILES!"],
-                ["LIMITED TIME!", "ACT FAST!", "DON'T MISS OUT!", "HURRY UP!"],
-                ["EXCLUSIVE ACCESS!", "SPECIAL OFFER!", "VIP CONTENT!", "PREMIUM ACCESS!"],
-                ["DOWNLOAD NOW!", "GET IT NOW!", "INSTANT DOWNLOAD!", "ACCESS FILES!"]
+                // Hook texts for the single ad space
+                ["INSTANT ACCESS!", "DOWNLOAD NOW!", "EXCLUSIVE CONTENT!", "PREMIUM FILES!"]
             ];
             
             function rotateAIHooks() {
-                for (let i = 1; i <= 4; i++) {
-                    const imageElement = document.getElementById(`ai-hook-${i}`);
-                    const textElement = document.getElementById(`ai-text-${i}`);
+                const imageElement = document.getElementById('ai-hook-1');
+                const textElement = document.getElementById('ai-text-1');
+                
+                if (imageElement && textElement) {
+                    // Get random index
+                    const randomIndex = Math.floor(Math.random() * aiImages.length);
                     
-                    if (imageElement && textElement) {
-                        // Get random index for this ad space
-                        const randomIndex = Math.floor(Math.random() * aiImages.length);
-                        
-                        // Change image with fade effect
-                        imageElement.style.opacity = '0.7';
-                        setTimeout(() => {
-                            imageElement.src = aiImages[randomIndex];
-                            imageElement.style.opacity = '1';
-                        }, 300);
-                        
-                        // Change text
-                        const textOptions = aiTexts[i-1];
-                        const textRandomIndex = Math.floor(Math.random() * textOptions.length);
-                        textElement.textContent = textOptions[textRandomIndex];
-                    }
+                    // Change image with fade effect
+                    imageElement.style.opacity = '0.7';
+                    setTimeout(() => {
+                        imageElement.src = aiImages[randomIndex];
+                        imageElement.style.opacity = '1';
+                    }, 300);
+                    
+                    // Change text
+                    const textOptions = aiTexts[0];
+                    const textRandomIndex = Math.floor(Math.random() * textOptions.length);
+                    textElement.textContent = textOptions[textRandomIndex];
                 }
             }
             
@@ -1000,36 +941,6 @@
             
             // Start the AI hook rotation
             startAIHookRotation();
-            
-            // Rotate ad content for better engagement
-            const adTitles = [
-                ["Exclusive Download Opportunity!", "Get Files Instantly!", "Exclusive Download Access", "Instant File Access!"],
-                ["Premium Content Available Now", "Thousands of Files Waiting", "Limited Time Access", "Download Immediately"],
-                ["Special Offer Just For You", "Access Premium Files", "Exclusive Content", "Hot Download Offer"]
-            ];
-            
-            const adDescriptions = [
-                ["Get instant access to premium content and files", "Access thousands of files with one click", "Unlock premium content and special offers", "Download what you need right away"],
-                ["Download exclusive content instantly", "Get your files immediately", "Limited time exclusive access", "Instant download access available"],
-                ["Don't miss this exclusive opportunity", "Files available for immediate download", "Special limited time offer", "Get access now before it's gone"]
-            ];
-            
-            function rotateAdContent() {
-                const adContainers = document.querySelectorAll('.cpagrip-content');
-                adContainers.forEach((container, index) => {
-                    const title = container.querySelector('h3');
-                    const description = container.querySelector('p');
-                    
-                    if (title && description) {
-                        const randomIndex = Math.floor(Math.random() * adTitles[index].length);
-                        title.textContent = adTitles[index][randomIndex];
-                        description.textContent = adDescriptions[index][randomIndex];
-                    }
-                });
-            }
-            
-            // Rotate ad content every 5 seconds
-            setInterval(rotateAdContent, 5000);
         });
     </script>
 </body>
