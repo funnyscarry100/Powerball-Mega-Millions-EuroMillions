@@ -20,6 +20,8 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --radius: 8px;
             --powerball-color: #a82a1a;
+            --tab-bg: #f8f9fa;
+            --tab-active: #ffffff;
         }
         
         * {
@@ -154,6 +156,62 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
+        }
+        
+        /* Tab Navigation */
+        .tab-container {
+            margin: 2rem 0;
+        }
+        
+        .tab-nav {
+            display: flex;
+            background-color: var(--tab-bg);
+            border-radius: var(--radius) var(--radius) 0 0;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .tab-button {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .tab-button:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        .tab-button.active {
+            background-color: var(--tab-active);
+            color: var(--secondary);
+            font-weight: 600;
+            box-shadow: 0 -2px 0 var(--secondary) inset;
+        }
+        
+        .tab-content {
+            display: none;
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         /* Lottery Results Styles */
@@ -336,6 +394,14 @@
             .viral-hook h2 {
                 font-size: 1.2rem;
             }
+            
+            .tab-nav {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                border-radius: 0;
+            }
         }
     </style>
 </head>
@@ -346,10 +412,7 @@
                 <a href="#" class="logo">Lottery<span>Update000</span></a>
                 <nav>
                     <ul>
-                        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                        <li><a href="#" class="nav-link" data-page="privacy">Privacy Policy</a></li>
-                        <li><a href="#" class="nav-link" data-page="terms">Terms of Service</a></li>
-                        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                        <li><a href="#" class="nav-link active">Home</a></li>
                     </ul>
                 </nav>
             </div>
@@ -414,101 +477,110 @@
                     <p>⚠️ Unable to fetch live results. Showing cached data.</p>
                 </div>
             </div>
-        </section>
-        
-        <!-- Privacy Policy Page -->
-        <section id="privacy" class="page">
-            <h1>Privacy Policy</h1>
-            <p>Last updated: October 26, 2023</p>
-            <p>At LotteryUpdate000, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.</p>
             
-            <h2>Information We Collect</h2>
-            <p>We may collect the following types of information:</p>
-            <ul>
-                <li><strong>Personal Information:</strong> When you contact us, we may collect your name and email address.</li>
-                <li><strong>Usage Data:</strong> We collect information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on the site.</li>
-                <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze site traffic.</li>
-            </ul>
-            
-            <h2>How We Use Your Information</h2>
-            <p>We use the information we collect to:</p>
-            <ul>
-                <li>Provide and maintain our lottery results service</li>
-                <li>Improve our website and user experience</li>
-                <li>Respond to your inquiries and provide customer support</li>
-                <li>Analyze usage patterns to enhance our content</li>
-            </ul>
-            
-            <h2>Data Security</h2>
-            <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
-            
-            <h2>Third-Party Services</h2>
-            <p>We may use third-party services that collect, monitor, and analyze website usage. These services have their own privacy policies addressing how they use such information.</p>
-            
-            <h2>Changes to This Privacy Policy</h2>
-            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
-            
-            <h2>Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
-        </section>
-        
-        <!-- Terms of Service Page -->
-        <section id="terms" class="page">
-            <h1>Terms of Service</h1>
-            <p>Last updated: October 26, 2023</p>
-            <p>Please read these Terms of Service carefully before using the LotteryUpdate000 website.</p>
-            
-            <h2>Acceptance of Terms</h2>
-            <p>By accessing or using our website, you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of the terms, you may not access our website.</p>
-            
-            <h2>Use of Service</h2>
-            <p>You may use our service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
-            <ul>
-                <li>Use the website in any way that violates any applicable law or regulation</li>
-                <li>Engage in any conduct that restricts or inhibits anyone's use of the website</li>
-                <li>Attempt to gain unauthorized access to any portion of the website</li>
-                <li>Use any device, software, or routine that interferes with the proper working of the website</li>
-            </ul>
-            
-            <h2>Intellectual Property</h2>
-            <p>The content, layout, design, and graphics on this website are owned by or licensed to LotteryUpdate000 and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
-            
-            <h2>Lottery Results Information</h2>
-            <p>While we strive to provide accurate and timely lottery results, we cannot guarantee that all information is completely accurate or up-to-date at all times. Official lottery results are determined by the respective lottery organizations, and we are not responsible for any discrepancies between our published results and the official results.</p>
-            
-            <h2>Disclaimer of Warranties</h2>
-            <p>Our service is provided on an "AS IS" and "AS AVAILABLE" basis. LotteryUpdate000 makes no representations or warranties of any kind, express or implied, regarding the operation or availability of our website or the information, content, or materials included on it.</p>
-            
-            <h2>Limitation of Liability</h2>
-            <p>To the fullest extent permitted by law, LotteryUpdate000 shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website.</p>
-            
-            <h2>Changes to Terms</h2>
-            <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p>
-            
-            <h2>Contact Information</h2>
-            <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
-        </section>
-        
-        <!-- About Page -->
-        <section id="about" class="page">
-            <h1>About LotteryUpdate000</h1>
-            <p>Welcome to LotteryUpdate000, your trusted source for the latest lottery results and information. Our mission is to provide accurate, up-to-date lottery results in an easy-to-understand format.</p>
-            
-            <h2>Our Mission</h2>
-            <p>We believe that lottery players deserve quick access to accurate results without the clutter and distractions found on many other sites. Our clean, user-friendly interface makes it simple to check the latest numbers and see if you're a winner.</p>
-            
-            <h2>What We Offer</h2>
-            <p>Our website provides:</p>
-            <ul>
-                <li>Latest lottery results updated shortly after each drawing</li>
-                <li>Detailed information about current jackpots</li>
-                <li>Information about upcoming draws</li>
-                <li>Historical data for lottery analysis</li>
-                <li>Clear presentation of winning numbers</li>
-            </ul>
-            
-            <h2>Contact Us</h2>
-            <p>If you have any questions, suggestions, or concerns, please don't hesitate to reach out to us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>. We value your feedback and are always looking for ways to improve our service.</p>
+            <!-- Tab Navigation for Legal Pages -->
+            <div class="tab-container">
+                <div class="tab-nav">
+                    <button class="tab-button active" data-tab="privacy">Privacy Policy</button>
+                    <button class="tab-button" data-tab="terms">Terms of Service</button>
+                    <button class="tab-button" data-tab="about">About</button>
+                </div>
+                
+                <!-- Privacy Policy Tab -->
+                <div id="privacy" class="tab-content active">
+                    <h2>Privacy Policy</h2>
+                    <p>Last updated: October 26, 2023</p>
+                    <p>At LotteryUpdate000, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.</p>
+                    
+                    <h3>Information We Collect</h3>
+                    <p>We may collect the following types of information:</p>
+                    <ul>
+                        <li><strong>Personal Information:</strong> When you contact us, we may collect your name and email address.</li>
+                        <li><strong>Usage Data:</strong> We collect information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on the site.</li>
+                        <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze site traffic.</li>
+                    </ul>
+                    
+                    <h3>How We Use Your Information</h3>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Provide and maintain our lottery results service</li>
+                        <li>Improve our website and user experience</li>
+                        <li>Respond to your inquiries and provide customer support</li>
+                        <li>Analyze usage patterns to enhance our content</li>
+                    </ul>
+                    
+                    <h3>Data Security</h3>
+                    <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+                    
+                    <h3>Third-Party Services</h3>
+                    <p>We may use third-party services that collect, monitor, and analyze website usage. These services have their own privacy policies addressing how they use such information.</p>
+                    
+                    <h3>Changes to This Privacy Policy</h3>
+                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
+                    
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
+                </div>
+                
+                <!-- Terms of Service Tab -->
+                <div id="terms" class="tab-content">
+                    <h2>Terms of Service</h2>
+                    <p>Last updated: October 26, 2023</p>
+                    <p>Please read these Terms of Service carefully before using the LotteryUpdate000 website.</p>
+                    
+                    <h3>Acceptance of Terms</h3>
+                    <p>By accessing or using our website, you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of the terms, you may not access our website.</p>
+                    
+                    <h3>Use of Service</h3>
+                    <p>You may use our service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+                    <ul>
+                        <li>Use the website in any way that violates any applicable law or regulation</li>
+                        <li>Engage in any conduct that restricts or inhibits anyone's use of the website</li>
+                        <li>Attempt to gain unauthorized access to any portion of the website</li>
+                        <li>Use any device, software, or routine that interferes with the proper working of the website</li>
+                    </ul>
+                    
+                    <h3>Intellectual Property</h3>
+                    <p>The content, layout, design, and graphics on this website are owned by or licensed to LotteryUpdate000 and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
+                    
+                    <h3>Lottery Results Information</h3>
+                    <p>While we strive to provide accurate and timely lottery results, we cannot guarantee that all information is completely accurate or up-to-date at all times. Official lottery results are determined by the respective lottery organizations, and we are not responsible for any discrepancies between our published results and the official results.</p>
+                    
+                    <h3>Disclaimer of Warranties</h3>
+                    <p>Our service is provided on an "AS IS" and "AS AVAILABLE" basis. LotteryUpdate000 makes no representations or warranties of any kind, express or implied, regarding the operation or availability of our website or the information, content, or materials included on it.</p>
+                    
+                    <h3>Limitation of Liability</h3>
+                    <p>To the fullest extent permitted by law, LotteryUpdate000 shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website.</p>
+                    
+                    <h3>Changes to Terms</h3>
+                    <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p>
+                    
+                    <h3>Contact Information</h3>
+                    <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
+                </div>
+                
+                <!-- About Tab -->
+                <div id="about" class="tab-content">
+                    <h2>About LotteryUpdate000</h2>
+                    <p>Welcome to LotteryUpdate000, your trusted source for the latest lottery results and information. Our mission is to provide accurate, up-to-date lottery results in an easy-to-understand format.</p>
+                    
+                    <h3>Our Mission</h3>
+                    <p>We believe that lottery players deserve quick access to accurate results without the clutter and distractions found on many other sites. Our clean, user-friendly interface makes it simple to check the latest numbers and see if you're a winner.</p>
+                    
+                    <h3>What We Offer</h3>
+                    <p>Our website provides:</p>
+                    <ul>
+                        <li>Latest lottery results updated shortly after each drawing</li>
+                        <li>Detailed information about current jackpots</li>
+                        <li>Information about upcoming draws</li>
+                        <li>Historical data for lottery analysis</li>
+                        <li>Clear presentation of winning numbers</li>
+                    </ul>
+                    
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, suggestions, or concerns, please don't hesitate to reach out to us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>. We value your feedback and are always looking for ways to improve our service.</p>
+                </div>
+            </div>
         </section>
     </main>
     
@@ -518,10 +590,7 @@
                 <a href="#" class="logo">Lottery<span>Update000</span></a>
                 
                 <div class="footer-links">
-                    <a href="#" class="nav-link" data-page="home">Home</a>
-                    <a href="#" class="nav-link" data-page="privacy">Privacy Policy</a>
-                    <a href="#" class="nav-link" data-page="terms">Terms of Service</a>
-                    <a href="#" class="nav-link" data-page="about">About</a>
+                    <a href="#" class="nav-link">Home</a>
                 </div>
                 
                 <div class="copyright">
@@ -653,23 +722,23 @@
             }
         }
 
-        // Page Navigation
+        // Tab Navigation Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const pages = document.querySelectorAll('.page');
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
             
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
                     
-                    // Remove active class from all links and pages
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    pages.forEach(page => page.classList.remove('active'));
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
                     
-                    // Add active class to clicked link and corresponding page
+                    // Add active class to clicked button and corresponding content
                     this.classList.add('active');
-                    const pageId = this.getAttribute('data-page');
-                    document.getElementById(pageId).classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
                 });
             });
             
