@@ -799,8 +799,6 @@
                     <a href="#" class="nav-link" data-page="about">About</a>
                 </div>
                 
-                <div class="contact-email">Contact: cryptodr987@gmail.com</div>
-                
                 <div class="copyright">
                     Free Powerball Lotto Results &copy; 2025 LotteryUpdate000. All rights reserved.
                 </div>
@@ -867,13 +865,12 @@
             // Change VPN hook every 2 seconds
             setInterval(rotateVpnHook, 2000);
             
-            // VPN install button functionality
+            // VPN install button functionality - FIXED LINK
             const vpnButtons = document.querySelectorAll('.vpn-install');
             vpnButtons.forEach(button => {
                 button.addEventListener('click', function() {
-                    // In a real implementation, this would redirect to the VPN app store page
-                    alert('Redirecting to VPN app installation...');
-                    // window.location.href = 'https://play.google.com/store/apps/details?id=com.vpn.lumos';
+                    // Redirect to the VPN app store page
+                    window.open('https://play.google.com/store/apps/details?id=com.vpn.lumos', '_blank');
                 });
             });
         });
