@@ -105,34 +105,62 @@
             background-color: var(--secondary);
         }
         
-        /* Viral Hook Styles */
-        .viral-hook {
+        /* Quick Hook Section */
+        .quick-hook {
             background: linear-gradient(135deg, var(--secondary) 0%, #d35400 100%);
             color: white;
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: center;
             border-radius: var(--radius);
             margin: 1.5rem 0;
             box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hook-countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .countdown-item {
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
             animation: pulse 2s infinite;
         }
         
-        .viral-hook h2 {
-            color: white;
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-            font-weight: 700;
+        .countdown-number {
+            font-size: 1.5rem;
+            line-height: 1;
         }
         
-        .viral-hook p {
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 0;
-            font-weight: 500;
+        .countdown-label {
+            font-size: 0.7rem;
+            opacity: 0.9;
+        }
+        
+        .hook-message {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 1rem 0;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.02); }
+            50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
         
@@ -353,10 +381,18 @@
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 400;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .footer-links a.active {
+            color: var(--secondary);
+            font-weight: 600;
         }
         
         .copyright {
@@ -391,7 +427,7 @@
                 gap: 1rem;
             }
             
-            .viral-hook h2 {
+            .quick-hook h2 {
                 font-size: 1.2rem;
             }
             
@@ -401,6 +437,15 @@
             
             .tab-button {
                 border-radius: 0;
+            }
+            
+            .hook-countdown {
+                flex-wrap: wrap;
+            }
+            
+            .countdown-item {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
@@ -412,7 +457,7 @@
                 <a href="#" class="logo">Lottery<span>Update000</span></a>
                 <nav>
                     <ul>
-                        <li><a href="#" class="nav-link active">Home</a></li>
+                        <!-- Home tab removed from header as requested -->
                     </ul>
                 </nav>
             </div>
@@ -424,10 +469,26 @@
         <section id="home" class="page active">
             <h1>Live Powerball Results</h1>
             
-            <!-- Viral Hook Section -->
-            <div class="viral-hook">
-                <h2>🚨 LIVE POWERBALL RESULTS! 🚨</h2>
-                <p>Real-time data from official sources - Updated automatically!</p>
+            <!-- Quick Hook Section - 1 to 5 seconds to hook visitors -->
+            <div class="quick-hook">
+                <h2>🚨 CHECK IF YOU'RE AN INSTANT MILLIONAIRE! 🚨</h2>
+                <div class="hook-countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number">1</div>
+                        <div class="countdown-label">SECOND</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">TO</div>
+                        <div class="countdown-label">CHECK</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number">WIN</div>
+                        <div class="countdown-label">NUMBERS</div>
+                    </div>
+                </div>
+                <div class="hook-message" id="hook-message">
+                    Latest Powerball results updated in real-time!
+                </div>
             </div>
             
             <!-- Powerball Results from NY Open Data API -->
@@ -589,8 +650,12 @@
             <div class="footer-content">
                 <a href="#" class="logo">Lottery<span>Update000</span></a>
                 
+                <!-- Navigation moved to footer as requested -->
                 <div class="footer-links">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link active">Home</a>
+                    <a href="#" class="nav-link" data-tab="privacy">Privacy Policy</a>
+                    <a href="#" class="nav-link" data-tab="terms">Terms of Service</a>
+                    <a href="#" class="nav-link" data-tab="about">About</a>
                 </div>
                 
                 <div class="copyright">
@@ -722,6 +787,23 @@
             }
         }
 
+        // Quick Hook Messages - 1 to 5 second sequence
+        const hookMessages = [
+            "Latest Powerball results updated in real-time!",
+            "Check if your numbers match the winning combination!",
+            "Jackpot amounts updated immediately after each draw!",
+            "Never miss a winning number with our live updates!",
+            "Your one-stop destination for accurate lottery results!"
+        ];
+
+        let currentMessageIndex = 0;
+
+        function rotateHookMessage() {
+            const hookMessageElement = document.getElementById('hook-message');
+            hookMessageElement.textContent = hookMessages[currentMessageIndex];
+            currentMessageIndex = (currentMessageIndex + 1) % hookMessages.length;
+        }
+
         // Tab Navigation Functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Tab functionality
@@ -741,6 +823,33 @@
                     document.getElementById(tabId).classList.add('active');
                 });
             });
+            
+            // Footer navigation functionality
+            const footerLinks = document.querySelectorAll('.footer-links a');
+            footerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    if (tabId) {
+                        // Remove active class from all footer links
+                        footerLinks.forEach(link => link.classList.remove('active'));
+                        
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Switch to the corresponding tab
+                        tabButtons.forEach(btn => btn.classList.remove('active'));
+                        tabContents.forEach(content => content.classList.remove('active'));
+                        
+                        document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
+                        document.getElementById(tabId).classList.add('active');
+                    }
+                });
+            });
+            
+            // Start rotating hook messages
+            setInterval(rotateHookMessage, 3000); // Change message every 3 seconds
             
             // Initialize Powerball API and display results
             const powerballAPI = new NYPowerballAPI();
