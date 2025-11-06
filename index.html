@@ -103,6 +103,56 @@
             background-color: var(--secondary);
         }
         
+        /* Viral Hook Styles */
+        .viral-hook {
+            background: linear-gradient(135deg, var(--secondary) 0%, #d35400 100%);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: var(--radius);
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .viral-hook::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        .viral-hook h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .viral-hook p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
         /* Main Content Styles */
         main {
             padding: 2rem 0;
@@ -312,6 +362,10 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+            
+            .viral-hook h2 {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
@@ -336,6 +390,12 @@
         <!-- Home Page -->
         <section id="home" class="page active">
             <h1>Latest Lottery Results</h1>
+            
+            <!-- Viral Hook Section -->
+            <div class="viral-hook">
+                <h2>🚨 SHOCKING WINNER ALERT! 🚨</h2>
+                <p>Someone in YOUR CITY just won $2 Million with these exact numbers! Check if you're the next lucky winner!</p>
+            </div>
             
             <div class="lottery-card">
                 <div class="lottery-header">
@@ -490,7 +550,7 @@
                 <div class="contact-email">Contact: cryptodr987@gmail.com</div>
                 
                 <div class="copyright">
-                    Free Powerball Lotto Results &copy; 2023 LotteryUpdate000. All rights reserved.
+                    Free Powerball Lotto Results &copy; 2025 LotteryUpdate000. All rights reserved.
                 </div>
             </div>
         </div>
@@ -518,6 +578,17 @@
                     document.getElementById(pageId).classList.add('active');
                 });
             });
+            
+            // Viral hook timer - change message after 3 seconds
+            setTimeout(function() {
+                const viralHook = document.querySelector('.viral-hook');
+                if (viralHook) {
+                    viralHook.innerHTML = `
+                        <h2>🔥 URGENT UPDATE! 🔥</h2>
+                        <p>Jackpot increased to $140 MILLION! Check if your numbers match - you could be the next overnight millionaire!</p>
+                    `;
+                }
+            }, 3000);
         });
     </script>
 </body>
