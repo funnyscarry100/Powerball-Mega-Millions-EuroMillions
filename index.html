@@ -20,6 +20,8 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --radius: 8px;
             --powerball-color: #a82a1a;
+            --ad-bg: #f8f9fa;
+            --ad-border: #e9ecef;
         }
         
         * {
@@ -197,6 +199,94 @@
             font-weight: 400;
         }
         
+        /* Ad Space Styles */
+        .ad-container {
+            background-color: var(--ad-bg);
+            border: 1px solid var(--ad-border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .ad-label {
+            display: inline-block;
+            background-color: var(--text-light);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .ad-banner {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+        }
+        
+        .ad-text {
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .ad-cta {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .ad-cta:hover {
+            background-color: #8c2315;
+        }
+        
+        .ad-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .ad-card {
+            background-color: var(--ad-bg);
+            border: 1px solid var(--ad-border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .ad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .ad-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .ad-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .ad-description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        
         /* Lottery Results Styles */
         .lottery-card {
             background-color: var(--light);
@@ -366,6 +456,10 @@
             .viral-hook h2 {
                 font-size: 1.2rem;
             }
+            
+            .ad-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -395,6 +489,14 @@
             <div class="viral-hook">
                 <h2>🚨 SHOCKING WINNER ALERT! 🚨</h2>
                 <p>Someone in YOUR CITY just won $2 Million with these exact numbers! Check if you're the next lucky winner!</p>
+            </div>
+            
+            <!-- Top Banner Ad -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+                <h3 class="ad-title">Increase Your Chances of Winning!</h3>
+                <p class="ad-text">Try the lottery strategy system used by 3 recent jackpot winners</p>
+                <a href="#" class="ad-cta">Learn More</a>
             </div>
             
             <div class="lottery-card">
@@ -432,6 +534,45 @@
                 
                 <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
             </div>
+            
+            <!-- Middle Banner Ad -->
+            <div class="ad-container">
+                <span class="ad-label">Sponsored</span>
+                <h3 class="ad-title">Play Lottery Online Safely</h3>
+                <p class="ad-text">Trusted platform with secure payments and instant results</p>
+                <a href="#" class="ad-cta">Get Started</a>
+            </div>
+            
+            <!-- Affiliate Product Grid -->
+            <h2>Recommended Lottery Tools</h2>
+            <div class="ad-grid">
+                <div class="ad-card">
+                    <div class="ad-icon">📊</div>
+                    <div class="ad-title">Number Analyzer Pro</div>
+                    <div class="ad-description">Advanced statistical analysis to find winning patterns</div>
+                    <a href="#" class="ad-cta">Try Free</a>
+                </div>
+                <div class="ad-card">
+                    <div class="ad-icon">📱</div>
+                    <div class="ad-title">Lottery App</div>
+                    <div class="ad-description">Check results, get alerts, and manage tickets</div>
+                    <a href="#" class="ad-cta">Download</a>
+                </div>
+                <div class="ad-card">
+                    <div class="ad-icon">💰</div>
+                    <div class="ad-title">Jackpot Calculator</div>
+                    <div class="ad-description">Calculate your potential winnings after taxes</div>
+                    <a href="#" class="ad-cta">Calculate</a>
+                </div>
+            </div>
+            
+            <!-- Bottom Banner Ad -->
+            <div class="ad-container">
+                <span class="ad-label">Partner Offer</span>
+                <h3 class="ad-title">Win Big With Scratch Cards!</h3>
+                <p class="ad-text">Instant wins up to $10,000 with our exclusive scratch card offers</p>
+                <a href="#" class="ad-cta">Play Now</a>
+            </div>
         </section>
         
         <!-- About Page -->
@@ -439,6 +580,14 @@
             <h1>About LotteryUpdate000</h1>
             
             <p>Welcome to LotteryUpdate000, your trusted source for the latest lottery results and information. Our mission is to provide accurate, up-to-date lottery results in an easy-to-understand format.</p>
+            
+            <!-- Sidebar Ad on About Page -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+                <h3 class="ad-title">Lottery Syndicate Opportunities</h3>
+                <p class="ad-text">Join a group and increase your winning chances dramatically</p>
+                <a href="#" class="ad-cta">Join Now</a>
+            </div>
             
             <h2>Our Mission</h2>
             <p>We believe that lottery players deserve quick access to accurate results without the clutter and distractions found on many other sites. Our clean, user-friendly interface makes it simple to check the latest numbers and see if you're a winner.</p>
@@ -592,4 +741,4 @@
         });
     </script>
 </body>
-</html>
+</html>⅕
