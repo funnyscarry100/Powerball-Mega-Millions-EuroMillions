@@ -3,727 +3,944 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Lottery Information Hub</title>
-    <meta name="description" content="Read our Privacy Policy for lotteryupdate000.space. Learn how we collect, use, and protect your personal information.">
-    <link rel="canonical" href="https://lotteryupdate000.space/privacy-policy.html">
-    
-    <!-- Hidden DNS Prefetch for CNAME configuration -->
-    <link rel="dns-prefetch" href="//gv-3mxfk22pxkir5q.dv.googlehosted.com">
-    
+    <title>Live Lottery Results - Powerball</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0d1a26;
+            --secondary: #a82a1a;
+            --accent: #1a6fb4;
+            --light: #ffffff;
+            --dark: #0a141f;
+            --text: #2c3e50;
+            --text-light: #5d6d7e;
+            --success: #1e7b3a;
+            --warning: #d35400;
+            --danger: #c0392b;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --powerball-color: #a82a1a;
+            --ad-bg: #f8f9fa;
+            --ad-border: #e9ecef;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #333;
-            --text-light: #7f8c8d;
-            --success: #2ecc71;
-            --warning: #f39c12;
-            --danger: #e74c3c;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --radius: 8px;
-        }
-        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            background: linear-gradient(135deg, #e8edf5 0%, #b8c6db 100%);
             min-height: 100vh;
-            padding: 20px;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            overflow: hidden;
+            padding: 0 20px;
         }
         
+        /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary), #1a1a2e);
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        nav ul li a.active {
+            color: var(--secondary);
+        }
+        
+        nav ul li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+        }
+        
+        /* Viral Hook Styles */
+        .viral-hook {
+            background: linear-gradient(135deg, var(--secondary) 0%, #d35400 100%);
             color: white;
-            padding: 40px 30px;
+            padding: 1rem;
             text-align: center;
+            border-radius: var(--radius);
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow);
+            animation: pulse 2s infinite;
             position: relative;
             overflow: hidden;
         }
         
-        header::before {
-            content: "";
+        .viral-hook::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+        
+        .viral-hook h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .viral-hook p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0;
+            font-weight: 500;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* Main Content Styles */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .page {
+            display: none;
+            background-color: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        h3 {
+            color: var(--text);
+            margin: 1rem 0 0.5rem;
+            font-weight: 500;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+        
+        /* Ad Space Styles */
+        .ad-container {
+            background-color: var(--ad-bg);
+            border: 1px solid var(--ad-border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .ad-label {
+            display: inline-block;
+            background-color: var(--text-light);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .vpn-ad {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
+        }
+        
+        .vpn-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .vpn-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+            color: #4285f4;
+            font-size: 1.2rem;
+        }
+        
+        .vpn-title {
+            flex-grow: 1;
+        }
+        
+        .vpn-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .vpn-developer {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .vpn-rating {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .vpn-stars {
+            color: #ffc107;
+            margin-right: 0.25rem;
+        }
+        
+        .vpn-body {
+            padding: 1.5rem;
+        }
+        
+        .vpn-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .vpn-feature {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+        }
+        
+        .vpn-feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vpn-feature-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .vpn-install {
+            background-color: white;
+            color: #4285f4;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .vpn-install:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .ad-cta {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .ad-cta:hover {
+            background-color: #8c2315;
+        }
+        
+        /* 3D AI Image Hook Styles */
+        .ai-hook-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            perspective: 1000px;
+        }
+        
+        .ai-hook-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .ai-hook-container:hover .ai-hook-image {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+        }
+        
+        .ai-hook-overlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
-            background-size: cover;
-        }
-        
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            position: relative;
-        }
-        
-        header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .last-updated {
-            background: var(--secondary);
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-size: 0.9rem;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .policy-section {
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .policy-section h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-        
-        .policy-section h3 {
-            color: var(--primary);
-            margin: 25px 0 15px 0;
-            font-size: 1.4rem;
-        }
-        
-        .policy-section p {
-            margin-bottom: 15px;
-            color: var(--text);
-        }
-        
-        .policy-section ul, .policy-section ol {
-            margin-left: 25px;
-            margin-bottom: 20px;
-        }
-        
-        .policy-section li {
-            margin-bottom: 10px;
-            color: var(--text);
-            position: relative;
-            padding-left: 5px;
-        }
-        
-        .policy-section li::before {
-            content: "•";
-            color: var(--secondary);
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
-        }
-        
-        .highlight-box {
-            background: #e8f4fd;
-            padding: 25px;
-            border-radius: var(--radius);
-            border-left: 4px solid var(--secondary);
-            margin: 25px 0;
-        }
-        
-        .warning-box {
-            background: #fff8e1;
-            padding: 25px;
-            border-radius: var(--radius);
-            border-left: 4px solid var(--warning);
-            margin: 25px 0;
-        }
-        
-        .danger-box {
-            background: #ffeaa7;
-            padding: 25px;
-            border-radius: var(--radius);
-            border-left: 4px solid var(--danger);
-            margin: 25px 0;
-        }
-        
-        .contact-info {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: var(--radius);
-            margin-top: 30px;
-        }
-        
-        .contact-info h3 {
-            color: var(--primary);
-            margin-bottom: 15px;
-        }
-        
-        .navigation {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #e9ecef;
-        }
-        
-        .nav-btn {
-            background: var(--secondary);
             color: white;
-            padding: 12px 25px;
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        footer {
             text-align: center;
-            padding: 30px;
-            border-top: 1px solid #e9ecef;
-            color: var(--text-light);
-            font-size: 0.9rem;
-            background: #f8f9fa;
+            padding: 1rem;
         }
         
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--secondary);
+        .ai-hook-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: textGlow 2s infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+            100% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6); }
+        }
+        
+        /* CPAgrip Ad Styles */
+        .cpagrip-ad {
+            width: 100%;
+            min-height: 250px;
+            border: 1px solid var(--ad-border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: white;
+        }
+        
+        .cpagrip-content {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        /* Lottery Results Styles */
+        .lottery-card {
+            background-color: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--powerball-color);
+        }
+        
+        .lottery-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lottery-logo {
+            width: 50px;
+            height: 50px;
+            background-color: var(--powerball-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .lottery-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .lottery-date {
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            font-weight: 400;
+        }
+        
+        .numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .number {
             width: 50px;
             height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            font-size: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 1000;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            background-color: var(--powerball-color);
         }
         
-        .back-to-top.visible {
-            opacity: 1;
-            pointer-events: all;
+        .powerball {
+            background-color: #ffcc00;
+            color: var(--primary);
         }
         
-        .back-to-top:hover {
-            background: #2980b9;
-            transform: translateY(-3px);
+        .lottery-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
         
-        .breadcrumb {
-            padding: 15px 40px;
-            background: #f8f9fa;
-            border-bottom: 1px solid #e9ecef;
+        .info-item {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: var(--radius);
+        }
+        
+        .info-label {
             font-size: 0.9rem;
             color: var(--text-light);
+            margin-bottom: 0.25rem;
+            font-weight: 400;
         }
         
-        .breadcrumb a {
-            color: var(--secondary);
-            text-decoration: none;
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
         }
         
-        .breadcrumb a:hover {
-            text-decoration: underline;
+        .jackpot {
+            color: var(--success);
         }
         
-        .breadcrumb span {
-            margin: 0 8px;
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 2rem 0;
+            margin-top: 2rem;
         }
         
-        .cookie-consent {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: var(--primary);
-            color: white;
-            padding: 20px;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 1001;
-            display: none;
-        }
-        
-        .cookie-consent.visible {
-            display: block;
-        }
-        
-        .cookie-content {
-            max-width: 1000px;
-            margin: 0 auto;
+        .footer-content {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
-            gap: 20px;
+            text-align: center;
         }
         
-        .cookie-text {
-            flex: 1;
-        }
-        
-        .cookie-buttons {
+        .footer-links {
             display: flex;
-            gap: 10px;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
         }
         
-        .cookie-btn {
-            padding: 8px 20px;
-            border-radius: var(--radius);
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 400;
         }
         
-        .cookie-accept {
-            background: var(--secondary);
-            color: white;
+        .footer-links a:hover {
+            color: var(--secondary);
         }
         
-        .cookie-reject {
-            background: transparent;
-            color: white;
-            border: 1px solid white;
+        .copyright {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 400;
         }
         
-        .cookie-btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        /* Hidden verification elements */
-        .verification-data {
-            display: none;
-        }
-        
-        .security-indicator {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
+        /* Responsive Styles */
         @media (max-width: 768px) {
-            .content {
-                padding: 25px;
-            }
-            
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            .navigation {
+            .header-content {
                 flex-direction: column;
-                gap: 15px;
+                text-align: center;
             }
             
-            .nav-btn {
-                text-align: center;
+            nav ul {
+                margin-top: 1rem;
                 justify-content: center;
             }
             
-            .breadcrumb {
-                padding: 15px 25px;
+            nav ul li {
+                margin: 0 0.75rem;
             }
             
-            .cookie-content {
+            .lottery-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .viral-hook h2 {
+                font-size: 1.2rem;
+            }
+            
+            .vpn-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .vpn-header {
                 flex-direction: column;
                 text-align: center;
-                gap: 15px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
             }
             
-            .content {
-                padding: 20px;
+            .vpn-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
             }
             
-            header {
-                padding: 30px 20px;
-            }
-            
-            header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .policy-section h2 {
-                font-size: 1.5rem;
-            }
-            
-            .policy-section h3 {
-                font-size: 1.2rem;
+            .ai-hook-text {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Lottery<span>Update000</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                        <li><a href="#" class="nav-link" data-page="privacy">Privacy Policy</a></li>
+                        <li><a href="#" class="nav-link" data-page="terms">Terms of Service</a></li>
+                        <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <h1>Latest Powerball Lotto Results</h1>
+            
+            <!-- Viral Hook Section -->
+            <div class="viral-hook">
+                <h2>🚨 SHOCKING WINNER ALERT! 🚨</h2>
+                <p>Someone in YOUR CITY just won $2 Million with these exact numbers! Check if you're the next lucky winner!</p>
+            </div>
+            
+            <!-- VPN Ad with Hook -->
+            <div class="ad-container">
+                <span class="ad-label">Advertisement</span>
+                <div class="vpn-ad">
+                    <div class="vpn-header">
+                        <div class="vpn-icon">VPN</div>
+                        <div class="vpn-title">
+                            <div class="vpn-name">VPN Lumos: Fast VPN Master</div>
+                            <div class="vpn-developer">Midpoint Security FZCO-LLC</div>
+                        </div>
+                        <div class="vpn-rating">
+                            <span class="vpn-stars">★★★★</span> 4.2+
+                        </div>
+                    </div>
+                    <div class="vpn-body">
+                        <h3 id="vpn-hook">One-tap Watch & Enjoy</h3>
+                        <div class="vpn-features">
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🔒</div>
+                                <div class="vpn-feature-text">Online Safety</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🛡️</div>
+                                <div class="vpn-feature-text">Privacy</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">⚡</div>
+                                <div class="vpn-feature-text">Fast Connection</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🌐</div>
+                                <div class="vpn-feature-text">Connect Worldwide</div>
+                            </div>
+                        </div>
+                        <button class="vpn-install">Install</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Single CPAgrip Ad Space with 3D AI Hook -->
+            <div class="ad-container">
+                <span class="ad-label">Special Offer</span>
+                <div class="cpagrip-ad">
+                    <div class="ai-hook-container">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-1">
+                        <div class="ai-hook-overlay">
+                            <div class="ai-hook-text" id="ai-text-1">INSTANT ACCESS!</div>
+                        </div>
+                    </div>
+                    <div class="cpagrip-content">
+                        <h3>Exclusive Download Opportunity!</h3>
+                        <p>Get instant access to premium content and files</p>
+                        <a href="https://playabledownload.com/1822542/1240" class="ad-cta" target="_blank">Download Now</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lottery-card">
+                <div class="lottery-header">
+                    <div class="lottery-logo">PB</div>
+                    <div>
+                        <div class="lottery-name">Powerball</div>
+                        <div class="lottery-date">Draw Date: November 15, 2023</div>
+                    </div>
+                </div>
+                
+                <div class="numbers">
+                    <div class="number">8</div>
+                    <div class="number">17</div>
+                    <div class="number">29</div>
+                    <div class="number">43</div>
+                    <div class="number">56</div>
+                    <div class="number powerball">14</div>
+                </div>
+                
+                <div class="lottery-info">
+                    <div class="info-item">
+                        <div class="info-label">Jackpot</div>
+                        <div class="info-value jackpot">$145 Million</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Next Draw</div>
+                        <div class="info-value">November 18, 2023</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Next Estimated Jackpot</div>
+                        <div class="info-value">$165 Million</div>
+                    </div>
+                </div>
+                
+                <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+            </div>
+        </section>
+        
+        <!-- Privacy Policy Page -->
+        <section id="privacy" class="page">
             <h1>Privacy Policy</h1>
-            <p>How we collect, use, and protect your information at lotteryupdate000.space</p>
-        </header>
+            
+            <p>Last updated: October 26, 2023</p>
+            
+            <p>At LotteryUpdate000, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.</p>
+            
+            <h2>Information We Collect</h2>
+            <p>We may collect the following types of information:</p>
+            <ul>
+                <li><strong>Personal Information:</strong> When you contact us, we may collect your name and email address.</li>
+                <li><strong>Usage Data:</strong> We collect information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on the site.</li>
+                <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze site traffic.</li>
+            </ul>
+            
+            <h2>How We Use Your Information</h2>
+            <p>We use the information we collect to:</p>
+            <ul>
+                <li>Provide and maintain our lottery results service</li>
+                <li>Improve our website and user experience</li>
+                <li>Respond to your inquiries and provide customer support</li>
+                <li>Analyze usage patterns to enhance our content</li>
+            </ul>
+            
+            <h2>Data Security</h2>
+            <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+            
+            <h2>Third-Party Services</h2>
+            <p>We may use third-party services that collect, monitor, and analyze website usage. These services have their own privacy policies addressing how they use such information.</p>
+            
+            <h2>Changes to This Privacy Policy</h2>
+            <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
+            
+            <h2>Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
+        </section>
         
-        <div class="breadcrumb">
-            <a href="https://lotteryupdate000.space">Home</a>
-            <span>></span>
-            <span>Privacy Policy</span>
-        </div>
+        <!-- Terms of Service Page -->
+        <section id="terms" class="page">
+            <h1>Terms of Service</h1>
+            
+            <p>Last updated: October 26, 2023</p>
+            
+            <p>Please read these Terms of Service carefully before using the LotteryUpdate000 website.</p>
+            
+            <h2>Acceptance of Terms</h2>
+            <p>By accessing or using our website, you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of the terms, you may not access our website.</p>
+            
+            <h2>Use of Service</h2>
+            <p>You may use our service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+            <ul>
+                <li>Use the website in any way that violates any applicable law or regulation</li>
+                <li>Engage in any conduct that restricts or inhibits anyone's use of the website</li>
+                <li>Attempt to gain unauthorized access to any portion of the website</li>
+                <li>Use any device, software, or routine that interferes with the proper working of the website</li>
+            </ul>
+            
+            <h2>Intellectual Property</h2>
+            <p>The content, layout, design, and graphics on this website are owned by or licensed to LotteryUpdate000 and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
+            
+            <h2>Lottery Results Information</h2>
+            <p>While we strive to provide accurate and timely lottery results, we cannot guarantee that all information is completely accurate or up-to-date at all times. Official lottery results are determined by the respective lottery organizations, and we are not responsible for any discrepancies between our published results and the official results.</p>
+            
+            <h2>Disclaimer of Warranties</h2>
+            <p>Our service is provided on an "AS IS" and "AS AVAILABLE" basis. LotteryUpdate000 makes no representations or warranties of any kind, express or implied, regarding the operation or availability of our website or the information, content, or materials included on it.</p>
+            
+            <h2>Limitation of Liability</h2>
+            <p>To the fullest extent permitted by law, LotteryUpdate000 shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website.</p>
+            
+            <h2>Changes to Terms</h2>
+            <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p>
+            
+            <h2>Contact Information</h2>
+            <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
+        </section>
         
-        <div class="last-updated">
-            <strong>Last Updated:</strong> <span id="last-updated"></span>
-        </div>
-        
-        <div class="content">
-            <!-- Hidden CNAME verification data -->
-            <div class="verification-data">
-                <span id="cname-verify">r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com</span>
-                <meta name="domain-verification" content="r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com">
-            </div>
+        <!-- About Page -->
+        <section id="about" class="page">
+            <h1>About LotteryUpdate000</h1>
             
-            <div class="policy-section">
-                <div class="highlight-box">
-                    <p>This Privacy Policy describes how lotteryupdate000.space collects, uses, and protects your personal information when you use our lottery results service. We are committed to protecting your privacy and being transparent about our data practices.</p>
-                </div>
-            </div>
+            <p>Welcome to LotteryUpdate000, your trusted source for the latest lottery results and information. Our mission is to provide accurate, up-to-date lottery results in an easy-to-understand format.</p>
             
-            <div class="policy-section">
-                <h2>1. Information We Collect</h2>
-                
-                <h3>Personal Information</h3>
-                <p>We collect minimal personal information to provide our services:</p>
-                <ul>
-                    <li><strong>Contact Information:</strong> Email address (if you subscribe to lottery result notifications)</li>
-                    <li><strong>Technical Data:</strong> IP address, browser type, device information</li>
-                    <li><strong>Usage Data:</strong> Pages visited, time spent, click patterns</li>
-                    <li><strong>Location Data:</strong> General geographic location based on IP address</li>
-                </ul>
-                
-                <h3>Automatically Collected Information</h3>
-                <p>When you visit our website, we automatically collect:</p>
-                <ul>
-                    <li>IP address and internet service provider details</li>
-                    <li>Browser type, version, and language settings</li>
-                    <li>Operating system and device type</li>
-                    <li>Pages visited, time stamps, and session duration</li>
-                    <li>Referring websites and search queries</li>
-                </ul>
-            </div>
+            <h2>Our Mission</h2>
+            <p>We believe that lottery players deserve quick access to accurate results without the clutter and distractions found on many other sites. Our clean, user-friendly interface makes it simple to check the latest numbers and see if you're a winner.</p>
             
-            <div class="policy-section">
-                <h2>2. How We Use Your Information</h2>
-                <p>We use the collected information for the following purposes:</p>
-                <ul>
-                    <li><strong>Service Provision:</strong> To provide and maintain our lottery results service</li>
-                    <li><strong>Improvements:</strong> To enhance website functionality and user experience</li>
-                    <li><strong>Communication:</strong> To send lottery result notifications and updates (if subscribed)</li>
-                    <li><strong>Analytics:</strong> To analyze website traffic and usage patterns</li>
-                    <li><strong>Security:</strong> To prevent fraud, abuse, and ensure website security</li>
-                    <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
-                </ul>
-            </div>
+            <h2>What We Offer</h2>
+            <p>Our website provides:</p>
+            <ul>
+                <li>Latest lottery results updated shortly after each drawing</li>
+                <li>Detailed information about current jackpots</li>
+                <li>Information about upcoming draws</li>
+                <li>Historical data for lottery analysis</li>
+                <li>Clear presentation of winning numbers</li>
+            </ul>
             
-            <div class="policy-section">
-                <h2>3. Data Sharing and Disclosure</h2>
-                <p>We value your privacy and do not sell, trade, or rent your personal information to third parties. We may share information in the following circumstances:</p>
-                
-                <h3>Service Providers</h3>
-                <p>We may share information with trusted third-party service providers who assist in:</p>
-                <ul>
-                    <li>Website hosting and maintenance</li>
-                    <li>Data analysis and analytics services</li>
-                    <li>Email delivery and communication services</li>
-                    <li>Customer support operations</li>
-                </ul>
-                
-                <h3>Legal Requirements</h3>
-                <p>We may disclose your information when required by:</p>
-                <ul>
-                    <li>Law enforcement or government agencies</li>
-                    <li>Court orders or legal processes</li>
-                    <li>To protect our rights, property, or safety</li>
-                    <li>To investigate potential violations of our policies</li>
-                </ul>
-                
-                <div class="warning-box">
-                    <p><strong>Important Notice:</strong> We are not affiliated with official lottery organizations. All lottery results are provided for informational purposes only. Always verify winning numbers with official lottery sources before claiming any prizes.</p>
-                </div>
-            </div>
-            
-            <div class="policy-section">
-                <h2>4. Cookies and Tracking Technologies</h2>
-                
-                <h3>What Are Cookies?</h3>
-                <p>Cookies are small text files stored on your device when you visit websites. We use cookies and similar technologies to:</p>
-                <ul>
-                    <li>Remember your preferences and settings</li>
-                    <li>Analyze website traffic and performance</li>
-                    <li>Provide personalized content and recommendations</li>
-                    <li>Enable social media features and sharing</li>
-                    <li>Measure advertising effectiveness</li>
-                </ul>
-                
-                <h3>Cookie Control</h3>
-                <p>You can control cookie settings through your browser preferences:</p>
-                <ul>
-                    <li>Most browsers allow you to refuse cookies</li>
-                    <li>You can delete existing cookies from your device</li>
-                    <li>Blocking cookies may affect website functionality</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h2>5. Data Security</h2>
-                <p>We implement comprehensive security measures to protect your personal information:</p>
-                <ul>
-                    <li><strong>SSL Encryption:</strong> All data transmissions are encrypted using SSL technology</li>
-                    <li><strong>Access Controls:</strong> Limited access to personal data on a need-to-know basis</li>
-                    <li><strong>Regular Audits:</strong> Periodic security assessments and vulnerability testing</li>
-                    <li><strong>Secure Infrastructure:</strong> Protected server environments with firewalls</li>
-                    <li><strong>Data Backup:</strong> Regular backups to prevent data loss</li>
-                </ul>
-                
-                <!-- Hidden security verification -->
-                <div class="security-indicator">
-                    Domain verification: r2yewgzagcwp-gv-3mxfk22pxkir5q-dv-googlehosted-com
-                </div>
-            </div>
-            
-            <div class="policy-section">
-                <h2>6. Your Privacy Rights</h2>
-                <p>Depending on your location, you may have the following rights regarding your personal information:</p>
-                <ul>
-                    <li><strong>Access:</strong> Right to access and receive copies of your data</li>
-                    <li><strong>Correction:</strong> Right to correct inaccurate or incomplete information</li>
-                    <li><strong>Deletion:</strong> Right to request deletion of your personal data</li>
-                    <li><strong>Objection:</strong> Right to object to certain data processing activities</li>
-                    <li><strong>Portability:</strong> Right to receive your data in a portable format</li>
-                    <li><strong>Restriction:</strong> Right to restrict processing of your data</li>
-                </ul>
-                
-                <p>To exercise these rights, please contact us using the information provided below.</p>
-            </div>
-            
-            <div class="policy-section">
-                <h2>7. Third-Party Links</h2>
-                <p>Our website contains links to official lottery websites and other third-party sites:</p>
-                <ul>
-                    <li>We are not responsible for the privacy practices of external sites</li>
-                    <li>We recommend reviewing the privacy policies of linked websites</li>
-                    <li>Third-party sites may collect information independently</li>
-                    <li>We do not endorse or guarantee the security of external sites</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h2>8. Children's Privacy</h2>
-                <p>Our service is not intended for children under 13 years of age:</p>
-                <ul>
-                    <li>We do not knowingly collect personal information from children under 13</li>
-                    <li>If we discover we have collected information from a child under 13, we will delete it promptly</li>
-                    <li>Parents or guardians can contact us to request deletion of children's information</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h2>9. International Data Transfers</h2>
-                <p>Your information may be transferred to and processed in countries other than your own:</p>
-                <ul>
-                    <li>We ensure appropriate safeguards for international data transfers</li>
-                    <li>We comply with international data protection regulations</li>
-                    <li>Data processing occurs in jurisdictions with adequate protection</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h2>10. Data Retention</h2>
-                <p>We retain personal information only for as long as necessary:</p>
-                <ul>
-                    <li>To fulfill the purposes outlined in this policy</li>
-                    <li>To comply with legal obligations</li>
-                    <li>To resolve disputes and enforce agreements</li>
-                    <li>Subscription data is retained while active and for a reasonable period after cancellation</li>
-                </ul>
-            </div>
-            
-            <div class="policy-section">
-                <h2>11. Changes to This Policy</h2>
-                <p>We may update this Privacy Policy periodically to reflect:</p>
-                <ul>
-                    <li>Changes in our data practices</li>
-                    <li>Legal and regulatory requirements</li>
-                    <li>Technological advancements</li>
-                    <li>User feedback and industry standards</li>
-                </ul>
-                
-                <p>We will notify you of significant changes by:</p>
-                <ul>
-                    <li>Posting the updated policy on this page</li>
-                    <li>Updating the "Last Updated" date</li>
-                    <li>Sending notifications to subscribers (for major changes)</li>
-                </ul>
-            </div>
-            
-            <div class="contact-info">
-                <h3>Contact Us</h3>
-                <p>If you have any questions, concerns, or requests regarding this Privacy Policy, please contact us:</p>
-                <ul>
-                    <li><strong>Email:</strong> cryptodr987@gmail.com</li>
-                    <li><strong>Response Time:</strong> We aim to respond to all inquiries within 48 hours</li>
-                </ul>
-            </div>
-            
-            <div class="navigation">
-                <a href="index.html" class="nav-btn">
-                    ← Back to Home
-                </a>
-                <a href="terms-of-service.html" class="nav-btn">
-                    View Terms of Service →
-                </a>
-            </div>
-        </div>
-        
-        <footer>
-            <p>© <span id="current-year"></span> lotteryupdate000.space. All rights reserved.</p>
-            <p>This is not an official lottery website. Always verify winning numbers with official sources.</p>
-        </footer>
-    </div>
+            <h2>Contact Us</h2>
+            <p>If you have any questions, suggestions, or concerns, please don't hesitate to reach out to us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>. We value your feedback and are always looking for ways to improve our service.</p>
+        </section>
+    </main>
     
-    <a href="#" class="back-to-top" id="back-to-top">↑</a>
-    
-    <div class="cookie-consent" id="cookie-consent">
-        <div class="cookie-content">
-            <div class="cookie-text">
-                <p>We use cookies to enhance your experience on our website. By continuing to visit this site, you agree to our use of cookies as described in our Privacy Policy.</p>
-            </div>
-            <div class="cookie-buttons">
-                <button class="cookie-btn cookie-accept" id="cookie-accept">Accept</button>
-                <button class="cookie-btn cookie-reject" id="cookie-reject">Reject</button>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">Lottery<span>Update000</span></a>
+                
+                <div class="footer-links">
+                    <a href="#" class="nav-link" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="privacy">Privacy Policy</a>
+                    <a href="#" class="nav-link" data-page="terms">Terms of Service</a>
+                    <a href="#" class="nav-link" data-page="about">About</a>
+                </div>
+                
+                <div class="copyright">
+                    Free Powerball Lotto Results &copy; 2025 LotteryUpdate000. All rights reserved.
+                </div>
             </div>
         </div>
-    </div>
-
+    </footer>
+    
     <script>
+        // Navigation functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Set current dates
-            const now = new Date();
-            const formattedDate = now.toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric'
-            });
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
             
-            document.getElementById('last-updated').textContent = formattedDate;
-            document.getElementById('current-year').textContent = now.getFullYear();
-            
-            // Back to top functionality
-            const backToTop = document.getElementById('back-to-top');
-            
-            window.addEventListener('scroll', function() {
-                if (window.pageYOffset > 300) {
-                    backToTop.classList.add('visible');
-                } else {
-                    backToTop.classList.remove('visible');
-                }
-            });
-            
-            backToTop.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and pages
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    pages.forEach(p => p.classList.remove('active'));
+                    
+                    // Add active class to clicked link
+                    this.classList.add('active');
+                    
+                    // Show the corresponding page
+                    const pageId = this.getAttribute('data-page');
+                    document.getElementById(pageId).classList.add('active');
                 });
             });
             
-            // Cookie consent functionality
-            const cookieConsent = document.getElementById('cookie-consent');
-            const cookieAccept = document.getElementById('cookie-accept');
-            const cookieReject = document.getElementById('cookie-reject');
+            // Viral hook timer - change message after 3 seconds
+            setTimeout(function() {
+                const viralHook = document.querySelector('.viral-hook');
+                if (viralHook) {
+                    viralHook.innerHTML = `
+                        <h2>🔥 URGENT UPDATE! 🔥</h2>
+                        <p>Jackpot increased to $165 MILLION! Check if your numbers match - you could be the next overnight millionaire!</p>
+                    `;
+                }
+            }, 3000);
             
-            // Check if user has already made a choice
-            if (!localStorage.getItem('cookieConsent')) {
-                setTimeout(() => {
-                    cookieConsent.classList.add('visible');
-                }, 1000);
+            // VPN hook descriptions that change every 2 seconds
+            const vpnHooks = [
+                "One-tap Watch & Enjoy",
+                "Secure Your Connection Now",
+                "Unlock Global Content Instantly"
+            ];
+            
+            let currentHookIndex = 0;
+            const vpnHookElement = document.getElementById('vpn-hook');
+            
+            function rotateVpnHook() {
+                if (vpnHookElement) {
+                    currentHookIndex = (currentHookIndex + 1) % vpnHooks.length;
+                    vpnHookElement.textContent = vpnHooks[currentHookIndex];
+                }
             }
             
-            cookieAccept.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'accepted');
-                cookieConsent.classList.remove('visible');
+            // Change VPN hook every 2 seconds
+            setInterval(rotateVpnHook, 2000);
+            
+            // VPN install button functionality
+            const vpnButtons = document.querySelectorAll('.vpn-install');
+            vpnButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    window.open('https://play.google.com/store/apps/details?id=com.vpn.lumos', '_blank');
+                });
             });
             
-            cookieReject.addEventListener('click', function() {
-                localStorage.setItem('cookieConsent', 'rejected');
-                cookieConsent.classList.remove('visible');
-            });
+            // 3D AI Image Hook System
+            const aiImages = [
+                // Futuristic tech images that look AI-generated
+                "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ];
             
-            // Hidden CNAME verification - completely invisible to users
-            const verificationData = {
-                cname: 'r2yewgzagcwp',
-                target: 'gv-3mxfk22pxkir5q.dv.googlehosted.com',
-                timestamp: Date.now()
-            };
+            const aiTexts = [
+                // Hook texts for the single ad space
+                ["INSTANT ACCESS!", "DOWNLOAD NOW!", "EXCLUSIVE CONTENT!", "PREMIUM FILES!"]
+            ];
             
-            // Store verification data in hidden way
-            sessionStorage.setItem('domain_verify', JSON.stringify(verificationData));
+            function rotateAIHooks() {
+                const imageElement = document.getElementById('ai-hook-1');
+                const textElement = document.getElementById('ai-text-1');
+                
+                if (imageElement && textElement) {
+                    // Get random index
+                    const randomIndex = Math.floor(Math.random() * aiImages.length);
+                    
+                    // Change image with fade effect
+                    imageElement.style.opacity = '0.7';
+                    setTimeout(() => {
+                        imageElement.src = aiImages[randomIndex];
+                        imageElement.style.opacity = '1';
+                    }, 300);
+                    
+                    // Change text
+                    const textOptions = aiTexts[0];
+                    const textRandomIndex = Math.floor(Math.random() * textOptions.length);
+                    textElement.textContent = textOptions[textRandomIndex];
+                }
+            }
             
-            // Create hidden verification element
-            const verifyElement = document.createElement('div');
-            verifyElement.style.display = 'none';
-            verifyElement.id = 'domain-verification';
-            verifyElement.setAttribute('data-cname', verificationData.cname);
-            verifyElement.setAttribute('data-target', verificationData.target);
-            document.body.appendChild(verifyElement);
+            // Rotate AI hooks every 1-3 seconds randomly
+            function startAIHookRotation() {
+                const randomInterval = Math.floor(Math.random() * 2000) + 1000; // 1-3 seconds
+                setTimeout(() => {
+                    rotateAIHooks();
+                    startAIHookRotation();
+                }, randomInterval);
+            }
             
-            // Hidden console verification (only visible in dev tools)
-            console.log('%cDomain Verification Active', 'color: #2ecc71; font-weight: bold;');
-            console.log('CNAME:', verificationData.cname);
-            console.log('Target:', verificationData.target);
+            // Start the AI hook rotation
+            startAIHookRotation();
         });
     </script>
 </body>
