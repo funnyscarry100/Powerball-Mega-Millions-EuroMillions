@@ -220,16 +220,110 @@
             text-transform: uppercase;
         }
         
-        .ad-banner {
-            max-width: 100%;
-            height: auto;
+        .vpn-ad {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
             border-radius: var(--radius);
-            margin-bottom: 1rem;
+            overflow: hidden;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow);
         }
         
-        .ad-text {
-            margin-bottom: 1rem;
-            color: var(--text);
+        .vpn-header {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .vpn-icon {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-weight: bold;
+            color: #4285f4;
+            font-size: 1.2rem;
+        }
+        
+        .vpn-title {
+            flex-grow: 1;
+        }
+        
+        .vpn-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .vpn-developer {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .vpn-rating {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .vpn-stars {
+            color: #ffc107;
+            margin-right: 0.25rem;
+        }
+        
+        .vpn-body {
+            padding: 1.5rem;
+        }
+        
+        .vpn-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .vpn-feature {
+            text-align: center;
+            padding: 1rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+        }
+        
+        .vpn-feature-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vpn-feature-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .vpn-install {
+            background-color: white;
+            color: #4285f4;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .vpn-install:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         .ad-cta {
@@ -416,6 +510,20 @@
             .viral-hook h2 {
                 font-size: 1.2rem;
             }
+            
+            .vpn-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .vpn-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .vpn-icon {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
         }
     </style>
 </head>
@@ -447,12 +555,43 @@
                 <p>Someone in YOUR CITY just won $2 Million with these exact numbers! Check if you're the next lucky winner!</p>
             </div>
             
-            <!-- Top Banner Ad -->
+            <!-- VPN Ad -->
             <div class="ad-container">
                 <span class="ad-label">Advertisement</span>
-                <h3 class="ad-title">Increase Your Chances of Winning!</h3>
-                <p class="ad-text">Try the lottery strategy system used by 3 recent jackpot winners</p>
-                <a href="https://playabledownload.com/show.php?l=0&u=2403184&id=71588&tracking_id=1240" class="ad-cta" target="_blank">Learn More</a>
+                <div class="vpn-ad">
+                    <div class="vpn-header">
+                        <div class="vpn-icon">VPN</div>
+                        <div class="vpn-title">
+                            <div class="vpn-name">VPN Lumos: Fast VPN Master</div>
+                            <div class="vpn-developer">Midpoint Security FZCO-LLC</div>
+                        </div>
+                        <div class="vpn-rating">
+                            <span class="vpn-stars">★★★★</span> 4.2+
+                        </div>
+                    </div>
+                    <div class="vpn-body">
+                        <h3>One-tap Watch & Enjoy</h3>
+                        <div class="vpn-features">
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🔒</div>
+                                <div class="vpn-feature-text">Online Safety</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🛡️</div>
+                                <div class="vpn-feature-text">Privacy</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">⚡</div>
+                                <div class="vpn-feature-text">Fast Connection</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🌐</div>
+                                <div class="vpn-feature-text">Connect Worldwide</div>
+                            </div>
+                        </div>
+                        <button class="vpn-install">Install</button>
+                    </div>
+                </div>
             </div>
             
             <div class="lottery-card">
@@ -490,22 +629,6 @@
                 
                 <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
             </div>
-            
-            <!-- Middle Banner Ad -->
-            <div class="ad-container">
-                <span class="ad-label">Sponsored</span>
-                <h3 class="ad-title">Play Lottery Online Safely</h3>
-                <p class="ad-text">Trusted platform with secure payments and instant results</p>
-                <a href="https://playabledownload.com/show.php?l=0&u=2403184&id=70998&tracking_id=1240" class="ad-cta" target="_blank">Get Started</a>
-            </div>
-            
-            <!-- Bottom Banner Ad -->
-            <div class="ad-container">
-                <span class="ad-label">Partner Offer</span>
-                <h3 class="ad-title">Win Big With Scratch Cards!</h3>
-                <p class="ad-text">Instant wins up to $10,000 with our exclusive scratch card offers</p>
-                <a href="#" class="ad-cta">Play Now</a>
-            </div>
         </section>
         
         <!-- About Page -->
@@ -517,9 +640,40 @@
             <!-- Sidebar Ad on About Page -->
             <div class="ad-container">
                 <span class="ad-label">Advertisement</span>
-                <h3 class="ad-title">Lottery Syndicate Opportunities</h3>
-                <p class="ad-text">Join a group and increase your winning chances dramatically</p>
-                <a href="#" class="ad-cta">Join Now</a>
+                <div class="vpn-ad">
+                    <div class="vpn-header">
+                        <div class="vpn-icon">VPN</div>
+                        <div class="vpn-title">
+                            <div class="vpn-name">VPN Lumos: Fast VPN Master</div>
+                            <div class="vpn-developer">Midpoint Security FZCO-LLC</div>
+                        </div>
+                        <div class="vpn-rating">
+                            <span class="vpn-stars">★★★★</span> 4.2+
+                        </div>
+                    </div>
+                    <div class="vpn-body">
+                        <h3>One-tap Watch & Enjoy</h3>
+                        <div class="vpn-features">
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🔒</div>
+                                <div class="vpn-feature-text">Online Safety</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🛡️</div>
+                                <div class="vpn-feature-text">Privacy</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">⚡</div>
+                                <div class="vpn-feature-text">Fast Connection</div>
+                            </div>
+                            <div class="vpn-feature">
+                                <div class="vpn-feature-icon">🌐</div>
+                                <div class="vpn-feature-text">Connect Worldwide</div>
+                            </div>
+                        </div>
+                        <button class="vpn-install">Install</button>
+                    </div>
+                </div>
             </div>
             
             <h2>Our Mission</h2>
@@ -671,6 +825,16 @@
                     `;
                 }
             }, 3000);
+            
+            // VPN install button functionality
+            const vpnButtons = document.querySelectorAll('.vpn-install');
+            vpnButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // In a real implementation, this would redirect to the VPN app store page
+                    alert('Redirecting to VPN app installation...');
+                    // window.location.href = 'https://play.google.com/store/apps/details?id=com.vpn.lumos';
+                });
+            });
         });
     </script>
 </body>
