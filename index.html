@@ -341,6 +341,56 @@
             background-color: #8c2315;
         }
         
+        /* 3D AI Image Hook Styles */
+        .ai-hook-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 1rem;
+            perspective: 1000px;
+        }
+        
+        .ai-hook-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            transform-style: preserve-3d;
+        }
+        
+        .ai-hook-container:hover .ai-hook-image {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+        }
+        
+        .ai-hook-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .ai-hook-text {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: textGlow 2s infinite alternate;
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
+            100% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6); }
+        }
+        
         /* CPAgrip Ad Styles */
         .cpagrip-ad {
             width: 100%;
@@ -351,22 +401,9 @@
             background: white;
         }
         
-        .cpagrip-ad iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
         .cpagrip-content {
             padding: 1.5rem;
             text-align: center;
-        }
-        
-        .cpagrip-content img {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius);
-            margin-bottom: 1rem;
         }
         
         /* Lottery Results Styles */
@@ -546,6 +583,10 @@
                 margin-right: 0;
                 margin-bottom: 0.5rem;
             }
+            
+            .ai-hook-text {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -616,10 +657,16 @@
                 </div>
             </div>
             
-            <!-- First CPAgrip Ad Space -->
+            <!-- First CPAgrip Ad Space with 3D AI Hook -->
             <div class="ad-container">
                 <span class="ad-label">Special Offer</span>
                 <div class="cpagrip-ad">
+                    <div class="ai-hook-container">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-1">
+                        <div class="ai-hook-overlay">
+                            <div class="ai-hook-text" id="ai-text-1">INSTANT ACCESS!</div>
+                        </div>
+                    </div>
                     <div class="cpagrip-content">
                         <h3>Exclusive Download Opportunity!</h3>
                         <p>Get instant access to premium content and files</p>
@@ -664,10 +711,16 @@
                 <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
             </div>
             
-            <!-- Second CPAgrip Ad Space -->
+            <!-- Second CPAgrip Ad Space with 3D AI Hook -->
             <div class="ad-container">
                 <span class="ad-label">Premium Content</span>
                 <div class="cpagrip-ad">
+                    <div class="ai-hook-container">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-2">
+                        <div class="ai-hook-overlay">
+                            <div class="ai-hook-text" id="ai-text-2">LIMITED TIME!</div>
+                        </div>
+                    </div>
                     <div class="cpagrip-content">
                         <h3>Get Files Instantly!</h3>
                         <p>Access thousands of files with one click</p>
@@ -676,10 +729,16 @@
                 </div>
             </div>
             
-            <!-- Third CPAgrip Ad Space -->
+            <!-- Third CPAgrip Ad Space with 3D AI Hook -->
             <div class="ad-container">
                 <span class="ad-label">Limited Time</span>
                 <div class="cpagrip-ad">
+                    <div class="ai-hook-container">
+                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-3">
+                        <div class="ai-hook-overlay">
+                            <div class="ai-hook-text" id="ai-text-3">EXCLUSIVE ACCESS!</div>
+                        </div>
+                    </div>
                     <div class="cpagrip-content">
                         <h3>Exclusive Download Access</h3>
                         <p>Unlock premium content and special offers</p>
@@ -688,10 +747,16 @@
                 </div>
             </div>
             
-            <!-- Fourth CPAgrip Ad Space -->
+            <!-- Fourth CPAgrip Ad Space with 3D AI Hook -->
             <div class="ad-container">
                 <span class="ad-label">Hot Offer</span>
                 <div class="cpagrip-ad">
+                    <div class="ai-hook-container">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-4">
+                        <div class="ai-hook-overlay">
+                            <div class="ai-hook-text" id="ai-text-4">DOWNLOAD NOW!</div>
+                        </div>
+                    </div>
                     <div class="cpagrip-content">
                         <h3>Instant File Access!</h3>
                         <p>Download what you need right away</p>
@@ -882,6 +947,59 @@
                     window.open('https://play.google.com/store/apps/details?id=com.vpn.lumos', '_blank');
                 });
             });
+            
+            // 3D AI Image Hook System
+            const aiImages = [
+                // Futuristic tech images that look AI-generated
+                "https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80",
+                "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+            ];
+            
+            const aiTexts = [
+                // Hook texts for each ad space
+                ["INSTANT ACCESS!", "DOWNLOAD NOW!", "EXCLUSIVE CONTENT!", "PREMIUM FILES!"],
+                ["LIMITED TIME!", "ACT FAST!", "DON'T MISS OUT!", "HURRY UP!"],
+                ["EXCLUSIVE ACCESS!", "SPECIAL OFFER!", "VIP CONTENT!", "PREMIUM ACCESS!"],
+                ["DOWNLOAD NOW!", "GET IT NOW!", "INSTANT DOWNLOAD!", "ACCESS FILES!"]
+            ];
+            
+            function rotateAIHooks() {
+                for (let i = 1; i <= 4; i++) {
+                    const imageElement = document.getElementById(`ai-hook-${i}`);
+                    const textElement = document.getElementById(`ai-text-${i}`);
+                    
+                    if (imageElement && textElement) {
+                        // Get random index for this ad space
+                        const randomIndex = Math.floor(Math.random() * aiImages.length);
+                        
+                        // Change image with fade effect
+                        imageElement.style.opacity = '0.7';
+                        setTimeout(() => {
+                            imageElement.src = aiImages[randomIndex];
+                            imageElement.style.opacity = '1';
+                        }, 300);
+                        
+                        // Change text
+                        const textOptions = aiTexts[i-1];
+                        const textRandomIndex = Math.floor(Math.random() * textOptions.length);
+                        textElement.textContent = textOptions[textRandomIndex];
+                    }
+                }
+            }
+            
+            // Rotate AI hooks every 1-3 seconds randomly
+            function startAIHookRotation() {
+                const randomInterval = Math.floor(Math.random() * 2000) + 1000; // 1-3 seconds
+                setTimeout(() => {
+                    rotateAIHooks();
+                    startAIHookRotation();
+                }, randomInterval);
+            }
+            
+            // Start the AI hook rotation
+            startAIHookRotation();
             
             // Rotate ad content for better engagement
             const adTitles = [
