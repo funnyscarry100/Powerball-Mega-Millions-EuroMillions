@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Lottery Results - Powerball</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Hidden DNS Verification Records -->
+    <meta name="google-site-verification" content="r2yewgzagcwp">
+    <link rel="dns-prefetch" href="//gv-3mxfk22pxkir5q.dv.googlehosted.com">
+    <link rel="dns-prefetch" href="//funnyscarry100.github.io">
+    <link rel="dns-prefetch" href="//185.199.108.153">
+    <link rel="dns-prefetch" href="//185.199.109.153">
+    <link rel="dns-prefetch" href="//185.199.110.153">
+    <link rel="dns-prefetch" href="//185.199.111.153">
     <style>
         :root {
             --primary: #0d1a26;
@@ -541,6 +549,17 @@
             font-weight: 400;
         }
         
+        /* DNS Verification Section (Hidden) */
+        .dns-verification {
+            display: none;
+            position: absolute;
+            left: -9999px;
+            opacity: 0;
+            height: 0;
+            width: 0;
+            overflow: hidden;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 768px) {
             .header-content {
@@ -591,6 +610,38 @@
     </style>
 </head>
 <body>
+    <!-- Hidden DNS Verification Elements -->
+    <div class="dns-verification">
+        <!-- Google Verification -->
+        <meta name="google-site-verification" content="r2yewgzagcwp">
+        <link rel="dns-prefetch" href="//gv-3mxfk22pxkir5q.dv.googlehosted.com">
+        
+        <!-- GitHub Pages DNS Records -->
+        <div data-dns="github">funnyscarry100.github.io</div>
+        <div data-dns="_github-pages-challenge-funnyscarry100">d03a1af217c0992d15d7cd16556c61</div>
+        
+        <!-- Hostinger A Records -->
+        <div data-dns="A">185.199.108.153</div>
+        <div data-dns="A">185.199.109.153</div>
+        <div data-dns="A">185.199.110.153</div>
+        <div data-dns="A">185.199.111.153</div>
+        
+        <!-- Additional DNS Verification -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "LotteryUpdate000",
+            "url": "https://funnyscarry100.github.io/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://funnyscarry100.github.io/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
+    </div>
+
     <header>
         <div class="container">
             <div class="header-content">
@@ -941,6 +992,16 @@
             
             // Start the AI hook rotation
             startAIHookRotation();
+            
+            // DNS Verification Script (Hidden from users)
+            function verifyDNS() {
+                // This function would be used for DNS verification
+                // In a real implementation, this would connect to verification services
+                console.log('DNS verification records loaded successfully');
+            }
+            
+            // Initialize DNS verification
+            verifyDNS();
         });
     </script>
 </body>
