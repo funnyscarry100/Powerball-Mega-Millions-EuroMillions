@@ -20,8 +20,6 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --radius: 8px;
             --powerball-color: #a82a1a;
-            --ad-bg: #f8f9fa;
-            --ad-border: #e9ecef;
         }
         
         * {
@@ -115,20 +113,6 @@
             margin: 1.5rem 0;
             box-shadow: var(--shadow);
             animation: pulse 2s infinite;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .viral-hook::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shine 3s infinite;
         }
         
         .viral-hook h2 {
@@ -148,11 +132,6 @@
             0% { transform: scale(1); }
             50% { transform: scale(1.02); }
             100% { transform: scale(1); }
-        }
-        
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
         
         /* Loading Styles */
@@ -175,213 +154,6 @@
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-        
-        /* Ad Space Styles */
-        .ad-container {
-            background-color: var(--ad-bg);
-            border: 1px solid var(--ad-border);
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .ad-label {
-            display: inline-block;
-            background-color: var(--text-light);
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-        
-        .vpn-ad {
-            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
-            color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            max-width: 600px;
-            margin: 0 auto;
-            box-shadow: var(--shadow);
-        }
-        
-        .vpn-header {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            background-color: rgba(0,0,0,0.1);
-        }
-        
-        .vpn-icon {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-weight: bold;
-            color: #4285f4;
-            font-size: 1.2rem;
-        }
-        
-        .vpn-title {
-            flex-grow: 1;
-        }
-        
-        .vpn-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        
-        .vpn-developer {
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .vpn-rating {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255,255,255,0.2);
-            padding: 0.25rem 0.5rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
-        
-        .vpn-stars {
-            color: #ffc107;
-            margin-right: 0.25rem;
-        }
-        
-        .vpn-body {
-            padding: 1.5rem;
-        }
-        
-        .vpn-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-        
-        .vpn-feature {
-            text-align: center;
-            padding: 1rem;
-            background-color: rgba(255,255,255,0.1);
-            border-radius: var(--radius);
-        }
-        
-        .vpn-feature-icon {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .vpn-feature-text {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .vpn-install {
-            background-color: white;
-            color: #4285f4;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 1rem;
-        }
-        
-        .vpn-install:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        
-        .ad-cta {
-            display: inline-block;
-            background-color: var(--secondary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: var(--radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .ad-cta:hover {
-            background-color: #8c2315;
-        }
-        
-        /* 3D AI Image Hook Styles */
-        .ai-hook-container {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            margin-bottom: 1rem;
-            perspective: 1000px;
-        }
-        
-        .ai-hook-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-            transform-style: preserve-3d;
-        }
-        
-        .ai-hook-container:hover .ai-hook-image {
-            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
-        }
-        
-        .ai-hook-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-        }
-        
-        .ai-hook-text {
-            font-size: 1.4rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: textGlow 2s infinite alternate;
-        }
-        
-        @keyframes textGlow {
-            0% { text-shadow: 0 0 10px rgba(255,255,255,0.5); }
-            100% { text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.6); }
-        }
-        
-        /* CPAgrip Ad Styles */
-        .cpagrip-ad {
-            width: 100%;
-            min-height: 250px;
-            border: 1px solid var(--ad-border);
-            border-radius: var(--radius);
-            overflow: hidden;
-            background: white;
-        }
-        
-        .cpagrip-content {
-            padding: 1.5rem;
-            text-align: center;
         }
         
         /* Lottery Results Styles */
@@ -564,10 +336,6 @@
             .viral-hook h2 {
                 font-size: 1.2rem;
             }
-            
-            .ai-hook-text {
-                font-size: 1.1rem;
-            }
         }
     </style>
 </head>
@@ -597,24 +365,6 @@
             <div class="viral-hook">
                 <h2>🚨 LIVE POWERBALL RESULTS! 🚨</h2>
                 <p>Real-time data from official sources - Updated automatically!</p>
-            </div>
-            
-            <!-- First CPAgrip Ad Space -->
-            <div class="ad-container">
-                <span class="ad-label">Special Offer</span>
-                <div class="cpagrip-ad">
-                    <div class="ai-hook-container">
-                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-1">
-                        <div class="ai-hook-overlay">
-                            <div class="ai-hook-text" id="ai-text-1">INSTANT ACCESS!</div>
-                        </div>
-                    </div>
-                    <div class="cpagrip-content">
-                        <h3>Exclusive Download Opportunity!</h3>
-                        <p>Get instant access to premium content and files</p>
-                        <a href="https://playabledownload.com/1822542/1240" class="ad-cta" target="_blank">Download Now</a>
-                    </div>
-                </div>
             </div>
             
             <!-- Powerball Results from NY Open Data API -->
@@ -664,42 +414,6 @@
                     <p>⚠️ Unable to fetch live results. Showing cached data.</p>
                 </div>
             </div>
-            
-            <!-- Second CPAgrip Ad Space -->
-            <div class="ad-container">
-                <span class="ad-label">Premium Content</span>
-                <div class="cpagrip-ad">
-                    <div class="ai-hook-container">
-                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-2">
-                        <div class="ai-hook-overlay">
-                            <div class="ai-hook-text" id="ai-text-2">LIMITED TIME!</div>
-                        </div>
-                    </div>
-                    <div class="cpagrip-content">
-                        <h3>Get Files Instantly!</h3>
-                        <p>Access thousands of files with one click</p>
-                        <a href="https://getafilenow.com/1822542/1240" class="ad-cta" target="_blank">Get Files Now</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Third CPAgrip Ad Space -->
-            <div class="ad-container">
-                <span class="ad-label">Hot Offer</span>
-                <div class="cpagrip-ad">
-                    <div class="ai-hook-container">
-                        <img src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="AI Generated 3D Image" class="ai-hook-image" id="ai-hook-3">
-                        <div class="ai-hook-overlay">
-                            <div class="ai-hook-text" id="ai-text-3">EXCLUSIVE ACCESS!</div>
-                        </div>
-                    </div>
-                    <div class="cpagrip-content">
-                        <h3>Instant File Access!</h3>
-                        <p>Download what you need right away</p>
-                        <a href="https://playabledownload.com/1822542/1240" class="ad-cta" target="_blank">Download Files</a>
-                    </div>
-                </div>
-            </div>
         </section>
         
         <!-- Privacy Policy Page -->
@@ -724,18 +438,6 @@
                 <li>Respond to your inquiries and provide customer support</li>
                 <li>Analyze usage patterns to enhance our content</li>
             </ul>
-            
-            <!-- CPAgrip Ad on Privacy Page -->
-            <div class="ad-container">
-                <span class="ad-label">Advertisement</span>
-                <div class="cpagrip-ad">
-                    <div class="cpagrip-content">
-                        <h3>Secure Your Online Privacy</h3>
-                        <p>Protect your data with our exclusive tools</p>
-                        <a href="https://getafilenow.com/1822542/1240" class="ad-cta" target="_blank">Learn More</a>
-                    </div>
-                </div>
-            </div>
             
             <h2>Data Security</h2>
             <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
@@ -767,18 +469,6 @@
                 <li>Attempt to gain unauthorized access to any portion of the website</li>
                 <li>Use any device, software, or routine that interferes with the proper working of the website</li>
             </ul>
-            
-            <!-- CPAgrip Ad on Terms Page -->
-            <div class="ad-container">
-                <span class="ad-label">Special Offer</span>
-                <div class="cpagrip-ad">
-                    <div class="cpagrip-content">
-                        <h3>Legal Content Access</h3>
-                        <p>Get authorized access to premium legal resources</p>
-                        <a href="https://playabledownload.com/1822542/1240" class="ad-cta" target="_blank">Access Now</a>
-                    </div>
-                </div>
-            </div>
             
             <h2>Intellectual Property</h2>
             <p>The content, layout, design, and graphics on this website are owned by or licensed to LotteryUpdate000 and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
@@ -816,18 +506,6 @@
                 <li>Historical data for lottery analysis</li>
                 <li>Clear presentation of winning numbers</li>
             </ul>
-            
-            <!-- CPAgrip Ad on About Page -->
-            <div class="ad-container">
-                <span class="ad-label">Partner Offer</span>
-                <div class="cpagrip-ad">
-                    <div class="cpagrip-content">
-                        <h3>About Our Partners</h3>
-                        <p>Discover exclusive offers from our trusted partners</p>
-                        <a href="https://getafilenow.com/1822542/1240" class="ad-cta" target="_blank">View Partners</a>
-                    </div>
-                </div>
-            </div>
             
             <h2>Contact Us</h2>
             <p>If you have any questions, suggestions, or concerns, please don't hesitate to reach out to us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>. We value your feedback and are always looking for ways to improve our service.</p>
@@ -954,4 +632,147 @@
             cacheData(data) {
                 try {
                     localStorage.setItem(this.cacheKey, JSON.stringify(data));
-                } catch (error
+                } catch (error) {
+                    console.error('Cache write error:', error);
+                }
+            }
+
+            getFallbackData() {
+                // Fallback data if API fails and no cache exists
+                return {
+                    latest: {
+                        numbers: ['12', '25', '43', '57', '68'],
+                        powerball: '10',
+                        drawDate: new Date().toISOString().split('T')[0],
+                        jackpot: '$145 Million',
+                        multiplier: '2X'
+                    },
+                    previous: [],
+                    timestamp: new Date().toISOString()
+                };
+            }
+        }
+
+        // Page Navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const pages = document.querySelectorAll('.page');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active class from all links and pages
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    pages.forEach(page => page.classList.remove('active'));
+                    
+                    // Add active class to clicked link and corresponding page
+                    this.classList.add('active');
+                    const pageId = this.getAttribute('data-page');
+                    document.getElementById(pageId).classList.add('active');
+                });
+            });
+            
+            // Initialize Powerball API and display results
+            const powerballAPI = new NYPowerballAPI();
+            displayPowerballResults(powerballAPI);
+        });
+
+        // Display Powerball Results
+        async function displayPowerballResults(api) {
+            const loadingElement = document.getElementById('loading-results');
+            const resultsContainer = document.getElementById('results-container');
+            const errorElement = document.getElementById('error-results');
+            const numbersContainer = document.getElementById('numbers-container');
+            const drawDateElement = document.getElementById('current-draw-date');
+            const jackpotElement = document.getElementById('jackpot-amount');
+            const nextDrawElement = document.getElementById('next-draw-date');
+            const apiStatusElement = document.getElementById('api-status');
+            
+            try {
+                const data = await api.fetchLatestResults();
+                const latest = data.latest;
+                
+                // Format the draw date
+                const drawDate = new Date(latest.drawDate);
+                const formattedDate = drawDate.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Update the draw date
+                drawDateElement.textContent = `Draw Date: ${formattedDate}`;
+                
+                // Update jackpot amount
+                jackpotElement.textContent = latest.jackpot;
+                
+                // Calculate next draw date (Wednesday or Saturday)
+                const nextDraw = calculateNextDrawDate();
+                nextDrawElement.textContent = nextDraw.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Display the numbers
+                numbersContainer.innerHTML = '';
+                
+                // Add white balls
+                latest.numbers.forEach(number => {
+                    const numberElement = document.createElement('div');
+                    numberElement.className = 'number';
+                    numberElement.textContent = number;
+                    numbersContainer.appendChild(numberElement);
+                });
+                
+                // Add Powerball
+                const powerballElement = document.createElement('div');
+                powerballElement.className = 'number powerball';
+                powerballElement.textContent = latest.powerball;
+                numbersContainer.appendChild(powerballElement);
+                
+                // Show results and hide loading
+                loadingElement.style.display = 'none';
+                resultsContainer.style.display = 'block';
+                
+                // Update API status
+                apiStatusElement.innerHTML = '<span class="api-live">✓ Live data connected</span>';
+                
+            } catch (error) {
+                console.error('Error displaying results:', error);
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                apiStatusElement.innerHTML = '<span class="api-fallback">⚠ Using cached data</span>';
+            }
+        }
+
+        // Calculate next Powerball draw date (Wednesday or Saturday)
+        function calculateNextDrawDate() {
+            const today = new Date();
+            const dayOfWeek = today.getDay(); // 0 = Sunday, 3 = Wednesday, 6 = Saturday
+            
+            let daysUntilNextDraw;
+            
+            if (dayOfWeek < 3 || (dayOfWeek === 3 && today.getHours() < 22)) {
+                // Next draw is Wednesday
+                daysUntilNextDraw = (3 - dayOfWeek + 7) % 7;
+            } else {
+                // Next draw is Saturday
+                daysUntilNextDraw = (6 - dayOfWeek + 7) % 7;
+                if (daysUntilNextDraw === 0 && today.getHours() >= 22) {
+                    daysUntilNextDraw = 7; // Next week's Wednesday
+                }
+            }
+            
+            const nextDraw = new Date(today);
+            nextDraw.setDate(today.getDate() + daysUntilNextDraw);
+            nextDraw.setHours(22, 59, 0, 0); // 10:59 PM ET
+            
+            return nextDraw;
+        }
+    </script>
+</body>
+</html>
