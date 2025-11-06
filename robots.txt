@@ -1,10 +1,15 @@
 User-agent: *
 Allow: /
-Disallow: /privacy-policy.html
-Disallow: /terms-of-service.html
 
-# Crawl delay to prevent overloading
-Crawl-delay: 2
+Sitemap: https://funnyscarry100.github.io/sitemap.xml
 
-# Sitemap location (if you have one)
-Sitemap: https://lotteryupdate000.space/sitemap.xml
+# Allow search engines to crawl all pages
+Disallow: /private/
+Disallow: /admin/
+Disallow: /cgi-bin/
+
+# Allow all main content
+Allow: /powerball-results
+Allow: /lottery-results
+Allow: /jackpot
+Allow: /how-to-play
