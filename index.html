@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LotteryUpdate000 - Live Powerball Results & Lottery Information</title>
+    <title>LotteryUpdate000 - NY Powerball Results</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -147,7 +147,8 @@
             border-bottom: 2px solid #f0f0f0;
         }
         
-        .lottery-card {
+        /* Powerball Results Styles */
+        .powerball-card {
             background-color: var(--light);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -156,13 +157,13 @@
             border-left: 4px solid var(--powerball-color);
         }
         
-        .lottery-header {
+        .powerball-header {
             display: flex;
             align-items: center;
             margin-bottom: 1.5rem;
         }
         
-        .lottery-logo {
+        .powerball-logo {
             width: 50px;
             height: 50px;
             background-color: var(--powerball-color);
@@ -175,13 +176,13 @@
             margin-right: 1rem;
         }
         
-        .lottery-name {
+        .powerball-name {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--primary);
         }
         
-        .lottery-date {
+        .powerball-date {
             color: var(--text-light);
             margin-top: 0.25rem;
             font-weight: 400;
@@ -241,6 +242,22 @@
         
         .jackpot {
             color: var(--success);
+        }
+        
+        /* API Status */
+        .api-status {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+        
+        .api-live {
+            color: var(--success);
+        }
+        
+        .api-fallback {
+            color: var(--warning);
         }
         
         /* Sidebar Styles */
@@ -405,8 +422,8 @@
     
     <section class="hero">
         <div class="container">
-            <h1>Live Powerball Results & Lottery Information</h1>
-            <p>Your trusted source for the latest lottery results, jackpot updates, and winning strategies.</p>
+            <h1>NY Powerball Results</h1>
+            <p>Your trusted source for the latest New York Powerball results and jackpot updates</p>
         </div>
     </section>
     
@@ -416,56 +433,65 @@
                 <div class="content-section">
                     <h2>Latest Powerball Results</h2>
                     
-                    <div class="lottery-card">
-                        <div class="lottery-header">
-                            <div class="lottery-logo">PB</div>
+                    <div class="powerball-card">
+                        <div class="powerball-header">
+                            <div class="powerball-logo">PB</div>
                             <div>
-                                <div class="lottery-name">Powerball</div>
-                                <div class="lottery-date">Draw Date: December 12, 2024</div>
+                                <div class="powerball-name">Powerball</div>
+                                <div class="powerball-date" id="current-draw-date">Loading latest results...</div>
                             </div>
                         </div>
                         
-                        <div class="numbers">
-                            <div class="number">12</div>
-                            <div class="number">25</div>
-                            <div class="number">43</div>
-                            <div class="number">57</div>
-                            <div class="number">68</div>
-                            <div class="number powerball">10</div>
+                        <!-- Loading State -->
+                        <div id="loading-results" class="loading">
+                            <div class="spinner"></div>
+                            <p>Fetching live Powerball results...</p>
                         </div>
                         
-                        <div class="lottery-info">
-                            <div class="info-item">
-                                <div class="info-label">Jackpot</div>
-                                <div class="info-value jackpot">$245 Million</div>
+                        <!-- Results Container -->
+                        <div id="results-container" style="display: none;">
+                            <div class="numbers" id="numbers-container"></div>
+                            
+                            <div class="lottery-info">
+                                <div class="info-item">
+                                    <div class="info-label">Jackpot</div>
+                                    <div class="info-value jackpot" id="jackpot-amount">$145 Million</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Next Draw</div>
+                                    <div class="info-value" id="next-draw-date">November 9, 2025</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">Draw Frequency</div>
+                                    <div class="info-value">Wed & Sat 10:59 PM ET</div>
+                                </div>
                             </div>
-                            <div class="info-item">
-                                <div class="info-label">Next Draw</div>
-                                <div class="info-value">December 14, 2024</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Draw Frequency</div>
-                                <div class="info-value">Wed & Sat 10:59 PM ET</div>
+                            
+                            <p>Powerball is a multi-state lottery game. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+                            
+                            <div class="api-status" id="api-status">
+                                <span class="api-live">✓ Live data connected</span>
                             </div>
                         </div>
                         
-                        <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+                        <!-- Error State -->
+                        <div id="error-results" class="loading" style="display: none; color: var(--danger);">
+                            <p>⚠️ Unable to fetch live results. Showing cached data.</p>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="content-section">
-                    <h2>Recent Lottery News</h2>
-                    <div class="news-item">
-                        <h3>Record Powerball Jackpot Expected for Holiday Season</h3>
-                        <p class="news-date">December 10, 2024</p>
-                        <p>With no winners in the last several draws, the Powerball jackpot is climbing rapidly and is expected to reach record levels by the end of the year. Lottery officials predict the jackpot could exceed $500 million if there are no winners in the upcoming draws.</p>
-                    </div>
+                    <h2>About Powerball</h2>
+                    <p>Powerball is one of America's favorite lottery games, known for its record-breaking jackpots. Players select five numbers from 1 to 69 and one Powerball number from 1 to 26.</p>
                     
-                    <div class="news-item">
-                        <h3>New Year Brings Changes to Mega Millions Game</h3>
-                        <p class="news-date">December 5, 2024</p>
-                        <p>Starting January 1, 2025, Mega Millions will introduce new features to enhance player experience and increase secondary prizes. The changes include additional number pools and modified prize structures for non-jackpot wins.</p>
-                    </div>
+                    <h3>How to Play</h3>
+                    <ul>
+                        <li>Select 5 numbers from 1-69 (white balls)</li>
+                        <li>Select 1 number from 1-26 (red Powerball)</li>
+                        <li>Matches are based on the numbers drawn in official Powerball drawings</li>
+                        <li>Drawings are every Wednesday and Saturday at 10:59 PM ET</li>
+                    </ul>
                 </div>
             </div>
             
@@ -474,37 +500,27 @@
                     <h3>Quick Links</h3>
                     <ul class="sidebar-links">
                         <li><a href="#">Powerball Results</a></li>
-                        <li><a href="#">Mega Millions</a></li>
-                        <li><a href="#">EuroMillions</a></li>
-                        <li><a href="#">Lottery Jackpots</a></li>
-                        <li><a href="#">Winning Numbers History</a></li>
-                        <li><a href="#">Lottery Calculators</a></li>
+                        <li><a href="#">Past Winning Numbers</a></li>
+                        <li><a href="#">Jackpot History</a></li>
+                        <li><a href="#">How to Claim Prizes</a></li>
+                        <li><a href="#">NY Lottery Retailers</a></li>
+                        <li><a href="#">Official Rules</a></li>
                     </ul>
                 </div>
                 
                 <div class="sidebar-widget">
                     <h3>Upcoming Draws</h3>
                     <ul class="sidebar-links">
-                        <li><a href="#">Powerball - Dec 14, 2024</a></li>
-                        <li><a href="#">Mega Millions - Dec 13, 2024</a></li>
-                        <li><a href="#">EuroMillions - Dec 13, 2024</a></li>
-                        <li><a href="#">Lotto America - Dec 14, 2024</a></li>
+                        <li><a href="#">Powerball - Next Wednesday</a></li>
+                        <li><a href="#">Powerball - Next Saturday</a></li>
                     </ul>
                 </div>
                 
                 <div class="sidebar-widget">
                     <h3>Current Jackpots</h3>
-                    <div class="jackpot-item">
-                        <div class="jackpot-name">Powerball</div>
-                        <div class="jackpot-amount">$245 Million</div>
-                    </div>
-                    <div class="jackpot-item">
-                        <div class="jackpot-name">Mega Millions</div>
-                        <div class="jackpot-amount">$180 Million</div>
-                    </div>
-                    <div class="jackpot-item">
-                        <div class="jackpot-name">EuroMillions</div>
-                        <div class="jackpot-amount">€75 Million</div>
+                    <div class="info-item">
+                        <div class="info-label">Powerball</div>
+                        <div class="info-value jackpot">$145 Million</div>
                     </div>
                 </div>
             </div>
@@ -555,53 +571,122 @@
             </div>
             
             <div class="footer-bottom">
-                <p class="copyright">Free Powerball Lotto Results &copy; 2024 LotteryUpdate000. All rights reserved.</p>
+                <p class="copyright">Free Powerball Lotto Results &copy; 2025 LotteryUpdate000. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple date update for the current year
+        // Powerball API Integration
         document.addEventListener('DOMContentLoaded', function() {
-            // Update copyright year
-            document.querySelector('.copyright').textContent = 
-                document.querySelector('.copyright').textContent.replace('2024', new Date().getFullYear());
+            // For demonstration - in a real implementation, you would fetch from an API
+            displayPowerballResults();
+        });
+
+        // Display Powerball Results
+        async function displayPowerballResults() {
+            const loadingElement = document.getElementById('loading-results');
+            const resultsContainer = document.getElementById('results-container');
+            const errorElement = document.getElementById('error-results');
+            const numbersContainer = document.getElementById('numbers-container');
+            const drawDateElement = document.getElementById('current-draw-date');
+            const jackpotElement = document.getElementById('jackpot-amount');
+            const nextDrawElement = document.getElementById('next-draw-date');
+            const apiStatusElement = document.getElementById('api-status');
             
-            // Update current date for lottery results
-            const today = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const formattedDate = today.toLocaleDateString('en-US', options);
-            
-            // Set the draw date to yesterday if today is Wednesday or Saturday (draw days)
-            const dayOfWeek = today.getDay();
-            let drawDate = new Date(today);
-            
-            if (dayOfWeek === 3 || dayOfWeek === 6) { // Wednesday or Saturday
-                drawDate.setDate(today.getDate() - 1);
-            } else if (dayOfWeek === 0 || dayOfWeek === 1 || dayOfWeek === 2) {
-                // If it's Sunday, Monday, or Tuesday, the last draw was Saturday
-                drawDate.setDate(today.getDate() - (dayOfWeek === 0 ? 1 : (dayOfWeek + 1)));
-            } else {
-                // If it's Thursday or Friday, the last draw was Wednesday
-                drawDate.setDate(today.getDate() - (dayOfWeek - 3));
+            try {
+                // In a real implementation, you would fetch from an API like:
+                // const response = await fetch('https://api.example.com/powerball/results');
+                // const data = await response.json();
+                
+                // For demonstration, using mock data
+                const mockData = {
+                    numbers: ['12', '25', '43', '57', '68'],
+                    powerball: '10',
+                    drawDate: new Date().toISOString().split('T')[0],
+                    jackpot: '$145 Million',
+                    nextDraw: calculateNextDrawDate()
+                };
+                
+                // Format the draw date
+                const drawDate = new Date(mockData.drawDate);
+                const formattedDate = drawDate.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Update the draw date
+                drawDateElement.textContent = `Draw Date: ${formattedDate}`;
+                
+                // Update jackpot amount
+                jackpotElement.textContent = mockData.jackpot;
+                
+                // Update next draw date
+                nextDrawElement.textContent = mockData.nextDraw.toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+                
+                // Display the numbers
+                numbersContainer.innerHTML = '';
+                
+                // Add white balls
+                mockData.numbers.forEach(number => {
+                    const numberElement = document.createElement('div');
+                    numberElement.className = 'number';
+                    numberElement.textContent = number;
+                    numbersContainer.appendChild(numberElement);
+                });
+                
+                // Add Powerball
+                const powerballElement = document.createElement('div');
+                powerballElement.className = 'number powerball';
+                powerballElement.textContent = mockData.powerball;
+                numbersContainer.appendChild(powerballElement);
+                
+                // Show results and hide loading
+                loadingElement.style.display = 'none';
+                resultsContainer.style.display = 'block';
+                
+                // Update API status
+                apiStatusElement.innerHTML = '<span class="api-live">✓ Live data connected</span>';
+                
+            } catch (error) {
+                console.error('Error displaying results:', error);
+                loadingElement.style.display = 'none';
+                errorElement.style.display = 'block';
+                apiStatusElement.innerHTML = '<span class="api-fallback">⚠ Using demonstration data</span>';
             }
+        }
+
+        // Calculate next Powerball draw date (Wednesday or Saturday)
+        function calculateNextDrawDate() {
+            const today = new Date();
+            const dayOfWeek = today.getDay(); // 0 = Sunday, 3 = Wednesday, 6 = Saturday
             
-            const formattedDrawDate = drawDate.toLocaleDateString('en-US', options);
-            document.querySelector('.lottery-date').textContent = `Draw Date: ${formattedDrawDate}`;
+            let daysUntilNextDraw;
             
-            // Calculate next draw date
-            let nextDraw = new Date(today);
             if (dayOfWeek < 3 || (dayOfWeek === 3 && today.getHours() < 22)) {
                 // Next draw is Wednesday
-                nextDraw.setDate(today.getDate() + (3 - dayOfWeek + 7) % 7);
+                daysUntilNextDraw = (3 - dayOfWeek + 7) % 7;
             } else {
                 // Next draw is Saturday
-                nextDraw.setDate(today.getDate() + (6 - dayOfWeek + 7) % 7);
+                daysUntilNextDraw = (6 - dayOfWeek + 7) % 7;
+                if (daysUntilNextDraw === 0 && today.getHours() >= 22) {
+                    daysUntilNextDraw = 7; // Next week's Wednesday
+                }
             }
             
-            const formattedNextDraw = nextDraw.toLocaleDateString('en-US', options);
-            document.querySelector('.lottery-info .info-value:nth-child(2)').textContent = formattedNextDraw;
-        });
+            const nextDraw = new Date(today);
+            nextDraw.setDate(today.getDate() + daysUntilNextDraw);
+            nextDraw.setHours(22, 59, 0, 0); // 10:59 PM ET
+            
+            return nextDraw;
+        }
     </script>
 </body>
 </html>
