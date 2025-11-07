@@ -20,8 +20,7 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --radius: 8px;
             --powerball-color: #a82a1a;
-            --tab-bg: #f8f9fa;
-            --tab-active: #ffffff;
+            --vpn-color: #4285f4;
         }
         
         * {
@@ -186,62 +185,6 @@
             100% { transform: rotate(360deg); }
         }
         
-        /* Tab Navigation */
-        .tab-container {
-            margin: 2rem 0;
-        }
-        
-        .tab-nav {
-            display: flex;
-            background-color: var(--tab-bg);
-            border-radius: var(--radius) var(--radius) 0 0;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .tab-button {
-            flex: 1;
-            background: none;
-            border: none;
-            padding: 1rem 1.5rem;
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .tab-button:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-        
-        .tab-button.active {
-            background-color: var(--tab-active);
-            color: var(--secondary);
-            font-weight: 600;
-            box-shadow: 0 -2px 0 var(--secondary) inset;
-        }
-        
-        .tab-content {
-            display: none;
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 0 0 var(--radius) var(--radius);
-            box-shadow: var(--shadow);
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
         /* Lottery Results Styles */
         .lottery-card {
             background-color: var(--light);
@@ -339,6 +282,174 @@
             color: var(--success);
         }
         
+        /* VPN Ad Space */
+        .vpn-ad-space {
+            background: linear-gradient(135deg, var(--vpn-color) 0%, #34a853 100%);
+            color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+        
+        .vpn-header {
+            display: flex;
+            align-items: center;
+            padding: 1.5rem;
+            background-color: rgba(0,0,0,0.1);
+        }
+        
+        .vpn-icon {
+            width: 60px;
+            height: 60px;
+            background-color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            font-weight: bold;
+            color: var(--vpn-color);
+            font-size: 1.5rem;
+        }
+        
+        .vpn-title {
+            flex-grow: 1;
+        }
+        
+        .vpn-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .vpn-developer {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .vpn-rating {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 1rem;
+        }
+        
+        .vpn-stars {
+            color: #ffc107;
+            margin-right: 0.5rem;
+        }
+        
+        .vpn-body {
+            padding: 2rem;
+        }
+        
+        .vpn-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .vpn-feature {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: var(--radius);
+        }
+        
+        .vpn-feature-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .vpn-feature-text {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        
+        .vpn-install {
+            background-color: white;
+            color: var(--vpn-color);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 1rem;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        .vpn-install:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+        
+        /* Tab Navigation */
+        .tab-container {
+            margin: 2rem 0;
+        }
+        
+        .tab-nav {
+            display: flex;
+            background-color: #f8f9fa;
+            border-radius: var(--radius) var(--radius) 0 0;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .tab-button {
+            flex: 1;
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .tab-button:hover {
+            background-color: rgba(0,0,0,0.05);
+        }
+        
+        .tab-button.active {
+            background-color: var(--light);
+            color: var(--secondary);
+            font-weight: 600;
+            box-shadow: 0 -2px 0 var(--secondary) inset;
+        }
+        
+        .tab-content {
+            display: none;
+            background-color: var(--light);
+            padding: 2rem;
+            border-radius: 0 0 var(--radius) var(--radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
         /* API Status */
         .api-status {
             text-align: center;
@@ -366,14 +477,35 @@
         .footer-content {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+        }
+        
+        .footer-main {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo span {
+            color: var(--secondary);
         }
         
         .footer-links {
             display: flex;
             gap: 1.5rem;
-            margin: 1.5rem 0;
+            margin-top: 1rem;
         }
         
         .footer-links a {
@@ -381,25 +513,56 @@
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 400;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
-            background-color: rgba(255,255,255,0.1);
         }
         
-        .footer-links a.active {
-            color: var(--secondary);
-            font-weight: 600;
+        .privacy-policy {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 1rem;
+        }
+        
+        .privacy-policy h3 {
+            color: var(--light);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .privacy-policy h4 {
+            color: var(--light);
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1rem;
+        }
+        
+        .privacy-policy p, .privacy-policy ul {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .privacy-policy ul {
+            padding-left: 1.5rem;
+        }
+        
+        .privacy-policy li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .privacy-policy strong {
+            color: var(--light);
         }
         
         .copyright {
-            margin-top: 1.5rem;
+            text-align: center;
             font-size: 0.9rem;
             color: var(--text-light);
             font-weight: 400;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
         
         /* Responsive Styles */
@@ -422,6 +585,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .footer-main {
+                grid-template-columns: 1fr;
+            }
+            
             .footer-links {
                 flex-direction: column;
                 gap: 1rem;
@@ -431,14 +598,6 @@
                 font-size: 1.2rem;
             }
             
-            .tab-nav {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                border-radius: 0;
-            }
-            
             .hook-countdown {
                 flex-wrap: wrap;
             }
@@ -446,6 +605,28 @@
             .countdown-item {
                 width: 50px;
                 height: 50px;
+            }
+            
+            .vpn-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .vpn-icon {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+            
+            .vpn-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .tab-nav {
+                flex-direction: column;
+            }
+            
+            .tab-button {
+                border-radius: 0;
             }
         }
     </style>
@@ -539,107 +720,115 @@
                 </div>
             </div>
             
-            <!-- Tab Navigation for Legal Pages -->
+            <!-- VPN Ad Space -->
+            <div class="vpn-ad-space">
+                <div class="vpn-header">
+                    <div class="vpn-icon">VPN</div>
+                    <div class="vpn-title">
+                        <div class="vpn-name">SecureShield VPN</div>
+                        <div class="vpn-developer">Premium Security & Privacy</div>
+                    </div>
+                    <div class="vpn-rating">
+                        <div class="vpn-stars">★★★★★</div>
+                        <div>4.8</div>
+                    </div>
+                </div>
+                
+                <div class="vpn-body">
+                    <h3 style="text-align: center; margin-bottom: 1rem; color: white;">Protect Your Online Privacy & Security</h3>
+                    <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Browse anonymously, access restricted content, and secure your connection with our premium VPN service.</p>
+                    
+                    <div class="vpn-features">
+                        <div class="vpn-feature">
+                            <div class="vpn-feature-icon">🔒</div>
+                            <div class="vpn-feature-text">Military-Grade Encryption</div>
+                        </div>
+                        <div class="vpn-feature">
+                            <div class="vpn-feature-icon">🌐</div>
+                            <div class="vpn-feature-text">Global Server Network</div>
+                        </div>
+                        <div class="vpn-feature">
+                            <div class="vpn-feature-icon">⚡</div>
+                            <div class="vpn-feature-text">Lightning Fast Speeds</div>
+                        </div>
+                        <div class="vpn-feature">
+                            <div class="vpn-feature-icon">📱</div>
+                            <div class="vpn-feature-text">Multi-Device Support</div>
+                        </div>
+                    </div>
+                    
+                    <a href="https://playabledownload.com/1822542/1240" target="_blank" class="vpn-install">Get SecureShield VPN Now</a>
+                </div>
+            </div>
+            
+            <!-- Tab Navigation for Additional Content -->
             <div class="tab-container">
                 <div class="tab-nav">
-                    <button class="tab-button active" data-tab="privacy">Privacy Policy</button>
-                    <button class="tab-button" data-tab="terms">Terms of Service</button>
-                    <button class="tab-button" data-tab="about">About</button>
+                    <button class="tab-button active" data-tab="winning-tips">Winning Tips</button>
+                    <button class="tab-button" data-tab="lottery-history">Lottery History</button>
+                    <button class="tab-button" data-tab="faq">FAQ</button>
                 </div>
                 
-                <!-- Privacy Policy Tab -->
-                <div id="privacy" class="tab-content active">
-                    <h2>Privacy Policy</h2>
-                    <p>Last updated: October 26, 2023</p>
-                    <p>At LotteryUpdate000, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.</p>
+                <!-- Winning Tips Tab -->
+                <div id="winning-tips" class="tab-content active">
+                    <h2>Powerball Winning Tips & Strategies</h2>
+                    <p>While Powerball is a game of chance, these tips might help improve your playing strategy:</p>
                     
-                    <h3>Information We Collect</h3>
-                    <p>We may collect the following types of information:</p>
+                    <h3>Smart Playing Strategies</h3>
                     <ul>
-                        <li><strong>Personal Information:</strong> When you contact us, we may collect your name and email address.</li>
-                        <li><strong>Usage Data:</strong> We collect information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on the site.</li>
-                        <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze site traffic.</li>
+                        <li><strong>Play Consistently:</strong> Regular players have better odds over time.</li>
+                        <li><strong>Join a Pool:</strong> Increase your chances by playing with a group.</li>
+                        <li><strong>Mix Your Numbers:</strong> Avoid common patterns and consecutive numbers.</li>
+                        <li><strong>Consider Less Popular Numbers:</strong> This won't increase your odds of winning, but could mean a bigger share if you do win.</li>
                     </ul>
                     
-                    <h3>How We Use Your Information</h3>
-                    <p>We use the information we collect to:</p>
+                    <h3>Common Myths Debunked</h3>
                     <ul>
-                        <li>Provide and maintain our lottery results service</li>
-                        <li>Improve our website and user experience</li>
-                        <li>Respond to your inquiries and provide customer support</li>
-                        <li>Analyze usage patterns to enhance our content</li>
+                        <li>Quick picks have the same odds as chosen numbers</li>
+                        <li>Some numbers aren't "due" to be drawn</li>
+                        <li>Playing more doesn't change the odds of any single ticket</li>
                     </ul>
-                    
-                    <h3>Data Security</h3>
-                    <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
-                    
-                    <h3>Third-Party Services</h3>
-                    <p>We may use third-party services that collect, monitor, and analyze website usage. These services have their own privacy policies addressing how they use such information.</p>
-                    
-                    <h3>Changes to This Privacy Policy</h3>
-                    <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
-                    
-                    <h3>Contact Us</h3>
-                    <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
                 </div>
                 
-                <!-- Terms of Service Tab -->
-                <div id="terms" class="tab-content">
-                    <h2>Terms of Service</h2>
-                    <p>Last updated: October 26, 2023</p>
-                    <p>Please read these Terms of Service carefully before using the LotteryUpdate000 website.</p>
+                <!-- Lottery History Tab -->
+                <div id="lottery-history" class="tab-content">
+                    <h2>Powerball Lottery History</h2>
+                    <p>Powerball has a rich history of creating millionaires and record-breaking jackpots.</p>
                     
-                    <h3>Acceptance of Terms</h3>
-                    <p>By accessing or using our website, you agree to be bound by these Terms of Service and our Privacy Policy. If you disagree with any part of the terms, you may not access our website.</p>
-                    
-                    <h3>Use of Service</h3>
-                    <p>You may use our service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
+                    <h3>Record Jackpots</h3>
                     <ul>
-                        <li>Use the website in any way that violates any applicable law or regulation</li>
-                        <li>Engage in any conduct that restricts or inhibits anyone's use of the website</li>
-                        <li>Attempt to gain unauthorized access to any portion of the website</li>
-                        <li>Use any device, software, or routine that interferes with the proper working of the website</li>
+                        <li><strong>$2.04 Billion</strong> - Nov 7, 2022 (California)</li>
+                        <li><strong>$1.586 Billion</strong> - Jan 13, 2016 (California, Florida, Tennessee)</li>
+                        <li><strong>$768.4 Million</strong> - Mar 27, 2019 (Wisconsin)</li>
                     </ul>
                     
-                    <h3>Intellectual Property</h3>
-                    <p>The content, layout, design, and graphics on this website are owned by or licensed to LotteryUpdate000 and are protected by copyright and other intellectual property laws. You may not reproduce, distribute, or create derivative works without our express written permission.</p>
-                    
-                    <h3>Lottery Results Information</h3>
-                    <p>While we strive to provide accurate and timely lottery results, we cannot guarantee that all information is completely accurate or up-to-date at all times. Official lottery results are determined by the respective lottery organizations, and we are not responsible for any discrepancies between our published results and the official results.</p>
-                    
-                    <h3>Disclaimer of Warranties</h3>
-                    <p>Our service is provided on an "AS IS" and "AS AVAILABLE" basis. LotteryUpdate000 makes no representations or warranties of any kind, express or implied, regarding the operation or availability of our website or the information, content, or materials included on it.</p>
-                    
-                    <h3>Limitation of Liability</h3>
-                    <p>To the fullest extent permitted by law, LotteryUpdate000 shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the website.</p>
-                    
-                    <h3>Changes to Terms</h3>
-                    <p>We reserve the right to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect.</p>
-                    
-                    <h3>Contact Information</h3>
-                    <p>If you have any questions about these Terms of Service, please contact us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>.</p>
+                    <h3>Powerball Evolution</h3>
+                    <p>Powerball began in 1992 as a replacement for the Lotto America game. Over the years, it has evolved with:</p>
+                    <ul>
+                        <li>Price increases from $1 to $2 per play</li>
+                        <li>Addition of the Power Play multiplier</li>
+                        <li>Expansion to 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands</li>
+                    </ul>
                 </div>
                 
-                <!-- About Tab -->
-                <div id="about" class="tab-content">
-                    <h2>About LotteryUpdate000</h2>
-                    <p>Welcome to LotteryUpdate000, your trusted source for the latest lottery results and information. Our mission is to provide accurate, up-to-date lottery results in an easy-to-understand format.</p>
+                <!-- FAQ Tab -->
+                <div id="faq" class="tab-content">
+                    <h2>Frequently Asked Questions</h2>
                     
-                    <h3>Our Mission</h3>
-                    <p>We believe that lottery players deserve quick access to accurate results without the clutter and distractions found on many other sites. Our clean, user-friendly interface makes it simple to check the latest numbers and see if you're a winner.</p>
+                    <h3>How do I claim a prize?</h3>
+                    <p>Smaller prizes can typically be claimed at any authorized lottery retailer. Larger prizes must be claimed at lottery headquarters or through mail, depending on the amount and state regulations.</p>
                     
-                    <h3>What We Offer</h3>
-                    <p>Our website provides:</p>
-                    <ul>
-                        <li>Latest lottery results updated shortly after each drawing</li>
-                        <li>Detailed information about current jackpots</li>
-                        <li>Information about upcoming draws</li>
-                        <li>Historical data for lottery analysis</li>
-                        <li>Clear presentation of winning numbers</li>
-                    </ul>
+                    <h3>How long do I have to claim my prize?</h3>
+                    <p>Claim periods vary by state but are typically between 90 days and 1 year from the draw date.</p>
                     
-                    <h3>Contact Us</h3>
-                    <p>If you have any questions, suggestions, or concerns, please don't hesitate to reach out to us at <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>. We value your feedback and are always looking for ways to improve our service.</p>
+                    <h3>Can I remain anonymous if I win?</h3>
+                    <p>This depends on state laws. Some states allow winners to remain anonymous, while others require public disclosure.</p>
+                    
+                    <h3>What are the odds of winning the Powerball jackpot?</h3>
+                    <p>The odds of winning the Powerball jackpot are approximately 1 in 292.2 million.</p>
+                    
+                    <h3>How is the jackpot amount determined?</h3>
+                    <p>The jackpot starts at $20 million and grows based on ticket sales and interest rates until someone wins.</p>
                 </div>
             </div>
         </section>
@@ -648,14 +837,51 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <a href="#" class="logo">Lottery<span>Update000</span></a>
-                
-                <!-- Navigation moved to footer as requested -->
-                <div class="footer-links">
-                    <a href="#" class="nav-link active">Home</a>
-                    <a href="#" class="nav-link" data-tab="privacy">Privacy Policy</a>
-                    <a href="#" class="nav-link" data-tab="terms">Terms of Service</a>
-                    <a href="#" class="nav-link" data-tab="about">About</a>
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <div class="footer-logo">Lottery<span>Update000</span></div>
+                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">
+                            Your trusted source for live Powerball results and lottery information.
+                        </p>
+                        <div class="footer-links">
+                            <a href="#">Home</a>
+                        </div>
+                    </div>
+                    
+                    <div class="privacy-policy">
+                        <h3>Privacy Policy</h3>
+                        <p><strong>Last updated: October 26, 2023</strong></p>
+                        <p>At LotteryUpdate000, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.</p>
+                        
+                        <h4>Information We Collect</h4>
+                        <p>We may collect the following types of information:</p>
+                        <ul>
+                            <li><strong>Personal Information:</strong> When you contact us, we may collect your name and email address.</li>
+                            <li><strong>Usage Data:</strong> We collect information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on the site.</li>
+                            <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze site traffic.</li>
+                        </ul>
+                        
+                        <h4>How We Use Your Information</h4>
+                        <p>We use the information we collect to:</p>
+                        <ul>
+                            <li>Provide and maintain our lottery results service</li>
+                            <li>Improve our website and user experience</li>
+                            <li>Respond to your inquiries and provide customer support</li>
+                            <li>Analyze usage patterns to enhance our content</li>
+                        </ul>
+                        
+                        <h4>Data Security</h4>
+                        <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
+                        
+                        <h4>Third-Party Services</h4>
+                        <p>We may use third-party services that collect, monitor, and analyze website usage. These services have their own privacy policies addressing how they use such information.</p>
+                        
+                        <h4>Changes to This Privacy Policy</h4>
+                        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
+                        
+                        <h4>Contact Us</h4>
+                        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:cryptodr987@gmail.com" style="color: var(--secondary);">cryptodr987@gmail.com</a>.</p>
+                    </div>
                 </div>
                 
                 <div class="copyright">
@@ -821,30 +1047,6 @@
                     // Add active class to clicked button and corresponding content
                     this.classList.add('active');
                     document.getElementById(tabId).classList.add('active');
-                });
-            });
-            
-            // Footer navigation functionality
-            const footerLinks = document.querySelectorAll('.footer-links a');
-            footerLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const tabId = this.getAttribute('data-tab');
-                    
-                    if (tabId) {
-                        // Remove active class from all footer links
-                        footerLinks.forEach(link => link.classList.remove('active'));
-                        
-                        // Add active class to clicked link
-                        this.classList.add('active');
-                        
-                        // Switch to the corresponding tab
-                        tabButtons.forEach(btn => btn.classList.remove('active'));
-                        tabContents.forEach(content => content.classList.remove('active'));
-                        
-                        document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
-                        document.getElementById(tabId).classList.add('active');
-                    }
                 });
             });
             
