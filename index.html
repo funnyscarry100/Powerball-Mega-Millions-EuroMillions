@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LotteryUpdate000 - Live Powerball Results</title>
+    <title>LotteryUpdate000 - Live Powerball Results & Lottery Information</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -103,203 +103,259 @@
             background-color: var(--secondary);
         }
         
-        /* Main Content Styles */
-        .main-content {
-            background-color: var(--light);
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            padding: 2rem;
-            margin: 2rem 0;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: var(--light);
+            padding: 3rem 0;
             text-align: center;
-        }
-        
-        .welcome-section {
             margin-bottom: 2rem;
         }
         
-        .welcome-section h1 {
+        .hero h1 {
             font-size: 2.5rem;
-            color: var(--primary);
             margin-bottom: 1rem;
         }
         
-        .welcome-section p {
+        .hero p {
             font-size: 1.2rem;
-            color: var(--text-light);
             max-width: 600px;
             margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
         }
         
-        .feature-grid {
+        /* Main Content Styles */
+        .main-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
-        .feature-card {
-            background-color: #f8f9fa;
-            border-radius: var(--radius);
-            padding: 1.5rem;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-        
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .feature-card h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .feature-card p {
-            color: var(--text-light);
-        }
-        
-        .cta-section {
-            background: linear-gradient(135deg, var(--secondary) 0%, #d35400 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            margin-top: 2rem;
-        }
-        
-        .cta-section h2 {
-            margin-bottom: 1rem;
-        }
-        
-        .cta-button {
-            display: inline-block;
+        .content-section {
             background-color: var(--light);
-            color: var(--secondary);
-            padding: 0.75rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1rem;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            margin-bottom: 2rem;
         }
         
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        .content-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .lottery-card {
+            background-color: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--powerball-color);
+        }
+        
+        .lottery-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .lottery-logo {
+            width: 50px;
+            height: 50px;
+            background-color: var(--powerball-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        
+        .lottery-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .lottery-date {
+            color: var(--text-light);
+            margin-top: 0.25rem;
+            font-weight: 400;
+        }
+        
+        .numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            justify-content: center;
+        }
+        
+        .number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+            background-color: var(--powerball-color);
+        }
+        
+        .powerball {
+            background-color: #ffcc00;
+            color: var(--primary);
+        }
+        
+        .lottery-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .info-item {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: var(--radius);
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+            font-weight: 400;
+        }
+        
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .jackpot {
+            color: var(--success);
+        }
+        
+        /* Sidebar Styles */
+        .sidebar {
+            background-color: var(--light);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+        }
+        
+        .sidebar-widget {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-widget h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .sidebar-links {
+            list-style: none;
+        }
+        
+        .sidebar-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .sidebar-links a {
+            color: var(--text);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .sidebar-links a::before {
+            content: "▶";
+            margin-right: 0.5rem;
+            font-size: 0.7rem;
+            color: var(--secondary);
         }
         
         /* Footer Styles */
         footer {
             background-color: var(--dark);
             color: var(--light);
-            padding: 2rem 0;
+            padding: 3rem 0 2rem;
             margin-top: 2rem;
         }
         
         .footer-content {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .footer-main {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-bottom: 2rem;
         }
         
-        .footer-brand {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
+        .footer-column h3 {
             color: var(--light);
-            margin-bottom: 1rem;
-        }
-        
-        .footer-logo span {
-            color: var(--secondary);
-        }
-        
-        .footer-tagline {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
         }
         
         .footer-links {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
         }
         
         .footer-links a {
-            color: var(--light);
+            color: var(--text-light);
             text-decoration: none;
             transition: color 0.3s;
-            font-weight: 400;
-            padding: 0.25rem 0;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
         }
         
-        .policy-content {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 1rem;
-        }
-        
-        .policy-content h3 {
-            color: var(--light);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .policy-content h4 {
-            color: var(--light);
-            margin: 1.5rem 0 0.5rem;
-            font-size: 1rem;
-        }
-        
-        .policy-content p, .policy-content ul {
+        .footer-about p {
             color: var(--text-light);
             margin-bottom: 1rem;
             font-size: 0.9rem;
-            line-height: 1.5;
         }
         
-        .policy-content ul {
-            padding-left: 1.5rem;
-        }
-        
-        .policy-content li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .policy-content strong {
-            color: var(--light);
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .copyright {
-            text-align: center;
-            font-size: 0.9rem;
             color: var(--text-light);
-            font-weight: 400;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
         }
         
         /* Responsive Styles */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -315,16 +371,16 @@
                 margin: 0 0.75rem;
             }
             
-            .footer-main {
+            .lottery-info {
                 grid-template-columns: 1fr;
             }
             
-            .welcome-section h1 {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
                 font-size: 2rem;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -337,129 +393,214 @@
                 <nav>
                     <ul>
                         <li><a href="#" class="nav-link active">Home</a></li>
+                        <li><a href="#">Results</a></li>
+                        <li><a href="#">Jackpots</a></li>
+                        <li><a href="#">Tips</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
     
-    <main class="container">
+    <section class="hero">
+        <div class="container">
+            <h1>Live Powerball Results & Lottery Information</h1>
+            <p>Your trusted source for the latest lottery results, jackpot updates, and winning strategies.</p>
+        </div>
+    </section>
+    
+    <div class="container">
         <div class="main-content">
-            <div class="welcome-section">
-                <h1>Welcome to LotteryUpdate000</h1>
-                <p>Your trusted source for live Powerball results and lottery information.</p>
+            <div class="content-primary">
+                <div class="content-section">
+                    <h2>Latest Powerball Results</h2>
+                    
+                    <div class="lottery-card">
+                        <div class="lottery-header">
+                            <div class="lottery-logo">PB</div>
+                            <div>
+                                <div class="lottery-name">Powerball</div>
+                                <div class="lottery-date">Draw Date: December 12, 2024</div>
+                            </div>
+                        </div>
+                        
+                        <div class="numbers">
+                            <div class="number">12</div>
+                            <div class="number">25</div>
+                            <div class="number">43</div>
+                            <div class="number">57</div>
+                            <div class="number">68</div>
+                            <div class="number powerball">10</div>
+                        </div>
+                        
+                        <div class="lottery-info">
+                            <div class="info-item">
+                                <div class="info-label">Jackpot</div>
+                                <div class="info-value jackpot">$245 Million</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Next Draw</div>
+                                <div class="info-value">December 14, 2024</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Draw Frequency</div>
+                                <div class="info-value">Wed & Sat 10:59 PM ET</div>
+                            </div>
+                        </div>
+                        
+                        <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h2>Recent Lottery News</h2>
+                    <div class="news-item">
+                        <h3>Record Powerball Jackpot Expected for Holiday Season</h3>
+                        <p class="news-date">December 10, 2024</p>
+                        <p>With no winners in the last several draws, the Powerball jackpot is climbing rapidly and is expected to reach record levels by the end of the year. Lottery officials predict the jackpot could exceed $500 million if there are no winners in the upcoming draws.</p>
+                    </div>
+                    
+                    <div class="news-item">
+                        <h3>New Year Brings Changes to Mega Millions Game</h3>
+                        <p class="news-date">December 5, 2024</p>
+                        <p>Starting January 1, 2025, Mega Millions will introduce new features to enhance player experience and increase secondary prizes. The changes include additional number pools and modified prize structures for non-jackpot wins.</p>
+                    </div>
+                </div>
             </div>
             
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Live Results</h3>
-                    <p>Get the latest Powerball numbers as soon as they're drawn</p>
+            <div class="sidebar">
+                <div class="sidebar-widget">
+                    <h3>Quick Links</h3>
+                    <ul class="sidebar-links">
+                        <li><a href="#">Powerball Results</a></li>
+                        <li><a href="#">Mega Millions</a></li>
+                        <li><a href="#">EuroMillions</a></li>
+                        <li><a href="#">Lottery Jackpots</a></li>
+                        <li><a href="#">Winning Numbers History</a></li>
+                        <li><a href="#">Lottery Calculators</a></li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Jackpot Updates</h3>
-                    <p>Stay informed about current and upcoming jackpot amounts</p>
+                <div class="sidebar-widget">
+                    <h3>Upcoming Draws</h3>
+                    <ul class="sidebar-links">
+                        <li><a href="#">Powerball - Dec 14, 2024</a></li>
+                        <li><a href="#">Mega Millions - Dec 13, 2024</a></li>
+                        <li><a href="#">EuroMillions - Dec 13, 2024</a></li>
+                        <li><a href="#">Lotto America - Dec 14, 2024</a></li>
+                    </ul>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">📊</div>
-                    <h3>Historical Data</h3>
-                    <p>Access past results and analyze winning patterns</p>
+                <div class="sidebar-widget">
+                    <h3>Current Jackpots</h3>
+                    <div class="jackpot-item">
+                        <div class="jackpot-name">Powerball</div>
+                        <div class="jackpot-amount">$245 Million</div>
+                    </div>
+                    <div class="jackpot-item">
+                        <div class="jackpot-name">Mega Millions</div>
+                        <div class="jackpot-amount">$180 Million</div>
+                    </div>
+                    <div class="jackpot-item">
+                        <div class="jackpot-name">EuroMillions</div>
+                        <div class="jackpot-amount">€75 Million</div>
+                    </div>
                 </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔔</div>
-                    <h3>Notifications</h3>
-                    <p>Never miss important lottery updates and announcements</p>
-                </div>
-            </div>
-            
-            <div class="cta-section">
-                <h2>Ready to Check Your Numbers?</h2>
-                <p>Visit our main lottery results page to see if you're a winner!</p>
-                <a href="#" class="cta-button">View Live Results</a>
             </div>
         </div>
-    </main>
+    </div>
     
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-main">
-                    <div class="footer-brand">
-                        <div class="footer-logo">Lottery<span>Update000</span></div>
-                        <p class="footer-tagline">Your trusted source for live Powerball results and lottery information.</p>
-                        <div class="footer-links">
-                            <a href="home.html">Home</a>
-                            <a href="terms.html">Terms of Service</a>
-                            <a href="privacy.html">Privacy Policy</a>
-                            <a href="about.html">About</a>
-                        </div>
-                    </div>
-                    
-                    <div class="policy-content">
-                        <h3>Privacy Policy</h3>
-                        <p><strong>Last updated: December 12, 2024</strong></p>
-                        <p>At LotteryUpdate000, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.</p>
-                        
-                        <h4>Information We Collect</h4>
-                        <p>We may collect the following types of information:</p>
-                        <ul>
-                            <li><strong>Personal Information:</strong> When you contact us, we may collect your name and email address.</li>
-                            <li><strong>Usage Data:</strong> We collect information about how you interact with our website, including your IP address, browser type, pages visited, and time spent on the site.</li>
-                            <li><strong>Cookies:</strong> We use cookies to enhance your browsing experience and analyze site traffic.</li>
-                        </ul>
-                        
-                        <h4>How We Use Your Information</h4>
-                        <p>We use the information we collect to:</p>
-                        <ul>
-                            <li>Provide and maintain our lottery results service</li>
-                            <li>Improve our website and user experience</li>
-                            <li>Respond to your inquiries and provide customer support</li>
-                            <li>Analyze usage patterns to enhance our content</li>
-                        </ul>
-                        
-                        <h4>Data Security</h4>
-                        <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
-                        
-                        <h4>Third-Party Services</h4>
-                        <p>We may use third-party services that collect, monitor, and analyze website usage. These services have their own privacy policies addressing how they use such information.</p>
-                        
-                        <h4>Changes to This Privacy Policy</h4>
-                        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
-                        
-                        <h4>Contact Us</h4>
-                        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:cryptodr987@gmail.com" style="color: var(--secondary);">cryptodr987@gmail.com</a>.</p>
+                <div class="footer-column">
+                    <h3>LotteryUpdate000</h3>
+                    <div class="footer-about">
+                        <p>Your trusted source for live Powerball results and lottery information since 2020.</p>
+                        <p>We provide accurate, up-to-date lottery results and helpful resources for lottery enthusiasts.</p>
                     </div>
                 </div>
                 
-                <div class="copyright">
-                    Free Powerball Lotto Results &copy; 2024 LotteryUpdate000. All rights reserved.
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="results.html">Lottery Results</a></li>
+                        <li><a href="jackpots.html">Current Jackpots</a></li>
+                        <li><a href="strategies.html">Winning Strategies</a></li>
+                        <li><a href="news.html">Lottery News</a></li>
+                    </ul>
                 </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="cookies.html">Cookie Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>Email: <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a></li>
+                        <li>Feedback: <a href="feedback.html">Send Feedback</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">Free Powerball Lotto Results &copy; 2024 LotteryUpdate000. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Simple redirect functionality for footer links
+        // Simple date update for the current year
         document.addEventListener('DOMContentLoaded', function() {
-            const footerLinks = document.querySelectorAll('.footer-links a');
+            // Update copyright year
+            document.querySelector('.copyright').textContent = 
+                document.querySelector('.copyright').textContent.replace('2024', new Date().getFullYear());
             
-            footerLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const page = this.getAttribute('href');
-                    
-                    // In a real implementation, this would redirect to the actual page
-                    // For this example, we'll just show an alert
-                    alert(`Redirecting to ${page} - This would navigate to the actual page in a live environment`);
-                    
-                    // In a real implementation, you would use:
-                    // window.location.href = page;
-                });
-            });
+            // Update current date for lottery results
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = today.toLocaleDateString('en-US', options);
+            
+            // Set the draw date to yesterday if today is Wednesday or Saturday (draw days)
+            const dayOfWeek = today.getDay();
+            let drawDate = new Date(today);
+            
+            if (dayOfWeek === 3 || dayOfWeek === 6) { // Wednesday or Saturday
+                drawDate.setDate(today.getDate() - 1);
+            } else if (dayOfWeek === 0 || dayOfWeek === 1 || dayOfWeek === 2) {
+                // If it's Sunday, Monday, or Tuesday, the last draw was Saturday
+                drawDate.setDate(today.getDate() - (dayOfWeek === 0 ? 1 : (dayOfWeek + 1)));
+            } else {
+                // If it's Thursday or Friday, the last draw was Wednesday
+                drawDate.setDate(today.getDate() - (dayOfWeek - 3));
+            }
+            
+            const formattedDrawDate = drawDate.toLocaleDateString('en-US', options);
+            document.querySelector('.lottery-date').textContent = `Draw Date: ${formattedDrawDate}`;
+            
+            // Calculate next draw date
+            let nextDraw = new Date(today);
+            if (dayOfWeek < 3 || (dayOfWeek === 3 && today.getHours() < 22)) {
+                // Next draw is Wednesday
+                nextDraw.setDate(today.getDate() + (3 - dayOfWeek + 7) % 7);
+            } else {
+                // Next draw is Saturday
+                nextDraw.setDate(today.getDate() + (6 - dayOfWeek + 7) % 7);
+            }
+            
+            const formattedNextDraw = nextDraw.toLocaleDateString('en-US', options);
+            document.querySelector('.lottery-info .info-value:nth-child(2)').textContent = formattedNextDraw;
         });
     </script>
 </body>
