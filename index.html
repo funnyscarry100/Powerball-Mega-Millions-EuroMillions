@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Powerball Results</title>
+    <title>LotteryUpdate000 - Live Powerball Results</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -20,7 +20,6 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --radius: 8px;
             --powerball-color: #a82a1a;
-            --vpn-color: #4285f4;
         }
         
         * {
@@ -104,366 +103,94 @@
             background-color: var(--secondary);
         }
         
-        /* Quick Hook Section */
-        .quick-hook {
-            background: linear-gradient(135deg, var(--secondary) 0%, #d35400 100%);
-            color: white;
-            padding: 1.5rem;
-            text-align: center;
-            border-radius: var(--radius);
-            margin: 1.5rem 0;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hook-countdown {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin: 1rem 0;
-        }
-        
-        .countdown-item {
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            animation: pulse 2s infinite;
-        }
-        
-        .countdown-number {
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-        
-        .countdown-label {
-            font-size: 0.7rem;
-            opacity: 0.9;
-        }
-        
-        .hook-message {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin: 1rem 0;
-            min-height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        /* Loading Styles */
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-light);
-        }
-        
-        .spinner {
-            border: 4px solid #f3f3f3;
-            border-top: 4px solid var(--secondary);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Lottery Results Styles */
-        .lottery-card {
+        /* Main Content Styles */
+        .main-content {
             background-color: var(--light);
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--powerball-color);
-        }
-        
-        .lottery-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-        
-        .lottery-logo {
-            width: 50px;
-            height: 50px;
-            background-color: var(--powerball-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            margin-right: 1rem;
-        }
-        
-        .lottery-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .lottery-date {
-            color: var(--text-light);
-            margin-top: 0.25rem;
-            font-weight: 400;
-        }
-        
-        .numbers {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-            justify-content: center;
-        }
-        
-        .number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: white;
-            background-color: var(--powerball-color);
-        }
-        
-        .powerball {
-            background-color: #ffcc00;
-            color: var(--primary);
-        }
-        
-        .lottery-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .info-item {
-            background-color: #f8f9fa;
-            padding: 1rem;
-            border-radius: var(--radius);
-        }
-        
-        .info-label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 0.25rem;
-            font-weight: 400;
-        }
-        
-        .info-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-        }
-        
-        .jackpot {
-            color: var(--success);
-        }
-        
-        /* VPN Ad Space */
-        .vpn-ad-space {
-            background: linear-gradient(135deg, var(--vpn-color) 0%, #34a853 100%);
-            color: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            margin: 2rem 0;
-            box-shadow: var(--shadow);
-        }
-        
-        .vpn-header {
-            display: flex;
-            align-items: center;
-            padding: 1.5rem;
-            background-color: rgba(0,0,0,0.1);
-        }
-        
-        .vpn-icon {
-            width: 60px;
-            height: 60px;
-            background-color: white;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1.5rem;
-            font-weight: bold;
-            color: var(--vpn-color);
-            font-size: 1.5rem;
-        }
-        
-        .vpn-title {
-            flex-grow: 1;
-        }
-        
-        .vpn-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-        
-        .vpn-developer {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-        
-        .vpn-rating {
-            display: flex;
-            align-items: center;
-            background-color: rgba(255,255,255,0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 1rem;
-        }
-        
-        .vpn-stars {
-            color: #ffc107;
-            margin-right: 0.5rem;
-        }
-        
-        .vpn-body {
             padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
         }
         
-        .vpn-features {
+        .welcome-section {
+            margin-bottom: 2rem;
+        }
+        
+        .welcome-section h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .welcome-section p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
         
-        .vpn-feature {
-            text-align: center;
-            padding: 1.5rem;
-            background-color: rgba(255,255,255,0.1);
+        .feature-card {
+            background-color: #f8f9fa;
             border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .vpn-feature-icon {
-            font-size: 2rem;
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
             margin-bottom: 1rem;
         }
         
-        .vpn-feature-text {
-            font-size: 1rem;
-            font-weight: 500;
+        .feature-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
         
-        .vpn-install {
-            background-color: white;
-            color: var(--vpn-color);
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-top: 1rem;
-            display: block;
-            width: 100%;
-            max-width: 300px;
-            margin: 0 auto;
-            text-decoration: none;
-            text-align: center;
+        .feature-card p {
+            color: var(--text-light);
         }
         
-        .vpn-install:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        .cta-section {
+            background: linear-gradient(135deg, var(--secondary) 0%, #d35400 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--radius);
+            margin-top: 2rem;
         }
         
-        /* Tab Navigation */
-        .tab-container {
-            margin: 2rem 0;
+        .cta-section h2 {
+            margin-bottom: 1rem;
         }
         
-        .tab-nav {
-            display: flex;
-            background-color: #f8f9fa;
-            border-radius: var(--radius) var(--radius) 0 0;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .tab-button {
-            flex: 1;
-            background: none;
-            border: none;
-            padding: 1rem 1.5rem;
-            font-family: inherit;
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text);
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .tab-button:hover {
-            background-color: rgba(0,0,0,0.05);
-        }
-        
-        .tab-button.active {
+        .cta-button {
+            display: inline-block;
             background-color: var(--light);
             color: var(--secondary);
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
-            box-shadow: 0 -2px 0 var(--secondary) inset;
-        }
-        
-        .tab-content {
-            display: none;
-            background-color: var(--light);
-            padding: 2rem;
-            border-radius: 0 0 var(--radius) var(--radius);
-            box-shadow: var(--shadow);
-        }
-        
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        
-        /* API Status */
-        .api-status {
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-light);
             margin-top: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .api-live {
-            color: var(--success);
-        }
-        
-        .api-fallback {
-            color: var(--warning);
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         /* Footer Styles */
@@ -502,10 +229,16 @@
             color: var(--secondary);
         }
         
+        .footer-tagline {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
         .footer-links {
             display: flex;
-            gap: 1.5rem;
-            margin-top: 1rem;
+            flex-direction: column;
+            gap: 0.5rem;
         }
         
         .footer-links a {
@@ -513,46 +246,47 @@
             text-decoration: none;
             transition: color 0.3s;
             font-weight: 400;
+            padding: 0.25rem 0;
         }
         
         .footer-links a:hover {
             color: var(--secondary);
         }
         
-        .privacy-policy {
+        .policy-content {
             max-height: 400px;
             overflow-y: auto;
             padding-right: 1rem;
         }
         
-        .privacy-policy h3 {
+        .policy-content h3 {
             color: var(--light);
             margin-bottom: 1rem;
             font-size: 1.2rem;
         }
         
-        .privacy-policy h4 {
+        .policy-content h4 {
             color: var(--light);
             margin: 1.5rem 0 0.5rem;
             font-size: 1rem;
         }
         
-        .privacy-policy p, .privacy-policy ul {
+        .policy-content p, .policy-content ul {
             color: var(--text-light);
             margin-bottom: 1rem;
             font-size: 0.9rem;
             line-height: 1.5;
         }
         
-        .privacy-policy ul {
+        .policy-content ul {
             padding-left: 1.5rem;
         }
         
-        .privacy-policy li {
+        .policy-content li {
             margin-bottom: 0.5rem;
         }
         
-        .privacy-policy strong {
+        .policy-content strong {
             color: var(--light);
         }
         
@@ -581,52 +315,16 @@
                 margin: 0 0.75rem;
             }
             
-            .lottery-info {
-                grid-template-columns: 1fr;
-            }
-            
             .footer-main {
                 grid-template-columns: 1fr;
             }
             
-            .footer-links {
-                flex-direction: column;
-                gap: 1rem;
+            .welcome-section h1 {
+                font-size: 2rem;
             }
             
-            .quick-hook h2 {
-                font-size: 1.2rem;
-            }
-            
-            .hook-countdown {
-                flex-wrap: wrap;
-            }
-            
-            .countdown-item {
-                width: 50px;
-                height: 50px;
-            }
-            
-            .vpn-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .vpn-icon {
-                margin-right: 0;
-                margin-bottom: 1rem;
-            }
-            
-            .vpn-features {
+            .feature-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .tab-nav {
-                flex-direction: column;
-            }
-            
-            .tab-button {
-                border-radius: 0;
             }
         }
     </style>
@@ -638,7 +336,7 @@
                 <a href="#" class="logo">Lottery<span>Update000</span></a>
                 <nav>
                     <ul>
-                        <!-- Home tab removed from header as requested -->
+                        <li><a href="#" class="nav-link active">Home</a></li>
                     </ul>
                 </nav>
             </div>
@@ -646,192 +344,44 @@
     </header>
     
     <main class="container">
-        <!-- Home Page -->
-        <section id="home" class="page active">
-            <h1>Live Powerball Results</h1>
+        <div class="main-content">
+            <div class="welcome-section">
+                <h1>Welcome to LotteryUpdate000</h1>
+                <p>Your trusted source for live Powerball results and lottery information.</p>
+            </div>
             
-            <!-- Quick Hook Section - 1 to 5 seconds to hook visitors -->
-            <div class="quick-hook">
-                <h2>🚨 CHECK IF YOU'RE AN INSTANT MILLIONAIRE! 🚨</h2>
-                <div class="hook-countdown">
-                    <div class="countdown-item">
-                        <div class="countdown-number">1</div>
-                        <div class="countdown-label">SECOND</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number">TO</div>
-                        <div class="countdown-label">CHECK</div>
-                    </div>
-                    <div class="countdown-item">
-                        <div class="countdown-number">WIN</div>
-                        <div class="countdown-label">NUMBERS</div>
-                    </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Live Results</h3>
+                    <p>Get the latest Powerball numbers as soon as they're drawn</p>
                 </div>
-                <div class="hook-message" id="hook-message">
-                    Latest Powerball results updated in real-time!
+                
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Jackpot Updates</h3>
+                    <p>Stay informed about current and upcoming jackpot amounts</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Historical Data</h3>
+                    <p>Access past results and analyze winning patterns</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Notifications</h3>
+                    <p>Never miss important lottery updates and announcements</p>
                 </div>
             </div>
             
-            <!-- Powerball Results from NY Open Data API -->
-            <div class="lottery-card">
-                <div class="lottery-header">
-                    <div class="lottery-logo">PB</div>
-                    <div>
-                        <div class="lottery-name">Powerball</div>
-                        <div class="lottery-date" id="current-draw-date">Loading latest results...</div>
-                    </div>
-                </div>
-                
-                <!-- Loading State -->
-                <div id="loading-results" class="loading">
-                    <div class="spinner"></div>
-                    <p>Fetching live Powerball results...</p>
-                </div>
-                
-                <!-- Results Container -->
-                <div id="results-container" style="display: none;">
-                    <div class="numbers" id="numbers-container"></div>
-                    
-                    <div class="lottery-info">
-                        <div class="info-item">
-                            <div class="info-label">Jackpot</div>
-                            <div class="info-value jackpot" id="jackpot-amount">$145 Million</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Next Draw</div>
-                            <div class="info-value" id="next-draw-date">November 18, 2023</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Draw Frequency</div>
-                            <div class="info-value">Wed & Sat 10:59 PM ET</div>
-                        </div>
-                    </div>
-                    
-                    <p>Powerball is a multi-state lottery game offered in 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands. Drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
-                    
-                    <div class="api-status" id="api-status">
-                        <span class="api-live">✓ Live data connected</span>
-                    </div>
-                </div>
-                
-                <!-- Error State -->
-                <div id="error-results" class="loading" style="display: none; color: var(--danger);">
-                    <p>⚠️ Unable to fetch live results. Showing cached data.</p>
-                </div>
+            <div class="cta-section">
+                <h2>Ready to Check Your Numbers?</h2>
+                <p>Visit our main lottery results page to see if you're a winner!</p>
+                <a href="#" class="cta-button">View Live Results</a>
             </div>
-            
-            <!-- VPN Ad Space -->
-            <div class="vpn-ad-space">
-                <div class="vpn-header">
-                    <div class="vpn-icon">VPN</div>
-                    <div class="vpn-title">
-                        <div class="vpn-name">SecureShield VPN</div>
-                        <div class="vpn-developer">Premium Security & Privacy</div>
-                    </div>
-                    <div class="vpn-rating">
-                        <div class="vpn-stars">★★★★★</div>
-                        <div>4.8</div>
-                    </div>
-                </div>
-                
-                <div class="vpn-body">
-                    <h3 style="text-align: center; margin-bottom: 1rem; color: white;">Protect Your Online Privacy & Security</h3>
-                    <p style="text-align: center; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">Browse anonymously, access restricted content, and secure your connection with our premium VPN service.</p>
-                    
-                    <div class="vpn-features">
-                        <div class="vpn-feature">
-                            <div class="vpn-feature-icon">🔒</div>
-                            <div class="vpn-feature-text">Military-Grade Encryption</div>
-                        </div>
-                        <div class="vpn-feature">
-                            <div class="vpn-feature-icon">🌐</div>
-                            <div class="vpn-feature-text">Global Server Network</div>
-                        </div>
-                        <div class="vpn-feature">
-                            <div class="vpn-feature-icon">⚡</div>
-                            <div class="vpn-feature-text">Lightning Fast Speeds</div>
-                        </div>
-                        <div class="vpn-feature">
-                            <div class="vpn-feature-icon">📱</div>
-                            <div class="vpn-feature-text">Multi-Device Support</div>
-                        </div>
-                    </div>
-                    
-                    <a href="https://playabledownload.com/1822542/1240" target="_blank" class="vpn-install">Get SecureShield VPN Now</a>
-                </div>
-            </div>
-            
-            <!-- Tab Navigation for Additional Content -->
-            <div class="tab-container">
-                <div class="tab-nav">
-                    <button class="tab-button active" data-tab="winning-tips">Winning Tips</button>
-                    <button class="tab-button" data-tab="lottery-history">Lottery History</button>
-                    <button class="tab-button" data-tab="faq">FAQ</button>
-                </div>
-                
-                <!-- Winning Tips Tab -->
-                <div id="winning-tips" class="tab-content active">
-                    <h2>Powerball Winning Tips & Strategies</h2>
-                    <p>While Powerball is a game of chance, these tips might help improve your playing strategy:</p>
-                    
-                    <h3>Smart Playing Strategies</h3>
-                    <ul>
-                        <li><strong>Play Consistently:</strong> Regular players have better odds over time.</li>
-                        <li><strong>Join a Pool:</strong> Increase your chances by playing with a group.</li>
-                        <li><strong>Mix Your Numbers:</strong> Avoid common patterns and consecutive numbers.</li>
-                        <li><strong>Consider Less Popular Numbers:</strong> This won't increase your odds of winning, but could mean a bigger share if you do win.</li>
-                    </ul>
-                    
-                    <h3>Common Myths Debunked</h3>
-                    <ul>
-                        <li>Quick picks have the same odds as chosen numbers</li>
-                        <li>Some numbers aren't "due" to be drawn</li>
-                        <li>Playing more doesn't change the odds of any single ticket</li>
-                    </ul>
-                </div>
-                
-                <!-- Lottery History Tab -->
-                <div id="lottery-history" class="tab-content">
-                    <h2>Powerball Lottery History</h2>
-                    <p>Powerball has a rich history of creating millionaires and record-breaking jackpots.</p>
-                    
-                    <h3>Record Jackpots</h3>
-                    <ul>
-                        <li><strong>$2.04 Billion</strong> - Nov 7, 2022 (California)</li>
-                        <li><strong>$1.586 Billion</strong> - Jan 13, 2016 (California, Florida, Tennessee)</li>
-                        <li><strong>$768.4 Million</strong> - Mar 27, 2019 (Wisconsin)</li>
-                    </ul>
-                    
-                    <h3>Powerball Evolution</h3>
-                    <p>Powerball began in 1992 as a replacement for the Lotto America game. Over the years, it has evolved with:</p>
-                    <ul>
-                        <li>Price increases from $1 to $2 per play</li>
-                        <li>Addition of the Power Play multiplier</li>
-                        <li>Expansion to 45 states, Washington D.C., Puerto Rico, and the U.S. Virgin Islands</li>
-                    </ul>
-                </div>
-                
-                <!-- FAQ Tab -->
-                <div id="faq" class="tab-content">
-                    <h2>Frequently Asked Questions</h2>
-                    
-                    <h3>How do I claim a prize?</h3>
-                    <p>Smaller prizes can typically be claimed at any authorized lottery retailer. Larger prizes must be claimed at lottery headquarters or through mail, depending on the amount and state regulations.</p>
-                    
-                    <h3>How long do I have to claim my prize?</h3>
-                    <p>Claim periods vary by state but are typically between 90 days and 1 year from the draw date.</p>
-                    
-                    <h3>Can I remain anonymous if I win?</h3>
-                    <p>This depends on state laws. Some states allow winners to remain anonymous, while others require public disclosure.</p>
-                    
-                    <h3>What are the odds of winning the Powerball jackpot?</h3>
-                    <p>The odds of winning the Powerball jackpot are approximately 1 in 292.2 million.</p>
-                    
-                    <h3>How is the jackpot amount determined?</h3>
-                    <p>The jackpot starts at $20 million and grows based on ticket sales and interest rates until someone wins.</p>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
     
     <footer>
@@ -840,17 +390,18 @@
                 <div class="footer-main">
                     <div class="footer-brand">
                         <div class="footer-logo">Lottery<span>Update000</span></div>
-                        <p style="color: var(--text-light); font-size: 0.9rem; margin-bottom: 1rem;">
-                            Your trusted source for live Powerball results and lottery information.
-                        </p>
+                        <p class="footer-tagline">Your trusted source for live Powerball results and lottery information.</p>
                         <div class="footer-links">
-                            <a href="#">Home</a>
+                            <a href="home.html">Home</a>
+                            <a href="terms.html">Terms of Service</a>
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="about.html">About</a>
                         </div>
                     </div>
                     
-                    <div class="privacy-policy">
+                    <div class="policy-content">
                         <h3>Privacy Policy</h3>
-                        <p><strong>Last updated: October 26, 2023</strong></p>
+                        <p><strong>Last updated: December 12, 2024</strong></p>
                         <p>At LotteryUpdate000, we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you visit our website.</p>
                         
                         <h4>Information We Collect</h4>
@@ -885,274 +436,31 @@
                 </div>
                 
                 <div class="copyright">
-                    Free Powerball Lotto Results &copy; 2025 LotteryUpdate000. All rights reserved.
+                    Free Powerball Lotto Results &copy; 2024 LotteryUpdate000. All rights reserved.
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        // NY Open Data Powerball API Integration
-        class NYPowerballAPI {
-            constructor() {
-                this.apiUrl = 'https://data.ny.gov/resource/d6yy-54nr.json';
-                this.cacheKey = 'powerball_cache';
-                this.cacheDuration = 30 * 60 * 1000; // 30 minutes
-            }
-
-            async fetchLatestResults() {
-                try {
-                    // Try to get cached data first
-                    const cached = this.getCachedData();
-                    if (cached) {
-                        return cached;
-                    }
-
-                    // Fetch from NY Open Data API
-                    const query = `?$where=draw_date >= '2023-01-01'&$order=draw_date DESC&$limit=10`;
-                    const response = await fetch(this.apiUrl + query);
-                    
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
-                    }
-
-                    const data = await response.json();
-                    
-                    if (!data || data.length === 0) {
-                        throw new Error('No data returned from API');
-                    }
-
-                    // Process and cache the data
-                    const processedData = this.processData(data);
-                    this.cacheData(processedData);
-                    
-                    return processedData;
-
-                } catch (error) {
-                    console.error('API Error:', error);
-                    // Return cached data or fallback if available
-                    const cached = this.getCachedData();
-                    if (cached) {
-                        return cached;
-                    }
-                    return this.getFallbackData();
-                }
-            }
-
-            processData(apiData) {
-                const latestDraw = apiData[0];
-                const previousDraws = apiData.slice(1, 6); // Get last 5 previous draws
-                
-                return {
-                    latest: {
-                        numbers: latestDraw.winning_numbers.split(' ').slice(0, 5),
-                        powerball: latestDraw.winning_numbers.split(' ')[5],
-                        drawDate: latestDraw.draw_date,
-                        jackpot: this.formatJackpot(latestDraw.jackpot),
-                        multiplier: latestDraw.multiplier || '2X'
-                    },
-                    previous: previousDraws.map(draw => ({
-                        numbers: draw.winning_numbers.split(' ').slice(0, 5),
-                        powerball: draw.winning_numbers.split(' ')[5],
-                        drawDate: draw.draw_date
-                    })),
-                    timestamp: new Date().toISOString()
-                };
-            }
-
-            formatJackpot(jackpot) {
-                if (!jackpot) return '$145 Million';
-                
-                // Convert to millions if it's a large number
-                const jackpotNum = parseInt(jackpot.replace(/[$,]/g, ''));
-                if (jackpotNum >= 1000000) {
-                    return `$${(jackpotNum / 1000000).toFixed(0)} Million`;
-                }
-                return `$${jackpotNum.toLocaleString()}`;
-            }
-
-            getCachedData() {
-                try {
-                    const cached = localStorage.getItem(this.cacheKey);
-                    if (cached) {
-                        const data = JSON.parse(cached);
-                        const cacheTime = new Date(data.timestamp).getTime();
-                        const currentTime = new Date().getTime();
-                        
-                        if (currentTime - cacheTime < this.cacheDuration) {
-                            return data;
-                        }
-                    }
-                } catch (error) {
-                    console.error('Cache read error:', error);
-                }
-                return null;
-            }
-
-            cacheData(data) {
-                try {
-                    localStorage.setItem(this.cacheKey, JSON.stringify(data));
-                } catch (error) {
-                    console.error('Cache write error:', error);
-                }
-            }
-
-            getFallbackData() {
-                // Fallback data if API fails and no cache exists
-                return {
-                    latest: {
-                        numbers: ['12', '25', '43', '57', '68'],
-                        powerball: '10',
-                        drawDate: new Date().toISOString().split('T')[0],
-                        jackpot: '$145 Million',
-                        multiplier: '2X'
-                    },
-                    previous: [],
-                    timestamp: new Date().toISOString()
-                };
-            }
-        }
-
-        // Quick Hook Messages - 1 to 5 second sequence
-        const hookMessages = [
-            "Latest Powerball results updated in real-time!",
-            "Check if your numbers match the winning combination!",
-            "Jackpot amounts updated immediately after each draw!",
-            "Never miss a winning number with our live updates!",
-            "Your one-stop destination for accurate lottery results!"
-        ];
-
-        let currentMessageIndex = 0;
-
-        function rotateHookMessage() {
-            const hookMessageElement = document.getElementById('hook-message');
-            hookMessageElement.textContent = hookMessages[currentMessageIndex];
-            currentMessageIndex = (currentMessageIndex + 1) % hookMessages.length;
-        }
-
-        // Tab Navigation Functionality
+        // Simple redirect functionality for footer links
         document.addEventListener('DOMContentLoaded', function() {
-            // Tab functionality
-            const tabButtons = document.querySelectorAll('.tab-button');
-            const tabContents = document.querySelectorAll('.tab-content');
+            const footerLinks = document.querySelectorAll('.footer-links a');
             
-            tabButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const tabId = this.getAttribute('data-tab');
+            footerLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const page = this.getAttribute('href');
                     
-                    // Remove active class from all buttons and contents
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
+                    // In a real implementation, this would redirect to the actual page
+                    // For this example, we'll just show an alert
+                    alert(`Redirecting to ${page} - This would navigate to the actual page in a live environment`);
                     
-                    // Add active class to clicked button and corresponding content
-                    this.classList.add('active');
-                    document.getElementById(tabId).classList.add('active');
+                    // In a real implementation, you would use:
+                    // window.location.href = page;
                 });
             });
-            
-            // Start rotating hook messages
-            setInterval(rotateHookMessage, 3000); // Change message every 3 seconds
-            
-            // Initialize Powerball API and display results
-            const powerballAPI = new NYPowerballAPI();
-            displayPowerballResults(powerballAPI);
         });
-
-        // Display Powerball Results
-        async function displayPowerballResults(api) {
-            const loadingElement = document.getElementById('loading-results');
-            const resultsContainer = document.getElementById('results-container');
-            const errorElement = document.getElementById('error-results');
-            const numbersContainer = document.getElementById('numbers-container');
-            const drawDateElement = document.getElementById('current-draw-date');
-            const jackpotElement = document.getElementById('jackpot-amount');
-            const nextDrawElement = document.getElementById('next-draw-date');
-            const apiStatusElement = document.getElementById('api-status');
-            
-            try {
-                const data = await api.fetchLatestResults();
-                const latest = data.latest;
-                
-                // Format the draw date
-                const drawDate = new Date(latest.drawDate);
-                const formattedDate = drawDate.toLocaleDateString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-                
-                // Update the draw date
-                drawDateElement.textContent = `Draw Date: ${formattedDate}`;
-                
-                // Update jackpot amount
-                jackpotElement.textContent = latest.jackpot;
-                
-                // Calculate next draw date (Wednesday or Saturday)
-                const nextDraw = calculateNextDrawDate();
-                nextDrawElement.textContent = nextDraw.toLocaleDateString('en-US', {
-                    weekday: 'long',
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                });
-                
-                // Display the numbers
-                numbersContainer.innerHTML = '';
-                
-                // Add white balls
-                latest.numbers.forEach(number => {
-                    const numberElement = document.createElement('div');
-                    numberElement.className = 'number';
-                    numberElement.textContent = number;
-                    numbersContainer.appendChild(numberElement);
-                });
-                
-                // Add Powerball
-                const powerballElement = document.createElement('div');
-                powerballElement.className = 'number powerball';
-                powerballElement.textContent = latest.powerball;
-                numbersContainer.appendChild(powerballElement);
-                
-                // Show results and hide loading
-                loadingElement.style.display = 'none';
-                resultsContainer.style.display = 'block';
-                
-                // Update API status
-                apiStatusElement.innerHTML = '<span class="api-live">✓ Live data connected</span>';
-                
-            } catch (error) {
-                console.error('Error displaying results:', error);
-                loadingElement.style.display = 'none';
-                errorElement.style.display = 'block';
-                apiStatusElement.innerHTML = '<span class="api-fallback">⚠ Using cached data</span>';
-            }
-        }
-
-        // Calculate next Powerball draw date (Wednesday or Saturday)
-        function calculateNextDrawDate() {
-            const today = new Date();
-            const dayOfWeek = today.getDay(); // 0 = Sunday, 3 = Wednesday, 6 = Saturday
-            
-            let daysUntilNextDraw;
-            
-            if (dayOfWeek < 3 || (dayOfWeek === 3 && today.getHours() < 22)) {
-                // Next draw is Wednesday
-                daysUntilNextDraw = (3 - dayOfWeek + 7) % 7;
-            } else {
-                // Next draw is Saturday
-                daysUntilNextDraw = (6 - dayOfWeek + 7) % 7;
-                if (daysUntilNextDraw === 0 && today.getHours() >= 22) {
-                    daysUntilNextDraw = 7; // Next week's Wednesday
-                }
-            }
-            
-            const nextDraw = new Date(today);
-            nextDraw.setDate(today.getDate() + daysUntilNextDraw);
-            nextDraw.setHours(22, 59, 0, 0); // 10:59 PM ET
-            
-            return nextDraw;
-        }
     </script>
 </body>
 </html>
