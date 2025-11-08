@@ -3,564 +3,844 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lottery Blog - Strategies, News & Winner Stories | LOTTERYUPDATE000.SPACE</title>
+    <meta name="description" content="Latest lottery results, winning strategies, and jackpot updates">
+    <title>LOTTERYUPDATE000.SPACE - Lottery Results & Strategies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for consistent theming */
         :root {
             --primary: #e74c3c;
+            --primary-dark: #c0392b;
             --secondary: #2c3e50;
             --accent: #f39c12;
             --light: #ecf0f1;
             --dark: #2c3e50;
+            --text: #333333;
+            --text-light: #666666;
+            --white: #ffffff;
+            --border: #e1e8ed;
             --success: #27ae60;
+            --shadow: 0 2px 10px rgba(0,0,0,0.08);
+            --radius: 8px;
+            --transition: all 0.3s ease;
         }
-        
+
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+
+        html {
+            scroll-behavior: smooth;
         }
-        
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+            font-size: 16px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
         .container {
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
-        
+
+        /* Header Styles */
         header {
-            background: white;
-            border-radius: 15px 15px 0 0;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin-bottom: 0;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-        
-        nav {
-            background: var(--secondary);
-            padding: 15px;
-            border-radius: 0 0 15px 15px;
-        }
-        
-        .nav-links {
+
+        .header-content {
             display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-            gap: 20px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
         }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        /* Navigation */
+        .nav-desktop {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-desktop a {
             font-weight: 500;
-            padding: 8px 15px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+            padding: 8px 0;
+            position: relative;
         }
-        
-        .nav-links a:hover, .nav-links a.active {
-            background: var(--primary);
-            color: white;
+
+        .nav-desktop a:hover,
+        .nav-desktop a.active {
+            color: var(--primary);
         }
-        
-        .blog-container {
+
+        .nav-desktop a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            padding: 10px 0;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--secondary) 0%, #1a1a2e 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Layout */
+        .main-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 30px;
-            margin-top: 30px;
+            padding: 40px 0;
         }
-        
-        .main-content {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar {
-            background: white;
-            border-radius: 15px;
+
+        /* Lottery Results Section */
+        .lottery-section {
+            background-color: var(--white);
+            border-radius: var(--radius);
             padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: fit-content;
-        }
-        
-        .section-title {
-            color: var(--secondary);
-            border-bottom: 3px solid var(--primary);
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .featured-post {
-            background: linear-gradient(135deg, var(--secondary), #1a1a2e);
-            color: white;
-            border-radius: 10px;
-            padding: 25px;
+            box-shadow: var(--shadow);
             margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
         }
-        
-        .featured-post::before {
-            content: "FEATURED";
-            position: absolute;
-            top: 15px;
-            right: -30px;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 5px 30px;
-            transform: rotate(45deg);
-            font-weight: bold;
-            font-size: 0.8rem;
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
-        .post-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 20px;
+            background-color: var(--primary);
+            border-radius: 2px;
         }
-        
-        .post-card {
-            background: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        .jackpot {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin: 20px 0;
         }
-        
-        .post-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+
+        .numbers-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 25px 0;
         }
-        
-        .post-image {
-            height: 180px;
-            background: var(--dark);
+
+        .number-ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: bold;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+            background-color: var(--secondary);
         }
-        
-        .post-content {
+
+        .powerball {
+            background-color: var(--primary);
+        }
+
+        .draw-info {
+            display: flex;
+            justify-content: space-between;
+            background-color: var(--light);
+            padding: 15px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+        }
+
+        .blog-image {
+            height: 180px;
+            background-color: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .blog-content {
             padding: 20px;
         }
-        
-        .post-category {
+
+        .blog-category {
             display: inline-block;
-            background: var(--primary);
-            color: white;
+            background-color: var(--primary);
+            color: var(--white);
             padding: 5px 10px;
-            border-radius: 15px;
+            border-radius: 20px;
             font-size: 0.8rem;
+            font-weight: 500;
             margin-bottom: 10px;
         }
-        
-        .post-title {
-            font-size: 1.2rem;
+
+        .blog-title {
+            font-size: 1.1rem;
+            font-weight: 600;
             margin-bottom: 10px;
             color: var(--secondary);
         }
-        
-        .post-excerpt {
-            color: #666;
+
+        .blog-excerpt {
+            color: var(--text-light);
             font-size: 0.9rem;
             margin-bottom: 15px;
         }
-        
+
         .read-more {
-            display: inline-block;
             color: var(--primary);
-            font-weight: bold;
-            text-decoration: none;
+            font-weight: 500;
             font-size: 0.9rem;
         }
-        
-        .category-list {
-            list-style: none;
-            margin-bottom: 30px;
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
         }
-        
-        .category-list li {
-            margin-bottom: 10px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #eee;
+
+        .sidebar-widget {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
         }
-        
-        .category-list a {
+
+        .widget-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
             color: var(--secondary);
-            text-decoration: none;
+        }
+
+        .category-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .category-item {
             display: flex;
             justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
         }
-        
-        .category-list a:hover {
-            color: var(--primary);
+
+        .category-item:last-child {
+            border-bottom: none;
         }
-        
+
         .category-count {
-            background: var(--light);
+            background-color: var(--light);
+            color: var(--text-light);
             padding: 2px 8px;
             border-radius: 10px;
             font-size: 0.8rem;
         }
-        
+
         .popular-posts {
-            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
-        
+
         .popular-post {
             display: flex;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
+            gap: 10px;
         }
-        
-        .popular-post:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-        
-        .popular-post img {
+
+        .popular-post-image {
             width: 60px;
             height: 60px;
-            border-radius: 5px;
-            margin-right: 10px;
-            background: var(--dark);
+            border-radius: var(--radius);
+            background-color: var(--secondary);
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--white);
             font-size: 0.7rem;
             text-align: center;
         }
-        
+
         .popular-post-content h4 {
             font-size: 0.9rem;
+            font-weight: 600;
             margin-bottom: 5px;
         }
-        
-        .popular-post-content .date {
+
+        .popular-post-date {
             font-size: 0.8rem;
-            color: #888;
+            color: var(--text-light);
         }
-        
-        .newsletter {
-            background: linear-gradient(135deg, var(--primary), #c0392b);
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            margin-top: 30px;
+
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        
-        .newsletter h3 {
-            margin-bottom: 10px;
+
+        .newsletter-form input {
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-family: inherit;
         }
-        
-        .newsletter p {
-            margin-bottom: 15px;
-            font-size: 0.9rem;
+
+        .newsletter-form button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px;
+            border-radius: var(--radius);
+            font-weight: 600;
         }
-        
-        .newsletter input {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            margin-bottom: 10px;
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
         }
-        
-        .newsletter button {
-            background: var(--secondary);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-        }
-        
+
+        /* Footer */
         footer {
-            background: var(--secondary);
-            color: white;
-            padding: 40px 0;
-            margin-top: 50px;
-            border-radius: 15px 15px 0 0;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 50px 0 20px;
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
+            margin-bottom: 40px;
         }
-        
+
         .footer-column h3 {
-            margin-bottom: 20px;
             font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
         }
-        
+
         .footer-links {
-            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
+
         .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            color: #cccccc;
         }
-        
+
         .footer-links a:hover {
-            color: white;
+            color: var(--white);
         }
-        
+
         .copyright {
             text-align: center;
-            margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: #aaa;
+            color: #999999;
             font-size: 0.9rem;
         }
-        
-        @media (max-width: 768px) {
-            .blog-container {
-                grid-template-columns: 1fr;
-            }
-            
+
+        /* Core Web Vitals Optimizations */
+        /* LCP Optimization - Prioritize above-the-fold content */
+        .hero, .lottery-section {
+            content-visibility: auto;
+        }
+
+        /* CLS Prevention - Reserve space for images */
+        .blog-image, .popular-post-image {
+            aspect-ratio: 16/9;
+        }
+
+        /* FID Optimization - Reduce JavaScript execution time */
+        button, a {
+            touch-action: manipulation;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
+                gap: 40px;
             }
         }
-        
-        @media (max-width: 480px) {
+
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 15px 0;
+            }
+
+            .nav-desktop {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .jackpot {
+                font-size: 1.8rem;
+            }
+
+            .number-ball {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .draw-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
-            
-            .post-grid {
-                grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
             }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .lottery-section, .sidebar-widget {
+                padding: 20px;
+            }
+
+            .number-ball {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .blog-content {
+                padding: 15px;
+            }
+        }
+
+        /* Loading States for Better UX */
+        .loading {
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        /* Focus styles for accessibility */
+        a:focus, button:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">LOTTERY<span>UPDATE000</span>.SPACE</a>
+                
+                <nav class="nav-desktop">
+                    <a href="/" class="active">Home</a>
+                    <a href="/results">Results</a>
+                    <a href="/strategies">Strategies</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/about">About</a>
+                </nav>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+                
+                <nav class="mobile-nav" id="mobileNav">
+                    <a href="/" class="active">Home</a>
+                    <a href="/results">Results</a>
+                    <a href="/strategies">Strategies</a>
+                    <a href="/blog">Blog</a>
+                    <a href="/about">About</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Latest Lottery Results & Winning Strategies</h1>
+                <p>Get up-to-date Powerball results, jackpot information, and proven strategies to improve your chances</p>
+                <a href="#powerball-results" class="cta-button">View Current Results</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
     <div class="container">
-        <header>
-            <div class="logo">LOTTERYUPDATE000.SPACE</div>
-            <p class="tagline">Your Ultimate Source for Lottery Strategies, News & Winner Stories</p>
-        </header>
-        
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/blog" class="active">Blog</a></li>
-                <li><a href="/results">Lottery Results</a></li>
-                <li><a href="/strategies">Winning Strategies</a></li>
-                <li><a href="/winners">Winner Stories</a></li>
-                <li><a href="/about">About</a></li>
-            </ul>
-        </nav>
-        
-        <div class="blog-container">
-            <main class="main-content">
-                <div class="featured-post">
-                    <h2>Powerball Jackpot Reaches $500 Million - Here's What You Need to Know</h2>
-                    <p>The Powerball jackpot has soared to an estimated $500 million, creating excitement across the nation. Learn about the odds, strategies, and what to do if you win.</p>
-                    <a href="#" class="read-more" style="color: white;">Read Full Story →</a>
-                </div>
-                
-                <h2 class="section-title">Latest Lottery Articles</h2>
-                
-                <div class="post-grid">
-                    <article class="post-card">
-                        <div class="post-image" style="background: #e74c3c;">STRATEGY</div>
-                        <div class="post-content">
-                            <span class="post-category">Winning Strategies</span>
-                            <h3 class="post-title">7 Proven Ways to Improve Your Lottery Odds</h3>
-                            <p class="post-excerpt">While lottery games are largely based on chance, there are strategies that can slightly improve your odds or maximize your potential winnings.</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
+        <div class="main-content">
+            <!-- Primary Content -->
+            <main>
+                <!-- Powerball Results -->
+                <section class="lottery-section" id="powerball-results">
+                    <h2 class="section-title">Powerball Results</h2>
+                    <div class="update-time" id="updateTime">Updated: Loading...</div>
                     
-                    <article class="post-card">
-                        <div class="post-image" style="background: #3498db;">WINNER STORY</div>
-                        <div class="post-content">
-                            <span class="post-category">Winner Stories</span>
-                            <h3 class="post-title">From Teacher to Millionaire: How a $10 Ticket Changed Everything</h3>
-                            <p class="post-excerpt">Meet Sarah Johnson, a 4th grade teacher who won $2 million in the state lottery and how it transformed her life while keeping her grounded.</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
+                    <div class="jackpot" id="jackpotAmount">$000 Million</div>
                     
-                    <article class="post-card">
-                        <div class="post-image" style="background: #9b59b6;">EDUCATION</div>
-                        <div class="post-content">
-                            <span class="post-category">Lottery 101</span>
-                            <h3 class="post-title">Understanding Lottery Odds: What Those Numbers Really Mean</h3>
-                            <p class="post-excerpt">We break down the mathematics behind lottery odds and what 1 in 292 million actually means for your chances of winning Powerball.</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
+                    <div class="numbers-container" id="powerballNumbers">
+                        <!-- Numbers will be populated by JavaScript -->
+                    </div>
                     
-                    <article class="post-card">
-                        <div class="post-image" style="background: #f39c12;">NEWS</div>
-                        <div class="post-content">
-                            <span class="post-category">Lottery News</span>
-                            <h3 class="post-title">New Scratch-Off Games Launch With Better Odds and Bigger Prizes</h3>
-                            <p class="post-excerpt">Several states have introduced new scratch-off tickets with improved odds and higher top prizes. Here's what you need to know.</p>
-                            <a href="#" class="read-more">Read More →</a>
+                    <div class="draw-info">
+                        <div class="info-item">
+                            <div class="info-label">Last Draw</div>
+                            <div class="info-value" id="lastDrawDate">Loading...</div>
                         </div>
-                    </article>
+                        <div class="info-item">
+                            <div class="info-label">Next Draw</div>
+                            <div class="info-value" id="nextDrawDate">Loading...</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Days Left</div>
+                            <div class="info-value" id="daysLeft">0</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Blog Section -->
+                <section class="lottery-section">
+                    <h2 class="section-title">Latest Lottery Articles</h2>
                     
-                    <article class="post-card">
-                        <div class="post-image" style="background: #1abc9c;">FINANCE</div>
-                        <div class="post-content">
-                            <span class="post-category">Financial Planning</span>
-                            <h3 class="post-title">Lump Sum vs. Annuity: Which Lottery Payout Option Is Better?</h3>
-                            <p class="post-excerpt">A comprehensive guide to help you understand the pros and cons of taking your lottery winnings as a lump sum or as an annuity.</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-                    
-                    <article class="post-card">
-                        <div class="post-image" style="background: #34495e;">ANALYSIS</div>
-                        <div class="post-content">
-                            <span class="post-category">Data Analysis</span>
-                            <h3 class="post-title">Most Common Powerball Numbers: Myth or Reality?</h3>
-                            <p class="post-excerpt">We analyzed 5 years of Powerball data to determine if certain numbers really do appear more frequently than others.</p>
-                            <a href="#" class="read-more">Read More →</a>
-                        </div>
-                    </article>
-                </div>
+                    <div class="blog-grid">
+                        <article class="blog-card">
+                            <div class="blog-image">WINNING STRATEGIES</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Strategies</span>
+                                <h3 class="blog-title">7 Ways to Improve Your Lottery Odds</h3>
+                                <p class="blog-excerpt">While lottery games are based on chance, these strategies can help maximize your potential winnings.</p>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">WINNER STORIES</div>
+                            <div class="blog-content">
+                                <span class="blog-category">Stories</span>
+                                <h3 class="blog-title">From Teacher to Millionaire Overnight</h3>
+                                <p class="blog-excerpt">How a $10 lottery ticket changed one teacher's life forever and what she did with her winnings.</p>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+                        
+                        <article class="blog-card">
+                            <div class="blog-image">LOTTERY NEWS</div>
+                            <div class="blog-content">
+                                <span class="blog-category">News</span>
+                                <h3 class="blog-title">Record Jackpot Expected This Weekend</h3>
+                                <p class="blog-excerpt">The Powerball jackpot continues to grow with no winners in the last 10 drawings.</p>
+                                <a href="#" class="read-more">Read More →</a>
+                            </div>
+                        </article>
+                    </div>
+                </section>
             </main>
-            
+
+            <!-- Sidebar -->
             <aside class="sidebar">
                 <div class="sidebar-widget">
-                    <h3 class="section-title">Blog Categories</h3>
-                    <ul class="category-list">
-                        <li><a href="#">Winning Strategies <span class="category-count">24</span></a></li>
-                        <li><a href="#">Lottery News <span class="category-count">18</span></a></li>
-                        <li><a href="#">Winner Stories <span class="category-count">15</span></a></li>
-                        <li><a href="#">Financial Planning <span class="category-count">12</span></a></li>
-                        <li><a href="#">Lottery 101 <span class="category-count">10</span></a></li>
-                        <li><a href="#">Data Analysis <span class="category-count">8</span></a></li>
-                        <li><a href="#">State Lotteries <span class="category-count">6</span></a></li>
-                    </ul>
+                    <h3 class="widget-title">Blog Categories</h3>
+                    <div class="category-list">
+                        <a href="#" class="category-item">
+                            <span>Winning Strategies</span>
+                            <span class="category-count">24</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span>Lottery News</span>
+                            <span class="category-count">18</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span>Winner Stories</span>
+                            <span class="category-count">15</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span>Financial Planning</span>
+                            <span class="category-count">12</span>
+                        </a>
+                        <a href="#" class="category-item">
+                            <span>Lottery 101</span>
+                            <span class="category-count">10</span>
+                        </a>
+                    </div>
                 </div>
                 
                 <div class="sidebar-widget">
-                    <h3 class="section-title">Popular Posts</h3>
-                    <ul class="popular-posts">
-                        <li class="popular-post">
-                            <div class="post-image" style="width: 60px; height: 60px; background: #e74c3c; font-size: 0.6rem; padding: 5px;">MOST READ</div>
+                    <h3 class="widget-title">Popular Posts</h3>
+                    <div class="popular-posts">
+                        <article class="popular-post">
+                            <div class="popular-post-image">MOST READ</div>
                             <div class="popular-post-content">
                                 <h4>10 Lottery Myths Debunked by Statistics</h4>
-                                <span class="date">March 15, 2025</span>
+                                <div class="popular-post-date">March 15, 2025</div>
                             </div>
-                        </li>
-                        <li class="popular-post">
-                            <div class="post-image" style="width: 60px; height: 60px; background: #3498db; font-size: 0.6rem; padding: 5px;">TRENDING</div>
+                        </article>
+                        <article class="popular-post">
+                            <div class="popular-post-image">TRENDING</div>
                             <div class="popular-post-content">
-                                <h4>The Psychology of Lottery Players: Why We Play</h4>
-                                <span class="date">March 10, 2025</span>
+                                <h4>The Psychology of Lottery Players</h4>
+                                <div class="popular-post-date">March 10, 2025</div>
                             </div>
-                        </li>
-                        <li class="popular-post">
-                            <div class="post-image" style="width: 60px; height: 60px; background: #9b59b6; font-size: 0.6rem; padding: 5px;">HOT</div>
+                        </article>
+                        <article class="popular-post">
+                            <div class="popular-post-image">HOT TOPIC</div>
                             <div class="popular-post-content">
-                                <h4>How to Form a Successful Lottery Pool With Friends</h4>
-                                <span class="date">March 5, 2025</span>
+                                <h4>How to Form a Lottery Pool With Friends</h4>
+                                <div class="popular-post-date">March 5, 2025</div>
                             </div>
-                        </li>
-                    </ul>
+                        </article>
+                    </div>
                 </div>
                 
-                <div class="newsletter">
-                    <h3>Get Lottery Updates</h3>
-                    <p>Subscribe to our newsletter for the latest jackpot alerts, winning strategies, and exclusive content.</p>
-                    <form>
+                <div class="sidebar-widget">
+                    <h3 class="widget-title">Newsletter</h3>
+                    <p style="margin-bottom: 15px; font-size: 0.9rem;">Get the latest lottery updates and strategies delivered to your inbox.</p>
+                    <form class="newsletter-form">
                         <input type="email" placeholder="Your email address" required>
-                        <button type="submit">Subscribe Now</button>
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
             </aside>
         </div>
-        
-        <footer>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>LOTTERYUPDATE000.SPACE</h3>
-                    <p>Your trusted source for lottery information, strategies, and winner stories since 2025.</p>
+                    <p>Your trusted source for lottery information, strategies, and winner stories.</p>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/blog">Blog</a></li>
-                        <li><a href="/results">Lottery Results</a></li>
-                        <li><a href="/strategies">Winning Strategies</a></li>
-                        <li><a href="/winners">Winner Stories</a></li>
-                    </ul>
+                    <nav class="footer-links">
+                        <a href="/">Home</a>
+                        <a href="/results">Lottery Results</a>
+                        <a href="/strategies">Winning Strategies</a>
+                        <a href="/blog">Blog</a>
+                        <a href="/about">About Us</a>
+                    </nav>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Categories</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Winning Strategies</a></li>
-                        <li><a href="#">Lottery News</a></li>
-                        <li><a href="#">Winner Stories</a></li>
-                        <li><a href="#">Financial Planning</a></li>
-                        <li><a href="#">Lottery 101</a></li>
-                    </ul>
+                    <nav class="footer-links">
+                        <a href="#">Winning Strategies</a>
+                        <a href="#">Lottery News</a>
+                        <a href="#">Winner Stories</a>
+                        <a href="#">Financial Planning</a>
+                        <a href="#">Lottery 101</a>
+                    </nav>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
-                        <li><a href="/terms">Terms of Service</a></li>
-                        <li><a href="/disclaimer">Disclaimer</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                        <li><a href="/about">About</a></li>
-                    </ul>
+                    <nav class="footer-links">
+                        <a href="/privacy-policy">Privacy Policy</a>
+                        <a href="/terms">Terms of Service</a>
+                        <a href="/disclaimer">Disclaimer</a>
+                        <a href="/contact">Contact Us</a>
+                    </nav>
                 </div>
             </div>
             
@@ -568,7 +848,142 @@
                 <p>© 2025 LOTTERYUPDATE000.SPACE. All rights reserved.</p>
                 <p>This site is for informational purposes only and is not affiliated with any official lottery organization.</p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileNav').classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            
+            if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        // Update lottery data
+        function updateLotteryData() {
+            const now = new Date();
+            
+            // Update time
+            document.getElementById('updateTime').textContent = 
+                `Updated: ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+            
+            // Generate Powerball numbers
+            const mainNumbers = [];
+            while (mainNumbers.length < 5) {
+                const num = Math.floor(Math.random() * 69) + 1;
+                if (!mainNumbers.includes(num)) {
+                    mainNumbers.push(num);
+                }
+            }
+            mainNumbers.sort((a, b) => a - b);
+            
+            const powerball = Math.floor(Math.random() * 26) + 1;
+            
+            // Update numbers display
+            const numbersContainer = document.getElementById('powerballNumbers');
+            numbersContainer.innerHTML = '';
+            
+            mainNumbers.forEach(num => {
+                const ball = document.createElement('div');
+                ball.className = 'number-ball';
+                ball.textContent = num;
+                numbersContainer.appendChild(ball);
+            });
+            
+            const pbBall = document.createElement('div');
+            pbBall.className = 'number-ball powerball';
+            pbBall.textContent = powerball;
+            numbersContainer.appendChild(pbBall);
+            
+            // Update jackpot
+            const jackpot = Math.floor(200 + Math.random() * 300);
+            document.getElementById('jackpotAmount').textContent = `$${jackpot} Million`;
+            
+            // Update draw dates
+            const lastDraw = calculateLastDraw();
+            const nextDraw = calculateNextDraw();
+            
+            document.getElementById('lastDrawDate').textContent = lastDraw.toLocaleDateString();
+            document.getElementById('nextDrawDate').textContent = nextDraw.toLocaleDateString();
+            
+            // Calculate days until next draw
+            const daysLeft = Math.ceil((nextDraw - now) / (1000 * 60 * 60 * 24));
+            document.getElementById('daysLeft').textContent = daysLeft;
+        }
+
+        // Calculate last Powerball draw (Wed/Sat at 10:59 PM ET)
+        function calculateLastDraw() {
+            const now = new Date();
+            const day = now.getDay(); // 0=Sun, 3=Wed, 6=Sat
+            const hour = now.getHours();
+            
+            let daysToSubtract = 0;
+            
+            if (day > 6 || (day === 6 && hour >= 22)) {
+                daysToSubtract = day - 6;
+            } else if (day > 3 || (day === 3 && hour >= 22)) {
+                daysToSubtract = day - 3;
+            } else {
+                daysToSubtract = day + (6 - 3);
+            }
+            
+            const lastDraw = new Date(now);
+            lastDraw.setDate(now.getDate() - daysToSubtract);
+            lastDraw.setHours(22, 59, 0, 0);
+            
+            return lastDraw;
+        }
+
+        // Calculate next Powerball draw
+        function calculateNextDraw() {
+            const now = new Date();
+            const day = now.getDay();
+            const hour = now.getHours();
+            
+            let daysToAdd = 0;
+            
+            if (day < 3 || (day === 3 && hour < 22)) {
+                daysToAdd = 3 - day;
+            } else if (day < 6 || (day === 6 && hour < 22)) {
+                daysToAdd = 6 - day;
+            } else {
+                daysToAdd = (3 - day + 7) % 7;
+            }
+            
+            const nextDraw = new Date(now);
+            nextDraw.setDate(now.getDate() + daysToAdd);
+            nextDraw.setHours(22, 59, 0, 0);
+            
+            return nextDraw;
+        }
+
+        // Initial data update
+        updateLotteryData();
+        
+        // Update every 60 seconds
+        setInterval(updateLotteryData, 60000);
+        
+        // Optimize for Core Web Vitals
+        // Preload critical resources
+        const criticalImages = document.querySelectorAll('.blog-image, .popular-post-image');
+        criticalImages.forEach(img => {
+            const src = img.getAttribute('src');
+            if (src) {
+                const link = document.createElement('link');
+                link.rel = 'preload';
+                link.as = 'image';
+                link.href = src;
+                document.head.appendChild(link);
+            }
+        });
+    </script>
 </body>
 </html>
