@@ -1,15 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://funnyscarry100.github.io/sitemap.xml
-
-# Allow search engines to crawl all pages
-Disallow: /private/
-Disallow: /admin/
-Disallow: /cgi-bin/
-
-# Allow all main content
-Allow: /powerball-results
-Allow: /lottery-results
-Allow: /jackpot
-Allow: /how-to-play
+Sitemap: https://lotteryupdate000.space/sitemap.xml
