@@ -1,49 +1,25 @@
-<?php
-header('Content-Type: application/xml; charset=utf-8');
+xml version=1.0 encoding=UTF-8
+urlset 
+  xmlns=httpwww.sitemaps.orgschemassitemap0.9
+  
+  url
+    lochttpslotteryupdate000.spaceloc
+    lastmod2025-10-19lastmod
+    changefreqdailychangefreq
+    priority1.0priority
+  url
 
-// Get current date in correct format
-$currentDate = date('Y-m-d');
-$lastWeek = date('Y-m-d', strtotime('-7 days'));
-$nextDrawDate = date('Y-m-d', strtotime('+3 days'));
+  url
+    lochttpslotteryupdate000.spaceterms.htmlloc
+    lastmod2025-10-19lastmod
+    changefreqmonthlychangefreq
+    priority0.6priority
+  url
 
-// Function to generate sitemap URL entries
-function generateUrl($loc, $lastmod, $changefreq, $priority) {
-    return "
-    <url>
-        <loc>$loc</loc>
-        <lastmod>$lastmod</lastmod>
-        <changefreq>$changefreq</changefreq>
-        <priority>$priority</priority>
-    </url>";
-}
-
-echo '<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">';
-    
-    // Home Page - Updates daily
-    echo generateUrl('https://funnyscarry100.github.io/', $currentDate, 'daily', '1.0');
-    
-    // Lottery Results - Updates with each draw
-    echo generateUrl('https://funnyscarry100.github.io/#home', $currentDate, 'daily', '0.9');
-    
-    // Current Powerball Results
-    echo generateUrl('https://funnyscarry100.github.io/powerball-results', $currentDate, 'daily', '0.9');
-    
-    // Next Draw Page
-    echo generateUrl('https://funnyscarry100.github.io/next-powerball-draw', $nextDrawDate, 'weekly', '0.8');
-    
-    // Static Pages (update monthly)
-    echo generateUrl('https://funnyscarry100.github.io/#privacy', $lastWeek, 'monthly', '0.7');
-    echo generateUrl('https://funnyscarry100.github.io/#terms', $lastWeek, 'monthly', '0.7');
-    echo generateUrl('https://funnyscarry100.github.io/#about', $lastWeek, 'monthly', '0.7');
-    
-    // Archive Pages (update weekly)
-    echo generateUrl('https://funnyscarry100.github.io/powerball-archive', $lastWeek, 'weekly', '0.6');
-    echo generateUrl('https://funnyscarry100.github.io/previous-winning-numbers', $lastWeek, 'weekly', '0.6');
-
-echo '
-</urlset>';
-?>
+  url
+    lochttpslotteryupdate000.spaceprivacy.htmlloc
+    lastmod2025-10-19lastmod
+    changefreqmonthlychangefreq
+    priority0.6priority
+  url
+urlset
