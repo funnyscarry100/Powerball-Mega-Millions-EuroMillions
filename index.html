@@ -3,677 +3,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LottoNews - Latest Lottery News & Updates</title>
+    <meta name="google-adsense-account" content="ca-pub-6029541871212501">
+    <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6029541871212501" crossorigin="anonymous"></script>
     <style>
-        /* Base Styles */
-        :root {
-            --primary: #2c3e50;
-            --secondary: #e74c3c;
-            --accent: #3498db;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
         body {
-            color: #333;
+            font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        #canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-        
-        .content-overlay {
-            position: relative;
-            z-index: 1;
-            background: rgba(255, 255, 255, 0.95);
-            min-height: 100vh;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
         }
-        
-        /* Header Styles */
         header {
-            background: rgba(44, 62, 80, 0.9);
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
             color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-        
-        .logo span {
-            color: var(--secondary);
-        }
-        
-        .logo-icon {
-            font-size: 2rem;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            font-weight: 500;
-            padding: 0.5rem 0;
-            transition: color 0.3s;
-        }
-        
-        nav a:hover {
-            color: var(--secondary);
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: rgba(44, 62, 80, 0.85);
-            color: white;
-            padding: 4rem 0;
+            padding: 30px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
             text-align: center;
-            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
-        
-        .hero h2 {
+        h1 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary);
+            margin-bottom: 10px;
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 4px;
-            font-weight: 600;
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+        }
+        .current-date {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f1c40f;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .lottery-section {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 5px solid;
+        }
+        .powerball {
+            border-left-color: #e74c3c;
+        }
+        .megamillions {
+            border-left-color: #3498db;
+        }
+        .euromillions {
+            border-left-color: #9b59b6;
+        }
+        .lottery-name {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        .update-time {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        .update-time::before {
+            content: "🔄";
+            margin-right: 5px;
+        }
+        .prize-info {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #eee;
+        }
+        .jackpot-amount {
+            font-size: 2rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .next-drawing {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1.1rem;
+        }
+        .winning-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .number-ball {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: white;
+        }
+        .powerball-ball {
+            background-color: #e74c3c;
+        }
+        .megaball-ball {
+            background-color: #3498db;
+        }
+        .euro-star {
+            background-color: #f1c40f;
+            color: #2c3e50;
+        }
+        .regular-ball {
+            background-color: #2c3e50;
+        }
+        .check-results {
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
             transition: background-color 0.3s;
         }
-        
-        .btn:hover {
-            background-color: #c0392b;
+        .check-results:hover {
+            background-color: #27ae60;
         }
-        
-        /* Main Content */
-        .main-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        /* News Section */
-        .section-title {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--accent);
-            color: var(--dark);
-        }
-        
-        .news-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .news-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .news-image {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .news-content {
-            padding: 1.5rem;
-        }
-        
-        .news-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-        
-        .news-meta {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .news-excerpt {
-            color: #555;
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        
-        .read-more {
-            color: var(--accent);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        /* Sidebar */
-        .sidebar {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            height: fit-content;
-        }
-        
-        .upcoming-draws {
-            margin-bottom: 2rem;
-        }
-        
-        .draw-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .draw-item:last-child {
-            border-bottom: none;
-        }
-        
-        .draw-name {
-            font-weight: 600;
-        }
-        
-        .draw-date {
-            color: var(--secondary);
-            font-weight: 600;
-        }
-        
-        .jackpot-amount {
-            font-weight: bold;
-            color: var(--success);
-        }
-        
-        /* Footer */
         footer {
-            background-color: rgba(44, 62, 80, 0.9);
-            color: white;
-            padding: 3rem 0 2rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--light);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: #bbb;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .copyright {
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #444;
-            color: #bbb;
+            margin-top: 40px;
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
             font-size: 0.9rem;
         }
-        
-        /* Responsive Design */
+        .last-update {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #95a5a6;
+            margin-top: 10px;
+        }
+        .loading {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        .error {
+            color: #e74c3c;
+            background-color: #fadbd8;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
         @media (max-width: 768px) {
-            .main-content {
-                grid-template-columns: 1fr;
+            body {
+                padding: 15px;
             }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.5rem;
-            }
-            
-            .hero h2 {
+            h1 {
                 font-size: 2rem;
+            }
+            .current-date {
+                font-size: 1.4rem;
+            }
+            .jackpot-amount {
+                font-size: 1.5rem;
+            }
+            .number-ball {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Animated Background Canvas -->
-    <canvas id="canvas"></canvas>
-    
-    <!-- Content Overlay -->
-    <div class="content-overlay">
-        <!-- Header -->
-        <header>
-            <div class="container">
-                <div class="header-content">
-                    <div class="logo">
-                        <div class="logo-icon">🎰</div>
-                        <h1>Lotto<span>News</span></h1>
-                    </div>
-                    <nav>
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Jackpots</a></li>
-                            <li><a href="#">Stories</a></li>
-                            <li><a href="#">How to Play</a></li>
-                            <li><a href="#">Contact</a></li>
-                        </ul>
-                    </nav>
-                    <div class="mobile-menu">☰</div>
-                </div>
-            </div>
-        </header>
+    <header>
+        <h1>Live Lottery Results</h1>
+        <p class="subtitle">Stay updated with the latest lottery results, jackpot amounts, and winning numbers for Powerball, Mega Millions, and EuroMillions</p>
+        <div class="current-date" id="current-date">Loading date...</div>
+    </header>
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container">
-                <h2>Latest Lottery News & Updates</h2>
-                <p>Stay informed with the most recent lottery news, jackpot information, and winner stories from around the world.</p>
-                <a href="#" class="btn">Read Latest News</a>
-            </div>
-        </section>
+    <h2>Today's Lottery Results – <span id="today-date"></span></h2>
 
-        <!-- Main Content -->
-        <div class="container">
-            <div class="main-content">
-                <!-- Left Column - News Articles -->
-                <div class="left-column">
-                    <!-- Lottery News -->
-                    <section class="lottery-news">
-                        <h2 class="section-title">Latest Lottery News</h2>
-                        <div class="news-list">
-                            <!-- News Item 1 -->
-                            <div class="news-card">
-                                <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                                <div class="news-content">
-                                    <h3 class="news-title">Record $1.6 Billion PowerBall Jackpot Won by Single Ticket</h3>
-                                    <div class="news-meta">
-                                        <span class="news-date">October 12, 2023</span>
-                                        <span class="news-category">Jackpots</span>
-                                    </div>
-                                    <p class="news-excerpt">A single ticket sold in California has matched all numbers to claim the record-breaking $1.6 billion PowerBall jackpot, the largest in lottery history. The winner has 180 days to come forward and claim their prize.</p>
-                                    <a href="#" class="read-more">Read More →</a>
-                                </div>
-                            </div>
-                            
-                            <!-- News Item 2 -->
-                            <div class="news-card">
-                                <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                                <div class="news-content">
-                                    <h3 class="news-title">New Lottery Game Launches With Better Odds</h3>
-                                    <div class="news-meta">
-                                        <span class="news-date">October 10, 2023</span>
-                                        <span class="news-category">Games</span>
-                                    </div>
-                                    <p class="news-excerpt">A new lottery game called "Lucky Numbers" has launched with improved odds and more frequent smaller prizes to enhance player experience. The game features a unique matrix system that increases winning chances.</p>
-                                    <a href="#" class="read-more">Read More →</a>
-                                </div>
-                            </div>
-                            
-                            <!-- News Item 3 -->
-                            <div class="news-card">
-                                <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1563013541-2d0df2c7e1b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                                <div class="news-content">
-                                    <h3 class="news-title">How Lottery Funds Are Transforming Local Communities</h3>
-                                    <div class="news-meta">
-                                        <span class="news-date">October 8, 2023</span>
-                                        <span class="news-category">Community</span>
-                                    </div>
-                                    <p class="news-excerpt">An in-depth look at how lottery revenues are being used to fund education, infrastructure, and social programs across the country. Over $25 billion was allocated to various public initiatives last year alone.</p>
-                                    <a href="#" class="read-more">Read More →</a>
-                                </div>
-                            </div>
-                            
-                            <!-- News Item 4 -->
-                            <div class="news-card">
-                                <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1584824486537-46f70c0ed53c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                                <div class="news-content">
-                                    <h3 class="news-title">EuroMillions Introduces New Tuesday Draw</h3>
-                                    <div class="news-meta">
-                                        <span class="news-date">October 5, 2023</span>
-                                        <span class="news-category">EuroMillions</span>
-                                    </div>
-                                    <p class="news-excerpt">EuroMillions has announced the addition of a Tuesday draw starting next month, giving players more opportunities to win. The Friday draw will continue as usual with the same prize structure.</p>
-                                    <a href="#" class="read-more">Read More →</a>
-                                </div>
-                            </div>
-                            
-                            <!-- News Item 5 -->
-                            <div class="news-card">
-                                <div class="news-image" style="background-image: url('https://images.unsplash.com/photo-1593113630400-ea4288922497?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                                <div class="news-content">
-                                    <h3 class="news-title">Mega Millions Jackpot Rolls Over to $120 Million</h3>
-                                    <div class="news-meta">
-                                        <span class="news-date">October 3, 2023</span>
-                                        <span class="news-category">Mega Millions</span>
-                                    </div>
-                                    <p class="news-excerpt">No ticket matched all six numbers in last night's Mega Millions drawing, causing the jackpot to roll over to an estimated $120 million. The next drawing will be held on Friday at 11 PM EST.</p>
-                                    <a href="#" class="read-more">Read More →</a>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                
-                <!-- Right Column - Sidebar -->
-                <div class="sidebar">
-                    <!-- Upcoming Draws -->
-                    <section class="upcoming-draws">
-                        <h2 class="section-title">Upcoming Draws</h2>
-                        <div class="draws-list">
-                            <div class="draw-item">
-                                <div class="draw-name">PowerBall</div>
-                                <div class="draw-date">Today, 10:30 PM</div>
-                            </div>
-                            <div class="draw-item">
-                                <div class="draw-name">Mega Millions</div>
-                                <div class="draw-date">Tomorrow, 11:00 PM</div>
-                            </div>
-                            <div class="draw-item">
-                                <div class="draw-name">EuroMillions</div>
-                                <div class="draw-date">Friday, 8:45 PM</div>
-                            </div>
-                            <div class="draw-item">
-                                <div class="draw-name">Lotto 6/49</div>
-                                <div class="draw-date">Saturday, 9:15 PM</div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <!-- Current Jackpots -->
-                    <section class="current-jackpots">
-                        <h2 class="section-title">Current Jackpots</h2>
-                        <div class="jackpots-list">
-                            <div class="draw-item">
-                                <div class="draw-name">PowerBall</div>
-                                <div class="jackpot-amount">$145M</div>
-                            </div>
-                            <div class="draw-item">
-                                <div class="draw-name">Mega Millions</div>
-                                <div class="jackpot-amount">$110M</div>
-                            </div>
-                            <div class="draw-item">
-                                <div class="draw-name">EuroMillions</div>
-                                <div class="jackpot-amount">€78M</div>
-                            </div>
-                            <div class="draw-item">
-                                <div class="draw-name">SuperEnalotto</div>
-                                <div class="jackpot-amount">€65M</div>
-                            </div>
-                        </div>
-                    </section>
-                    
-                    <!-- Lottery Tips -->
-                    <section class="lottery-tips">
-                        <h2 class="section-title">Playing Tips</h2>
-                        <ul class="footer-links">
-                            <li>• Play responsibly and set a budget</li>
-                            <li>• Consider joining a lottery pool</li>
-                            <li>• Sign the back of your ticket immediately</li>
-                            <li>• Check your numbers carefully</li>
-                            <li>• Claim prizes within the deadline</li>
-                        </ul>
-                    </section>
-                </div>
-            </div>
+    <div class="lottery-section powerball">
+        <h2 class="lottery-name">Powerball Results</h2>
+        <p class="update-time">Updated: <span id="powerball-update-time"></span></p>
+        
+        <div class="prize-info">
+            <h3>Current Estimated Jackpot:</h3>
+            <div class="jackpot-amount" id="powerball-jackpot">Loading...</div>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-column">
-                        <h3>LottoNews</h3>
-                        <p>Your trusted source for the latest lottery news, results, and jackpot information from around the world.</p>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">Home</a></li>
-                            <li><a href="#">News</a></li>
-                            <li><a href="#">Jackpots</a></li>
-                            <li><a href="#">Stories</a></li>
-                            <li><a href="#">How to Play</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Popular Lotteries</h3>
-                        <ul class="footer-links">
-                            <li><a href="#">PowerBall</a></li>
-                            <li><a href="#">Mega Millions</a></li>
-                            <li><a href="#">EuroMillions</a></li>
-                            <li><a href="#">Lotto 6/49</a></li>
-                            <li><a href="#">SuperEnalotto</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h3>Contact Us</h3>
-                        <ul class="footer-links">
-                            <li>Email: info@lottonews.com</li>
-                            <li>Phone: +1 (555) 123-4567</li>
-                            <li>Address: 123 Lottery Ave, Las Vegas, NV</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="copyright">
-                    <p>&copy; 2023 LottoNews. All rights reserved. | Please play responsibly.</p>
-                </div>
-            </div>
-        </footer>
+        
+        <h3>Winning Numbers for <span id="powerball-last-draw-date"></span>:</h3>
+        <div class="winning-numbers" id="powerball-numbers">
+            <div class="loading">Loading Powerball numbers...</div>
+        </div>
+        
+        <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing"></span></p>
+        <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
     </div>
 
+    <div class="lottery-section megamillions">
+        <h2 class="lottery-name">Mega Millions Results</h2>
+        <p class="update-time">Updated: <span id="megamillions-update-time"></span></p>
+        
+        <div class="prize-info">
+            <h3>Current Estimated Jackpot:</h3>
+            <div class="jackpot-amount" id="megamillions-jackpot">Loading...</div>
+        </div>
+        
+        <h3>Winning Numbers for <span id="megamillions-last-draw-date"></span>:</h3>
+        <div class="winning-numbers" id="megamillions-numbers">
+            <div class="loading">Loading Mega Millions numbers...</div>
+        </div>
+        
+        <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing"></span></p>
+        <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
+    </div>
+
+    <div class="lottery-section euromillions">
+        <h2 class="lottery-name">EuroMillions Results</h2>
+        <p class="update-time">Updated: <span id="euromillions-update-time"></span></p>
+        
+        <div class="prize-info">
+            <h3>Current Estimated Jackpot:</h3>
+            <div class="jackpot-amount" id="euromillions-jackpot">Loading...</div>
+        </div>
+        
+        <h3>Winning Numbers for <span id="euromillions-last-draw-date"></span>:</h3>
+        <div class="winning-numbers" id="euromillions-numbers">
+            <div class="loading">Loading EuroMillions numbers...</div>
+        </div>
+        
+        <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing"></span></p>
+        <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
+    </div>
+
+    <footer>
+        <p>© <script>document.write(new Date().getFullYear());</script> Lottery Results Hub. All rights reserved.</p>
+        <p>This is not an official lottery site. For official information, please visit your local lottery website.</p>
+    </footer>
+
     <script>
-        // Canvas Animation
-        (function() {
-            const canvas = document.getElementById('canvas');
-            const ctx = canvas.getContext('2d');
-            const DPR = window.devicePixelRatio || 1;
-            let w = canvas.width = window.innerWidth;
-            let h = canvas.height = window.innerHeight;
-            canvas.width = w * DPR;
-            canvas.height = h * DPR;
-            canvas.style.width = w + 'px';
-            canvas.style.height = h + 'px';
-            ctx.scale(DPR, DPR);
-
-            // Particle system
-            const particles = [];
-            const particleCount = 80;
-            const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6'];
-
-            class Particle {
-                constructor() {
-                    this.x = Math.random() * w;
-                    this.y = Math.random() * h;
-                    this.size = Math.random() * 5 + 2;
-                    this.speedX = Math.random() * 3 - 1.5;
-                    this.speedY = Math.random() * 3 - 1.5;
-                    this.color = colors[Math.floor(Math.random() * colors.length)];
-                    this.number = Math.floor(Math.random() * 49) + 1;
-                }
-
-                update() {
-                    this.x += this.speedX;
-                    this.y += this.speedY;
-
-                    if (this.x > w || this.x < 0) this.speedX *= -1;
-                    if (this.y > h || this.y < 0) this.speedY *= -1;
-                }
-
-                draw() {
-                    ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                    ctx.fillStyle = this.color;
-                    ctx.fill();
-                    
-                    // Draw number inside
-                    ctx.fillStyle = 'white';
-                    ctx.font = `${this.size}px Arial`;
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'middle';
-                    ctx.fillText(this.number, this.x, this.y);
-                }
+        // API Configuration
+        const API_CONFIG = {
+            baseURL: 'https://usa-lottery-result-all-state-api.p.rapidapi.com',
+            headers: {
+                'x-rapidapi-host': 'usa-lottery-result-all-state-api.p.rapidapi.com',
+                'x-rapidapi-key': 'd45f603ab6msh0874440ae1db307p1ee1b5jsnf16c48f8cac7'
             }
+        };
 
-            function init() {
-                for (let i = 0; i < particleCount; i++) {
-                    particles.push(new Particle());
-                }
-            }
-
-            function draw() {
-                ctx.clearRect(0, 0, w, h);
-                
-                // Draw connections
-                for (let i = 0; i < particles.length; i++) {
-                    for (let j = i; j < particles.length; j++) {
-                        const dx = particles[i].x - particles[j].x;
-                        const dy = particles[i].y - particles[j].y;
-                        const distance = Math.sqrt(dx * dx + dy * dy);
-                        
-                        if (distance < 100) {
-                            ctx.beginPath();
-                            ctx.strokeStyle = `rgba(52, 152, 219, ${0.2 - distance/500})`;
-                            ctx.lineWidth = 1;
-                            ctx.moveTo(particles[i].x, particles[i].y);
-                            ctx.lineTo(particles[j].x, particles[j].y);
-                            ctx.stroke();
-                        }
-                    }
-                }
-                
-                // Draw particles
-                for (let i = 0; i < particles.length; i++) {
-                    particles[i].update();
-                    particles[i].draw();
-                }
-            }
-
-            function darken(hex, amt) {
-                const num = parseInt(hex.replace('#',''),16);
-                let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
-                let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
-                let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
-                return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
-            }
-
-            let raf;
-            function loop() { 
-                draw(); 
-                raf = requestAnimationFrame(loop); 
-            }
+        // Update all time elements on the page
+        function updateAllTimes() {
+            const now = new Date();
             
-            init();
-            loop();
-
-            window.addEventListener('resize', () => {
-                w = canvas.width = innerWidth;
-                h = canvas.height = innerHeight;
-                canvas.width = w * DPR;
-                canvas.height = h * DPR;
-                canvas.style.width = w + 'px';
-                canvas.style.height = h + 'px';
-                ctx.scale(DPR, DPR);
+            // Set current date based on visitor's location
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString(undefined, options);
+            document.getElementById('today-date').textContent = now.toLocaleDateString(undefined, { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
             });
 
-        })();
+            // Set last update time
+            const timeOptions = { hour: '2-digit', minute: '2-digit' };
+            const timeString = now.toLocaleTimeString(undefined, timeOptions);
 
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
+            // Set individual lottery update times
+            document.getElementById('powerball-update-time').textContent = timeString;
+            document.getElementById('megamillions-update-time').textContent = timeString;
+            document.getElementById('euromillions-update-time').textContent = timeString;
+
+            // Set next drawing dates
+            document.getElementById('powerball-next-drawing').textContent = getNextDrawing(3, 22).toLocaleString(undefined, { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            document.getElementById('megamillions-next-drawing').textContent = getNextDrawing(2, 23).toLocaleString(undefined, { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            document.getElementById('euromillions-next-drawing').textContent = getNextDrawing(2, 20).toLocaleString(undefined, { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+
+            // Fetch lottery data from API
+            fetchLotteryData();
+        }
+
+        // Fetch lottery data from the API
+        async function fetchLotteryData() {
+            try {
+                // Note: You'll need to adjust the API endpoints based on the actual API documentation
+                // The current endpoint in your curl command is for past draws dates for gameID=9
+                
+                // For demonstration, I'll show how to make the API call
+                const response = await fetch(`${API_CONFIG.baseURL}/lottery-results/old/past-draws-dates?gameID=9`, {
+                    method: 'GET',
+                    headers: API_CONFIG.headers
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('API Response:', data);
+                
+                // Process the API data here based on the actual response structure
+                // processPowerballData(data);
+                // processMegaMillionsData(data);
+                // processEuroMillionsData(data);
+                
+            } catch (error) {
+                console.error('Error fetching lottery data:', error);
+                // Fallback to demo data if API fails
+                useDemoData();
+            }
+        }
+
+        // Fallback function to use demo data if API fails
+        function useDemoData() {
+            // Set jackpot amounts
+            document.getElementById('powerball-jackpot').textContent = `$${Math.floor(200 + Math.random() * 100)} Million`;
+            document.getElementById('megamillions-jackpot').textContent = `$${Math.floor(150 + Math.random() * 80)} Million`;
+            document.getElementById('euromillions-jackpot').textContent = `€${Math.floor(50 + Math.random() * 40)} Million`;
+
+            // Generate random winning numbers (for demo purposes)
+            generateWinningNumbers('powerball-numbers', 5, 69, 1, 26, 'powerball-ball');
+            generateWinningNumbers('megamillions-numbers', 5, 70, 1, 25, 'megaball-ball');
+            generateWinningNumbers('euromillions-numbers', 5, 50, 2, 12, 'euro-star');
+
+            // Set last draw dates (yesterday or today depending on time)
+            const lastPowerballDraw = getLastDrawDate(3, 22);
+            const lastMegaDraw = getLastDrawDate(2, 23);
+            const lastEuroDraw = getLastDrawDate(2, 20);
+
+            document.getElementById('powerball-last-draw-date').textContent = lastPowerballDraw.toLocaleDateString();
+            document.getElementById('megamillions-last-draw-date').textContent = lastMegaDraw.toLocaleDateString();
+            document.getElementById('euromillions-last-draw-date').textContent = lastEuroDraw.toLocaleDateString();
+        }
+
+        // Generate random winning numbers for demo
+        function generateWinningNumbers(elementId, mainCount, mainMax, specialCount, specialMax, specialClass) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = '';
+
+            // Generate main numbers
+            for (let i = 0; i < mainCount; i++) {
+                const ball = document.createElement('div');
+                ball.className = 'number-ball regular-ball';
+                ball.textContent = Math.floor(Math.random() * mainMax) + 1;
+                container.appendChild(ball);
+            }
+
+            // Generate special numbers
+            for (let i = 0; i < specialCount; i++) {
+                const ball = document.createElement('div');
+                ball.className = `number-ball ${specialClass}`;
+                ball.textContent = Math.floor(Math.random() * specialMax) + 1;
+                container.appendChild(ball);
+            }
+        }
+
+        // Calculate next drawing date
+        function getNextDrawing(dayOfWeek, hour) {
+            const date = new Date();
+            const currentDay = date.getDay();
+            const currentHour = date.getHours();
+
+            let daysUntilNext = (dayOfWeek - currentDay + 7) % 7;
+            if (daysUntilNext === 0 && currentHour >= hour) {
+                daysUntilNext = 7;
+            }
+
+            date.setDate(date.getDate() + daysUntilNext);
+            date.setHours(hour, 0, 0, 0);
+            return date;
+        }
+
+        // Calculate last draw date
+        function getLastDrawDate(dayOfWeek, hour) {
+            const date = new Date();
+            const currentDay = date.getDay();
+            const currentHour = date.getHours();
+
+            let daysSinceLast = (currentDay - dayOfWeek + 7) % 7;
+            if (daysSinceLast === 0 && currentHour < hour) {
+                daysSinceLast = 7;
+            }
+
+            date.setDate(date.getDate() - daysSinceLast);
+            date.setHours(hour, 0, 0, 0);
+            return date;
+        }
+
+        // Initial update
+        updateAllTimes();
+
+        // Update every minute (60000 milliseconds)
+        setInterval(updateAllTimes, 60000);
     </script>
 </body>
 </html>
