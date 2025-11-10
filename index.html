@@ -30,9 +30,21 @@
       --muted:#666;
       --accent:#0ea5a0;
     }
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
+    * {
+      box-sizing: border-box;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
     /* Canvas background sits behind content */
-    #bg-canvas{position:fixed;inset:0;z-index:-1;display:block;}
+    #bg-canvas{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      display:block;
+    }
     /* Header / navigation */
     header{
       background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
@@ -40,51 +52,145 @@
       padding:16px 12px;
       text-align:center;
     }
-    header .brand{font-weight:700;font-size:1.25rem;letter-spacing:0.2px;}
-    nav{background:#003c99;padding:8px 0;box-shadow:0 1px 0 rgba(0,0,0,0.05);}
-    .nav-list{display:flex;gap:28px;justify-content:center;align-items:center;margin:0;padding:0;list-style:none;}
-    .nav-list a{color:#fff;text-decoration:none;font-weight:600;padding:6px 4px;border-radius:6px;}
-    .nav-list a.active{background:rgba(255,255,255,0.08);text-decoration:underline;}
-    .nav-list a:focus{outline:2px solid rgba(255,255,255,0.14);outline-offset:4px;}
+    header .brand{
+      font-weight:700;
+      font-size:1.25rem;
+      letter-spacing:0.2px;
+    }
+    nav{
+      background:#003c99;
+      padding:8px 0;
+      box-shadow:0 1px 0 rgba(0,0,0,0.05);
+    }
+    .nav-list{
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      align-items:center;
+      margin:0;
+      padding:0 15px;
+      list-style:none;
+      flex-wrap: wrap;
+    }
+    .nav-list a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .nav-list a.active{
+      background:rgba(255,255,255,0.08);
+      text-decoration:underline;
+    }
+    .nav-list a:focus{
+      outline:2px solid rgba(255,255,255,0.14);
+      outline-offset:4px;
+    }
+    
     /* Page shell */
-    .wrap{max-width:1100px;margin:28px auto;padding:0 18px;}
+    .wrap{
+      max-width:1200px;
+      margin:20px auto;
+      padding:0 15px;
+      width: 100%;
+    }
+    
+    /* Hero Section */
     .hero{
       background:var(--card-bg);
       border-radius:12px;
-      padding:22px;
+      padding:20px;
       display:flex;
-      gap:18px;
+      flex-direction: column;
+      gap:20px;
       align-items:center;
       box-shadow:0 6px 24px rgba(6,30,60,0.08);
+      margin-bottom: 20px;
     }
-    .hero-left{flex:1}
-    .hero-right{width:240px;text-align:center}
-    .hero h1{margin:0;font-size:1.35rem;color:var(--blue-1)}
-    .hero p{margin:8px 0;color:var(--muted)}
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+    .hero-left{
+      flex:1;
+      width: 100%;
+    }
+    .hero-right{
+      width: 100%;
+      text-align:center;
+    }
+    @media (min-width: 768px) {
+      .hero-right {
+        width: 240px;
+        flex-shrink: 0;
+      }
+    }
+    .hero h1{
+      margin:0 0 10px 0;
+      font-size:1.5rem;
+      color:var(--blue-1);
+      line-height: 1.3;
+    }
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+    .hero p{
+      margin:8px 0;
+      color:var(--muted);
+      line-height: 1.5;
+    }
     .cta-btn{
-      display:inline-block;background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
-      color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700;
+      display:inline-block;
+      background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
       box-shadow:0 6px 16px rgba(0,60,153,0.18);
+      width: 100%;
+      margin-top: 10px;
+    }
+    @media (min-width: 768px) {
+      .cta-btn {
+        width: auto;
+      }
     }
 
     /* Cards */
     .card{
-      background:var(--card-bg);border-radius:12px;padding:18px;box-shadow:0 6px 20px rgba(6,30,60,0.06);
-      margin-top: 20px;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 20px rgba(6,30,60,0.06);
+      margin-bottom: 20px;
+      width: 100%;
     }
 
-    .small{font-size:0.85rem;color:var(--muted);}
+    .small{
+      font-size:0.85rem;
+      color:var(--muted);
+      line-height: 1.4;
+    }
 
     /* Pattern Analyzer Styles */
     .analyzer-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 25px;
       margin: 20px 0;
     }
-    @media (max-width: 768px) {
+    @media (min-width: 992px) {
       .analyzer-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
       }
     }
     .chart-container {
@@ -95,13 +201,26 @@
     }
     .number-grid {
       display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      gap: 5px;
-      margin: 10px 0;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+      margin: 15px 0;
+      justify-content: center;
+    }
+    @media (min-width: 480px) {
+      .number-grid {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 6px;
+      }
+    }
+    @media (min-width: 768px) {
+      .number-grid {
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
+      }
     }
     .number-cell {
-      width: 40px;
-      height: 40px;
+      width: 100%;
+      aspect-ratio: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -111,6 +230,14 @@
       cursor: pointer;
       transition: all 0.3s;
       font-size: 14px;
+      max-width: 45px;
+      margin: 0 auto;
+    }
+    @media (min-width: 480px) {
+      .number-cell {
+        max-width: 40px;
+        font-size: 13px;
+      }
     }
     .number-cell:hover {
       transform: scale(1.1);
@@ -119,52 +246,158 @@
     .warm { background: #ffa500; color: white; }
     .cool { background: #4ecdc4; color: white; }
     .cold { background: #45b7d1; color: white; }
+    
     .stat-card {
       background: white;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 10px;
       border-left: 4px solid var(--blue-1);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
+    
     .analyzer-controls {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin: 15px 0;
+      margin: 20px 0;
+      justify-content: center;
+    }
+    @media (min-width: 480px) {
+      .analyzer-controls {
+        justify-content: flex-start;
+      }
     }
     .analyzer-btn {
-      padding: 10px 15px;
+      padding: 12px 18px;
+      background: var(--blue-1);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: 600;
+      flex: 1;
+      min-width: 140px;
+    }
+    @media (min-width: 480px) {
+      .analyzer-btn {
+        flex: none;
+      }
+    }
+    .analyzer-btn:hover {
+      background: var(--blue-2);
+      transform: translateY(-1px);
+    }
+    
+    .generated-numbers {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--blue-1);
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      text-align: center;
+      border: 2px dashed #dee2e6;
+    }
+    @media (min-width: 768px) {
+      .generated-numbers {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Settings Controls */
+    .settings-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 15px 0;
+    }
+    @media (min-width: 480px) {
+      .settings-controls {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+    .settings-controls label {
+      font-weight: 600;
+      color: var(--blue-1);
+      white-space: nowrap;
+    }
+    .settings-controls input {
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 70px;
+      text-align: center;
+    }
+    .settings-controls button {
+      padding: 8px 16px;
       background: var(--blue-1);
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
+      font-weight: 600;
     }
-    .analyzer-btn:hover {
-      background: var(--blue-2);
-    }
-    .generated-numbers {
-      font-size: 18px;
-      font-weight: bold;
+
+    /* Section Headings */
+    .section-heading {
       color: var(--blue-1);
-      margin: 15px 0;
-      padding: 10px;
-      background: #f8f9fa;
-      border-radius: 5px;
-      text-align: center;
+      margin: 0 0 15px 0;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 8px;
+    }
+    @media (min-width: 768px) {
+      .section-heading {
+        font-size: 1.5rem;
+      }
+    }
+    .subsection-heading {
+      color: var(--blue-1);
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    @media (min-width: 768px) {
+      .subsection-heading {
+        font-size: 1.2rem;
+      }
     }
 
     /* Footer */
-    footer{margin-top:28px;text-align:center;color:#fff;padding:18px;background:linear-gradient(90deg,var(--blue-1),var(--blue-2))}
-    footer .muted{color:rgba(255,255,255,0.85);font-size:0.95rem}
-    /* verification line */
-    .verif{font-size:0.8rem;color:rgba(255,255,255,0.9);margin-top:6px;opacity:0.95}
+    footer{
+      margin-top:40px;
+      text-align:center;
+      color:#fff;
+      padding:25px 18px;
+      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
+    }
+    footer .muted{
+      color:rgba(255,255,255,0.85);
+      font-size:0.95rem;
+    }
+    .verif{
+      font-size:0.8rem;
+      color:rgba(255,255,255,0.9);
+      margin-top:6px;
+      opacity:0.95;
+    }
 
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
-      * {animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+      * {
+        animation-duration:0.001ms !important;
+        transition-duration:0.001ms !important;
+      }
+      .number-cell:hover {
+        transform: none;
+      }
+      .analyzer-btn:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -189,63 +422,81 @@
       <div class="hero-left">
         <h1>Lottery Pattern Analyzer — lotteryupdate000.space</h1>
         <p>Advanced number pattern analysis and generation tools. Analyze frequency patterns and generate balanced number sets using statistical insights.</p>
-        <p class="small">For entertainment and analytical purposes only.</p>
+        <p class="small">For entertainment and analytical purposes only. Past performance doesn't guarantee future results.</p>
       </div>
       <div class="hero-right">
-        <div style="background:#fff;border-radius:10px;padding:12px;box-shadow:0 6px 16px rgba(0,0,0,0.06)">
-          <div style="font-weight:700;color:var(--blue-1)">Tool Status</div>
-          <div id="latest-time" class="small" style="margin-top:6px">Active & Ready</div>
-          <div style="margin-top:8px;"><a class="cta-btn" href="#analyzer">Start Analyzing</a></div>
+        <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+          <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Tool Status</div>
+          <div id="latest-time" class="small" style="margin-top:8px;">Active & Ready</div>
+          <div style="margin-top:12px;">
+            <a class="cta-btn" href="#analyzer">Start Analyzing</a>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Pattern Analyzer Section -->
     <div class="card" id="analyzer">
-      <h3 style="margin:0 0 20px 0;color:var(--blue-1)">Lottery Pattern Analyzer</h3>
-      <p class="small" style="margin-bottom: 20px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis.</p>
+      <h2 class="section-heading">Lottery Pattern Analyzer</h2>
+      <p class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis. Click any number to include it in your generated set.</p>
 
       <div class="analyzer-grid">
+        <!-- Left Column - Heatmap & Analysis -->
         <div>
-          <h4 style="color:var(--blue-1); margin-bottom: 15px;">Number Frequency Heatmap</h4>
+          <h3 class="subsection-heading">Number Frequency Heatmap</h3>
           <div class="number-grid" id="heatmap"></div>
           
           <div class="stat-card">
-            <h4 style="margin:0 0 10px 0;color:var(--blue-1)">Pattern Analysis</h4>
-            <div id="patternStats">
-              <p>Odd/Even Ratio: <span id="oddEvenRatio">-</span></p>
-              <p>High/Low Ratio: <span id="highLowRatio">-</span></p>
-              <p>Sum Range: <span id="sumRange">-</span></p>
+            <h4 class="subsection-heading" style="margin-top: 0;">Pattern Analysis</h4>
+            <div id="patternStats" style="font-size: 0.95rem;">
+              <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
+              <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
+              <p><strong>Sum Range:</strong> <span id="sumRange">-</span></p>
             </div>
           </div>
         </div>
         
+        <!-- Right Column - Generator & Controls -->
         <div>
-          <h4 style="color:var(--blue-1); margin-bottom: 15px;">Smart Number Generator</h4>
+          <h3 class="subsection-heading">Smart Number Generator</h3>
           <div class="analyzer-controls">
-            <button class="analyzer-btn" onclick="generatePatternBased()">Pattern-Based</button>
-            <button class="analyzer-btn" onclick="generateBalanced()">Balanced Set</button>
+            <button class="analyzer-btn" onclick="generatePatternBased()">
+              🎯 Pattern-Based
+            </button>
+            <button class="analyzer-btn" onclick="generateBalanced()">
+              ⚖️ Balanced Set
+            </button>
           </div>
-          <div id="generatedNumbers" class="generated-numbers"></div>
+          
+          <div id="generatedNumbers" class="generated-numbers">
+            Click above to generate numbers
+          </div>
           
           <div class="stat-card">
-            <h4 style="margin:0 0 10px 0;color:var(--blue-1)">Generator Settings</h4>
-            <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-              <label>Range: 1 to </label>
-              <input type="number" id="maxNumber" value="69" min="10" max="100" style="padding: 5px; border: 1px solid #ddd; border-radius: 3px; width: 60px;">
-              <label>Count: </label>
-              <input type="number" id="numberCount" value="6" min="1" max="15" style="padding: 5px; border: 1px solid #ddd; border-radius: 3px; width: 50px;">
-              <button class="analyzer-btn" onclick="updatePreferences()" style="padding: 5px 10px;">Update</button>
+            <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
+            <div class="settings-controls">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <label for="maxNumber">Range: 1 to</label>
+                <input type="number" id="maxNumber" value="69" min="10" max="100">
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <label for="numberCount">Count:</label>
+                <input type="number" id="numberCount" value="6" min="1" max="15">
+              </div>
+              <button onclick="updatePreferences()" style="padding: 8px 16px;">Update Settings</button>
             </div>
           </div>
 
           <div class="stat-card">
-            <h4 style="margin:0 0 10px 0;color:var(--blue-1)">Statistical Insights</h4>
-            <div id="statisticalInsights" style="font-size: 0.9rem;">
-              <p>🔹 <strong>Hot Numbers</strong>: Frequently drawn numbers (red)</p>
-              <p>🔹 <strong>Cold Numbers</strong>: Rarely drawn numbers (blue)</p>
-              <p>🔹 <strong>Balanced Sets</strong>: Mix of odd/even and high/low numbers</p>
-              <p class="small" style="margin-top: 10px; color: #666;"><strong>Remember</strong>: This tool is for entertainment purposes only. Past performance doesn't guarantee future results!</p>
+            <h4 class="subsection-heading" style="margin-top: 0;">Statistical Insights</h4>
+            <div id="statisticalInsights" style="font-size: 0.9rem; line-height: 1.5;">
+              <p>🔴 <strong>Hot Numbers</strong>: Frequently appearing numbers</p>
+              <p>🟠 <strong>Warm Numbers</strong>: Above average frequency</p>
+              <p>🔵 <strong>Cool Numbers</strong>: Below average frequency</p>
+              <p>🔷 <strong>Cold Numbers</strong>: Rarely appearing numbers</p>
+              <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
+                <strong>⚠️ Important:</strong> This tool is for entertainment purposes only. Lottery outcomes are completely random and cannot be predicted.
+              </div>
             </div>
           </div>
         </div>
@@ -382,7 +633,7 @@
   
   function displayGeneratedNumbers(numbers) {
       const container = document.getElementById('generatedNumbers');
-      container.innerHTML = `Generated Numbers: <span style="color: var(--blue-1);">${numbers.join(', ')}</span>`;
+      container.innerHTML = `🎲 Generated Numbers: <span style="color: var(--blue-1); font-size: 1.1em;">${numbers.join(', ')}</span>`;
   }
   
   function updateStatistics(numbers) {
@@ -413,6 +664,7 @@
           }
       });
       renderHeatmap();
+      generateBalanced(); // Regenerate with new settings
   }
   
   // Initialize Pattern Analyzer
