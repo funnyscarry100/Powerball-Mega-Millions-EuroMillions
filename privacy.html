@@ -55,22 +55,19 @@
     }
     .nav-list{
       display:flex;
-      gap:20px;
+      gap:28px;
       justify-content:center;
       align-items:center;
       margin:0;
-      padding:0 15px;
+      padding:0;
       list-style:none;
-      flex-wrap: wrap;
     }
     .nav-list a{
       color:#fff;
       text-decoration:none;
       font-weight:600;
-      padding:8px 12px;
+      padding:6px 4px;
       border-radius:6px;
-      font-size: 0.9rem;
-      white-space: nowrap;
     }
     .nav-list a.active{
       background:rgba(255,255,255,0.08);
@@ -84,8 +81,8 @@
     /* Page shell */
     .wrap{
       max-width:800px;
-      margin:20px auto;
-      padding:0 20px;
+      margin:28px auto;
+      padding:0 18px;
       width: 100%;
     }
     
@@ -93,8 +90,8 @@
     .card{
       background:var(--card-bg);
       border-radius:12px;
-      padding:30px;
-      box-shadow:0 6px 20px rgba(6,30,60,0.06);
+      padding:22px;
+      box-shadow:0 6px 24px rgba(6,30,60,0.08);
       margin-bottom: 20px;
     }
 
@@ -108,7 +105,7 @@
     h1 {
       color: var(--blue-1);
       margin: 0 0 20px 0;
-      font-size: 1.8rem;
+      font-size: 1.35rem;
       border-bottom: 2px solid #eef2f7;
       padding-bottom: 10px;
     }
@@ -116,13 +113,7 @@
     h2 {
       color: var(--blue-1);
       margin: 25px 0 15px 0;
-      font-size: 1.3rem;
-    }
-    
-    h3 {
-      color: var(--blue-1);
-      margin: 20px 0 10px 0;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
     
     p {
@@ -153,36 +144,30 @@
       display: inline-block;
       background: linear-gradient(180deg, var(--blue-2), var(--blue-1));
       color: #fff;
-      padding: 12px 24px;
+      padding: 10px 14px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 700;
       box-shadow: 0 6px 16px rgba(0,60,153,0.18);
       margin-top: 20px;
-      transition: transform 0.2s;
-    }
-    
-    .back-home:hover {
-      transform: translateY(-2px);
     }
 
     /* Footer */
     footer{
-      margin-top:40px;
+      margin-top:28px;
       text-align:center;
       color:#fff;
-      padding:25px 18px;
+      padding:18px;
       background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
     }
     footer .muted{
       color:rgba(255,255,255,0.85);
       font-size:0.95rem;
-      margin-bottom: 8px;
     }
     .contact-email {
       color: rgba(255,255,255,0.9);
       font-size: 0.9rem;
-      margin: 10px 0;
+      margin: 8px 0;
     }
     .contact-email a {
       color: #fff;
@@ -197,17 +182,6 @@
       color:rgba(255,255,255,0.9);
       margin-top:6px;
       opacity:0.95;
-    }
-
-    /* Accessibility: reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      * {
-        animation-duration:0.001ms !important;
-        transition-duration:0.001ms !important;
-      }
-      .back-home:hover {
-        transform: none;
-      }
     }
   </style>
 </head>
@@ -237,69 +211,28 @@
       </div>
 
       <h2>1. Information We Collect</h2>
-      <p>lotteryupdate000.space is designed with privacy in mind. We collect minimal information to provide our services:</p>
-      <ul>
-        <li><strong>Anonymous Usage Data:</strong> General analytics about how the service is used</li>
-        <li><strong>Technical Information:</strong> Browser type, device type, and general location data</li>
-        <li><strong>No Personal Data:</strong> We do not collect names, email addresses, or other personally identifiable information</li>
-      </ul>
+      <p>lotteryupdate000.space is designed with privacy in mind. We collect minimal information to provide our services.</p>
 
       <h2>2. How We Use Information</h2>
-      <p>The limited information we collect is used for:</p>
-      <ul>
-        <li>Improving our services and user experience</li>
-        <li>Understanding how users interact with our tools</li>
-        <li>Ensuring the technical functionality of the website</li>
-        <li>Analyzing general usage patterns</li>
-      </ul>
+      <p>The limited information we collect is used for improving our services and user experience.</p>
 
       <h2>3. Data Storage and Security</h2>
-      <p>We implement appropriate security measures to protect the limited data we collect:</p>
-      <ul>
-        <li>All data is stored anonymously and aggregated</li>
-        <li>We use industry-standard security practices</li>
-        <li>No sensitive personal information is stored on our servers</li>
-        <li>Local storage may be used to enhance user experience</li>
-      </ul>
+      <p>We implement appropriate security measures to protect the limited data we collect.</p>
 
       <h2>4. Third-Party Services</h2>
-      <p>We may use third-party services that collect information:</p>
-      <ul>
-        <li><strong>Analytics Services:</strong> To understand how our service is used</li>
-        <li><strong>Hosting Providers:</strong> To deliver the service reliably</li>
-        <li>All third-party services are compliant with privacy regulations</li>
-      </ul>
+      <p>We may use third-party services that collect information for analytics and hosting purposes.</p>
 
       <h2>5. Cookies and Tracking</h2>
-      <p>Our website may use cookies and similar technologies:</p>
-      <ul>
-        <li><strong>Essential Cookies:</strong> Required for basic functionality</li>
-        <li><strong>Analytics Cookies:</strong> Help us understand user behavior</li>
-        <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
-      </ul>
-      <p>You can control cookie settings through your browser preferences.</p>
+      <p>Our website may use cookies and similar technologies for essential functionality and analytics.</p>
 
       <h2>6. Your Rights</h2>
-      <p>You have the right to:</p>
-      <ul>
-        <li>Access any personal information we hold about you</li>
-        <li>Request correction of inaccurate information</li>
-        <li>Request deletion of your information</li>
-        <li>Object to processing of your information</li>
-        <li>Request data portability</li>
-      </ul>
+      <p>You have the right to access, correct, or delete any personal information we hold about you.</p>
 
       <h2>7. Children's Privacy</h2>
-      <p>Our service is not intended for children under 13 years of age. We do not knowingly collect personal information from children under 13.</p>
+      <p>Our service is not intended for children under 13 years of age.</p>
 
-      <h2>8. International Data Transfers</h2>
-      <p>Your information may be transferred to and maintained on computers located outside of your state, province, country, or other governmental jurisdiction where the data protection laws may differ from those of your jurisdiction.</p>
-
-      <h2>9. Changes to This Policy</h2>
-      <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
-
-      <h2>10. Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact us through our website.</p>
+      <h2>8. Changes to This Policy</h2>
+      <p>We may update our Privacy Policy from time to time by posting the new policy on this page.</p>
 
       <p class="small"><strong>Last Updated:</strong> December 2024</p>
 
@@ -316,7 +249,6 @@
   </footer>
 
   <script>
-    // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
@@ -330,7 +262,6 @@
     const DPR = Math.max(1, window.devicePixelRatio || 1);
     canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
 
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const balls = [];
     const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
 
@@ -357,12 +288,8 @@
       g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
       ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
 
-      const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
-      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
-      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
-
       balls.forEach(b=>{
-        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        b.x += b.vx; b.y += b.vy;
         if(b.x - b.r > w) b.x = -b.r;
         if(b.x + b.r < 0) b.x = w + b.r;
         if(b.y - b.r > h) b.y = -b.r;
@@ -376,21 +303,9 @@
 
         ctx.beginPath();
         const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
-        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(b.color,0.95));
         ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
-
-        ctx.beginPath();
-        ctx.fillStyle = 'rgba(255,255,255,0.18)';
-        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
       });
-    }
-
-    function darken(hex, amt){
-      const num = parseInt(hex.replace('#',''),16);
-      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
-      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
-      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
-      return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
     }
 
     let raf;
@@ -401,7 +316,6 @@
       w = canvas.width = innerWidth; h = canvas.height = innerHeight;
       canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
     });
-
   })();
   </script>
 </body>
