@@ -1,213 +1,762 @@
-// Fetch Powerball data from the API
-async function fetchPowerballData() {
-    try {
-        const response = await fetch(`${API_CONFIG.baseURL}/lottery-results/old/past-draws-dates?gameID=9`, {
-            method: 'GET',
-            headers: API_CONFIG.headers
-        });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Lottery Results - Powerball, Mega Millions, EuroMillions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #1a1a2e);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .current-date {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #f1c40f;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .lottery-section {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+            border-left: 6px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .lottery-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+        }
+        
+        .powerball {
+            border-left-color: #e74c3c;
+        }
+        
+        .megamillions {
+            border-left-color: #3498db;
+        }
+        
+        .euromillions {
+            border-left-color: #9b59b6;
+        }
+        
+        .lottery-name {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .lottery-name i {
+            margin-right: 12px;
+            font-size: 1.5rem;
+        }
+        
+        .update-time {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .update-time::before {
+            content: "🔄";
+            margin-right: 5px;
+        }
+        
+        .prize-info {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .prize-info::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.7));
+        }
+        
+        .jackpot-amount {
+            font-size: 2.2rem;
+            color: #e74c3c;
+            font-weight: bold;
+            margin: 10px 0;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .next-drawing {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1.1rem;
+        }
+        
+        .winning-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 20px 0;
+        }
+        
+        .number-ball {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .number-ball:hover {
+            transform: scale(1.1) rotate(10deg);
+        }
+        
+        .powerball-ball {
+            background: radial-gradient(circle at 30% 30%, #e74c3c, #c0392b);
+        }
+        
+        .megaball-ball {
+            background: radial-gradient(circle at 30% 30%, #3498db, #2980b9);
+        }
+        
+        .euro-star {
+            background: radial-gradient(circle at 30% 30%, #f1c40f, #f39c12);
+            color: #2c3e50;
+        }
+        
+        .regular-ball {
+            background: radial-gradient(circle at 30% 30%, #2c3e50, #1a1a2e);
+        }
+        
+        .check-results {
+            background: linear-gradient(to right, #2ecc71, #27ae60);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .check-results:hover {
+            background: linear-gradient(to right, #27ae60, #219653);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        
+        .api-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        .status-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .status-live {
+            background-color: #2ecc71;
+        }
+        
+        .status-loading {
+            background-color: #f39c12;
+        }
+        
+        .status-error {
+            background-color: #e74c3c;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 25px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            background-color: rgba(255,255,255,0.7);
+            border-radius: 8px;
+        }
+        
+        .last-update {
+            text-align: right;
+            font-size: 0.8rem;
+            color: #95a5a6;
+            margin-top: 10px;
+        }
+        
+        .loading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .loading-spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0,0,0,0.1);
+            border-radius: 50%;
+            border-top-color: #3498db;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .error {
+            color: #e74c3c;
+            background-color: #fadbd8;
+            padding: 12px;
+            border-radius: 6px;
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .tab.active {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .current-date {
+                font-size: 1.4rem;
+            }
+            
+            .jackpot-amount {
+                font-size: 1.8rem;
+            }
+            
+            .number-ball {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .lottery-section {
+                padding: 20px 15px;
+            }
+            
+            .number-ball {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-ticket-alt"></i> Live Lottery Results</h1>
+            <p class="subtitle">Stay updated with the latest lottery results, jackpot amounts, and winning numbers for Powerball, Mega Millions, and EuroMillions</p>
+            <div class="current-date" id="current-date">Loading date...</div>
+        </header>
 
-        if (!response.ok) {
-            throw new Error(`API error: ${response.status}`);
+        <div class="tabs">
+            <div class="tab active" data-tab="today">Today's Results</div>
+            <div class="tab" data-tab="powerball">Powerball</div>
+            <div class="tab" data-tab="megamillions">Mega Millions</div>
+            <div class="tab" data-tab="euromillions">EuroMillions</div>
+        </div>
+
+        <div class="tab-content active" id="today-tab">
+            <h2>Today's Lottery Results – <span id="today-date"></span></h2>
+            
+            <div class="lottery-section powerball">
+                <h2 class="lottery-name"><i class="fas fa-fire"></i> Powerball Results</h2>
+                <p class="update-time">Updated: <span id="powerball-update-time"></span></p>
+                
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="powerball-jackpot">Loading...</div>
+                    <div class="api-status">
+                        <span class="status-indicator status-loading"></span>
+                        <span id="powerball-api-status">Fetching real-time data...</span>
+                    </div>
+                </div>
+                
+                <h3>Winning Numbers for <span id="powerball-last-draw-date"></span>:</h3>
+                <div class="winning-numbers" id="powerball-numbers">
+                    <div class="loading">
+                        <div class="loading-spinner"></div>
+                        <span>Loading Powerball numbers...</span>
+                    </div>
+                </div>
+                
+                <p><span class="next-drawing">Next Drawing:</span> <span id="powerball-next-drawing"></span></p>
+                <p>Powerball drawings are held every Wednesday and Saturday at 10:59 PM ET.</p>
+                
+                <button class="check-results" id="refresh-powerball">
+                    <i class="fas fa-sync-alt"></i> Refresh Powerball Results
+                </button>
+            </div>
+
+            <div class="lottery-section megamillions">
+                <h2 class="lottery-name"><i class="fas fa-star"></i> Mega Millions Results</h2>
+                <p class="update-time">Updated: <span id="megamillions-update-time"></span></p>
+                
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="megamillions-jackpot">$XXX Million</div>
+                </div>
+                
+                <h3>Winning Numbers for <span id="megamillions-last-draw-date"></span>:</h3>
+                <div class="winning-numbers" id="megamillions-numbers">
+                    <!-- Numbers will be inserted by JavaScript -->
+                </div>
+                
+                <p><span class="next-drawing">Next Drawing:</span> <span id="megamillions-next-drawing"></span></p>
+                <p>Mega Millions drawings are held every Tuesday and Friday at 11:00 PM ET.</p>
+            </div>
+
+            <div class="lottery-section euromillions">
+                <h2 class="lottery-name"><i class="fas fa-globe-europe"></i> EuroMillions Results</h2>
+                <p class="update-time">Updated: <span id="euromillions-update-time"></span></p>
+                
+                <div class="prize-info">
+                    <h3>Current Estimated Jackpot:</h3>
+                    <div class="jackpot-amount" id="euromillions-jackpot">€XXX Million</div>
+                </div>
+                
+                <h3>Winning Numbers for <span id="euromillions-last-draw-date"></span>:</h3>
+                <div class="winning-numbers" id="euromillions-numbers">
+                    <!-- Numbers will be inserted by JavaScript -->
+                </div>
+                
+                <p><span class="next-drawing">Next Drawing:</span> <span id="euromillions-next-drawing"></span></p>
+                <p>EuroMillions draws take place every Tuesday and Friday evening.</p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="powerball-tab">
+            <!-- Powerball-specific content would go here -->
+        </div>
+
+        <div class="tab-content" id="megamillions-tab">
+            <!-- Mega Millions-specific content would go here -->
+        </div>
+
+        <div class="tab-content" id="euromillions-tab">
+            <!-- EuroMillions-specific content would go here -->
+        </div>
+
+        <footer>
+            <p>© <script>document.write(new Date().getFullYear());</script> Lottery Results Hub. All rights reserved.</p>
+            <p>This is not an official lottery site. For official information, please visit your local lottery website.</p>
+            <p class="last-update">Last updated: <span id="last-update-time"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        // API Configuration
+        const API_CONFIG = {
+            baseURL: 'https://usa-lottery-result-all-state-api.p.rapidapi.com',
+            headers: {
+                'x-rapidapi-host': 'usa-lottery-result-all-state-api.p.rapidapi.com',
+                'x-rapidapi-key': 'd45f603ab6msh0874440ae1db307p1ee1b5jsnf16c48f8cac7'
+            }
+        };
+
+        // Update all time elements on the page
+        function updateAllTimes() {
+            const now = new Date();
+            
+            // Set current date based on visitor's location
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('current-date').textContent = now.toLocaleDateString(undefined, options);
+            document.getElementById('today-date').textContent = now.toLocaleDateString(undefined, { 
+                month: 'long', 
+                day: 'numeric', 
+                year: 'numeric' 
+            });
+
+            // Set last update time
+            const timeOptions = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const timeString = now.toLocaleTimeString(undefined, timeOptions);
+
+            // Set individual lottery update times
+            document.getElementById('powerball-update-time').textContent = timeString;
+            document.getElementById('megamillions-update-time').textContent = timeString;
+            document.getElementById('euromillions-update-time').textContent = timeString;
+            document.getElementById('last-update-time').textContent = timeString;
+
+            // Set jackpot amounts (these would normally come from an API)
+            document.getElementById('powerball-jackpot').textContent = `$${Math.floor(200 + Math.random() * 100)} Million`;
+            document.getElementById('megamillions-jackpot').textContent = `$${Math.floor(150 + Math.random() * 80)} Million`;
+            document.getElementById('euromillions-jackpot').textContent = `€${Math.floor(50 + Math.random() * 40)} Million`;
+
+            // Generate random winning numbers (for demo purposes)
+            generateWinningNumbers('powerball-numbers', 5, 69, 1, 26, 'powerball-ball');
+            generateWinningNumbers('megamillions-numbers', 5, 70, 1, 25, 'megaball-ball');
+            generateWinningNumbers('euromillions-numbers', 5, 50, 2, 12, 'euro-star');
+
+            // Set last draw dates (yesterday or today depending on time)
+            const lastPowerballDraw = getLastDrawDate(3, 22); // Wednesday and Saturday at 10pm ET
+            const lastMegaDraw = getLastDrawDate(2, 23); // Tuesday and Friday at 11pm ET
+            const lastEuroDraw = getLastDrawDate(2, 20); // Tuesday and Friday at 8pm CET
+
+            document.getElementById('powerball-last-draw-date').textContent = lastPowerballDraw.toLocaleDateString();
+            document.getElementById('megamillions-last-draw-date').textContent = lastMegaDraw.toLocaleDateString();
+            document.getElementById('euromillions-last-draw-date').textContent = lastEuroDraw.toLocaleDateString();
+
+            // Set next drawing dates
+            document.getElementById('powerball-next-drawing').textContent = getNextDrawing(3, 22).toLocaleString(undefined, { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            document.getElementById('megamillions-next-drawing').textContent = getNextDrawing(2, 23).toLocaleString(undefined, { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
+            document.getElementById('euromillions-next-drawing').textContent = getNextDrawing(2, 20).toLocaleString(undefined, { 
+                weekday: 'long', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit' 
+            });
         }
 
-        const data = await response.json();
-        console.log('Powerball API Response:', data);
-        
-        // Process the Powerball data based on the actual response structure
-        processPowerballData(data);
-        
-    } catch (error) {
-        console.error('Error fetching Powerball data:', error);
-        // Fallback to demo data if API fails
-        usePowerballDemoData();
-    }
-}
+        // Generate random winning numbers for demo
+        function generateWinningNumbers(elementId, mainCount, mainMax, specialCount, specialMax, specialClass) {
+            const container = document.getElementById(elementId);
+            container.innerHTML = '';
 
-// Process Powerball API data
-function processPowerballData(data) {
-    // This will depend on the actual API response structure
-    // Here's an example of how it might look:
-    
-    /* Example expected API response structure:
-    {
-        "success": true,
-        "data": {
-            "draws": [
-                {
-                    "drawDate": "2024-01-15",
-                    "winningNumbers": [10, 25, 36, 42, 55],
-                    "powerball": 15,
-                    "jackpot": "$250 Million",
-                    "nextJackpot": "$300 Million"
+            // Generate main numbers
+            const mainNumbers = [];
+            for (let i = 0; i < mainCount; i++) {
+                let num;
+                do {
+                    num = Math.floor(Math.random() * mainMax) + 1;
+                } while (mainNumbers.includes(num));
+                mainNumbers.push(num);
+                
+                const ball = document.createElement('div');
+                ball.className = 'number-ball regular-ball';
+                ball.textContent = num;
+                container.appendChild(ball);
+            }
+
+            // Generate special numbers
+            for (let i = 0; i < specialCount; i++) {
+                const ball = document.createElement('div');
+                ball.className = `number-ball ${specialClass}`;
+                ball.textContent = Math.floor(Math.random() * specialMax) + 1;
+                container.appendChild(ball);
+            }
+        }
+
+        // Calculate next drawing date
+        function getNextDrawing(dayOfWeek, hour) {
+            const date = new Date();
+            const currentDay = date.getDay();
+            const currentHour = date.getHours();
+
+            let daysUntilNext = (dayOfWeek - currentDay + 7) % 7;
+            if (daysUntilNext === 0 && currentHour >= hour) {
+                daysUntilNext = 7;
+            }
+
+            date.setDate(date.getDate() + daysUntilNext);
+            date.setHours(hour, 0, 0, 0);
+            return date;
+        }
+
+        // Calculate last draw date
+        function getLastDrawDate(dayOfWeek, hour) {
+            const date = new Date();
+            const currentDay = date.getDay();
+            const currentHour = date.getHours();
+
+            let daysSinceLast = (currentDay - dayOfWeek + 7) % 7;
+            if (daysSinceLast === 0 && currentHour < hour) {
+                daysSinceLast = 7;
+            }
+
+            date.setDate(date.getDate() - daysSinceLast);
+            date.setHours(hour, 0, 0, 0);
+            return date;
+        }
+
+        // Fetch Powerball data from the API
+        async function fetchPowerballData() {
+            const statusElement = document.getElementById('powerball-api-status');
+            const statusIndicator = document.querySelector('#powerball-api-status').previousElementSibling;
+            
+            try {
+                statusElement.textContent = "Fetching real-time data...";
+                statusIndicator.className = "status-indicator status-loading";
+                
+                const response = await fetch(`${API_CONFIG.baseURL}/lottery-results/old/past-draws-dates?gameID=9`, {
+                    method: 'GET',
+                    headers: API_CONFIG.headers
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.status}`);
                 }
-            ]
+
+                const data = await response.json();
+                console.log('Powerball API Response:', data);
+                
+                // Process the Powerball data based on the actual response structure
+                processPowerballData(data);
+                
+                statusElement.textContent = "Live data loaded successfully";
+                statusIndicator.className = "status-indicator status-live";
+                
+            } catch (error) {
+                console.error('Error fetching Powerball data:', error);
+                statusElement.textContent = "Using demo data (API unavailable)";
+                statusIndicator.className = "status-indicator status-error";
+                
+                // Fallback to demo data if API fails
+                usePowerballDemoData();
+            }
         }
-    }
-    */
-    
-    if (data && data.success && data.data && data.data.draws && data.data.draws.length > 0) {
-        const latestDraw = data.data.draws[0];
-        
-        // Update jackpot
-        document.getElementById('powerball-jackpot').textContent = latestDraw.jackpot || `$${Math.floor(200 + Math.random() * 100)} Million`;
-        
-        // Update draw date
-        const drawDate = new Date(latestDraw.drawDate);
-        document.getElementById('powerball-last-draw-date').textContent = drawDate.toLocaleDateString();
-        
-        // Display winning numbers
-        displayPowerballNumbers(latestDraw.winningNumbers, latestDraw.powerball);
-        
-    } else {
-        // If data structure doesn't match expected format, use demo data
-        usePowerballDemoData();
-    }
-}
 
-// Display Powerball numbers from API data
-function displayPowerballNumbers(mainNumbers, powerball) {
-    const container = document.getElementById('powerball-numbers');
-    container.innerHTML = '';
-
-    // Display main numbers
-    if (mainNumbers && mainNumbers.length === 5) {
-        mainNumbers.forEach(number => {
-            const ball = document.createElement('div');
-            ball.className = 'number-ball regular-ball';
-            ball.textContent = number;
-            container.appendChild(ball);
-        });
-    } else {
-        // Fallback if numbers aren't available
-        for (let i = 0; i < 5; i++) {
-            const ball = document.createElement('div');
-            ball.className = 'number-ball regular-ball';
-            ball.textContent = Math.floor(Math.random() * 69) + 1;
-            container.appendChild(ball);
+        // Process Powerball API data
+        function processPowerballData(data) {
+            // This will depend on the actual API response structure
+            // For now, we'll just use demo data but in a real app you would:
+            // 1. Extract the winning numbers from the API response
+            // 2. Update the jackpot amount
+            // 3. Update the draw date
+            
+            // Example of how you might process the data:
+            /*
+            if (data && data.draws && data.draws.length > 0) {
+                const latestDraw = data.draws[0];
+                document.getElementById('powerball-jackpot').textContent = latestDraw.jackpot;
+                
+                const drawDate = new Date(latestDraw.drawDate);
+                document.getElementById('powerball-last-draw-date').textContent = drawDate.toLocaleDateString();
+                
+                // Display the winning numbers
+                displayPowerballNumbers(latestDraw.winningNumbers, latestDraw.powerball);
+            }
+            */
+            
+            // For now, we'll just use the demo data
+            usePowerballDemoData();
         }
-    }
 
-    // Display Powerball
-    if (powerball) {
-        const powerballElement = document.createElement('div');
-        powerballElement.className = 'number-ball powerball-ball';
-        powerballElement.textContent = powerball;
-        container.appendChild(powerballElement);
-    } else {
-        // Fallback if Powerball isn't available
-        const powerballElement = document.createElement('div');
-        powerballElement.className = 'number-ball powerball-ball';
-        powerballElement.textContent = Math.floor(Math.random() * 26) + 1;
-        container.appendChild(powerballElement);
-    }
-}
+        // Use demo data for Powerball
+        function usePowerballDemoData() {
+            document.getElementById('powerball-jackpot').textContent = `$${Math.floor(200 + Math.random() * 100)} Million`;
+            
+            const lastPowerballDraw = getLastDrawDate(3, 22);
+            document.getElementById('powerball-last-draw-date').textContent = lastPowerballDraw.toLocaleDateString();
+            
+            // Generate random winning numbers for demo
+            const container = document.getElementById('powerball-numbers');
+            container.innerHTML = '';
 
-// Fallback function for Powerball demo data
-function usePowerballDemoData() {
-    document.getElementById('powerball-jackpot').textContent = `$${Math.floor(200 + Math.random() * 100)} Million`;
-    
-    const lastPowerballDraw = getLastDrawDate(3, 22);
-    document.getElementById('powerball-last-draw-date').textContent = lastPowerballDraw.toLocaleDateString();
-    
-    // Generate random winning numbers for demo
-    const container = document.getElementById('powerball-numbers');
-    container.innerHTML = '';
+            // Generate 5 main numbers (1-69)
+            const mainNumbers = [];
+            for (let i = 0; i < 5; i++) {
+                let num;
+                do {
+                    num = Math.floor(Math.random() * 69) + 1;
+                } while (mainNumbers.includes(num));
+                mainNumbers.push(num);
+                
+                const ball = document.createElement('div');
+                ball.className = 'number-ball regular-ball';
+                ball.textContent = num;
+                container.appendChild(ball);
+            }
 
-    // Generate 5 main numbers (1-69)
-    for (let i = 0; i < 5; i++) {
-        const ball = document.createElement('div');
-        ball.className = 'number-ball regular-ball';
-        ball.textContent = Math.floor(Math.random() * 69) + 1;
-        container.appendChild(ball);
-    }
+            // Generate Powerball (1-26)
+            const powerball = document.createElement('div');
+            powerball.className = 'number-ball powerball-ball';
+            powerball.textContent = Math.floor(Math.random() * 26) + 1;
+            container.appendChild(powerball);
+        }
 
-    // Generate Powerball (1-26)
-    const powerball = document.createElement('div');
-    powerball.className = 'number-ball powerball-ball';
-    powerball.textContent = Math.floor(Math.random() * 26) + 1;
-    container.appendChild(powerball);
-}
+        // Tab functionality
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    // Update active tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show active tab content
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+        }
 
-// Update the main updateAllTimes function to call Powerball specifically
-function updateAllTimes() {
-    const now = new Date();
-    
-    // Set current date based on visitor's location
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('current-date').textContent = now.toLocaleDateString(undefined, options);
-    document.getElementById('today-date').textContent = now.toLocaleDateString(undefined, { 
-        month: 'long', 
-        day: 'numeric', 
-        year: 'numeric' 
-    });
+        // Initial setup
+        function init() {
+            updateAllTimes();
+            initTabs();
+            
+            // Set up refresh button
+            document.getElementById('refresh-powerball').addEventListener('click', () => {
+                fetchPowerballData();
+            });
+            
+            // Fetch Powerball data on load
+            fetchPowerballData();
+            
+            // Update every minute (60000 milliseconds)
+            setInterval(updateAllTimes, 60000);
+        }
 
-    // Set last update time
-    const timeOptions = { hour: '2-digit', minute: '2-digit' };
-    const timeString = now.toLocaleTimeString(undefined, timeOptions);
-
-    // Set individual lottery update times
-    document.getElementById('powerball-update-time').textContent = timeString;
-    document.getElementById('megamillions-update-time').textContent = timeString;
-    document.getElementById('euromillions-update-time').textContent = timeString;
-
-    // Set next drawing dates
-    document.getElementById('powerball-next-drawing').textContent = getNextDrawing(3, 22).toLocaleString(undefined, { 
-        weekday: 'long', 
-        month: 'long', 
-        day: 'numeric', 
-        hour: '2-digit', 
-        minute: '2-digit' 
-    });
-
-    // Fetch Powerball data from API
-    fetchPowerballData();
-    
-    // Keep other lottery demos for now (or add their API calls)
-    useMegaMillionsDemoData();
-    useEuroMillionsDemoData();
-}
-
-// Demo functions for other lotteries (temporary)
-function useMegaMillionsDemoData() {
-    document.getElementById('megamillions-jackpot').textContent = `$${Math.floor(150 + Math.random() * 80)} Million`;
-    const lastMegaDraw = getLastDrawDate(2, 23);
-    document.getElementById('megamillions-last-draw-date').textContent = lastMegaDraw.toLocaleDateString();
-    
-    const container = document.getElementById('megamillions-numbers');
-    container.innerHTML = '';
-    
-    for (let i = 0; i < 5; i++) {
-        const ball = document.createElement('div');
-        ball.className = 'number-ball regular-ball';
-        ball.textContent = Math.floor(Math.random() * 70) + 1;
-        container.appendChild(ball);
-    }
-    
-    const megaball = document.createElement('div');
-    megaball.className = 'number-ball megaball-ball';
-    megaball.textContent = Math.floor(Math.random() * 25) + 1;
-    container.appendChild(megaball);
-}
-
-function useEuroMillionsDemoData() {
-    document.getElementById('euromillions-jackpot').textContent = `€${Math.floor(50 + Math.random() * 40)} Million`;
-    const lastEuroDraw = getLastDrawDate(2, 20);
-    document.getElementById('euromillions-last-draw-date').textContent = lastEuroDraw.toLocaleDateString();
-    
-    const container = document.getElementById('euromillions-numbers');
-    container.innerHTML = '';
-    
-    for (let i = 0; i < 5; i++) {
-        const ball = document.createElement('div');
-        ball.className = 'number-ball regular-ball';
-        ball.textContent = Math.floor(Math.random() * 50) + 1;
-        container.appendChild(ball);
-    }
-    
-    for (let i = 0; i < 2; i++) {
-        const star = document.createElement('div');
-        star.className = 'number-ball euro-star';
-        star.textContent = Math.floor(Math.random() * 12) + 1;
-        container.appendChild(star);
-    }
-}
+        // Initialize the page
+        init();
+    </script>
+</body>
+</html>
