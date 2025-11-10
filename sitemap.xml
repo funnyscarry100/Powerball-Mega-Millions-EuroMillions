@@ -1,25 +1,27 @@
-xml version=1.0 encoding=UTF-8
-urlset 
-  xmlns=httpwww.sitemaps.orgschemassitemap0.9
-  
-  url
-    lochttpslotteryupdate000.spaceloc
-    lastmod2025-10-19lastmod
-    changefreqdailychangefreq
-    priority1.0priority
-  url
-
-  url
-    lochttpslotteryupdate000.spaceterms.htmlloc
-    lastmod2025-10-19lastmod
-    changefreqmonthlychangefreq
-    priority0.6priority
-  url
-
-  url
-    lochttpslotteryupdate000.spaceprivacy.htmlloc
-    lastmod2025-10-19lastmod
-    changefreqmonthlychangefreq
-    priority0.6priority
-  url
-urlset
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://lotteryupdate000.space/</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lotteryupdate000.space/about.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lotteryupdate000.space/terms.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://lotteryupdate000.space/privacy.html</loc>
+    <lastmod>2025-11-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>
