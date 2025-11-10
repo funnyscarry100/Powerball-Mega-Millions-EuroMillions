@@ -1,1 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms of Service — lotteryupdate000.space</title>
+  <meta name="description" content="Terms of Service for lotteryupdate000.space - Lottery Pattern Analyzer tools and services." />
+  <meta name="keywords" content="terms of service, lottery tools, conditions, agreement" />
+  <!-- Google verification -->
+  <meta name="google-site-verification" content="r2yewgzagcwp" />
+  <meta name="google-site-verification" content="gv-3mxfk22pxkir5q.dv.googlehosted.com" />
+  <link rel="canonical" href="https://lotteryupdate000.space/terms.html" />
+  <meta name="robots" content="index,follow" />
 
+  <style>
+    :root{
+      --blue-1:#0047ab;
+      --blue-2:#007bff;
+      --card-bg: rgba(255,255,255,0.95);
+      --muted:#666;
+      --accent:#0ea5a0;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html,body{
+      height:100%;
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.6;
+    }
+    /* Canvas background sits behind content */
+    #bg-canvas{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      display:block;
+    }
+    /* Header / navigation */
+    header{
+      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
+      color:#fff;
+      padding:16px 12px;
+      text-align:center;
+    }
+    header .brand{
+      font-weight:700;
+      font-size:1.25rem;
+      letter-spacing:0.2px;
+    }
+    nav{
+      background:#003c99;
+      padding:8px 0;
+      box-shadow:0 1px 0 rgba(0,0,0,0.05);
+    }
+    .nav-list{
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      align-items:center;
+      margin:0;
+      padding:0 15px;
+      list-style:none;
+      flex-wrap: wrap;
+    }
+    .nav-list a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+    .nav-list a.active{
+      background:rgba(255,255,255,0.08);
+      text-decoration:underline;
+    }
+    .nav-list a:focus{
+      outline:2px solid rgba(255,255,255,0.14);
+      outline-offset:4px;
+    }
+    
+    /* Page shell */
+    .wrap{
+      max-width:800px;
+      margin:20px auto;
+      padding:0 20px;
+      width: 100%;
+    }
+    
+    /* Content Cards */
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:30px;
+      box-shadow:0 6px 20px rgba(6,30,60,0.06);
+      margin-bottom: 20px;
+    }
+
+    .small{
+      font-size:0.85rem;
+      color:var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Typography */
+    h1 {
+      color: var(--blue-1);
+      margin: 0 0 20px 0;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 10px;
+    }
+    
+    h2 {
+      color: var(--blue-1);
+      margin: 25px 0 15px 0;
+      font-size: 1.3rem;
+    }
+    
+    h3 {
+      color: var(--blue-1);
+      margin: 20px 0 10px 0;
+      font-size: 1.1rem;
+    }
+    
+    p {
+      margin: 15px 0;
+      color: #333;
+    }
+    
+    ul, ol {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+    
+    li {
+      margin: 8px 0;
+      color: #333;
+    }
+    
+    .disclaimer-box {
+      background: #fff3cd;
+      border: 1px solid #ffeaa7;
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      border-left: 4px solid #ffc107;
+    }
+    
+    .back-home {
+      display: inline-block;
+      background: linear-gradient(180deg, var(--blue-2), var(--blue-1));
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(0,60,153,0.18);
+      margin-top: 20px;
+      transition: transform 0.2s;
+    }
+    
+    .back-home:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:40px;
+      text-align:center;
+      color:#fff;
+      padding:25px 18px;
+      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
+    }
+    footer .muted{
+      color:rgba(255,255,255,0.85);
+      font-size:0.95rem;
+    }
+    .verif{
+      font-size:0.8rem;
+      color:rgba(255,255,255,0.9);
+      margin-top:6px;
+      opacity:0.95;
+    }
+
+    /* Accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      * {
+        animation-duration:0.001ms !important;
+        transition-duration:0.001ms !important;
+      }
+      .back-home:hover {
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- animated 3D-like green background (canvas) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <header>
+    <div class="brand">lotteryupdate000.space</div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="index.html" id="nav-home">Home</a></li>
+      <li><a href="terms.html" class="active" id="nav-terms">Terms</a></li>
+      <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap" id="content">
+    <div class="card">
+      <h1>Terms of Service</h1>
+      
+      <div class="disclaimer-box">
+        <strong>⚠️ Important Disclaimer:</strong> This service is provided for entertainment and educational purposes only. Lottery outcomes are completely random and cannot be predicted.
+      </div>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing and using lotteryupdate000.space ("the Service"), you accept and agree to be bound by the terms and provision of this agreement.</p>
+
+      <h2>2. Description of Service</h2>
+      <p>lotteryupdate000.space provides:</p>
+      <ul>
+        <li>Lottery pattern analysis tools</li>
+        <li>Number generation algorithms</li>
+        <li>Statistical analysis features</li>
+        <li>Educational content about lottery probabilities</li>
+      </ul>
+
+      <h2>3. No Guarantee of Results</h2>
+      <p>The Service is provided for entertainment and educational purposes only. We make no guarantees, promises, or warranties regarding:</p>
+      <ul>
+        <li>Accuracy of any analysis or predictions</li>
+        <li>Probability of winning any lottery</li>
+        <li>Effectiveness of generated number combinations</li>
+      </ul>
+
+      <h2>4. User Responsibilities</h2>
+      <p>As a user of this Service, you agree to:</p>
+      <ul>
+        <li>Use the Service for lawful purposes only</li>
+        <li>Not rely on the Service for financial decisions</li>
+        <li>Understand that gambling involves risk</li>
+        <li>Comply with all applicable local laws regarding gambling</li>
+      </ul>
+
+      <h2>5. Intellectual Property</h2>
+      <p>All content, features, and functionality available through the Service are owned by lotteryupdate000.space and are protected by international copyright, trademark, and other intellectual property laws.</p>
+
+      <h2>6. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by law, lotteryupdate000.space shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of or inability to use the Service.</p>
+
+      <h2>7. Service Modifications</h2>
+      <p>We reserve the right to modify or discontinue, temporarily or permanently, the Service with or without notice. We shall not be liable to you or any third party for any modification, suspension, or discontinuance of the Service.</p>
+
+      <h2>8. Governing Law</h2>
+      <p>These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which the Service operates, without regard to its conflict of law provisions.</p>
+
+      <h2>9. Changes to Terms</h2>
+      <p>We reserve the right to update these Terms of Service at any time. We will notify users of any changes by posting the new Terms of Service on this page and updating the "Last Updated" date.</p>
+
+      <p class="small"><strong>Last Updated:</strong> December 2024</p>
+
+      <a href="index.html" class="back-home">← Back to Home</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="muted">© <span id="year"></span> lotteryupdate000.space — All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+  /* Animated canvas background: green 3D-style floating spheres */
+  (function(){
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d', { alpha:true });
+    let w = canvas.width = innerWidth;
+    let h = canvas.height = innerHeight;
+    const DPR = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const balls = [];
+    const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
+
+    function rand(min,max){ return Math.random()*(max-min)+min; }
+    function Ball(){
+      this.r = rand(20,70);
+      this.x = rand(this.r, w - this.r);
+      this.y = rand(this.r, h - this.r);
+      this.vx = rand(-0.25,0.25);
+      this.vy = rand(-0.15,0.15);
+      this.color = colors[Math.floor(rand(0,colors.length))];
+    }
+    function rgba(hex, a){
+      const bigint = parseInt(hex.replace('#',''),16);
+      const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
+      return 'rgba('+r+','+g+','+b+','+a+')';
+    }
+    const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
+    for(let i=0;i<count;i++) balls.push(new Ball());
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      const g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
+
+      const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
+      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
+      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
+
+      balls.forEach(b=>{
+        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        if(b.x - b.r > w) b.x = -b.r;
+        if(b.x + b.r < 0) b.x = w + b.r;
+        if(b.y - b.r > h) b.y = -b.r;
+        if(b.y + b.r < 0) b.y = h + b.r;
+
+        ctx.beginPath();
+        const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
+        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = shadowGrad;
+        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
+
+        ctx.beginPath();
+        const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,255,255,0.18)';
+        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
+      });
+    }
+
+    function darken(hex, amt){
+      const num = parseInt(hex.replace('#',''),16);
+      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
+      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
+      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
+      return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
+    }
+
+    let raf;
+    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    loop();
+
+    window.addEventListener('resize', ()=> {
+      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
+      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+    });
+
+  })();
+  </script>
+</body>
+</html>
