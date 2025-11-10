@@ -367,6 +367,26 @@
       }
     }
 
+    /* Feature Grid for Tips Section */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .feature-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--blue-1);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
     /* Footer */
     footer{
       margin-top:40px;
@@ -515,6 +535,127 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Tips Section -->
+    <div class="card">
+      <h2 class="section-heading">💡 Tips for Using the Pattern Analyzer</h2>
+      
+      <div class="feature-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🎯</div>
+          <h3>Pattern-Based Generation</h3>
+          <p><strong>Best for:</strong> Following historical number trends</p>
+          <ul style="font-size: 0.85rem; margin-top: 10px;">
+            <li>Uses frequency data to weight number selection</li>
+            <li>70% chance to pick "hot" numbers</li>
+            <li>30% chance for random selection</li>
+            <li>Good for testing frequency theories</li>
+          </ul>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">⚖️</div>
+          <h3>Balanced Set Generation</h3>
+          <p><strong>Best for:</strong> Well-distributed number combinations</p>
+          <ul style="font-size: 0.85rem; margin-top: 10px;">
+            <li>Ensures mix of odd and even numbers</li>
+            <li>Balances high and low numbers</li>
+            <li>Prevents number clustering</li>
+            <li>Most common strategy used</li>
+          </ul>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">🔢</div>
+          <h3>Click to Include Numbers</h3>
+          <p><strong>Personal preference:</strong> Include your lucky numbers</p>
+          <ul style="font-size: 0.85rem; margin-top: 10px;">
+            <li>Click any number in the heatmap</li>
+            <li>Tool generates sets including your choice</li>
+            <li>Combine strategy with personal picks</li>
+            <li>Great for birthdays or lucky numbers</li>
+          </ul>
+        </div>
+        
+        <div class="feature-item">
+          <div class="feature-icon">⚙️</div>
+          <h3>Customize Settings</h3>
+          <p><strong>Flexibility:</strong> Adapt to different lottery games</p>
+          <ul style="font-size: 0.85rem; margin-top: 10px;">
+            <li>Adjust number range (1-69, 1-49, etc.)</li>
+            <li>Change how many numbers to generate</li>
+            <li>Works for Powerball, Mega Millions, etc.</li>
+            <li>Update settings for each game type</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stat-card" style="margin-top: 20px;">
+        <h4 class="subsection-heading" style="margin-top: 0;">🎲 Recommended Strategies</h4>
+        <div style="font-size: 0.9rem;">
+          <p><strong>For Powerball (5/69 + 1/26):</strong></p>
+          <ul>
+            <li>Set range to 69, count to 5 for main numbers</li>
+            <li>Use balanced sets for better distribution</li>
+            <li>Consider including 1-2 "hot" numbers</li>
+          </ul>
+          
+          <p><strong>For Mega Millions (5/70 + 1/25):</strong></p>
+          <ul>
+            <li>Set range to 70, count to 5 for main numbers</li>
+            <li>Pattern-based can highlight frequent numbers</li>
+            <li>Balance ensures good number spread</li>
+          </ul>
+          
+          <p><strong>For EuroMillions (5/50 + 2/12):</strong></p>
+          <ul>
+            <li>Set range to 50, count to 5 for main numbers</li>
+            <li>Use click feature for preferred numbers</li>
+            <li>Balanced sets work well for main numbers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stat-card" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
+        <h4 class="subsection-heading" style="margin-top: 0;">📊 Understanding the Heatmap</h4>
+        <div style="font-size: 0.9rem;">
+          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
+            <span><strong>Red (Hot):</strong> Most frequently appearing numbers</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ffa500;"></div>
+            <span><strong>Orange (Warm):</strong> Above average frequency</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: #4ecdc4;"></div>
+            <span><strong>Teal (Cool):</strong> Below average frequency</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background: #45b7d1;"></div>
+            <span><strong>Blue (Cold):</strong> Least frequently appearing numbers</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stat-card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+        <h4 class="subsection-heading" style="margin-top: 0;">🎯 Pro Tips</h4>
+        <div style="font-size: 0.9rem;">
+          <ul>
+            <li><strong>Generate multiple sets</strong> and compare the statistics</li>
+            <li><strong>Mix strategies</strong> - try both pattern-based and balanced</li>
+            <li><strong>Use the analysis</strong> to understand number distribution</li>
+            <li><strong>Remember:</strong> All lotteries are random - this is for entertainment!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button class="analyzer-btn" onclick="scrollToAnalyzer()" style="padding: 12px 30px; font-size: 1.1rem;">
+          🚀 Start Using the Tool
+        </button>
       </div>
     </div>
 
@@ -684,6 +825,12 @@
       });
       renderHeatmap();
       generateBalanced(); // Regenerate with new settings
+  }
+
+  function scrollToAnalyzer() {
+    document.getElementById('analyzer').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
   }
   
   // Initialize Pattern Analyzer
