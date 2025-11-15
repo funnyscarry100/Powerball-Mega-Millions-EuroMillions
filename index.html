@@ -14,13 +14,13 @@
   })(window,document,'script','dataLayer','GTM-MTRLZ4KQ');</script>
   <!-- End Google Tag Manager -->
   
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH64MKGP4"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TB7VXJQ8"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-KTH64MKGP4');
+    gtag('config', 'GT-TB7VXJQ8');
   </script>
   
   <title>Lottery Pattern Analyzer - LotteryUpdate000</title>
@@ -684,8 +684,20 @@
   const maxNumber = 69;
   let numberFrequencies = {};
   
-  // Enhanced Google Analytics Tracking
+  // Enhanced Google Analytics Tracking (works with both GTM and gtag)
   function trackNumberGeneration(method, numbers) {
+    // Using dataLayer for both GTM and gtag implementations
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'number_generation',
+      'method': method,
+      'numbers': numbers.join(','),
+      'count': numbers.length,
+      'max_number': document.getElementById('maxNumber').value,
+      'number_count': document.getElementById('numberCount').value
+    });
+    
+    // Also send via gtag if available
     if (typeof gtag !== 'undefined') {
       gtag('event', 'number_generation', {
         'method': method,
@@ -698,6 +710,14 @@
   }
 
   function trackNumberClick(number) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'number_click',
+      'number': number,
+      'category': 'heatmap',
+      'frequency': numberFrequencies[number] || 0
+    });
+    
     if (typeof gtag !== 'undefined') {
       gtag('event', 'number_click', {
         'number': number,
@@ -708,6 +728,13 @@
   }
 
   function trackSettingsUpdate() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'settings_update',
+      'max_number': document.getElementById('maxNumber').value,
+      'number_count': document.getElementById('numberCount').value
+    });
+    
     if (typeof gtag !== 'undefined') {
       gtag('event', 'settings_update', {
         'max_number': document.getElementById('maxNumber').value,
@@ -717,6 +744,13 @@
   }
 
   function trackToolUsage(action) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'tool_usage',
+      'action': action,
+      'page_location': window.location.href
+    });
+    
     if (typeof gtag !== 'undefined') {
       gtag('event', 'tool_usage', {
         'action': action,
