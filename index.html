@@ -34,8 +34,6 @@
     
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
     
     body {
@@ -43,91 +41,85 @@
       height: 100%;
       margin: 0;
       font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      line-height: 1.6;
     }
     
     /* Canvas background sits behind content */
     #bg-canvas{
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      display: block;
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      display:block;
     }
     
     /* Header / navigation */
     header{
-      background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
-      color: #fff;
-      padding: 16px 12px;
-      text-align: center;
+      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
+      color:#fff;
+      padding:16px 12px;
+      text-align:center;
     }
     
     header .brand{
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: 0.2px;
+      font-weight:700;
+      font-size:1.25rem;
+      letter-spacing:0.2px;
     }
     
     nav{
-      background: #003c99;
-      padding: 8px 0;
-      box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+      background:#003c99;
+      padding:8px 0;
+      box-shadow:0 1px 0 rgba(0,0,0,0.05);
     }
     
     .nav-list{
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      padding: 0 15px;
-      list-style: none;
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      align-items:center;
+      margin:0;
+      padding:0 15px;
+      list-style:none;
       flex-wrap: wrap;
     }
     
     .nav-list a{
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 6px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:8px 12px;
+      border-radius:6px;
       font-size: 0.9rem;
       white-space: nowrap;
-      transition: background 0.3s;
     }
     
     .nav-list a.active{
-      background: rgba(255,255,255,0.08);
-      text-decoration: underline;
-    }
-    
-    .nav-list a:hover {
-      background: rgba(255,255,255,0.05);
+      background:rgba(255,255,255,0.08);
+      text-decoration:underline;
     }
     
     .nav-list a:focus{
-      outline: 2px solid rgba(255,255,255,0.14);
-      outline-offset: 4px;
+      outline:2px solid rgba(255,255,255,0.14);
+      outline-offset:4px;
     }
     
     /* Page shell */
     .wrap{
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 15px;
+      max-width:1200px;
+      margin:20px auto;
+      padding:0 15px;
       width: 100%;
     }
     
     /* Hero Section */
     .hero{
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      display:flex;
       flex-direction: column;
-      gap: 20px;
-      align-items: center;
-      box-shadow: 0 6px 24px rgba(6,30,60,0.08);
+      gap:20px;
+      align-items:center;
+      box-shadow:0 6px 24px rgba(6,30,60,0.08);
       margin-bottom: 20px;
     }
     
@@ -139,13 +131,13 @@
     }
     
     .hero-left{
-      flex: 1;
+      flex:1;
       width: 100%;
     }
     
     .hero-right{
       width: 100%;
-      text-align: center;
+      text-align:center;
     }
     
     @media (min-width: 768px) {
@@ -156,9 +148,9 @@
     }
     
     .hero h1{
-      margin: 0 0 10px 0;
-      font-size: 1.5rem;
-      color: var(--blue-1);
+      margin:0 0 10px 0;
+      font-size:1.5rem;
+      color:var(--blue-1);
       line-height: 1.3;
     }
     
@@ -169,31 +161,22 @@
     }
     
     .hero p{
-      margin: 8px 0;
-      color: var(--muted);
+      margin:8px 0;
+      color:var(--muted);
       line-height: 1.5;
     }
     
     .cta-btn{
-      display: inline-block;
-      background: linear-gradient(180deg, var(--blue-2), var(--blue-1));
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 6px 16px rgba(0,60,153,0.18);
+      display:inline-block;
+      background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 6px 16px rgba(0,60,153,0.18);
       width: 100%;
       margin-top: 10px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: none;
-      cursor: pointer;
-      font-size: 1rem;
-    }
-    
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,60,153,0.25);
     }
     
     @media (min-width: 768px) {
@@ -204,17 +187,17 @@
 
     /* Cards */
     .card{
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 6px 20px rgba(6,30,60,0.06);
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 20px rgba(6,30,60,0.06);
       margin-bottom: 20px;
       width: 100%;
     }
 
     .small{
-      font-size: 0.85rem;
-      color: var(--muted);
+      font-size:0.85rem;
+      color:var(--muted);
       line-height: 1.4;
     }
 
@@ -324,11 +307,10 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.3s;
+      transition: background 0.3s;
       font-weight: 600;
       flex: 1;
       min-width: 140px;
-      font-size: 0.95rem;
     }
     
     @media (min-width: 480px) {
@@ -339,7 +321,6 @@
     
     .analyzer-btn:hover {
       background: var(--blue-2);
-      transform: translateY(-1px);
     }
     
     .generated-numbers {
@@ -398,11 +379,6 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: 600;
-      transition: background 0.3s;
-    }
-    
-    .settings-controls button:hover {
-      background: var(--blue-2);
     }
 
     /* Section Headings */
@@ -445,11 +421,6 @@
       padding: 20px;
       border-radius: 8px;
       border-left: 4px solid var(--blue-1);
-      transition: transform 0.3s;
-    }
-    
-    .feature-item:hover {
-      transform: translateY(-5px);
     }
 
     .feature-icon {
@@ -459,16 +430,16 @@
 
     /* Footer */
     footer{
-      margin-top: 40px;
-      text-align: center;
-      color: #fff;
-      padding: 25px 18px;
-      background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
+      margin-top:40px;
+      text-align:center;
+      color:#fff;
+      padding:25px 18px;
+      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
     }
     
     footer .muted{
-      color: rgba(255,255,255,0.85);
-      font-size: 0.95rem;
+      color:rgba(255,255,255,0.85);
+      font-size:0.95rem;
       margin-bottom: 8px;
     }
     
@@ -489,58 +460,21 @@
     }
     
     .verif{
-      font-size: 0.8rem;
-      color: rgba(255,255,255,0.9);
-      margin-top: 6px;
-      opacity: 0.95;
+      font-size:0.8rem;
+      color:rgba(255,255,255,0.9);
+      margin-top:6px;
+      opacity:0.95;
     }
 
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
-        animation-duration: 0.001ms !important;
-        transition-duration: 0.001ms !important;
+        animation-duration:0.001ms !important;
+        transition-duration:0.001ms !important;
       }
       .number-cell:hover {
         transform: none;
       }
-      .analyzer-btn:hover {
-        transform: none;
-      }
-      .feature-item:hover {
-        transform: none;
-      }
-      .cta-btn:hover {
-        transform: none;
-      }
-    }
-    
-    /* Lottery Game Selector */
-    .lottery-selector {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 15px 0;
-    }
-    
-    .lottery-btn {
-      padding: 8px 12px;
-      background: #f0f0f0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 0.85rem;
-    }
-    
-    .lottery-btn:hover {
-      background: #e0e0e0;
-    }
-    
-    .lottery-btn.active {
-      background: var(--blue-1);
-      color: white;
-      border-color: var(--blue-1);
     }
   </style>
 </head>
@@ -578,7 +512,7 @@
           <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Tool Status</div>
           <div id="latest-time" class="small" style="margin-top:8px;">Active & Ready</div>
           <div style="margin-top:12px;">
-            <button class="cta-btn" onclick="scrollToAnalyzer()">Start Analyzing</button>
+            <a class="cta-btn" href="#analyzer">Start Analyzing</a>
           </div>
         </div>
       </div>
@@ -588,19 +522,6 @@
     <div class="card" id="analyzer">
       <h2 class="section-heading">Worldwide Lottery Pattern Analyzer</h2>
       <p class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis for any lottery worldwide. Click any number to include it in your generated set.</p>
-      
-      <!-- Lottery Game Selector -->
-      <div class="stat-card">
-        <h4 class="subsection-heading" style="margin-top: 0;">Select Lottery Game</h4>
-        <div class="lottery-selector">
-          <button class="lottery-btn active" onclick="setLotteryGame('powerball')">Powerball</button>
-          <button class="lottery-btn" onclick="setLotteryGame('megamillions')">Mega Millions</button>
-          <button class="lottery-btn" onclick="setLotteryGame('euromillions')">EuroMillions</button>
-          <button class="lottery-btn" onclick="setLotteryGame('lottomax')">Lotto Max</button>
-          <button class="lottery-btn" onclick="setLotteryGame('daily')">Daily Lotto</button>
-          <button class="lottery-btn" onclick="setLotteryGame('custom')">Custom</button>
-        </div>
-      </div>
 
       <div class="analyzer-grid">
         <!-- Left Column - Heatmap & Analysis -->
@@ -614,7 +535,6 @@
               <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
               <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
               <p><strong>Sum Range:</strong> <span id="sumRange">-</span></p>
-              <p><strong>Selected Game:</strong> <span id="selectedGame">Powerball</span></p>
             </div>
           </div>
         </div>
@@ -628,9 +548,6 @@
             </button>
             <button class="analyzer-btn" onclick="generateBalanced()">
               ⚖️ Balanced Set
-            </button>
-            <button class="analyzer-btn" onclick="generateRandom()">
-              🎲 Pure Random
             </button>
           </div>
           
@@ -647,7 +564,7 @@
               </div>
               <div style="display: flex; align-items: center; gap: 8px;">
                 <label for="numberCount">Count:</label>
-                <input type="number" id="numberCount" value="5" min="1" max="15">
+                <input type="number" id="numberCount" value="6" min="1" max="15">
               </div>
               <button onclick="updatePreferences()" style="padding: 8px 16px;">Update Settings</button>
             </div>
@@ -798,15 +715,13 @@
       <strong>Contact Us:</strong> 
       <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a>
     </div>
-    <div class="verif">This tool is for entertainment purposes only. Please play responsibly.</div>
   </footer>
 
   <!-- Pattern Analyzer JavaScript -->
   <script>
   // Pattern Analyzer Functionality
-  let maxNumber = 69;
+  const maxNumber = 69;
   let numberFrequencies = {};
-  let selectedGame = 'powerball';
   
   // Enhanced Google Analytics Tracking (works with both GTM and gtag)
   function trackNumberGeneration(method, numbers) {
@@ -818,8 +733,7 @@
       'numbers': numbers.join(','),
       'count': numbers.length,
       'max_number': document.getElementById('maxNumber').value,
-      'number_count': document.getElementById('numberCount').value,
-      'selected_game': selectedGame
+      'number_count': document.getElementById('numberCount').value
     });
     
     // Also send via gtag if available
@@ -829,8 +743,7 @@
         'numbers': numbers.join(','),
         'count': numbers.length,
         'max_number': document.getElementById('maxNumber').value,
-        'number_count': document.getElementById('numberCount').value,
-        'selected_game': selectedGame
+        'number_count': document.getElementById('numberCount').value
       });
     }
   }
@@ -841,16 +754,14 @@
       'event': 'number_click',
       'number': number,
       'category': 'heatmap',
-      'frequency': numberFrequencies[number] || 0,
-      'selected_game': selectedGame
+      'frequency': numberFrequencies[number] || 0
     });
     
     if (typeof gtag !== 'undefined') {
       gtag('event', 'number_click', {
         'number': number,
         'category': 'heatmap',
-        'frequency': numberFrequencies[number] || 0,
-        'selected_game': selectedGame
+        'frequency': numberFrequencies[number] || 0
       });
     }
   }
@@ -860,15 +771,13 @@
     window.dataLayer.push({
       'event': 'settings_update',
       'max_number': document.getElementById('maxNumber').value,
-      'number_count': document.getElementById('numberCount').value,
-      'selected_game': selectedGame
+      'number_count': document.getElementById('numberCount').value
     });
     
     if (typeof gtag !== 'undefined') {
       gtag('event', 'settings_update', {
         'max_number': document.getElementById('maxNumber').value,
-        'number_count': document.getElementById('numberCount').value,
-        'selected_game': selectedGame
+        'number_count': document.getElementById('numberCount').value
       });
     }
   }
@@ -878,29 +787,13 @@
     window.dataLayer.push({
       'event': 'tool_usage',
       'action': action,
-      'page_location': window.location.href,
-      'selected_game': selectedGame
+      'page_location': window.location.href
     });
     
     if (typeof gtag !== 'undefined') {
       gtag('event', 'tool_usage', {
         'action': action,
-        'page_location': window.location.href,
-        'selected_game': selectedGame
-      });
-    }
-  }
-  
-  function trackGameSelection(game) {
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({
-      'event': 'game_selection',
-      'selected_game': game
-    });
-    
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'game_selection', {
-        'selected_game': game
+        'page_location': window.location.href
       });
     }
   }
@@ -992,23 +885,6 @@
       trackNumberGeneration('balanced', balancedNumbers);
   }
   
-  function generateRandom() {
-      const count = parseInt(document.getElementById('numberCount').value);
-      const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [];
-      
-      while (numbers.length < count) {
-          const num = Math.floor(Math.random() * maxNum) + 1;
-          if (!numbers.includes(num)) {
-              numbers.push(num);
-          }
-      }
-      
-      displayGeneratedNumbers(numbers.sort((a, b) => a - b));
-      updateStatistics(numbers);
-      trackNumberGeneration('random', numbers);
-  }
-  
   function ensureBalance(numbers, maxNum) {
       const oddCount = numbers.filter(n => n % 2 === 1).length;
       const highLowSplit = maxNum / 2;
@@ -1064,8 +940,6 @@
   
   function updatePreferences() {
       const newMax = parseInt(document.getElementById('maxNumber').value);
-      maxNumber = newMax;
-      
       // Update frequencies for new range
       for (let i = 1; i <= newMax; i++) {
           if (!numberFrequencies[i]) {
@@ -1081,51 +955,6 @@
       renderHeatmap();
       generateBalanced(); // Regenerate with new settings
       trackSettingsUpdate();
-  }
-  
-  function setLotteryGame(game) {
-      selectedGame = game;
-      
-      // Update active button
-      document.querySelectorAll('.lottery-btn').forEach(btn => {
-          btn.classList.remove('active');
-      });
-      event.target.classList.add('active');
-      
-      // Update game-specific settings
-      switch(game) {
-          case 'powerball':
-              document.getElementById('maxNumber').value = 69;
-              document.getElementById('numberCount').value = 5;
-              document.getElementById('selectedGame').textContent = 'Powerball (5/69)';
-              break;
-          case 'megamillions':
-              document.getElementById('maxNumber').value = 70;
-              document.getElementById('numberCount').value = 5;
-              document.getElementById('selectedGame').textContent = 'Mega Millions (5/70)';
-              break;
-          case 'euromillions':
-              document.getElementById('maxNumber').value = 50;
-              document.getElementById('numberCount').value = 5;
-              document.getElementById('selectedGame').textContent = 'EuroMillions (5/50)';
-              break;
-          case 'lottomax':
-              document.getElementById('maxNumber').value = 50;
-              document.getElementById('numberCount').value = 7;
-              document.getElementById('selectedGame').textContent = 'Lotto Max (7/50)';
-              break;
-          case 'daily':
-              document.getElementById('maxNumber').value = 36;
-              document.getElementById('numberCount').value = 5;
-              document.getElementById('selectedGame').textContent = 'Daily Lotto (5/36)';
-              break;
-          case 'custom':
-              document.getElementById('selectedGame').textContent = 'Custom Settings';
-              break;
-      }
-      
-      updatePreferences();
-      trackGameSelection(game);
   }
 
   function scrollToAnalyzer() {
