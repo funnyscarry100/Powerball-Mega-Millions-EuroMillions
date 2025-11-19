@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Generate winning lotto numbers with our advanced lotto numbers generator. Discover winning numbers using statistical pattern analysis for Powerball, Mega Millions, and EuroMillions. Create balanced number sets with smart algorithms.">
-  <meta name="keywords" content="winning lotto numbers, winning numbers, lotto numbers, lotto numbers generator, lottery pattern analyzer, number generator, lottery statistics, number patterns, lottery analysis, smart number generator, balanced number sets, frequency analysis, lottery tips, Powerball numbers, Mega Millions, EuroMillions, lottery strategies, hot numbers, cold numbers, number frequency, lottery calculator">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Lottery Pattern Analyzer | Generate Winning Numbers | LotteryUpdate000</title>
+  <meta name="description" content="Free lottery pattern analyzer tool. Generate Powerball, Mega Millions & EuroMillions numbers using statistical analysis. Create balanced number sets.">
+  <meta name="keywords" content="lottery numbers, number generator, pattern analyzer, Powerball, Mega Millions, EuroMillions, number patterns">
+  <link rel="canonical" href="https://lotteryupdate000.space/" />
+  
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Lottery Pattern Analyzer",
+    "description": "Free lottery number generator and pattern analysis tool",
+    "url": "https://lotteryupdate000.space/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "permissions": "none"
+  }
+  </script>
+  
+  <!-- Force HTTPS -->
+  <script>
+  if (window.location.protocol === 'http:') {
+    window.location.href = 'https:' + window.location.href.substring(5);
+  }
+  </script>
   
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH64MKGP4"></script>
@@ -15,7 +38,6 @@
     gtag('config', 'G-KTH64MKGP4');
   </script>
   
-  <title>Lottery Pattern Analyzer - LotteryUpdate000</title>
   <style>
     :root {
       --blue-1: #0066cc;
@@ -26,84 +48,89 @@
     
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
     body {
       background: #f8f9fa;
-      height:100%;
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.6;
     }
+    
     /* Canvas background sits behind content */
     #bg-canvas{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      display:block;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      display: block;
     }
+    
     /* Header / navigation */
     header{
       background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
-      color:#fff;
-      padding:16px 12px;
-      text-align:center;
+      color: #fff;
+      padding: 16px 12px;
+      text-align: center;
     }
     header .brand{
-      font-weight:700;
-      font-size:1.25rem;
-      letter-spacing:0.2px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 0.2px;
     }
     nav{
-      background:#003c99;
-      padding:8px 0;
-      box-shadow:0 1px 0 rgba(0,0,0,0.05);
+      background: #003c99;
+      padding: 8px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.05);
     }
     .nav-list{
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      align-items:center;
-      margin:0;
-      padding:0 15px;
-      list-style:none;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0 15px;
+      list-style: none;
       flex-wrap: wrap;
     }
     .nav-list a{
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      padding:8px 12px;
-      border-radius:6px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 6px;
       font-size: 0.9rem;
       white-space: nowrap;
     }
     .nav-list a.active{
-      background:rgba(255,255,255,0.08);
-      text-decoration:underline;
+      background: rgba(255,255,255,0.08);
+      text-decoration: underline;
     }
     .nav-list a:focus{
-      outline:2px solid rgba(255,255,255,0.14);
-      outline-offset:4px;
+      outline: 2px solid rgba(255,255,255,0.14);
+      outline-offset: 4px;
     }
     
     /* Page shell */
     .wrap{
-      max-width:1200px;
-      margin:20px auto;
-      padding:0 15px;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
       width: 100%;
     }
     
     /* Hero Section */
     .hero{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      display:flex;
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
       flex-direction: column;
-      gap:20px;
-      align-items:center;
-      box-shadow:0 6px 24px rgba(6,30,60,0.08);
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 6px 24px rgba(6,30,60,0.08);
       margin-bottom: 20px;
     }
     @media (min-width: 768px) {
@@ -113,12 +140,12 @@
       }
     }
     .hero-left{
-      flex:1;
+      flex: 1;
       width: 100%;
     }
     .hero-right{
       width: 100%;
-      text-align:center;
+      text-align: center;
     }
     @media (min-width: 768px) {
       .hero-right {
@@ -127,9 +154,9 @@
       }
     }
     .hero h1{
-      margin:0 0 10px 0;
-      font-size:1.5rem;
-      color:var(--blue-1);
+      margin: 0 0 10px 0;
+      font-size: 1.5rem;
+      color: var(--blue-1);
       line-height: 1.3;
     }
     @media (min-width: 768px) {
@@ -138,21 +165,24 @@
       }
     }
     .hero p{
-      margin:8px 0;
-      color:var(--muted);
+      margin: 8px 0;
+      color: var(--muted);
       line-height: 1.5;
     }
     .cta-btn{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
-      color:#fff;
-      padding:12px 20px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:0 6px 16px rgba(0,60,153,0.18);
+      display: inline-block;
+      background: linear-gradient(180deg,var(--blue-2),var(--blue-1));
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(0,60,153,0.18);
       width: 100%;
       margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
     @media (min-width: 768px) {
       .cta-btn {
@@ -162,17 +192,17 @@
 
     /* Cards */
     .card{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      box-shadow:0 6px 20px rgba(6,30,60,0.06);
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(6,30,60,0.06);
       margin-bottom: 20px;
       width: 100%;
     }
 
     .small{
-      font-size:0.85rem;
-      color:var(--muted);
+      font-size: 0.85rem;
+      color: var(--muted);
       line-height: 1.4;
     }
 
@@ -228,6 +258,7 @@
       font-size: 14px;
       max-width: 45px;
       margin: 0 auto;
+      background: white;
     }
     @media (min-width: 480px) {
       .number-cell {
@@ -275,6 +306,7 @@
       font-weight: 600;
       flex: 1;
       min-width: 140px;
+      font-size: 0.9rem;
     }
     @media (min-width: 480px) {
       .analyzer-btn {
@@ -328,6 +360,7 @@
       border-radius: 5px;
       width: 70px;
       text-align: center;
+      font-size: 0.9rem;
     }
     .settings-controls button {
       padding: 8px 16px;
@@ -337,6 +370,7 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: 600;
+      font-size: 0.9rem;
     }
 
     /* Section Headings */
@@ -385,15 +419,15 @@
 
     /* Footer */
     footer{
-      margin-top:40px;
-      text-align:center;
-      color:#fff;
-      padding:25px 18px;
-      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
+      margin-top: 40px;
+      text-align: center;
+      color: #fff;
+      padding: 25px 18px;
+      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
     }
     footer .muted{
-      color:rgba(255,255,255,0.85);
-      font-size:0.95rem;
+      color: rgba(255,255,255,0.85);
+      font-size: 0.95rem;
       margin-bottom: 8px;
     }
     .contact-email {
@@ -410,23 +444,35 @@
       text-decoration: underline;
     }
     .verif{
-      font-size:0.8rem;
-      color:rgba(255,255,255,0.9);
-      margin-top:6px;
-      opacity:0.95;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.9);
+      margin-top: 6px;
+      opacity: 0.95;
+    }
+
+    /* Performance Optimizations */
+    .hero, .analyzer-grid {
+      content-visibility: auto;
     }
 
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
-        animation-duration:0.001ms !important;
-        transition-duration:0.001ms !important;
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
       }
       .number-cell:hover {
         transform: none;
       }
       .analyzer-btn:hover {
         transform: none;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      .cta-btn, .analyzer-btn, .number-cell {
+        display: none;
       }
     }
   </style>
@@ -451,16 +497,16 @@
   <main class="wrap" id="content">
     <div class="hero">
       <div class="hero-left">
-        <h1>Lottery Pattern Analyzer — lotteryupdate000.space</h1>
-        <p>Advanced number pattern analysis and generation tools. Analyze frequency patterns and generate balanced number sets using statistical insights.</p>
-        <p class="small">Past performance doesn't guarantee future results.</p>
+        <h1>Lottery Pattern Analyzer — Generate Smart Number Combinations</h1>
+        <p>Advanced number pattern analysis and generation tools. Analyze frequency patterns and generate balanced number sets using statistical insights for various lottery games.</p>
+        <p class="small">Past performance doesn't guarantee future results. Lottery games are based on random chance.</p>
       </div>
       <div class="hero-right">
         <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
           <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Tool Status</div>
           <div id="latest-time" class="small" style="margin-top:8px;">Active & Ready</div>
           <div style="margin-top:12px;">
-            <a class="cta-btn" href="#analyzer">Start Analyzing</a>
+            <a class="cta-btn" href="#analyzer">Start Analyzing Numbers</a>
           </div>
         </div>
       </div>
@@ -468,7 +514,7 @@
 
     <!-- Pattern Analyzer Section -->
     <div class="card" id="analyzer">
-      <h2 class="section-heading">Lottery Pattern Analyzer</h2>
+      <h2 class="section-heading">Lottery Pattern Analyzer Tool</h2>
       <p class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis. Click any number to include it in your generated set.</p>
 
       <div class="analyzer-grid">
@@ -526,7 +572,7 @@
               <p>🔵 <strong>Cool Numbers</strong>: Below average frequency</p>
               <p>🔷 <strong>Cold Numbers</strong>: Rarely appearing numbers</p>
               <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
-                <strong>⚠️ Important:</strong> Lottery outcomes are completely random and cannot be predicted.
+                <strong>⚠️ Important:</strong> Lottery outcomes are completely random and cannot be predicted. Play responsibly.
               </div>
             </div>
           </div>
@@ -643,7 +689,7 @@
             <li><strong>Generate multiple sets</strong> and compare the statistics</li>
             <li><strong>Mix strategies</strong> - try both pattern-based and balanced</li>
             <li><strong>Use the analysis</strong> to understand number distribution</li>
-            <li><strong>Remember:</strong> All lotteries are random</li>
+            <li><strong>Remember:</strong> All lotteries are random - play for fun</li>
           </ul>
         </div>
       </div>
@@ -663,6 +709,7 @@
       <strong>Contact Us:</strong> 
       <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a>
     </div>
+    <div class="verif">Lottery games are based on random chance. Play responsibly.</div>
   </footer>
 
   <!-- Pattern Analyzer JavaScript -->
