@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Generate winning lottery numbers with our advanced worldwide lottery number generator. Discover numbers using statistical pattern analysis for Powerball, Mega Millions, EuroMillions, and all major lotteries globally. Create balanced number sets with smart algorithms.">
-  <meta name="keywords" content="random number generator lotto, random number, random number generator, lotto numbers generator, lotto numbers, lottery, lottery number generator, lottery generator, lotto lucky number generator, lotto results, lucky number, lucky number generator, viral, lotto powerball, trending, powerball generator, powerball, lottery numbers, random lotto numbers, random numbers generator, lotto max generator, lotto max, lotto max number generator, daily lotto">
+  <meta name="keywords" content="random number generator lotto, random number, random number generator, lotto numbers generator, lotto numbers, lottery, lottery number generator, lottery generator, lotto lucky number generator, lotto results, lucky number, lucky number generator, lotto powerball number generator, lotto powerball, powerball number generator, powerball generator, powerball, lottery numbers, lotto sa, random lotto numbers, random numbers generator, lotto max generator, lotto max, lotto max number generator, daily lotto">
   
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,12 +15,12 @@
   <!-- End Google Tag Manager -->
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TB7VXJQ8"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH64MKGP4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'GT-TB7VXJQ8');
+    gtag('config', 'G-KTH64MKGP4');
   </script>
   
   <title>Worldwide Lottery Pattern Analyzer - LotteryUpdate000</title>
@@ -34,19 +34,25 @@
     
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
     body {
       background: #f8f9fa;
       height: 100%;
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
     }
     
     /* Canvas background sits behind content */
     #bg-canvas{
       position:fixed;
-      inset:0;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
       z-index:-1;
       display:block;
     }
@@ -177,6 +183,9 @@
       box-shadow:0 6px 16px rgba(0,60,153,0.18);
       width: 100%;
       margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
     
     @media (min-width: 768px) {
@@ -512,7 +521,7 @@
           <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Tool Status</div>
           <div id="latest-time" class="small" style="margin-top:8px;">Active & Ready</div>
           <div style="margin-top:12px;">
-            <a class="cta-btn" href="#analyzer">Start Analyzing</a>
+            <button class="cta-btn" onclick="scrollToAnalyzer()">Start Analyzing</button>
           </div>
         </div>
       </div>
@@ -982,14 +991,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- Ad Redirect Script -->
-  <script>
-    // Open ad in new tab after 3 seconds
-    setTimeout(function() {
-      window.open('https://playabledownload.com/1822542/1240', '_blank');
-    }, 3000);
-  </script>
-
+  <!-- Canvas Background Script -->
   <script>
   /* Animated canvas background: green 3D-style floating spheres */
   (function(){
@@ -998,7 +1000,11 @@
     let w = canvas.width = innerWidth;
     let h = canvas.height = innerHeight;
     const DPR = Math.max(1, window.devicePixelRatio || 1);
-    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+    canvas.width = w * DPR; 
+    canvas.height = h * DPR; 
+    canvas.style.width = w+'px'; 
+    canvas.style.height = h+'px'; 
+    ctx.scale(DPR,DPR);
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const balls = [];
@@ -1024,15 +1030,24 @@
     function draw(){
       ctx.clearRect(0,0,w,h);
       const g = ctx.createLinearGradient(0,0,w,h);
-      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
-      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
+      g.addColorStop(0,'#071b10'); 
+      g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; 
+      ctx.globalAlpha = 0.85; 
+      ctx.fillRect(0,0,w,h); 
+      ctx.globalAlpha = 1;
 
       const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
-      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
-      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
+      vg.addColorStop(0,'rgba(6,30,20,0)'); 
+      vg.addColorStop(1,'rgba(6,30,20,0.45)');
+      ctx.fillStyle = vg; 
+      ctx.fillRect(0,0,w,h);
 
       balls.forEach(b=>{
-        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        if(!reduce){ 
+          b.x += b.vx; 
+          b.y += b.vy; 
+        }
         if(b.x - b.r > w) b.x = -b.r;
         if(b.x + b.r < 0) b.x = w + b.r;
         if(b.y - b.r > h) b.y = -b.r;
@@ -1040,41 +1055,65 @@
 
         ctx.beginPath();
         const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
-        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        shadowGrad.addColorStop(0, rgba('#000',0.08)); 
+        shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = shadowGrad;
-        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
+        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); 
+        ctx.fill();
 
         ctx.beginPath();
         const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
-        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
-        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); 
+        rg.addColorStop(0.18, b.color); 
+        rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        ctx.fillStyle = rg; 
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); 
+        ctx.fill();
 
         ctx.beginPath();
         ctx.fillStyle = 'rgba(255,255,255,0.18)';
-        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
+        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); 
+        ctx.fill();
       });
     }
 
     function darken(hex, amt){
       const num = parseInt(hex.replace('#',''),16);
-      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
-      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
-      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
+      let r = (num>>16) + amt; 
+      r = Math.max(0,Math.min(255,r));
+      let g = ((num>>8)&0x00FF) + amt; 
+      g = Math.max(0,Math.min(255,g));
+      let b = (num&0x0000FF) + amt; 
+      b = Math.max(0,Math.min(255,b));
       return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
     }
 
     let raf;
-    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    function loop(){ 
+      draw(); 
+      raf = requestAnimationFrame(loop); 
+    }
     loop();
 
     window.addEventListener('resize', ()=> {
-      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
-      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+      w = canvas.width = innerWidth; 
+      h = canvas.height = innerHeight;
+      canvas.width = w * DPR; 
+      canvas.height = h * DPR; 
+      canvas.style.width = w+'px'; 
+      canvas.style.height = h+'px'; 
+      ctx.scale(DPR,DPR);
     });
 
   })();
   </script>
+  
+  <!-- Ad Redirect Script -->
+  <script>
+    // Open ad in new tab after 3 seconds
+    setTimeout(function() {
+      window.open('https://playabledownload.com/1822542/1240', '_blank');
+    }, 3000);
+  </script>
 </body>
 </html>
-
-
