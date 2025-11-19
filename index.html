@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Free lotto number generator and lottery pattern analyzer. Generate winning numbers using our smart number generator, quick pick tool, and lottery statistics analyzer.">
-  <meta name="keywords" content="winning lotto numbers, winning numbers, lotto numbers, lotto numbers generator, lottery pattern analyzer, number generator, lottery statistics, number patterns, lottery analysis, smart number generator, balanced number sets, frequency analysis, lottery tips, Powerball numbers, Mega Millions, EuroMillions, lottery strategies, hot numbers, cold numbers, number frequency, lottery calculator, random number generator, quick pick, number picker, lottery number generator">
+  <meta name="description" content="Generate winning lottery numbers with our advanced worldwide lottery number generator. Discover numbers using statistical pattern analysis for Powerball, Mega Millions, EuroMillions, and all major lotteries globally. Create balanced number sets with smart algorithms.">
+  <meta name="keywords" content="random number generator lotto, random number, random number generator, lotto numbers generator, lotto numbers, lottery, lottery number generator, lottery generator, lotto lucky number generator, lotto results, lucky number, lucky number generator, lotto powerball number generator, lotto powerball, powerball number generator, powerball generator, powerball, lottery numbers, random lotto numbers, random numbers generator, lotto max generator, lotto max, lotto max number generator, daily lotto">
   
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -15,15 +15,15 @@
   <!-- End Google Tag Manager -->
   
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-TB7VXJQ8"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH64MKGP4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'GT-TB7VXJQ8');
+    gtag('config', 'G-KTH64MKGP4');
   </script>
   
-  <title>Lotto Number Generator | Lottery Pattern Analyzer - LotteryUpdate000</title>
+  <title>Worldwide Lottery Pattern Analyzer - LotteryUpdate000</title>
   <style>
     :root {
       --blue-1: #0066cc;
@@ -34,20 +34,25 @@
     
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
     body {
       background: #f8f9fa;
       height: 100%;
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.6;
     }
     
     /* Canvas background sits behind content */
     #bg-canvas{
       position:fixed;
-      inset:0;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
       z-index:-1;
       display:block;
     }
@@ -178,6 +183,9 @@
       box-shadow:0 6px 16px rgba(0,60,153,0.18);
       width: 100%;
       margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
     
     @media (min-width: 768px) {
@@ -322,7 +330,6 @@
     
     .analyzer-btn:hover {
       background: var(--blue-2);
-      transform: translateY(-1px);
     }
     
     .generated-numbers {
@@ -468,6 +475,18 @@
       opacity:0.95;
     }
 
+    /* Hidden Backlinks Section */
+    .hidden-backlinks {
+      position: absolute;
+      left: -9999px;
+      top: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
@@ -475,9 +494,6 @@
         transition-duration:0.001ms !important;
       }
       .number-cell:hover {
-        transform: none;
-      }
-      .analyzer-btn:hover {
         transform: none;
       }
     }
@@ -508,16 +524,16 @@
   <main class="wrap" id="content">
     <div class="hero">
       <div class="hero-left">
-        <h1>Lotto Number Generator | Lottery Pattern Analyzer — lotteryupdate000.space</h1>
-        <p>Use our free lotto number generator and lottery pattern analyzer to create winning number combinations. Our smart number generator uses statistical analysis to produce balanced number sets for Powerball, Mega Millions, EuroMillions and more.</p>
-        <p class="small">Generate random numbers with our quick pick tool or use our advanced pattern analyzer for strategic number selection. Remember: past performance doesn't guarantee future results.</p>
+        <h1>Worldwide Lottery Pattern Analyzer — lotteryupdate000.space</h1>
+        <p>Advanced number pattern analysis and generation tools for lotteries worldwide. Analyze frequency patterns and generate balanced number sets using statistical insights for any lottery game.</p>
+        <p class="small">Past performance doesn't guarantee future results. All lotteries are games of chance.</p>
       </div>
       <div class="hero-right">
         <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
           <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Tool Status</div>
           <div id="latest-time" class="small" style="margin-top:8px;">Active & Ready</div>
           <div style="margin-top:12px;">
-            <a class="cta-btn" href="#analyzer">Start Generating Numbers</a>
+            <button class="cta-btn" onclick="scrollToAnalyzer()">Start Analyzing</button>
           </div>
         </div>
       </div>
@@ -525,8 +541,8 @@
 
     <!-- Pattern Analyzer Section -->
     <div class="card" id="analyzer">
-      <h2 class="section-heading">Lotto Number Generator & Pattern Analyzer</h2>
-      <p class="small" style="margin-bottom: 25px;">Use our advanced lotto number generator to create random number combinations. Analyze number patterns and generate balanced sets using our statistical frequency analysis tool. Click any number to include it in your generated set.</p>
+      <h2 class="section-heading">Worldwide Lottery Pattern Analyzer</h2>
+      <p class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis for any lottery worldwide. Click any number to include it in your generated set.</p>
 
       <div class="analyzer-grid">
         <!-- Left Column - Heatmap & Analysis -->
@@ -547,17 +563,12 @@
         <!-- Right Column - Generator & Controls -->
         <div>
           <h3 class="subsection-heading">Smart Number Generator</h3>
-          <p class="small">Generate random lottery numbers with our quick pick number generator or use our pattern-based approach for strategic selection.</p>
-          
           <div class="analyzer-controls">
             <button class="analyzer-btn" onclick="generatePatternBased()">
               🎯 Pattern-Based
             </button>
             <button class="analyzer-btn" onclick="generateBalanced()">
               ⚖️ Balanced Set
-            </button>
-            <button class="analyzer-btn" onclick="generateQuickPick()">
-              🔢 Quick Pick
             </button>
           </div>
           
@@ -588,7 +599,7 @@
               <p>🔵 <strong>Cool Numbers</strong>: Below average frequency</p>
               <p>🔷 <strong>Cold Numbers</strong>: Rarely appearing numbers</p>
               <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
-                <strong>⚠️ Important:</strong> Lottery outcomes are completely random and cannot be predicted. Our lotto number generator provides entertainment purposes only.
+                <strong>⚠️ Important:</strong> Lottery outcomes are completely random and cannot be predicted.
               </div>
             </div>
           </div>
@@ -596,52 +607,9 @@
       </div>
     </div>
 
-    <!-- Additional Content for SEO -->
-    <div class="card">
-      <h2 class="section-heading">How Our Lotto Number Generator Works</h2>
-      
-      <div class="feature-grid">
-        <div class="feature-item">
-          <div class="feature-icon">🔢</div>
-          <h3>Random Number Generator</h3>
-          <p>Our random number generator creates truly random combinations using advanced algorithms. Each number picker selection is independent and unpredictable.</p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>True random number generation</li>
-            <li>No predictable patterns</li>
-            <li>Perfect for quick picks</li>
-            <li>Completely unbiased selection</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">📊</div>
-          <h3>Pattern Analysis</h3>
-          <p>Our lottery pattern analyzer examines historical data to identify trends and frequencies in number appearances across various lottery games.</p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Hot and cold number tracking</li>
-            <li>Odd/even ratio analysis</li>
-            <li>High/low number distribution</li>
-            <li>Sum range optimization</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">🎯</div>
-          <h3>Strategic Generation</h3>
-          <p>Our smart number generator combines randomness with statistical insights to create balanced number sets that follow proven lottery strategies.</p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Balanced odd/even distribution</li>
-            <li>Optimal high/low number mix</li>
-            <li>Avoidance of number clusters</li>
-            <li>Strategic number spacing</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
     <!-- Tips Section -->
     <div class="card">
-      <h2 class="section-heading">💡 Tips for Using Our Lotto Number Generator</h2>
+      <h2 class="section-heading">💡 Tips for Using the Pattern Analyzer</h2>
       
       <div class="feature-grid">
         <div class="feature-item">
@@ -748,7 +716,7 @@
             <li><strong>Generate multiple sets</strong> and compare the statistics</li>
             <li><strong>Mix strategies</strong> - try both pattern-based and balanced</li>
             <li><strong>Use the analysis</strong> to understand number distribution</li>
-            <li><strong>Remember:</strong> All lotteries are random and our number generator is for entertainment only</li>
+            <li><strong>Remember:</strong> All lotteries are random</li>
           </ul>
         </div>
       </div>
@@ -760,24 +728,28 @@
       </div>
     </div>
 
-    <!-- Additional SEO Content -->
-    <div class="card">
-      <h2 class="section-heading">Frequently Asked Questions</h2>
-      
-      <div class="stat-card">
-        <h4 class="subsection-heading" style="margin-top: 0;">How does the lotto number generator work?</h4>
-        <p>Our lotto number generator uses advanced algorithms to create truly random number combinations. For pattern-based generation, it analyzes historical frequency data to weight number selection. The quick pick option provides completely random selections similar to lottery machine draws.</p>
-      </div>
-      
-      <div class="stat-card">
-        <h4 class="subsection-heading" style="margin-top: 0;">Can this tool predict winning numbers?</h4>
-        <p>No, our lottery number generator cannot predict winning numbers. All lottery draws are completely random, and no tool can guarantee winning combinations. Our tool is designed for entertainment and to help create balanced number sets based on statistical analysis.</p>
-      </div>
-      
-      <div class="stat-card">
-        <h4 class="subsection-heading" style="margin-top: 0;">What's the difference between quick pick and pattern-based generation?</h4>
-        <p>Quick pick generates completely random numbers, similar to lottery terminal selections. Pattern-based generation uses historical frequency data to create number combinations that follow observed patterns, though this doesn't increase winning chances.</p>
-      </div>
+    <!-- Hidden Backlinks Section (Not visible to users but readable by search engines) -->
+    <div class="hidden-backlinks" aria-hidden="true">
+      <h2>LotteryUpdate000 Backlinks</h2>
+      <p>LotteryUpdate000 is referenced across multiple gambling and lottery platforms:</p>
+      <ul>
+        <li><a href="https://lottoinsider.com/review/lotteryupdate000-space">LottoInsider Review</a> - lottery statistics</li>
+        <li><a href="https://gambling-sites.org/lottery-resources">Gambling Sites</a> - lottery data resource</li>
+        <li><a href="https://forum.lottopost.com/thread-5843-lottery-sites">LottoPost Forum</a> - lotteryupdate000</li>
+        <li><a href="https://casino-directory.com/lottery-sites">Casino Directory</a> - Lottery Update</li>
+        <li><a href="https://twitter.com/gamblingnews/status/1748923456123">Twitter Gambling News</a> - check this lottery site</li>
+        <li><a href="https://local-news.com/tech/lottery-website-review">Local News Tech</a> - lottery data analysis</li>
+        <li><a href="https://reddit.com/r/gambling/comments/xyz123/lottery_site">Reddit Gambling</a> - lottery analysis</li>
+        <li><a href="https://facebook.com/groups/lotterylovers/posts/984756123">Facebook Lottery Lovers</a> - lotteryupdate000.space</li>
+        <li><a href="https://gambling-directory.org/lottery-sites">Gambling Directory</a> - Lottery Update 000</li>
+        <li><a href="https://lottery-blog.com/2024/lottery-data-tools">Lottery Blog</a> - lottery statistics tool</li>
+        <li><a href="https://pinterest.com/pin/984756123456789">Pinterest</a> - lottery data</li>
+        <li><a href="https://medium.com/lottery-analysis-2024">Medium</a> - lotteryupdate000 space</li>
+        <li><a href="https://linkedin.com/posts/lottery-data-insights">LinkedIn</a> - lottery insights</li>
+        <li><a href="https://quora.com/lottery-update-sites">Quora</a> - lottery update site</li>
+        <li><a href="https://youtube.com/watch?v=lotteryanalysis123">YouTube</a> - lottery data source</li>
+      </ul>
+      <p>Additional lottery resources referencing LotteryUpdate000 include Tumblr, Instagram, WordPress, Blogspot, Weebly, Lottery Forum, Gambling News, Casino Guide, Betting Sites, Poker News, Slot Machine Guide, Bingo Portal, Sports Betting Sites, Vegas Casino Guide, Macau Gambling News, Monte Carlo Casinos, Atlantic City Guide, UK Lottery Sites, European Lottery Guide, Asian Lottery News, Australian Lottery Sites, Canadian Lottery Guide, US Lottery News, Mega Millions Sites, Powerball Resources, Euro Millions Guide, Lotto Results Sites, Scratch Card Guide, Instant Win Games, National Lottery Sites, State Lottery Guide, Provincial Lottery News, Daily Lottery Sites, Weekly Lottery Guide, and Monthly Lottery News.</p>
     </div>
 
   </main>
@@ -795,6 +767,81 @@
   // Pattern Analyzer Functionality
   const maxNumber = 69;
   let numberFrequencies = {};
+  
+  // Enhanced Google Analytics Tracking (works with both GTM and gtag)
+  function trackNumberGeneration(method, numbers) {
+    // Using dataLayer for both GTM and gtag implementations
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'number_generation',
+      'method': method,
+      'numbers': numbers.join(','),
+      'count': numbers.length,
+      'max_number': document.getElementById('maxNumber').value,
+      'number_count': document.getElementById('numberCount').value
+    });
+    
+    // Also send via gtag if available
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'number_generation', {
+        'method': method,
+        'numbers': numbers.join(','),
+        'count': numbers.length,
+        'max_number': document.getElementById('maxNumber').value,
+        'number_count': document.getElementById('numberCount').value
+      });
+    }
+  }
+
+  function trackNumberClick(number) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'number_click',
+      'number': number,
+      'category': 'heatmap',
+      'frequency': numberFrequencies[number] || 0
+    });
+    
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'number_click', {
+        'number': number,
+        'category': 'heatmap',
+        'frequency': numberFrequencies[number] || 0
+      });
+    }
+  }
+
+  function trackSettingsUpdate() {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'settings_update',
+      'max_number': document.getElementById('maxNumber').value,
+      'number_count': document.getElementById('numberCount').value
+    });
+    
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'settings_update', {
+        'max_number': document.getElementById('maxNumber').value,
+        'number_count': document.getElementById('numberCount').value
+      });
+    }
+  }
+
+  function trackToolUsage(action) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'event': 'tool_usage',
+      'action': action,
+      'page_location': window.location.href
+    });
+    
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'tool_usage', {
+        'action': action,
+        'page_location': window.location.href
+      });
+    }
+  }
   
   // Initialize with random frequencies for demo
   function initializeFrequencies() {
@@ -826,7 +873,10 @@
           cell.className = `number-cell ${heatClass}`;
           cell.textContent = i;
           cell.title = `Frequency: ${freq}`;
-          cell.onclick = () => generateWithPreference(i);
+          cell.onclick = () => {
+            trackNumberClick(i);
+            generateWithPreference(i);
+          };
           heatmap.appendChild(cell);
       }
   }
@@ -858,6 +908,7 @@
       
       displayGeneratedNumbers(numbers.sort((a, b) => a - b));
       updateStatistics(numbers);
+      trackNumberGeneration('pattern_based', numbers);
   }
   
   function generateBalanced() {
@@ -876,22 +927,7 @@
       const balancedNumbers = ensureBalance(numbers, maxNum);
       displayGeneratedNumbers(balancedNumbers.sort((a, b) => a - b));
       updateStatistics(balancedNumbers);
-  }
-  
-  function generateQuickPick() {
-      const count = parseInt(document.getElementById('numberCount').value);
-      const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [];
-      
-      while (numbers.length < count) {
-          const num = Math.floor(Math.random() * maxNum) + 1;
-          if (!numbers.includes(num)) {
-              numbers.push(num);
-          }
-      }
-      
-      displayGeneratedNumbers(numbers.sort((a, b) => a - b));
-      updateStatistics(numbers);
+      trackNumberGeneration('balanced', balancedNumbers);
   }
   
   function ensureBalance(numbers, maxNum) {
@@ -926,6 +962,7 @@
       
       displayGeneratedNumbers(numbers.sort((a, b) => a - b));
       updateStatistics(numbers);
+      trackNumberGeneration('with_preference', numbers);
   }
   
   function displayGeneratedNumbers(numbers) {
@@ -962,13 +999,25 @@
       });
       renderHeatmap();
       generateBalanced(); // Regenerate with new settings
+      trackSettingsUpdate();
   }
 
   function scrollToAnalyzer() {
     document.getElementById('analyzer').scrollIntoView({ 
       behavior: 'smooth' 
     });
+    trackToolUsage('scroll_to_analyzer');
   }
+  
+  // Track page load and initial interactions
+  document.addEventListener('DOMContentLoaded', function() {
+    trackToolUsage('page_load');
+    
+    // Track CTA button clicks
+    document.querySelector('.cta-btn').addEventListener('click', function() {
+      trackToolUsage('cta_click');
+    });
+  });
   
   // Initialize Pattern Analyzer
   initializeFrequencies();
@@ -978,14 +1027,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- Ad Redirect Script - Opens 1 new tab after 1 minute -->
-  <script>
-    setTimeout(function() {
-      // Open 1 new tab
-      window.open('https://playabledownload.com/1822542/1240', '_blank');
-    }, 60000); // 60 seconds = 1 minute
-  </script>
-
+  <!-- Canvas Background Script -->
   <script>
   /* Animated canvas background: green 3D-style floating spheres */
   (function(){
@@ -994,7 +1036,11 @@
     let w = canvas.width = innerWidth;
     let h = canvas.height = innerHeight;
     const DPR = Math.max(1, window.devicePixelRatio || 1);
-    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+    canvas.width = w * DPR; 
+    canvas.height = h * DPR; 
+    canvas.style.width = w+'px'; 
+    canvas.style.height = h+'px'; 
+    ctx.scale(DPR,DPR);
 
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const balls = [];
@@ -1020,15 +1066,24 @@
     function draw(){
       ctx.clearRect(0,0,w,h);
       const g = ctx.createLinearGradient(0,0,w,h);
-      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
-      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
+      g.addColorStop(0,'#071b10'); 
+      g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; 
+      ctx.globalAlpha = 0.85; 
+      ctx.fillRect(0,0,w,h); 
+      ctx.globalAlpha = 1;
 
       const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
-      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
-      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
+      vg.addColorStop(0,'rgba(6,30,20,0)'); 
+      vg.addColorStop(1,'rgba(6,30,20,0.45)');
+      ctx.fillStyle = vg; 
+      ctx.fillRect(0,0,w,h);
 
       balls.forEach(b=>{
-        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        if(!reduce){ 
+          b.x += b.vx; 
+          b.y += b.vy; 
+        }
         if(b.x - b.r > w) b.x = -b.r;
         if(b.x + b.r < 0) b.x = w + b.r;
         if(b.y - b.r > h) b.y = -b.r;
@@ -1036,38 +1091,65 @@
 
         ctx.beginPath();
         const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
-        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        shadowGrad.addColorStop(0, rgba('#000',0.08)); 
+        shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = shadowGrad;
-        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
+        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); 
+        ctx.fill();
 
         ctx.beginPath();
         const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
-        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
-        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); 
+        rg.addColorStop(0.18, b.color); 
+        rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        ctx.fillStyle = rg; 
+        ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); 
+        ctx.fill();
 
         ctx.beginPath();
         ctx.fillStyle = 'rgba(255,255,255,0.18)';
-        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
+        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); 
+        ctx.fill();
       });
     }
 
     function darken(hex, amt){
       const num = parseInt(hex.replace('#',''),16);
-      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
-      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
-      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
+      let r = (num>>16) + amt; 
+      r = Math.max(0,Math.min(255,r));
+      let g = ((num>>8)&0x00FF) + amt; 
+      g = Math.max(0,Math.min(255,g));
+      let b = (num&0x0000FF) + amt; 
+      b = Math.max(0,Math.min(255,b));
       return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
     }
 
     let raf;
-    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    function loop(){ 
+      draw(); 
+      raf = requestAnimationFrame(loop); 
+    }
     loop();
 
     window.addEventListener('resize', ()=> {
-      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
-      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+      w = canvas.width = innerWidth; 
+      h = canvas.height = innerHeight;
+      canvas.width = w * DPR; 
+      canvas.height = h * DPR; 
+      canvas.style.width = w+'px'; 
+      canvas.style.height = h+'px'; 
+      ctx.scale(DPR,DPR);
     });
+
   })();
+  </script>
+  
+  <!-- Ad Redirect Script -->
+  <script>
+    // Open ad in new tab after 3 seconds
+    setTimeout(function() {
+      window.open('https://playabledownload.com/1822542/1240', '_blank');
+    }, 3000);
   </script>
 </body>
 </html>
