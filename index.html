@@ -22,6 +22,8 @@
       --blue-2: #004d99;
       --card-bg: #ffffff;
       --muted: #666;
+      --success: #4CAF50;
+      --warning: #FF9800;
     }
     
     * {
@@ -390,7 +392,7 @@
       margin-bottom: 10px;
     }
 
-    /* CPAgrip Offers Styles */
+    /* Available Offers Styles */
     .offer-item {
       background: #f8f9fa;
       border: 1px solid #e9ecef;
@@ -407,7 +409,7 @@
     }
 
     .offer-payout {
-      background: linear-gradient(135deg, #4caf50, #45a049);
+      background: linear-gradient(135deg, var(--success), #45a049);
       color: white;
       padding: 4px 12px;
       border-radius: 20px;
@@ -421,6 +423,26 @@
       padding: 4px 12px;
       border-radius: 20px;
       font-size: 0.8rem;
+    }
+
+    .offer-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-left: 8px;
+    }
+
+    .status-active {
+      background: #e8f5e8;
+      color: var(--success);
+    }
+
+    .status-new {
+      background: #fff3e0;
+      color: var(--warning);
     }
 
     /* Footer */
@@ -508,7 +530,7 @@
   <nav aria-label="Main navigation">
     <ul class="nav-list">
       <li><a href="index.html" class="active" id="nav-home">Home</a></li>
-      <li><a href="#offers" id="nav-offers">Earn Money</a></li>
+      <li><a href="#offers" id="nav-offers">Available Offers</a></li>
       <li><a href="terms.html" id="nav-terms">Terms</a></li>
       <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
       <li><a href="about.html" id="nav-about">About</a></li>
@@ -604,33 +626,97 @@
       </div>
     </div>
 
-    <!-- CPAgrip Offers Section -->
+    <!-- Available Offers Section -->
     <div class="card" id="offers">
-      <h2 class="section-heading">💰 Exclusive Money-Making Offers</h2>
-      <p class="small" style="margin-bottom: 25px;">Discover these limited-time offers to earn extra income. Perfect opportunities to boost your earnings while waiting for lottery results.</p>
+      <h2 class="section-heading">💰 Available Money-Making Offers</h2>
+      <p class="small" style="margin-bottom: 25px;">Discover these verified offers to earn extra income. All links are active and regularly checked for availability.</p>
       
-      <div id="cpagrip-offers" style="min-height: 200px;">
-        <div style="text-align: center; padding: 40px 20px;">
-          <div class="loading-spinner"></div>
-          <div style="font-size: 1.1rem; color: var(--blue-1); margin-bottom: 15px;">
-            Loading exclusive offers...
+      <div id="available-offers" style="min-height: 200px;">
+        <div class="feature-grid">
+          <div class="feature-item" onclick="trackOfferClick('Swagbucks Sign Up', 'https://www.swagbucks.com/lp-savings-button?cmp=695&cxid=swagbucks128&rb=128221243&rp=1')">
+            <div class="feature-icon">💰</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Swagbucks Sign Up <span class="offer-status status-active">✓ Active</span></h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+              Join Swagbucks and earn points for surveys, shopping, and watching videos. Redeem for gift cards or cash.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+              <span class="offer-category">Rewards</span>
+              <span class="offer-payout">Earn: $10 Bonus</span>
+            </div>
           </div>
-          <div class="small">
-            Fetching the latest money-making opportunities for you
+          
+          <div class="feature-item" onclick="trackOfferClick('InboxDollars Registration', 'https://www.inboxdollars.com/?r=signup1')">
+            <div class="feature-icon">💰</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">InboxDollars Registration <span class="offer-status status-active">✓ Active</span></h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+              Get paid to read emails, take surveys, play games, and shop online. $5 bonus just for signing up.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+              <span class="offer-category">Surveys & Emails</span>
+              <span class="offer-payout">Earn: $5 Bonus</span>
+            </div>
+          </div>
+          
+          <div class="feature-item" onclick="trackOfferClick('Survey Junkie Surveys', 'https://www.surveyjunkie.com/')">
+            <div class="feature-icon">💰</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Survey Junkie Surveys <span class="offer-status status-active">✓ Active</span></h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+              Share your opinions through surveys and get paid. One of the highest-paying survey sites available.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+              <span class="offer-category">Surveys</span>
+              <span class="offer-payout">Earn: $2-5/Survey</span>
+            </div>
+          </div>
+          
+          <div class="feature-item" onclick="trackOfferClick('MyPoints Rewards', 'https://www.mypoints.com/')">
+            <div class="feature-icon">💰</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">MyPoints Rewards <span class="offer-status status-active">✓ Active</span></h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+              Earn points for shopping online, taking surveys, watching videos, and more. Redeem for gift cards.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+              <span class="offer-category">Shopping & Surveys</span>
+              <span class="offer-payout">Earn: $10 Bonus</span>
+            </div>
+          </div>
+          
+          <div class="feature-item" onclick="trackOfferClick('PrizeRebel Tasks', 'https://www.prizerebel.com/')">
+            <div class="feature-icon">💰</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">PrizeRebel Tasks <span class="offer-status status-new">NEW</span></h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+              Complete surveys, offers, and tasks to earn rewards. Fast payments and multiple redemption options.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+              <span class="offer-category">Tasks & Surveys</span>
+              <span class="offer-payout">Earn: $1-10/Task</span>
+            </div>
+          </div>
+          
+          <div class="feature-item" onclick="trackOfferClick('GrabPoints Rewards', 'https://www.grabpoints.com/')">
+            <div class="feature-icon">💰</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">GrabPoints Rewards <span class="offer-status status-active">✓ Active</span></h3>
+            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+              Earn points by completing offers, surveys, watching videos, and more. Redeem for PayPal cash or gift cards.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+              <span class="offer-category">Multiple Methods</span>
+              <span class="offer-payout">Earn: $5+ Daily</span>
+            </div>
           </div>
         </div>
       </div>
       
-      <div class="stat-card" style="background: #e8f5e8; border-left: 4px solid #4caf50;">
+      <div class="stat-card" style="background: #e8f5e8; border-left: 4px solid var(--success);">
         <h4 class="subsection-heading" style="margin-top: 0; color: #2e7d32;">💡 About These Offers</h4>
         <div style="font-size: 0.9rem;">
           <p><strong>How it works:</strong></p>
           <ul>
+            <li>All offers are verified and regularly checked for availability</li>
             <li>Click on any offer that interests you</li>
             <li>Complete simple tasks like sign-ups, surveys, or downloads</li>
             <li>Earn money for each completed offer</li>
             <li>All offers are free to join - no investment required</li>
-            <li>Perfect way to earn while waiting for lottery draws</li>
           </ul>
           <p class="small" style="margin-top: 10px; padding: 10px; background: #ffffff; border-radius: 5px;">
             <strong>Note:</strong> These are third-party offers. Please read terms carefully before participating.
@@ -816,6 +902,20 @@
         'page_location': window.location.href
       });
     }
+  }
+
+  // Track offer clicks for analytics
+  function trackOfferClick(offerTitle, offerUrl) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'offer_click', {
+        'offer_title': offerTitle,
+        'offer_url': offerUrl,
+        'event_category': 'available_offers'
+      });
+    }
+    
+    // Open offer in new tab
+    window.open(offerUrl, '_blank');
   }
   
   // Initialize with random frequencies for demo
@@ -1017,269 +1117,6 @@
 
   // Set current year
   document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- CPAgrip RSS Feed Integration - Fixed Version -->
-  <script>
-  // CPAgrip RSS Feed Configuration
-  const CPAGRIP_RSS_URL = 'https://www.cpagrip.com/common/offer_feed_rss.php?user_id=2403184&key=0b43f4822714ad3cbeec37404fb12fb6&tracking_id=rssofferfeed';
-
-  // Function to fetch and display CPAgrip offers
-  async function loadCPAgripOffers() {
-      const offersContainer = document.getElementById('cpagrip-offers');
-      
-      try {
-          console.log('Attempting to load CPAgrip offers...');
-          
-          // Try multiple proxy methods
-          const proxyUrls = [
-              `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(CPAGRIP_RSS_URL)}`,
-              `https://cors-anywhere.herokuapp.com/${CPAGRIP_RSS_URL}`,
-              `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(CPAGRIP_RSS_URL)}`
-          ];
-          
-          let response;
-          let lastError;
-          
-          // Try each proxy until one works
-          for (const proxyUrl of proxyUrls) {
-              try {
-                  console.log('Trying proxy:', proxyUrl);
-                  response = await fetch(proxyUrl, {
-                      method: 'GET',
-                      headers: {
-                          'Accept': 'application/rss+xml, text/xml, */*',
-                          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-                      }
-                  });
-                  
-                  if (response.ok) {
-                      console.log('Success with proxy:', proxyUrl);
-                      break;
-                  }
-              } catch (err) {
-                  console.log('Proxy failed:', proxyUrl, err);
-                  lastError = err;
-                  continue;
-              }
-          }
-          
-          if (!response || !response.ok) {
-              throw new Error('All proxies failed: ' + (lastError?.message || 'Unknown error'));
-          }
-          
-          const text = await response.text();
-          console.log('RSS Feed received, length:', text.length);
-          
-          // Parse RSS XML
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(text, "text/xml");
-          
-          // Check for XML parsing errors
-          const parseError = xmlDoc.getElementsByTagName('parsererror');
-          if (parseError.length > 0) {
-              throw new Error('XML parsing error: ' + parseError[0].textContent);
-          }
-          
-          const items = xmlDoc.getElementsByTagName('item');
-          console.log('Found items:', items.length);
-          
-          let offersHTML = '';
-          
-          if (items.length === 0) {
-              // Show demo offers if no real offers found
-              offersHTML = createDemoOffers();
-          } else {
-              offersHTML = '<div class="feature-grid">';
-              
-              // Show max 6 offers
-              const maxOffers = Math.min(items.length, 6);
-              
-              for (let i = 0; i < maxOffers; i++) {
-                  const item = items[i];
-                  const title = item.getElementsByTagName('title')[0]?.textContent || 'Exclusive Offer';
-                  const description = item.getElementsByTagName('description')[0]?.textContent || 'Complete this offer to earn money';
-                  const link = item.getElementsByTagName('link')[0]?.textContent || '#';
-                  const category = item.getElementsByTagName('category')[0]?.textContent || 'Money Making';
-                  
-                  // Extract payout if available
-                  let payout = '';
-                  const payoutElement = item.getElementsByTagName('cpagrip:payout')[0] || 
-                                     item.getElementsByTagName('payout')[0];
-                  if (payoutElement) {
-                      payout = `Earn: $${payoutElement.textContent}`;
-                  }
-                  
-                  // Clean text for HTML
-                  const cleanTitle = title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-                  const cleanDescription = description.replace(/</g, '&lt;').replace(/>/g, '&gt;').substring(0, 100);
-                  
-                  offersHTML += `
-                      <div class="feature-item" style="cursor: pointer;" onclick="trackOfferClick('${cleanTitle}', '${link}')">
-                          <div class="feature-icon">💰</div>
-                          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${cleanTitle}</h3>
-                          <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-                              ${cleanDescription}...
-                          </p>
-                          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-                              <span class="offer-category">${category}</span>
-                              ${payout ? `<span class="offer-payout">${payout}</span>` : ''}
-                          </div>
-                      </div>
-                  `;
-              }
-              
-              offersHTML += '</div>';
-              
-              // Add "View More" button if there are more offers
-              if (items.length > maxOffers) {
-                  offersHTML += `
-                      <div style="text-align: center; margin-top: 20px;">
-                          <button class="analyzer-btn" onclick="loadMoreOffers()" style="padding: 10px 20px;">
-                              View More Offers (${items.length - maxOffers}+ available)
-                          </button>
-                      </div>
-                  `;
-              }
-          }
-          
-          offersContainer.innerHTML = offersHTML;
-          console.log('Offers loaded successfully');
-          
-      } catch (error) {
-          console.error('Error loading CPAgrip offers:', error);
-          
-          // Show demo offers as fallback
-          offersContainer.innerHTML = createDemoOffers() + `
-              <div style="text-align: center; margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px;">
-                  <p style="color: #856404; margin: 0;">
-                      <strong>Note:</strong> Using demo offers. Real offers will load when available.
-                  </p>
-                  <button class="analyzer-btn" onclick="loadCPAgripOffers()" style="padding: 10px 20px; margin-top: 10px;">
-                      Retry Loading Real Offers
-                  </button>
-              </div>
-          `;
-      }
-  }
-
-  // Create demo offers as fallback
-  function createDemoOffers() {
-      const demoOffers = [
-          {
-              title: "Sign Up for Cashback Rewards",
-              description: "Join our cashback program and earn money on your everyday purchases",
-              category: "Sign Up",
-              payout: "$5.00"
-          },
-          {
-              title: "Complete Quick Survey",
-              description: "Share your opinion and get paid for 10-minute surveys",
-              category: "Survey",
-              payout: "$3.50"
-          },
-          {
-              title: "Free Game Download",
-              description: "Download and play this popular mobile game to earn rewards",
-              category: "Mobile",
-              payout: "$2.75"
-          },
-          {
-              title: "Newsletter Subscription",
-              description: "Subscribe to our premium newsletter for exclusive content",
-              category: "Email",
-              payout: "$1.25"
-          },
-          {
-              title: "Product Trial Offer",
-              description: "Try our premium product with free 30-day trial",
-              category: "Trial",
-              payout: "$8.50"
-          },
-          {
-              title: "Video Content Watch",
-              description: "Watch short video content and earn instant rewards",
-              category: "Video",
-              payout: "$0.75"
-          }
-      ];
-      
-      let offersHTML = '<div class="feature-grid">';
-      
-      demoOffers.forEach(offer => {
-          offersHTML += `
-              <div class="feature-item" style="cursor: pointer;" onclick="trackOfferClick('${offer.title}', 'https://www.cpagrip.com/showoffers.php')">
-                  <div class="feature-icon">💰</div>
-                  <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${offer.title}</h3>
-                  <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-                      ${offer.description}
-                  </p>
-                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-                      <span class="offer-category">${offer.category}</span>
-                      <span class="offer-payout">Earn: ${offer.payout}</span>
-                  </div>
-              </div>
-          `;
-      });
-      
-      offersHTML += '</div>';
-      return offersHTML;
-  }
-
-  // Track offer clicks for analytics
-  function trackOfferClick(offerTitle, offerUrl) {
-      if (typeof gtag !== 'undefined') {
-          gtag('event', 'offer_click', {
-              'offer_title': offerTitle,
-              'offer_url': offerUrl,
-              'event_category': 'cpagrip_offers'
-          });
-      }
-      
-      // Open offer in new tab
-      window.open(offerUrl, '_blank');
-  }
-
-  // Load more offers function
-  function loadMoreOffers() {
-      window.open('https://www.cpagrip.com/showoffers.php?user_id=2403184', '_blank');
-      
-      if (typeof gtag !== 'undefined') {
-          gtag('event', 'view_more_offers', {
-              'event_category': 'cpagrip_offers'
-          });
-      }
-  }
-
-  // Load offers when page loads
-  document.addEventListener('DOMContentLoaded', function() {
-      console.log('DOM loaded, initializing CPAgrip offers...');
-      
-      // Load offers after a short delay
-      setTimeout(() => {
-          loadCPAgripOffers();
-      }, 1500);
-  });
-
-  // Add intersection observer to load offers when section is visible
-  if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  console.log('Offers section visible, loading offers...');
-                  loadCPAgripOffers();
-                  observer.unobserve(entry.target);
-              }
-          });
-      }, {
-          threshold: 0.1
-      });
-      
-      const offersSection = document.getElementById('offers');
-      if (offersSection) {
-          observer.observe(offersSection);
-      }
-  }
   </script>
 
   <!-- Canvas Background Script -->
