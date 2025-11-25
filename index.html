@@ -383,6 +383,39 @@
       margin-bottom: 10px;
     }
 
+    /* CPAgrip Offers Styles */
+    .offer-item {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .offer-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .offer-payout {
+      background: linear-gradient(135deg, #4caf50, #45a049);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.85rem;
+    }
+
+    .offer-category {
+      background: var(--blue-1);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
     /* Footer */
     footer{
       margin-top:40px;
@@ -428,6 +461,9 @@
       .analyzer-btn:hover {
         transform: none;
       }
+      .offer-item:hover {
+        transform: none;
+      }
     }
   </style>
 </head>
@@ -442,6 +478,7 @@
   <nav aria-label="Main navigation">
     <ul class="nav-list">
       <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+      <li><a href="#offers" id="nav-offers">Earn Money</a></li>
       <li><a href="terms.html" id="nav-terms">Terms</a></li>
       <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
       <li><a href="about.html" id="nav-about">About</a></li>
@@ -533,6 +570,40 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CPAgrip Offers Section -->
+    <div class="card" id="offers">
+      <h2 class="section-heading">💰 Exclusive Money-Making Offers</h2>
+      <p class="small" style="margin-bottom: 25px;">Discover these limited-time offers to earn extra income. Perfect opportunities to boost your earnings while waiting for lottery results.</p>
+      
+      <div id="cpagrip-offers" style="min-height: 200px;">
+        <div style="text-align: center; padding: 40px 20px;">
+          <div style="font-size: 1.1rem; color: var(--blue-1); margin-bottom: 15px;">
+            Loading exclusive offers...
+          </div>
+          <div class="small">
+            Fetching the latest money-making opportunities for you
+          </div>
+        </div>
+      </div>
+      
+      <div class="stat-card" style="background: #e8f5e8; border-left: 4px solid #4caf50;">
+        <h4 class="subsection-heading" style="margin-top: 0; color: #2e7d32;">💡 About These Offers</h4>
+        <div style="font-size: 0.9rem;">
+          <p><strong>How it works:</strong></p>
+          <ul>
+            <li>Click on any offer that interests you</li>
+            <li>Complete simple tasks like sign-ups, surveys, or downloads</li>
+            <li>Earn money for each completed offer</li>
+            <li>All offers are free to join - no investment required</li>
+            <li>Perfect way to earn while waiting for lottery draws</li>
+          </ul>
+          <p class="small" style="margin-top: 10px; padding: 10px; background: #ffffff; border-radius: 5px;">
+            <strong>Note:</strong> These are third-party offers. Please read terms carefully before participating.
+          </p>
         </div>
       </div>
     </div>
@@ -915,6 +986,153 @@
 
   // Set current year
   document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- CPAgrip RSS Feed Integration -->
+  <script>
+  // CPAgrip RSS Feed Configuration
+  const CPAGRIP_RSS_URL = 'https://www.cpagrip.com/common/offer_feed_rss.php?user_id=2403184&key=0b43f4822714ad3cbeec37404fb12fb6&tracking_id=rssofferfeed';
+
+  // Function to fetch and display CPAgrip offers
+  async function loadCPAgripOffers() {
+      const offersContainer = document.getElementById('cpagrip-offers');
+      
+      try {
+          // Create proxy URL to avoid CORS issues
+          const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(CPAGRIP_RSS_URL)}`;
+          
+          const response = await fetch(proxyUrl);
+          const text = await response.text();
+          
+          // Parse RSS XML
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(text, "text/xml");
+          
+          const items = xmlDoc.getElementsByTagName('item');
+          let offersHTML = '';
+          
+          if (items.length === 0) {
+              offersHTML = `
+                  <div style="text-align: center; padding: 30px 20px;">
+                      <div style="color: var(--muted); margin-bottom: 15px;">
+                          No offers currently available. Please check back later.
+                      </div>
+                  </div>
+              `;
+          } else {
+              offersHTML = '<div class="feature-grid">';
+              
+              // Show max 6 offers
+              const maxOffers = Math.min(items.length, 6);
+              
+              for (let i = 0; i < maxOffers; i++) {
+                  const item = items[i];
+                  const title = item.getElementsByTagName('title')[0]?.textContent || 'Exclusive Offer';
+                  const description = item.getElementsByTagName('description')[0]?.textContent || 'Complete this offer to earn money';
+                  const link = item.getElementsByTagName('link')[0]?.textContent || '#';
+                  const category = item.getElementsByTagName('category')[0]?.textContent || 'Money Making';
+                  
+                  // Extract payout if available
+                  let payout = '';
+                  const payoutElement = item.getElementsByTagName('cpagrip:payout')[0];
+                  if (payoutElement) {
+                      payout = `Earn: $${payoutElement.textContent}`;
+                  }
+                  
+                  offersHTML += `
+                      <div class="feature-item" style="cursor: pointer;" onclick="trackOfferClick('${title.replace(/'/g, "\\'")}', '${link}')">
+                          <div class="feature-icon">💰</div>
+                          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${title}</h3>
+                          <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+                              ${description.substring(0, 100)}...
+                          </p>
+                          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                              <span class="offer-category">${category}</span>
+                              ${payout ? `<span class="offer-payout">${payout}</span>` : ''}
+                          </div>
+                      </div>
+                  `;
+              }
+              
+              offersHTML += '</div>';
+              
+              // Add "View More" button if there are more offers
+              if (items.length > maxOffers) {
+                  offersHTML += `
+                      <div style="text-align: center; margin-top: 20px;">
+                          <button class="analyzer-btn" onclick="loadMoreOffers()" style="padding: 10px 20px;">
+                              View More Offers
+                          </button>
+                      </div>
+                  `;
+              }
+          }
+          
+          offersContainer.innerHTML = offersHTML;
+          
+      } catch (error) {
+          console.error('Error loading CPAgrip offers:', error);
+          offersContainer.innerHTML = `
+              <div style="text-align: center; padding: 30px 20px;">
+                  <div style="color: #d32f2f; margin-bottom: 15px;">
+                      Unable to load offers at the moment. Please try again later.
+                  </div>
+                  <button class="analyzer-btn" onclick="loadCPAgripOffers()" style="padding: 10px 20px;">
+                      Retry Loading Offers
+                  </button>
+              </div>
+          `;
+      }
+  }
+
+  // Track offer clicks for analytics
+  function trackOfferClick(offerTitle, offerUrl) {
+      if (typeof gtag !== 'undefined') {
+          gtag('event', 'offer_click', {
+              'offer_title': offerTitle,
+              'offer_url': offerUrl,
+              'event_category': 'cpagrip_offers'
+          });
+      }
+      
+      // Open offer in new tab
+      window.open(offerUrl, '_blank');
+  }
+
+  // Load more offers function
+  function loadMoreOffers() {
+      // This would typically load the full RSS feed or redirect to CPAgrip
+      window.open('https://www.cpagrip.com/showoffers.php', '_blank');
+      
+      if (typeof gtag !== 'undefined') {
+          gtag('event', 'view_more_offers', {
+              'event_category': 'cpagrip_offers'
+          });
+      }
+  }
+
+  // Load offers when page loads
+  document.addEventListener('DOMContentLoaded', function() {
+      // Load offers after a short delay to ensure page is ready
+      setTimeout(loadCPAgripOffers, 2000);
+  });
+
+  // Add intersection observer to load offers when section is visible
+  if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  loadCPAgripOffers();
+                  observer.unobserve(entry.target);
+              }
+          });
+      });
+      
+      const offersSection = document.getElementById('offers');
+      if (offersSection) {
+          observer.observe(offersSection);
+      }
+  }
   </script>
 
   <!-- Canvas Background Script -->
