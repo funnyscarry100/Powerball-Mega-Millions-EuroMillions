@@ -22,8 +22,6 @@
       --blue-2: #004d99;
       --card-bg: #ffffff;
       --muted: #666;
-      --success: #4CAF50;
-      --warning: #FF9800;
     }
     
     * {
@@ -378,71 +376,11 @@
       padding: 20px;
       border-radius: 8px;
       border-left: 4px solid var(--blue-1);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .feature-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
 
     .feature-icon {
       font-size: 2rem;
       margin-bottom: 10px;
-    }
-
-    /* Available Offers Styles */
-    .offer-item {
-      background: #f8f9fa;
-      border: 1px solid #e9ecef;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 15px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      cursor: pointer;
-    }
-
-    .offer-item:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .offer-payout {
-      background: linear-gradient(135deg, var(--success), #45a049);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-weight: bold;
-      font-size: 0.85rem;
-    }
-
-    .offer-category {
-      background: var(--blue-1);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-    }
-
-    .offer-status {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 12px;
-      margin-left: 8px;
-    }
-
-    .status-active {
-      background: #e8f5e8;
-      color: var(--success);
-    }
-
-    .status-new {
-      background: #fff3e0;
-      color: var(--warning);
     }
 
     /* Footer */
@@ -478,23 +416,6 @@
       opacity:0.95;
     }
 
-    /* Loading Animation */
-    .loading-spinner {
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 3px solid #f3f3f3;
-      border-top: 3px solid var(--blue-1);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-right: 10px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
@@ -506,15 +427,6 @@
       }
       .analyzer-btn:hover {
         transform: none;
-      }
-      .offer-item:hover {
-        transform: none;
-      }
-      .feature-item:hover {
-        transform: none;
-      }
-      .loading-spinner {
-        animation: none;
       }
     }
   </style>
@@ -530,7 +442,6 @@
   <nav aria-label="Main navigation">
     <ul class="nav-list">
       <li><a href="index.html" class="active" id="nav-home">Home</a></li>
-      <li><a href="#offers" id="nav-offers">Available Offers</a></li>
       <li><a href="terms.html" id="nav-terms">Terms</a></li>
       <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
       <li><a href="about.html" id="nav-about">About</a></li>
@@ -622,105 +533,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Available Offers Section -->
-    <div class="card" id="offers">
-      <h2 class="section-heading">💰 Available Money-Making Offers</h2>
-      <p class="small" style="margin-bottom: 25px;">Discover these verified offers to earn extra income. All links are active and regularly checked for availability.</p>
-      
-      <div id="available-offers" style="min-height: 200px;">
-        <div class="feature-grid">
-          <div class="feature-item" onclick="trackOfferClick('Swagbucks Sign Up', 'https://www.swagbucks.com/lp-savings-button?cmp=695&cxid=swagbucks128&rb=128221243&rp=1')">
-            <div class="feature-icon">💰</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Swagbucks Sign Up <span class="offer-status status-active">✓ Active</span></h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-              Join Swagbucks and earn points for surveys, shopping, and watching videos. Redeem for gift cards or cash.
-            </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-              <span class="offer-category">Rewards</span>
-              <span class="offer-payout">Earn: $10 Bonus</span>
-            </div>
-          </div>
-          
-          <div class="feature-item" onclick="trackOfferClick('InboxDollars Registration', 'https://www.inboxdollars.com/?r=signup1')">
-            <div class="feature-icon">💰</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">InboxDollars Registration <span class="offer-status status-active">✓ Active</span></h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-              Get paid to read emails, take surveys, play games, and shop online. $5 bonus just for signing up.
-            </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-              <span class="offer-category">Surveys & Emails</span>
-              <span class="offer-payout">Earn: $5 Bonus</span>
-            </div>
-          </div>
-          
-          <div class="feature-item" onclick="trackOfferClick('Survey Junkie Surveys', 'https://www.surveyjunkie.com/')">
-            <div class="feature-icon">💰</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Survey Junkie Surveys <span class="offer-status status-active">✓ Active</span></h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-              Share your opinions through surveys and get paid. One of the highest-paying survey sites available.
-            </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-              <span class="offer-category">Surveys</span>
-              <span class="offer-payout">Earn: $2-5/Survey</span>
-            </div>
-          </div>
-          
-          <div class="feature-item" onclick="trackOfferClick('MyPoints Rewards', 'https://www.mypoints.com/')">
-            <div class="feature-icon">💰</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">MyPoints Rewards <span class="offer-status status-active">✓ Active</span></h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-              Earn points for shopping online, taking surveys, watching videos, and more. Redeem for gift cards.
-            </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-              <span class="offer-category">Shopping & Surveys</span>
-              <span class="offer-payout">Earn: $10 Bonus</span>
-            </div>
-          </div>
-          
-          <div class="feature-item" onclick="trackOfferClick('PrizeRebel Tasks', 'https://www.prizerebel.com/')">
-            <div class="feature-icon">💰</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">PrizeRebel Tasks <span class="offer-status status-new">NEW</span></h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-              Complete surveys, offers, and tasks to earn rewards. Fast payments and multiple redemption options.
-            </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-              <span class="offer-category">Tasks & Surveys</span>
-              <span class="offer-payout">Earn: $1-10/Task</span>
-            </div>
-          </div>
-          
-          <div class="feature-item" onclick="trackOfferClick('GrabPoints Rewards', 'https://www.grabpoints.com/')">
-            <div class="feature-icon">💰</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 8px;">GrabPoints Rewards <span class="offer-status status-active">✓ Active</span></h3>
-            <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-              Earn points by completing offers, surveys, watching videos, and more. Redeem for PayPal cash or gift cards.
-            </p>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
-              <span class="offer-category">Multiple Methods</span>
-              <span class="offer-payout">Earn: $5+ Daily</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="stat-card" style="background: #e8f5e8; border-left: 4px solid var(--success);">
-        <h4 class="subsection-heading" style="margin-top: 0; color: #2e7d32;">💡 About These Offers</h4>
-        <div style="font-size: 0.9rem;">
-          <p><strong>How it works:</strong></p>
-          <ul>
-            <li>All offers are verified and regularly checked for availability</li>
-            <li>Click on any offer that interests you</li>
-            <li>Complete simple tasks like sign-ups, surveys, or downloads</li>
-            <li>Earn money for each completed offer</li>
-            <li>All offers are free to join - no investment required</li>
-          </ul>
-          <p class="small" style="margin-top: 10px; padding: 10px; background: #ffffff; border-radius: 5px;">
-            <strong>Note:</strong> These are third-party offers. Please read terms carefully before participating.
-          </p>
         </div>
       </div>
     </div>
@@ -902,20 +714,6 @@
         'page_location': window.location.href
       });
     }
-  }
-
-  // Track offer clicks for analytics
-  function trackOfferClick(offerTitle, offerUrl) {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'offer_click', {
-        'offer_title': offerTitle,
-        'offer_url': offerUrl,
-        'event_category': 'available_offers'
-      });
-    }
-    
-    // Open offer in new tab
-    window.open(offerUrl, '_blank');
   }
   
   // Initialize with random frequencies for demo
