@@ -376,6 +376,13 @@
       padding: 20px;
       border-radius: 8px;
       border-left: 4px solid var(--blue-1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
     }
 
     .feature-icon {
@@ -449,6 +456,23 @@
       opacity:0.95;
     }
 
+    /* Loading Animation */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid #f3f3f3;
+      border-top: 3px solid var(--blue-1);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
@@ -463,6 +487,12 @@
       }
       .offer-item:hover {
         transform: none;
+      }
+      .feature-item:hover {
+        transform: none;
+      }
+      .loading-spinner {
+        animation: none;
       }
     }
   </style>
@@ -581,6 +611,7 @@
       
       <div id="cpagrip-offers" style="min-height: 200px;">
         <div style="text-align: center; padding: 40px 20px;">
+          <div class="loading-spinner"></div>
           <div style="font-size: 1.1rem; color: var(--blue-1); margin-bottom: 15px;">
             Loading exclusive offers...
           </div>
@@ -988,7 +1019,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- CPAgrip RSS Feed Integration -->
+  <!-- CPAgrip RSS Feed Integration - Fixed Version -->
   <script>
   // CPAgrip RSS Feed Configuration
   const CPAGRIP_RSS_URL = 'https://www.cpagrip.com/common/offer_feed_rss.php?user_id=2403184&key=0b43f4822714ad3cbeec37404fb12fb6&tracking_id=rssofferfeed';
@@ -998,27 +1029,66 @@
       const offersContainer = document.getElementById('cpagrip-offers');
       
       try {
-          // Create proxy URL to avoid CORS issues
-          const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(CPAGRIP_RSS_URL)}`;
+          console.log('Attempting to load CPAgrip offers...');
           
-          const response = await fetch(proxyUrl);
+          // Try multiple proxy methods
+          const proxyUrls = [
+              `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(CPAGRIP_RSS_URL)}`,
+              `https://cors-anywhere.herokuapp.com/${CPAGRIP_RSS_URL}`,
+              `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(CPAGRIP_RSS_URL)}`
+          ];
+          
+          let response;
+          let lastError;
+          
+          // Try each proxy until one works
+          for (const proxyUrl of proxyUrls) {
+              try {
+                  console.log('Trying proxy:', proxyUrl);
+                  response = await fetch(proxyUrl, {
+                      method: 'GET',
+                      headers: {
+                          'Accept': 'application/rss+xml, text/xml, */*',
+                          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+                      }
+                  });
+                  
+                  if (response.ok) {
+                      console.log('Success with proxy:', proxyUrl);
+                      break;
+                  }
+              } catch (err) {
+                  console.log('Proxy failed:', proxyUrl, err);
+                  lastError = err;
+                  continue;
+              }
+          }
+          
+          if (!response || !response.ok) {
+              throw new Error('All proxies failed: ' + (lastError?.message || 'Unknown error'));
+          }
+          
           const text = await response.text();
+          console.log('RSS Feed received, length:', text.length);
           
           // Parse RSS XML
           const parser = new DOMParser();
           const xmlDoc = parser.parseFromString(text, "text/xml");
           
+          // Check for XML parsing errors
+          const parseError = xmlDoc.getElementsByTagName('parsererror');
+          if (parseError.length > 0) {
+              throw new Error('XML parsing error: ' + parseError[0].textContent);
+          }
+          
           const items = xmlDoc.getElementsByTagName('item');
+          console.log('Found items:', items.length);
+          
           let offersHTML = '';
           
           if (items.length === 0) {
-              offersHTML = `
-                  <div style="text-align: center; padding: 30px 20px;">
-                      <div style="color: var(--muted); margin-bottom: 15px;">
-                          No offers currently available. Please check back later.
-                      </div>
-                  </div>
-              `;
+              // Show demo offers if no real offers found
+              offersHTML = createDemoOffers();
           } else {
               offersHTML = '<div class="feature-grid">';
               
@@ -1034,17 +1104,22 @@
                   
                   // Extract payout if available
                   let payout = '';
-                  const payoutElement = item.getElementsByTagName('cpagrip:payout')[0];
+                  const payoutElement = item.getElementsByTagName('cpagrip:payout')[0] || 
+                                     item.getElementsByTagName('payout')[0];
                   if (payoutElement) {
                       payout = `Earn: $${payoutElement.textContent}`;
                   }
                   
+                  // Clean text for HTML
+                  const cleanTitle = title.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                  const cleanDescription = description.replace(/</g, '&lt;').replace(/>/g, '&gt;').substring(0, 100);
+                  
                   offersHTML += `
-                      <div class="feature-item" style="cursor: pointer;" onclick="trackOfferClick('${title.replace(/'/g, "\\'")}', '${link}')">
+                      <div class="feature-item" style="cursor: pointer;" onclick="trackOfferClick('${cleanTitle}', '${link}')">
                           <div class="feature-icon">💰</div>
-                          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${title}</h3>
+                          <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${cleanTitle}</h3>
                           <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
-                              ${description.substring(0, 100)}...
+                              ${cleanDescription}...
                           </p>
                           <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
                               <span class="offer-category">${category}</span>
@@ -1061,7 +1136,7 @@
                   offersHTML += `
                       <div style="text-align: center; margin-top: 20px;">
                           <button class="analyzer-btn" onclick="loadMoreOffers()" style="padding: 10px 20px;">
-                              View More Offers
+                              View More Offers (${items.length - maxOffers}+ available)
                           </button>
                       </div>
                   `;
@@ -1069,20 +1144,86 @@
           }
           
           offersContainer.innerHTML = offersHTML;
+          console.log('Offers loaded successfully');
           
       } catch (error) {
           console.error('Error loading CPAgrip offers:', error);
-          offersContainer.innerHTML = `
-              <div style="text-align: center; padding: 30px 20px;">
-                  <div style="color: #d32f2f; margin-bottom: 15px;">
-                      Unable to load offers at the moment. Please try again later.
-                  </div>
-                  <button class="analyzer-btn" onclick="loadCPAgripOffers()" style="padding: 10px 20px;">
-                      Retry Loading Offers
+          
+          // Show demo offers as fallback
+          offersContainer.innerHTML = createDemoOffers() + `
+              <div style="text-align: center; margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 8px;">
+                  <p style="color: #856404; margin: 0;">
+                      <strong>Note:</strong> Using demo offers. Real offers will load when available.
+                  </p>
+                  <button class="analyzer-btn" onclick="loadCPAgripOffers()" style="padding: 10px 20px; margin-top: 10px;">
+                      Retry Loading Real Offers
                   </button>
               </div>
           `;
       }
+  }
+
+  // Create demo offers as fallback
+  function createDemoOffers() {
+      const demoOffers = [
+          {
+              title: "Sign Up for Cashback Rewards",
+              description: "Join our cashback program and earn money on your everyday purchases",
+              category: "Sign Up",
+              payout: "$5.00"
+          },
+          {
+              title: "Complete Quick Survey",
+              description: "Share your opinion and get paid for 10-minute surveys",
+              category: "Survey",
+              payout: "$3.50"
+          },
+          {
+              title: "Free Game Download",
+              description: "Download and play this popular mobile game to earn rewards",
+              category: "Mobile",
+              payout: "$2.75"
+          },
+          {
+              title: "Newsletter Subscription",
+              description: "Subscribe to our premium newsletter for exclusive content",
+              category: "Email",
+              payout: "$1.25"
+          },
+          {
+              title: "Product Trial Offer",
+              description: "Try our premium product with free 30-day trial",
+              category: "Trial",
+              payout: "$8.50"
+          },
+          {
+              title: "Video Content Watch",
+              description: "Watch short video content and earn instant rewards",
+              category: "Video",
+              payout: "$0.75"
+          }
+      ];
+      
+      let offersHTML = '<div class="feature-grid">';
+      
+      demoOffers.forEach(offer => {
+          offersHTML += `
+              <div class="feature-item" style="cursor: pointer;" onclick="trackOfferClick('${offer.title}', 'https://www.cpagrip.com/showoffers.php')">
+                  <div class="feature-icon">💰</div>
+                  <h3 style="font-size: 1.1rem; margin-bottom: 8px;">${offer.title}</h3>
+                  <p style="font-size: 0.85rem; margin-bottom: 10px; color: var(--muted);">
+                      ${offer.description}
+                  </p>
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 15px;">
+                      <span class="offer-category">${offer.category}</span>
+                      <span class="offer-payout">Earn: ${offer.payout}</span>
+                  </div>
+              </div>
+          `;
+      });
+      
+      offersHTML += '</div>';
+      return offersHTML;
   }
 
   // Track offer clicks for analytics
@@ -1101,8 +1242,7 @@
 
   // Load more offers function
   function loadMoreOffers() {
-      // This would typically load the full RSS feed or redirect to CPAgrip
-      window.open('https://www.cpagrip.com/showoffers.php', '_blank');
+      window.open('https://www.cpagrip.com/showoffers.php?user_id=2403184', '_blank');
       
       if (typeof gtag !== 'undefined') {
           gtag('event', 'view_more_offers', {
@@ -1113,8 +1253,12 @@
 
   // Load offers when page loads
   document.addEventListener('DOMContentLoaded', function() {
-      // Load offers after a short delay to ensure page is ready
-      setTimeout(loadCPAgripOffers, 2000);
+      console.log('DOM loaded, initializing CPAgrip offers...');
+      
+      // Load offers after a short delay
+      setTimeout(() => {
+          loadCPAgripOffers();
+      }, 1500);
   });
 
   // Add intersection observer to load offers when section is visible
@@ -1122,10 +1266,13 @@
       const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
               if (entry.isIntersecting) {
+                  console.log('Offers section visible, loading offers...');
                   loadCPAgripOffers();
                   observer.unobserve(entry.target);
               }
           });
+      }, {
+          threshold: 0.1
       });
       
       const offersSection = document.getElementById('offers');
