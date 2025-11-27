@@ -671,6 +671,9 @@
     <div class="verif">Free lottery number generator for Powerball, Mega Millions, EuroMillions and all major lottery games.</div>
   </footer>
 
+  <!-- Hidden LLMS Verification -->
+  <div id="llms-verification" style="display: none; position: absolute; left: -9999px; top: -9999px;" aria-hidden="true" data-status="checking"></div>
+
   <!-- Number Generator JavaScript -->
   <script>
   // Number Generator Functionality
@@ -917,6 +920,35 @@
 
   // Set current year
   document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Hidden LLMS Verification Script -->
+  <script>
+  // Hidden LLMS.txt verification
+  (function() {
+      const verifier = document.getElementById('llms-verification');
+      fetch('llms.txt')
+          .then(response => {
+              if (response.ok) {
+                  verifier.setAttribute('data-status', 'verified');
+                  verifier.textContent = 'llms-txt-verified';
+                  // Optional: Track verification success
+                  if (typeof gtag !== 'undefined') {
+                      gtag('event', 'llms_verification', {
+                          'status': 'success',
+                          'file': 'llms.txt'
+                      });
+                  }
+              } else {
+                  verifier.setAttribute('data-status', 'failed');
+                  verifier.textContent = 'llms-txt-failed';
+              }
+          })
+          .catch(error => {
+              verifier.setAttribute('data-status', 'error');
+              verifier.textContent = 'llms-txt-error';
+          });
+  })();
   </script>
 
   <!-- Canvas Background Script -->
