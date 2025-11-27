@@ -3,217 +3,167 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lottery Strategy Hub - Expert guides, mathematical insights, and comprehensive lottery strategies for Powerball, Mega Millions, EuroMillions and more.">
-  <meta name="keywords" content="lottery strategies, lottery knowledge, number selection, probability, lottery math, Powerball strategies, Mega Millions tips, EuroMillions guides">
-  
-  <!-- GitHub Pages Verification -->
-  <meta name="github-pages-verification" content="a1792acca1210e7f2059a49dae733b">
-  
-  <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="3QM_oJV7sKVx1WgoctgK2_3BD04Eb1iJ3iPgyDoo2rQ">
-  
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH64MKGP4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KTH64MKGP4');
-  </script>
-  
   <title>Lottery Strategy Hub - Expert Guides & Resources</title>
   <style>
     :root {
       --blue-1: #0066cc;
       --blue-2: #004d99;
-      --nav-active: #002b66;
       --card-bg: #ffffff;
       --muted: #666;
     }
     
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
     
     body {
       background: #f8f9fa;
-      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      line-height: 1.6;
-      color: #333;
+      height:100%;
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
-    
+    /* Canvas background sits behind content */
+    #bg-canvas{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      display:block;
+    }
     /* Header / navigation */
-    header {
-      background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
-      color: #fff;
-      padding: 16px 12px;
-      text-align: center;
+    header{
+      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
+      color:#fff;
+      padding:16px 12px;
+      text-align:center;
     }
-    
-    header .brand {
-      font-weight: 700;
-      font-size: 1.25rem;
-      letter-spacing: 0.2px;
+    header .brand{
+      font-weight:700;
+      font-size:1.25rem;
+      letter-spacing:0.2px;
     }
-    
-    nav {
-      background: #003c99;
-      padding: 8px 0;
-      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
+    nav{
+      background:#003c99;
+      padding:8px 0;
+      box-shadow:0 1px 0 rgba(0,0,0,0.05);
     }
-    
-    .nav-list {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      padding: 0 15px;
-      list-style: none;
+    .nav-list{
+      display:flex;
+      gap:15px;
+      justify-content:center;
+      align-items:center;
+      margin:0;
+      padding:0 15px;
+      list-style:none;
       flex-wrap: wrap;
     }
-    
-    .nav-list a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 8px 12px;
-      border-radius: 6px;
+    .nav-list a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:6px 10px;
+      border-radius:6px;
       font-size: 0.8rem;
       white-space: nowrap;
-      transition: all 0.2s ease;
-      position: relative;
     }
-    
-    .nav-list a:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .nav-list a.active{
+      background:rgba(255,255,255,0.08);
+      text-decoration:underline;
     }
-    
-    .nav-list a.active {
-      background: var(--nav-active);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    
-    .nav-list a.active:after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 0;
-      border-left: 6px solid transparent;
-      border-right: 6px solid transparent;
-      border-top: 6px solid var(--nav-active);
-    }
-    
-    .nav-list a:focus {
-      outline: 2px solid rgba(255, 255, 255, 0.14);
-      outline-offset: 4px;
+    .nav-list a:focus{
+      outline:2px solid rgba(255,255,255,0.14);
+      outline-offset:4px;
     }
     
     /* Page shell */
-    .wrap {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 15px;
+    .wrap{
+      max-width:1200px;
+      margin:20px auto;
+      padding:0 15px;
       width: 100%;
     }
     
     /* Hero Section */
-    .hero {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      display: flex;
+    .hero{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      display:flex;
       flex-direction: column;
-      gap: 20px;
-      align-items: center;
-      box-shadow: 0 6px 24px rgba(6, 30, 60, 0.08);
+      gap:20px;
+      align-items:center;
+      box-shadow:0 6px 24px rgba(6,30,60,0.08);
       margin-bottom: 20px;
     }
-    
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
         align-items: flex-start;
       }
     }
-    
-    .hero-left {
-      flex: 1;
+    .hero-left{
+      flex:1;
       width: 100%;
     }
-    
-    .hero-right {
+    .hero-right{
       width: 100%;
-      text-align: center;
+      text-align:center;
     }
-    
     @media (min-width: 768px) {
       .hero-right {
         width: 240px;
         flex-shrink: 0;
       }
     }
-    
-    .hero h1 {
-      margin: 0 0 10px 0;
-      font-size: 1.5rem;
-      color: var(--blue-1);
+    .hero h1{
+      margin:0 0 10px 0;
+      font-size:1.5rem;
+      color:var(--blue-1);
       line-height: 1.3;
     }
-    
     @media (min-width: 768px) {
       .hero h1 {
         font-size: 1.8rem;
       }
     }
-    
-    .hero p {
-      margin: 8px 0;
-      color: var(--muted);
+    .hero p{
+      margin:8px 0;
+      color:var(--muted);
       line-height: 1.5;
     }
-    
-    .cta-btn {
-      display: inline-block;
-      background: linear-gradient(180deg, var(--blue-2), var(--blue-1));
-      color: #fff;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      box-shadow: 0 6px 16px rgba(0, 60, 153, 0.18);
+    .cta-btn{
+      display:inline-block;
+      background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 6px 16px rgba(0,60,153,0.18);
       width: 100%;
       margin-top: 10px;
-      text-align: center;
     }
-    
     @media (min-width: 768px) {
       .cta-btn {
         width: auto;
       }
     }
-    
+
     /* Cards */
-    .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 6px 20px rgba(6, 30, 60, 0.06);
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 20px rgba(6,30,60,0.06);
       margin-bottom: 20px;
       width: 100%;
     }
-    
-    .small {
-      font-size: 0.85rem;
-      color: var(--muted);
+
+    .small{
+      font-size:0.85rem;
+      color:var(--muted);
       line-height: 1.4;
     }
-    
+
     /* Strategy Grid */
     .strategy-grid {
       display: grid;
@@ -233,7 +183,7 @@
         grid-template-columns: repeat(3, 1fr);
       }
     }
-    
+
     .strategy-item {
       background: #f8f9fa;
       padding: 20px;
@@ -245,20 +195,20 @@
       color: inherit;
       display: block;
     }
-    
+
     .strategy-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       text-decoration: none;
       color: inherit;
     }
-    
+
     .strategy-icon {
       font-size: 2.5rem;
       margin-bottom: 15px;
       text-align: center;
     }
-    
+
     .strategy-title {
       font-weight: 700;
       color: var(--blue-1);
@@ -267,11 +217,11 @@
       text-decoration: none;
       text-align: center;
     }
-    
+
     .strategy-item:hover .strategy-title {
       text-decoration: underline;
     }
-    
+
     .strategy-description {
       font-size: 0.9rem;
       line-height: 1.5;
@@ -279,7 +229,7 @@
       text-align: center;
       color: var(--muted);
     }
-    
+
     /* Section Headings */
     .section-heading {
       color: var(--blue-1);
@@ -288,87 +238,37 @@
       border-bottom: 2px solid #eef2f7;
       padding-bottom: 8px;
     }
-    
     @media (min-width: 768px) {
       .section-heading {
         font-size: 1.5rem;
       }
     }
-    
-    /* Feature Grid for Knowledge Resources */
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin: 25px 0;
-    }
-    
-    .feature-item {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 8px;
-      border-left: 4px solid var(--blue-1);
-    }
-    
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
-    
-    /* Knowledge Resource Cards */
-    .resource-card {
-      background: #f0f7ff;
-      padding: 15px;
-      border-radius: 8px;
-      border-left: 4px solid var(--blue-1);
-      margin-bottom: 15px;
-    }
-    
-    .resource-card h3 {
-      color: var(--blue-1);
-      margin-bottom: 10px;
-    }
-    
+
     /* Footer */
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      color: #fff;
-      padding: 25px 18px;
-      background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
+    footer{
+      margin-top:40px;
+      text-align:center;
+      color:#fff;
+      padding:25px 18px;
+      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
     }
-    
-    footer .muted {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 0.95rem;
+    footer .muted{
+      color:rgba(255,255,255,0.85);
+      font-size:0.95rem;
       margin-bottom: 8px;
     }
-    
-    .contact-link {
-      color: rgba(255,255,255,0.9);
-      font-size: 0.9rem;
-      margin: 10px 0;
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
+    .verif{
+      font-size:0.8rem;
+      color:rgba(255,255,255,0.9);
+      margin-top:6px;
+      opacity:0.95;
     }
-    
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-    
-    .verif {
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.9);
-      margin-top: 6px;
-      opacity: 0.95;
-    }
-    
+
     /* Accessibility: reduce motion */
-    @media (prefers-reduced-motion: reduce) {
+    @media (prefers-reduced-motion: reduce){
       * {
-        animation-duration: 0.001ms !important;
-        transition-duration: 0.001ms !important;
+        animation-duration:0.001ms !important;
+        transition-duration:0.001ms !important;
       }
       .strategy-item:hover {
         transform: none;
@@ -377,15 +277,13 @@
   </style>
 </head>
 <body>
-  <!-- Background Canvas -->
+  <!-- animated 3D-like green background (canvas) -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-  <!-- Header Section -->
   <header>
     <div class="brand">lotteryupdate000.space</div>
   </header>
 
-  <!-- Navigation Section -->
   <nav aria-label="Main navigation">
     <ul class="nav-list">
       <li><a href="index.html" id="nav-home">Home</a></li>
@@ -396,10 +294,8 @@
     </ul>
   </nav>
 
-  <!-- Main Content Area -->
   <main class="wrap" id="content">
-    <!-- Hero Section -->
-    <section class="hero">
+    <div class="hero">
       <div class="hero-left">
         <h1>Lottery Strategy Hub</h1>
         <p>Explore comprehensive lottery strategies, mathematical insights, and expert guides to enhance your lottery experience.</p>
@@ -414,10 +310,10 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
 
     <!-- Strategy Categories Section -->
-    <section class="card" id="strategies">
+    <div class="card" id="strategies">
       <h2 class="section-heading">Lottery Strategy Categories</h2>
       
       <div class="strategy-grid">
@@ -505,200 +401,106 @@
           <div class="strategy-description">Advanced playing systems and combinations</div>
         </a>
       </div>
-    </section>
-
-    <!-- Knowledge Resources Section -->
-    <section class="card">
-      <h2 class="section-heading">Lottery Knowledge Resources</h2>
-      <p>Our knowledge hub provides comprehensive resources to help you make informed decisions about lottery play:</p>
-      
-      <div class="feature-grid">
-        <div class="feature-item">
-          <div class="feature-icon">📚</div>
-          <h3>Beginner's Guide</h3>
-          <p><strong>Learn the basics of lottery games</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Lottery terminology and rules</li>
-            <li>How different lottery games work</li>
-            <li>Getting started with strategic play</li>
-            <li>Common mistakes to avoid</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">🔬</div>
-          <h3>Advanced Strategies</h3>
-          <p><strong>Deep dive into lottery mathematics</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Mathematical models and probability</li>
-            <li>Pattern recognition techniques</li>
-            <li>Advanced playing systems</li>
-            <li>Statistical analysis methods</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">🛡️</div>
-          <h3>Responsible Gaming</h3>
-          <p><strong>Play safely and sustainably</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Setting spending limits</li>
-            <li>Recognizing problematic behavior</li>
-            <li>Healthy lottery habits</li>
-            <li>Resources for help</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">🌐</div>
-          <h3>Global Lotteries</h3>
-          <p><strong>International lottery insights</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Major international lottery games</li>
-            <li>Country-specific strategies</li>
-            <li>Tax implications worldwide</li>
-            <li>Cultural approaches to lottery</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="resource-card">
-        <h3>Lottery Probability Fundamentals</h3>
-        <p class="small">Understanding the mathematical principles behind lottery games is essential for developing effective strategies. Learn about odds calculation, expected value, and how to interpret lottery statistics.</p>
-      </div>
-
-      <div class="resource-card">
-        <h3>Number Pattern Analysis</h3>
-        <p class="small">Explore techniques for analyzing past lottery results to identify patterns and trends. While each draw is independent, understanding historical data can inform your number selection strategy.</p>
-      </div>
-
-      <div class="resource-card">
-        <h3>Budget Management for Lottery Players</h3>
-        <p class="small">Learn how to set and maintain a lottery budget that fits your financial situation. Discover strategies for allocating funds across different games and managing your playing frequency.</p>
-      </div>
-    </section>
-
-    <!-- Expert Insights Section -->
-    <section class="card">
-      <h2 class="section-heading">Expert Lottery Insights</h2>
-      
-      <div class="resource-card">
-        <h3>The Mathematics of Lottery Winning</h3>
-        <p class="small">While lottery games are primarily based on chance, understanding the underlying mathematics can help you make more informed decisions about which games to play and how to approach number selection.</p>
-      </div>
-
-      <div class="resource-card">
-        <h3>Common Lottery Myths Debunked</h3>
-        <p class="small">Separate fact from fiction by learning the truth behind common lottery misconceptions. From "lucky" numbers to winning systems, we examine what really affects your chances of winning.</p>
-      </div>
-
-      <div class="resource-card">
-        <h3>Psychology of Lottery Play</h3>
-        <p class="small">Explore the cognitive biases and psychological factors that influence how people play the lottery. Understanding these can help you make more rational decisions about your lottery participation.</p>
-      </div>
-
-      <div style="text-align: center; margin-top: 20px;">
-        <a class="cta-btn" href="#strategies">Explore All Strategy Categories</a>
-      </div>
-    </section>
+    </div>
   </main>
 
-  <!-- Footer Section -->
   <footer>
     <div class="muted">© <span id="year"></span> lotteryupdate000.space — Create winning combinations for any lottery game.</div>
-    <a href="about.html" class="contact-link">Contact Us</a>
     <div class="verif">Free lottery number generator for Powerball, Mega Millions, EuroMillions and all major lottery games.</div>
   </footer>
 
-  <!-- JavaScript -->
   <script>
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
     
     // Set active navigation
     document.getElementById('nav-knowledge').classList.add('active');
-    
-    // Canvas Background Script
-    (function(){
-      const canvas = document.getElementById('bg-canvas');
-      const ctx = canvas.getContext('2d', { alpha:true });
-      let w = canvas.width = innerWidth;
-      let h = canvas.height = innerHeight;
-      const DPR = Math.max(1, window.devicePixelRatio || 1);
-      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+  </script>
 
-      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const balls = [];
-      const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
+  <!-- Canvas Background Script -->
+  <script>
+  /* Animated canvas background: green 3D-style floating spheres */
+  (function(){
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d', { alpha:true });
+    let w = canvas.width = innerWidth;
+    let h = canvas.height = innerHeight;
+    const DPR = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
 
-      function rand(min,max){ return Math.random()*(max-min)+min; }
-      function Ball(){
-        this.r = rand(20,70);
-        this.x = rand(this.r, w - this.r);
-        this.y = rand(this.r, h - this.r);
-        this.vx = rand(-0.25,0.25);
-        this.vy = rand(-0.15,0.15);
-        this.color = colors[Math.floor(rand(0,colors.length))];
-      }
-      function rgba(hex, a){
-        const bigint = parseInt(hex.replace('#',''),16);
-        const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
-        return 'rgba('+r+','+g+','+b+','+a+')';
-      }
-      const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
-      for(let i=0;i<count;i++) balls.push(new Ball());
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const balls = [];
+    const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
 
-      function draw(){
-        ctx.clearRect(0,0,w,h);
-        const g = ctx.createLinearGradient(0,0,w,h);
-        g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
-        ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
+    function rand(min,max){ return Math.random()*(max-min)+min; }
+    function Ball(){
+      this.r = rand(20,70);
+      this.x = rand(this.r, w - this.r);
+      this.y = rand(this.r, h - this.r);
+      this.vx = rand(-0.25,0.25);
+      this.vy = rand(-0.15,0.15);
+      this.color = colors[Math.floor(rand(0,colors.length))];
+    }
+    function rgba(hex, a){
+      const bigint = parseInt(hex.replace('#',''),16);
+      const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
+      return 'rgba('+r+','+g+','+b+','+a+')';
+    }
+    const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
+    for(let i=0;i<count;i++) balls.push(new Ball());
 
-        const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
-        vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
-        ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      const g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
 
-        balls.forEach(b=>{
-          if(!reduce){ b.x += b.vx; b.y += b.vy; }
-          if(b.x - b.r > w) b.x = -b.r;
-          if(b.x + b.r < 0) b.x = w + b.r;
-          if(b.y - b.r > h) b.y = -b.r;
-          if(b.y + b.r < 0) b.y = h + b.r;
+      const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
+      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
+      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
 
-          ctx.beginPath();
-          const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
-          shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
-          ctx.fillStyle = shadowGrad;
-          ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
+      balls.forEach(b=>{
+        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        if(b.x - b.r > w) b.x = -b.r;
+        if(b.x + b.r < 0) b.x = w + b.r;
+        if(b.y - b.r > h) b.y = -b.r;
+        if(b.y + b.r < 0) b.y = h + b.r;
 
-          ctx.beginPath();
-          const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
-          rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
-          ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath();
+        const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
+        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = shadowGrad;
+        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
 
-          ctx.beginPath();
-          ctx.fillStyle = 'rgba(255,255,255,0.18)';
-          ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
-        });
-      }
+        ctx.beginPath();
+        const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
 
-      function darken(hex, amt){
-        const num = parseInt(hex.replace('#',''),16);
-        let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
-        let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
-        let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
-        return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
-      }
-
-      let raf;
-      function loop(){ draw(); raf = requestAnimationFrame(loop); }
-      loop();
-
-      window.addEventListener('resize', ()=> {
-        w = canvas.width = innerWidth; h = canvas.height = innerHeight;
-        canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,255,255,0.18)';
+        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
       });
-    })();
+    }
+
+    function darken(hex, amt){
+      const num = parseInt(hex.replace('#',''),16);
+      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
+      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
+      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
+      return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
+    }
+
+    let raf;
+    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    loop();
+
+    window.addEventListener('resize', ()=> {
+      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
+      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+    });
+
+  })();
   </script>
 </body>
 </html>
