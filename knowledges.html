@@ -10,6 +10,7 @@
       --blue-2: #004d99;
       --card-bg: #ffffff;
       --muted: #666;
+      --nav-active: #002b66;
     }
     
     * {
@@ -60,14 +61,31 @@
       color:#fff;
       text-decoration:none;
       font-weight:600;
-      padding:6px 10px;
+      padding:8px 12px;
       border-radius:6px;
       font-size: 0.8rem;
       white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .nav-list a:hover {
+      background:rgba(255,255,255,0.1);
     }
     .nav-list a.active{
-      background:rgba(255,255,255,0.08);
-      text-decoration:underline;
+      background:var(--nav-active);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .nav-list a.active:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid var(--nav-active);
     }
     .nav-list a:focus{
       outline:2px solid rgba(255,255,255,0.14);
