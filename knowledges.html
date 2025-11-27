@@ -151,11 +151,17 @@
       border-left: 4px solid var(--blue-1);
       transition: transform 0.3s, box-shadow 0.3s;
       height: 100%;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
     
     .blog-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      text-decoration: none;
+      color: inherit;
     }
     
     .blog-number {
@@ -176,6 +182,11 @@
       color: var(--blue-1);
       margin-bottom: 12px;
       font-size: 1.2rem;
+      text-decoration: none;
+    }
+    
+    .blog-item:hover .blog-title {
+      text-decoration: underline;
     }
     
     .blog-description {
@@ -217,19 +228,6 @@
       margin-bottom: 8px;
     }
     
-    .contact-link {
-      color: rgba(255,255,255,0.9);
-      font-size: 0.9rem;
-      margin: 10px 0;
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    
-    .contact-link:hover {
-      text-decoration: underline;
-    }
-    
     .verif {
       font-size: 0.8rem;
       color: rgba(255,255,255,0.9);
@@ -253,6 +251,8 @@
     
     .cta-button:hover {
       transform: translateY(-2px);
+      text-decoration: none;
+      color: #fff;
     }
     
     /* Accessibility: reduce motion */
@@ -298,7 +298,7 @@
       
       <div class="blog-grid">
         <!-- Blog 1 -->
-        <div class="blog-item">
+        <a href="How Our Smart Algorithm Generates Winning Lottery Combinations.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">1</span> How Our Smart Algorithm Generates Winning Lottery Combinations</div>
           <div class="blog-description">Discover the sophisticated technology behind our number generator and how it creates balanced, unique combinations.</div>
           <div class="blog-features">
@@ -309,10 +309,10 @@
               <li>Include examples of generated number sets</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 2 -->
-        <div class="blog-item">
+        <a href="Powerball vs Mega Millions: Which Lottery Strategy Works Best?.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">2</span> Powerball vs Mega Millions: Which Lottery Strategy Works Best?</div>
           <div class="blog-description">Compare the two major US lotteries and learn optimal strategies for each game type.</div>
           <div class="blog-features">
@@ -323,10 +323,10 @@
               <li>Discuss the differences in odds and jackpot structures</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 3 -->
-        <div class="blog-item">
+        <a href="The Psychology of Lucky Numbers: Why We Choose Certain Combinations.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">3</span> The Psychology of Lucky Numbers: Why We Choose Certain Combinations</div>
           <div class="blog-description">Explore the fascinating psychology behind number selection and how it affects lottery play.</div>
           <div class="blog-features">
@@ -337,10 +337,10 @@
               <li>Share interesting facts about popular number choices</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 4 -->
-        <div class="blog-item">
+        <a href="5 Common Lottery Myths Debunked by Data Analysis.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">4</span> 5 Common Lottery Myths Debunked by Data Analysis</div>
           <div class="blog-description">Separate fact from fiction with data-driven analysis of popular lottery misconceptions.</div>
           <div class="blog-features">
@@ -352,10 +352,10 @@
               <li>Myth: Lottery systems can guarantee wins</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 5 -->
-        <div class="blog-item">
+        <a href="How to Use Our Balanced Number Generator for Better Odds.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">5</span> How to Use Our Balanced Number Generator for Better Odds</div>
           <div class="blog-description">Master our balanced set feature with this step-by-step guide to creating optimal number combinations.</div>
           <div class="blog-features">
@@ -366,10 +366,10 @@
               <li>Tips for combining personal numbers with generated ones</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 6 -->
-        <div class="blog-item">
+        <a href="International Lotteries: Generating Numbers for EuroMillions and More.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">6</span> International Lotteries: Generating Numbers for EuroMillions and More</div>
           <div class="blog-description">Learn how to use our generator for international lottery games and understand different number selection approaches.</div>
           <div class="blog-features">
@@ -380,10 +380,10 @@
               <li>Cultural differences in number preferences</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 7 -->
-        <div class="blog-item">
+        <a href="The Mathematics of Lottery: Understanding Your Actual Chances.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">7</span> The Mathematics of Lottery: Understanding Your Actual Chances</div>
           <div class="blog-description">Dive into the probability calculations and mathematical principles that govern lottery outcomes.</div>
           <div class="blog-features">
@@ -394,10 +394,10 @@
               <li>Show how your generator creates mathematically sound combinations</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 8 -->
-        <div class="blog-item">
+        <a href="Lottery Number Patterns: What the Data Really Shows.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">8</span> Lottery Number Patterns: What the Data Really Shows</div>
           <div class="blog-description">Analyze historical winning patterns and understand why pattern recognition doesn't improve your odds.</div>
           <div class="blog-features">
@@ -408,10 +408,10 @@
               <li>How your generator creates pattern-free combinations</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 9 -->
-        <div class="blog-item">
+        <a href="Responsible Lottery Play: Setting Limits and Managing Expectations.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">9</span> Responsible Lottery Play: Setting Limits and Managing Expectations</div>
           <div class="blog-description">Learn important guidelines for responsible lottery participation and budget management.</div>
           <div class="blog-features">
@@ -422,10 +422,10 @@
               <li>How your generator supports responsible play</li>
             </ul>
           </div>
-        </div>
+        </a>
 
         <!-- Blog 10 -->
-        <div class="blog-item">
+        <a href="Behind the Scenes: Building a Free Lottery Number Generator.html" class="blog-item">
           <div class="blog-title"><span class="blog-number">10</span> Behind the Scenes: Building a Free Lottery Number Generator</div>
           <div class="blog-description">Get an inside look at the development process and technical considerations behind our number generator tool.</div>
           <div class="blog-features">
@@ -436,7 +436,7 @@
               <li>Future features and updates planned</li>
             </ul>
           </div>
-        </div>
+        </a>
       </div>
       
       <div style="text-align: center; margin-top: 30px;">
@@ -448,7 +448,6 @@
 
   <footer>
     <div class="muted">© <span id="year"></span> lotteryupdate000.space — Create winning combinations for any lottery game.</div>
-    <a href="about.html" class="contact-link">Contact Us</a>
     <div class="verif">Free lottery number generator for Powerball, Mega Millions, EuroMillions and all major lottery games.</div>
   </footer>
 
