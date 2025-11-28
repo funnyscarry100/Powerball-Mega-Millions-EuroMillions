@@ -88,31 +88,9 @@
             background-color: rgba(255, 255, 255, 0.15);
         }
         
-        /* Content Sections */
-        .content-section {
-            display: none;
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .content-section.active {
-            display: block;
-        }
-        
-        .section-title {
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--light-blue);
-            font-size: 28px;
-        }
-        
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 102, 204, 0.9), rgba(0, 77, 153, 0.9));
+            background: linear-gradient(rgba(0, 102, 204, 0.9), rgba(0, 77, 153, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230066cc"/><circle cx="50" cy="50" r="40" fill="%23004d99"/></svg>');
             color: white;
             padding: 60px 0;
             text-align: center;
@@ -148,6 +126,23 @@
         .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Main Content */
+        .content-section {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            color: var(--primary-blue);
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-blue);
+            font-size: 28px;
         }
         
         /* Generator Section */
@@ -440,12 +435,11 @@
     <nav>
         <div class="container">
             <ul class="nav-links">
-                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                <li><a href="#" class="nav-link" data-page="generator">Generator</a></li>
-                <li><a href="#" class="nav-link" data-page="knowledge">Knowledge</a></li>
-                <li><a href="#" class="nav-link" data-page="terms">Terms</a></li>
-                <li><a href="#" class="nav-link" data-page="privacy">Privacy</a></li>
-                <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Generator</a></li>
+                <li><a href="#">Strategies</a></li>
+                <li><a href="#">Lottery Info</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </div>
     </nav>
@@ -455,50 +449,14 @@
         <div class="container">
             <h1>Generate Winning Lottery Numbers</h1>
             <p>Use our advanced algorithm to create unique number combinations for Powerball, Mega Millions, EuroMillions and more!</p>
-            <a href="#" class="cta-button nav-link" data-page="generator">Generate Numbers Now</a>
+            <a href="#generator" class="cta-button">Generate Numbers Now</a>
         </div>
     </section>
 
     <!-- Main Content -->
     <div class="container">
-        <!-- Home Section -->
-        <section id="home-content" class="content-section active">
-            <h2 class="section-title">Welcome to LottoGenius</h2>
-            <p>Our free lottery number generator helps you create unique combinations for any lottery game. Whether you're playing Powerball, Mega Millions, EuroMillions, or any other lottery, our tool provides multiple generation methods to suit your preferences.</p>
-            
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <div class="tip-icon">🎯</div>
-                    <h3 class="tip-title">Smart Selection</h3>
-                    <p>Our algorithm analyzes number patterns and creates combinations with optimal distribution across the number range.</p>
-                </div>
-                
-                <div class="tip-card">
-                    <div class="tip-icon">⚖️</div>
-                    <h3 class="tip-title">Balanced Approach</h3>
-                    <p>Generate numbers with a good mix of odd/even and high/low numbers for more balanced combinations.</p>
-                </div>
-                
-                <div class="tip-card">
-                    <div class="tip-icon">🔢</div>
-                    <h3 class="tip-title">Include Lucky Numbers</h3>
-                    <p>Select your favorite numbers and let our generator build combinations around them for personalized sets.</p>
-                </div>
-                
-                <div class="tip-card">
-                    <div class="tip-icon">📊</div>
-                    <h3 class="tip-title">Statistical Analysis</h3>
-                    <p>View detailed statistics about your generated numbers to understand the composition of your combinations.</p>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <a href="#" class="btn btn-primary nav-link" data-page="generator" style="display: inline-block; text-decoration: none;">Start Generating Numbers</a>
-            </div>
-        </section>
-        
         <!-- Generator Section -->
-        <section id="generator-content" class="content-section">
+        <section id="generator" class="content-section">
             <h2 class="section-title">Lottery Number Generator</h2>
             
             <div class="generator-container">
@@ -571,217 +529,34 @@
             </div>
         </section>
         
-        <!-- Knowledge Section -->
-        <section id="knowledge-content" class="content-section">
-            <h2 class="section-title">Lottery Knowledge & Strategy</h2>
+        <!-- Tips Section -->
+        <section class="content-section">
+            <h2 class="section-title">Lottery Number Strategies</h2>
             
             <div class="tips-grid">
                 <div class="tip-card">
-                    <h3 class="tip-title">Understanding Lottery Odds</h3>
-                    <p>Learn how lottery odds are calculated and what they mean for your chances of winning. Each number combination has an equal probability of being drawn.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Probability basics</li>
-                        <li>How combinations work</li>
-                        <li>Comparing different lottery games</li>
-                        <li>Expected value calculations</li>
-                    </ul>
+                    <div class="tip-icon">🎯</div>
+                    <h3 class="tip-title">Smart Selection</h3>
+                    <p>Our algorithm analyzes number patterns and creates combinations with optimal distribution across the number range.</p>
                 </div>
                 
                 <div class="tip-card">
-                    <h3 class="tip-title">Number Selection Strategies</h3>
-                    <p>Explore different approaches to selecting lottery numbers and understand which strategies might work best for you.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Random vs. strategic selection</li>
-                        <li>Hot and cold numbers</li>
-                        <li>Balanced number sets</li>
-                        <li>Avoiding common patterns</li>
-                    </ul>
+                    <div class="tip-icon">⚖️</div>
+                    <h3 class="tip-title">Balanced Approach</h3>
+                    <p>Generate numbers with a good mix of odd/even and high/low numbers for more balanced combinations.</p>
                 </div>
                 
                 <div class="tip-card">
-                    <h3 class="tip-title">Lottery Game Types</h3>
-                    <p>Understand the differences between various lottery formats and how to adapt your strategy accordingly.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Pick-3, Pick-4 games</li>
-                        <li>Powerball and Mega Millions</li>
-                        <li>EuroMillions and other international games</li>
-                        <li>Daily and weekly draws</li>
-                    </ul>
+                    <div class="tip-icon">🔢</div>
+                    <h3 class="tip-title">Include Lucky Numbers</h3>
+                    <p>Select your favorite numbers and let our generator build combinations around them for personalized sets.</p>
                 </div>
                 
                 <div class="tip-card">
-                    <h3 class="tip-title">Lottery Myths Debunked</h3>
-                    <p>Separate fact from fiction in lottery playing and avoid common misconceptions that could cost you money.</p>
-                    <ul style="margin-top: 15px; padding-left: 20px;">
-                        <li>Common misconceptions</li>
-                        <li>Probability fallacies</li>
-                        <li>Winning strategies that don't work</li>
-                        <li>Responsible playing tips</li>
-                    </ul>
+                    <div class="tip-icon">📊</div>
+                    <h3 class="tip-title">Statistical Analysis</h3>
+                    <p>View detailed statistics about your generated numbers to understand the composition of your combinations.</p>
                 </div>
-            </div>
-            
-            <div class="stat-card" style="margin-top: 30px;">
-                <h3>Responsible Lottery Play</h3>
-                <p>Always play responsibly and within your means. Remember these important guidelines:</p>
-                <ul style="margin-top: 15px; padding-left: 20px;">
-                    <li>Set a budget for lottery play and stick to it</li>
-                    <li>View lottery tickets as entertainment, not investments</li>
-                    <li>Never spend money you can't afford to lose</li>
-                    <li>If playing becomes a problem, seek help from gambling support services</li>
-                </ul>
-            </div>
-        </section>
-        
-        <!-- Terms Section -->
-        <section id="terms-content" class="content-section">
-            <h2 class="section-title">Terms of Service</h2>
-            
-            <div class="stat-card">
-                <h3>Acceptance of Terms</h3>
-                <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Use of Service</h3>
-                <p>Our lottery number generator is provided for entertainment purposes only. The numbers generated are random and do not guarantee winning any lottery.</p>
-                <p>You agree not to use the service:</p>
-                <ul style="margin-top: 15px; padding-left: 20px;">
-                    <li>For any unlawful purpose</li>
-                    <li>To solicit others to perform or participate in any unlawful acts</li>
-                    <li>To violate any international, federal, provincial or state regulations, rules, laws, or local ordinances</li>
-                    <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
-                </ul>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Disclaimer</h3>
-                <p>The numbers generated by our service are completely random. We make no claims about their effectiveness in winning any lottery game.</p>
-                <p>All lottery games are games of chance, and winning is determined by random drawing. Our service does not increase your chances of winning.</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Limitation of Liability</h3>
-                <p>In no event shall LottoGenius, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Changes to Terms</h3>
-                <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.</p>
-            </div>
-        </section>
-        
-        <!-- Privacy Section -->
-        <section id="privacy-content" class="content-section">
-            <h2 class="section-title">Privacy Policy</h2>
-            
-            <div class="stat-card">
-                <h3>Information Collection and Use</h3>
-                <p>We collect several different types of information for various purposes to provide and improve our service to you.</p>
-                
-                <h4 style="margin-top: 15px;">Personal Data</h4>
-                <p>While using our service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to:</p>
-                <ul style="margin-top: 15px; padding-left: 20px;">
-                    <li>Email address</li>
-                    <li>Cookies and Usage Data</li>
-                </ul>
-                
-                <h4 style="margin-top: 15px;">Usage Data</h4>
-                <p>We may also collect information on how the service is accessed and used. This Usage Data may include information such as your computer's Internet Protocol address (IP address), browser type, browser version, the pages of our service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Tracking & Cookies Data</h3>
-                <p>We use cookies and similar tracking technologies to track the activity on our service and hold certain information.</p>
-                <p>Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our service.</p>
-                <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Use of Data</h3>
-                <p>LottoGenius uses the collected data for various purposes:</p>
-                <ul style="margin-top: 15px; padding-left: 20px;">
-                    <li>To provide and maintain the service</li>
-                    <li>To notify you about changes to our service</li>
-                    <li>To allow you to participate in interactive features of our service when you choose to do so</li>
-                    <li>To provide customer care and support</li>
-                    <li>To provide analysis or valuable information so that we can improve the service</li>
-                    <li>To monitor the usage of the service</li>
-                    <li>To detect, prevent and address technical issues</li>
-                </ul>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Security of Data</h3>
-                <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
-            </div>
-        </section>
-        
-        <!-- About Section -->
-        <section id="about-content" class="content-section">
-            <h2 class="section-title">About Us</h2>
-            
-            <div class="stat-card">
-                <h3>Our Mission</h3>
-                <p>At LottoGenius, our mission is to provide free, easy-to-use lottery number generation tools for players around the world. We believe in making lottery number generation accessible to everyone, regardless of their technical knowledge or experience with lottery games.</p>
-                <p>Our tools are designed to be:</p>
-                <ul style="margin-top: 15px; padding-left: 20px;">
-                    <li>Completely free to use with no hidden costs</li>
-                    <li>Accessible on any device with an internet connection</li>
-                    <li>Easy to understand and use for players of all experience levels</li>
-                    <li>Based on random number generation principles</li>
-                </ul>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Our Tools</h3>
-                <p>We offer a variety of lottery number generation methods to suit different preferences:</p>
-                
-                <div class="tips-grid" style="margin-top: 20px;">
-                    <div class="tip-card">
-                        <h4>Smart Numbers</h4>
-                        <p>Algorithm-based selection that creates unique number combinations based on statistical patterns.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <h4>Balanced Sets</h4>
-                        <p>Mathematically optimized combinations with even distribution of numbers across the range.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <h4>Quick Pick</h4>
-                        <p>Completely random number generation, similar to the quick pick options at lottery retailers.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <h4>Custom Selection</h4>
-                        <p>Include your favorite numbers and let our generator build combinations around them.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Our Commitment</h3>
-                <p>We are committed to:</p>
-                <ul style="margin-top: 15px; padding-left: 20px;">
-                    <li>Providing accurate, random number generation</li>
-                    <li>Maintaining user privacy and data security</li>
-                    <li>Offering a completely free service with no premium tiers</li>
-                    <li>Continuously improving our tools based on user feedback</li>
-                    <li>Promoting responsible lottery play</li>
-                </ul>
-            </div>
-            
-            <div class="stat-card">
-                <h3>Disclaimer</h3>
-                <p>It's important to understand that our lottery number generator creates random combinations and does not guarantee winning any lottery. All lottery games are games of chance, and winning is determined by random drawing.</p>
-                <p>We encourage all users to:</p>
-                <ul style="margin-top: 15px; padding-left: 20px;">
-                    <li>Play responsibly and within their means</li>
-                    <li>View lottery tickets as entertainment, not investments</li>
-                    <li>Set a budget for lottery play and stick to it</li>
-                    <li>Seek help if playing becomes a problem</li>
-                </ul>
             </div>
         </section>
     </div>
@@ -798,20 +573,20 @@
                 <div class="footer-section">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="#" class="nav-link" data-page="home">Home</a></li>
-                        <li><a href="#" class="nav-link" data-page="generator">Number Generator</a></li>
-                        <li><a href="#" class="nav-link" data-page="knowledge">Lottery Strategies</a></li>
-                        <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Number Generator</a></li>
+                        <li><a href="#">Lottery Strategies</a></li>
+                        <li><a href="#">Odds Calculator</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
                     <h3>Legal</h3>
                     <ul class="footer-links">
-                        <li><a href="#" class="nav-link" data-page="terms">Terms of Service</a></li>
-                        <li><a href="#" class="nav-link" data-page="privacy">Privacy Policy</a></li>
-                        <li><a href="#" class="nav-link" data-page="terms">Disclaimer</a></li>
-                        <li><a href="#" class="nav-link" data-page="terms">Responsible Gaming</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">Responsible Gaming</a></li>
                     </ul>
                 </div>
             </div>
@@ -930,42 +705,6 @@
             document.getElementById('consecutiveCount').textContent = consecutiveCount;
         }
         
-        // Navigation functionality
-        function setupNavigation() {
-            const navLinks = document.querySelectorAll('.nav-link');
-            const contentSections = document.querySelectorAll('.content-section');
-            
-            // Function to switch between pages
-            function switchPage(pageId) {
-                // Update navigation
-                navLinks.forEach(link => {
-                    if (link.getAttribute('data-page') === pageId) {
-                        link.classList.add('active');
-                    } else {
-                        link.classList.remove('active');
-                    }
-                });
-                
-                // Update content
-                contentSections.forEach(section => {
-                    if (section.id === `${pageId}-content`) {
-                        section.classList.add('active');
-                    } else {
-                        section.classList.remove('active');
-                    }
-                });
-            }
-            
-            // Add click event listeners to navigation links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const pageId = this.getAttribute('data-page');
-                    switchPage(pageId);
-                });
-            });
-        }
-        
         // CPA Ad System
         let adIntervals = [];
         
@@ -1001,7 +740,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             initializeNumberGrid();
             generateNumbers('quick');
-            setupNavigation();
             
             // Set up event listeners for buttons
             document.getElementById('smartGenerate').addEventListener('click', function() {
