@@ -86,6 +86,7 @@
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .tutorial-card::before {
@@ -184,53 +185,7 @@
             margin-top: 3rem;
             border-radius: 20px 20px 0 0;
         }
-
-        .section-heading {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            border-bottom: 2px solid var(--light);
-            padding-bottom: 0.5rem;
-        }
         
-        .subsection-heading {
-            color: var(--primary);
-            margin: 1.5rem 0 1rem 0;
-            font-size: 1.5rem;
-        }
-
-        .tutorial-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .key-point {
-            background: var(--light);
-            padding: 1.5rem;
-            border-left: 4px solid var(--accent);
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .strategy-box {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border: 2px solid var(--primary);
-        }
-        
-        .example {
-            background: #fff3e0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #ff9800;
-        }
-
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -262,10 +217,6 @@
             .header-content, .intro-text {
                 padding: 1rem;
             }
-            
-            .tutorial-section {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
@@ -279,15 +230,15 @@
 
     <div class="container">
         <section class="intro-text">
-            <h2 style="color: var(--primary); margin-bottom: 1rem;">Unlock the Power of Strategic Lottery Number Generation</h2>
-            <p>Welcome to the most comprehensive guide on lottery number generation strategies. Whether you're a casual player or serious lottery enthusiast, understanding the science behind number selection can dramatically improve your approach to lottery games.</p>
-            <p>This tutorial hub covers 10 proven strategies that combine mathematical principles, statistical analysis, and psychological factors to help you make informed decisions when generating lottery numbers.</p>
+            <h2 style="color: var(--primary); margin-bottom: 1rem;">Learn About Lottery Strategies and Number Patterns</h2>
+            <p>Welcome to our comprehensive guide on lottery number generation strategies. Here you'll learn about different approaches to selecting lottery numbers, understanding number patterns, and increasing your knowledge of how lottery games work.</p>
+            <p>This resource covers various strategies that combine mathematical principles, statistical analysis, and psychological factors to help you make more informed decisions when playing lottery games.</p>
         </section>
 
         <!-- Tutorial Cards -->
         <div class="tutorial-grid">
             <!-- Tutorial 1 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Mathematical-Approach-to-Lottery-Number-Generation.html'">
                 <div class="card-number">01</div>
                 <h3 class="card-title">Mathematical Approach to Lottery Number Generation</h3>
                 <p class="card-description">Discover how mathematical principles can guide your number selection process and improve your chances.</p>
@@ -300,7 +251,7 @@
             </div>
 
             <!-- Tutorial 2 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Statistical-Analysis-in-Lottery-Games.html'">
                 <div class="card-number">02</div>
                 <h3 class="card-title">Statistical Analysis in Lottery Games</h3>
                 <p class="card-description">Learn how to use statistical methods to analyze past results and identify meaningful patterns.</p>
@@ -313,7 +264,7 @@
             </div>
 
             <!-- Tutorial 3 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Hot-and-Cold-Number-Theory.html'">
                 <div class="card-number">03</div>
                 <h3 class="card-title">Hot and Cold Number Theory</h3>
                 <p class="card-description">Master the concept of hot and cold numbers and how to leverage this theory in your strategy.</p>
@@ -326,7 +277,7 @@
             </div>
 
             <!-- Tutorial 4 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Wheeling-Systems-Strategy.html'">
                 <div class="card-number">04</div>
                 <h3 class="card-title">Wheeling Systems Strategy</h3>
                 <p class="card-description">Explore comprehensive wheeling systems that maximize coverage and improve winning potential.</p>
@@ -339,7 +290,7 @@
             </div>
 
             <!-- Tutorial 5 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Frequency-Analysis-Techniques.html'">
                 <div class="card-number">05</div>
                 <h3 class="card-title">Frequency Analysis Techniques</h3>
                 <p class="card-description">Learn advanced frequency analysis methods to identify number patterns and tendencies.</p>
@@ -352,7 +303,7 @@
             </div>
 
             <!-- Tutorial 6 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Pattern-Recognition-in-Lottery-Draws.html'">
                 <div class="card-number">06</div>
                 <h3 class="card-title">Pattern Recognition in Lottery Draws</h3>
                 <p class="card-description">Develop skills to recognize and utilize patterns in lottery number sequences.</p>
@@ -365,7 +316,7 @@
             </div>
 
             <!-- Tutorial 7 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Balanced-Number-Selection-Method.html'">
                 <div class="card-number">07</div>
                 <h3 class="card-title">Balanced Number Selection Method</h3>
                 <p class="card-description">Master the art of creating balanced number combinations for optimal coverage.</p>
@@ -378,7 +329,7 @@
             </div>
 
             <!-- Tutorial 8 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Psychological-Factors-in-Number-Selection.html'">
                 <div class="card-number">08</div>
                 <h3 class="card-title">Psychological Factors in Number Selection</h3>
                 <p class="card-description">Understand how psychology influences number choices and how to avoid common biases.</p>
@@ -391,7 +342,7 @@
             </div>
 
             <!-- Tutorial 9 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Number-Grouping-Strategies.html'">
                 <div class="card-number">09</div>
                 <h3 class="card-title">Number Grouping Strategies</h3>
                 <p class="card-description">Learn effective number grouping techniques to create coherent and strategic combinations.</p>
@@ -404,7 +355,7 @@
             </div>
 
             <!-- Tutorial 10 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="window.location.href='Advanced-Algorithmic-Approaches.html'">
                 <div class="card-number">10</div>
                 <h3 class="card-title">Advanced Algorithmic Approaches</h3>
                 <p class="card-description">Explore cutting-edge algorithmic methods for sophisticated number generation.</p>
@@ -414,177 +365,6 @@
                     <li>Genetic algorithm optimization</li>
                     <li>Neural network implementations</li>
                 </ul>
-            </div>
-        </div>
-
-        <!-- Detailed Strategy Content -->
-        <div class="tutorial-section">
-            <h2 class="section-heading">Mathematical Approach to Lottery Number Generation</h2>
-            <p>Mathematics provides the foundational framework for understanding lottery games and developing effective number selection strategies. While lotteries are fundamentally games of chance, mathematical principles can help players make more informed decisions and avoid common pitfalls.</p>
-            
-            <div class="key-point">
-                <strong>Key Insight:</strong> Mathematics doesn't guarantee wins, but it helps optimize your approach and manage expectations realistically.
-            </div>
-
-            <h3 class="subsection-heading">Probability Theory Fundamentals</h3>
-            <p>Probability theory is the mathematical study of random events. In lottery contexts, it helps us understand the likelihood of specific number combinations appearing.</p>
-            
-            <h4>Basic Probability Concepts</h4>
-            <p>Every lottery number has an equal probability of being drawn in any given lottery draw. However, when we consider combinations of numbers, the probabilities become more complex and interesting.</p>
-            
-            <div class="example">
-                <strong>Example:</strong> In a 6/49 lottery, the probability of any single combination is 1 in 13,983,816. This remains constant regardless of which specific numbers you choose.
-            </div>
-
-            <h3 class="subsection-heading">Combinatorial Mathematics in Lottery Games</h3>
-            <p>Combinatorics deals with combinations of objects belonging to a finite set in accordance with certain constraints. In lottery terms, it's about how numbers can be combined.</p>
-            
-            <h4>The Combination Formula</h4>
-            <p>The number of possible combinations in a lottery game is calculated using the combination formula: C(n,k) = n! / (k!(n-k)!) where n is the total numbers available and k is the numbers drawn.</p>
-            
-            <div class="strategy-box">
-                <h4>Practical Application: Number Distribution</h4>
-                <p>Use combinatorial mathematics to ensure your selected numbers are well-distributed across the entire number field. Avoid clustering numbers in small ranges.</p>
-                <ul>
-                    <li>Spread numbers across low, medium, and high ranges</li>
-                    <li>Consider the entire number field when selecting combinations</li>
-                    <li>Avoid obvious patterns that many other players might choose</li>
-                </ul>
-            </div>
-
-            <h3 class="subsection-heading">Optimal Number Spacing Strategies</h3>
-            <p>Number spacing refers to the gaps between numbers in your combination. Mathematical analysis shows that certain spacing patterns occur more frequently in winning combinations.</p>
-            
-            <h4>Spacing Analysis Techniques</h4>
-            <p>Calculate the differences between consecutive numbers in your combination. Research shows that winning combinations often have a mix of small, medium, and large gaps between numbers.</p>
-            
-            <div class="example">
-                <strong>Optimal Spacing Example:</strong> For a 6-number combination, aim for gaps like: 2-5-8-4-7 (summing to the range between lowest and highest number)
-            </div>
-
-            <h3 class="subsection-heading">Sum Total Analysis</h3>
-            <p>The sum total of numbers in a combination is another mathematical factor worth considering. Historical data shows that certain sum ranges appear more frequently.</p>
-            
-            <h4>Calculating Optimal Sum Ranges</h4>
-            <p>For a 6/49 lottery, the theoretical average sum is 150. However, winning combinations often fall within specific ranges around this average.</p>
-            
-            <ul>
-                <li>Minimum possible sum: 1+2+3+4+5+6 = 21</li>
-                <li>Maximum possible sum: 44+45+46+47+48+49 = 279</li>
-                <li>Most frequent sum range: 100-200</li>
-            </ul>
-
-            <h3 class="subsection-heading">Prime Number Strategies</h3>
-            <p>Prime numbers (numbers divisible only by 1 and themselves) offer an interesting mathematical approach to number selection.</p>
-            
-            <h4>Prime Number Distribution</h4>
-            <p>In a 1-49 number range, there are 15 prime numbers: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47. Including 2-3 prime numbers in your combination can be a mathematically sound strategy.</p>
-
-            <h3 class="subsection-heading">Geometric and Numerical Patterns</h3>
-            <p>While avoiding obvious patterns is generally advised, understanding mathematical patterns can help identify less obvious relationships between numbers.</p>
-            
-            <div class="strategy-box">
-                <h4>Advanced Pattern Recognition</h4>
-                <p>Look for mathematical relationships like arithmetic sequences, geometric progressions, or numbers related through mathematical operations.</p>
-                <ul>
-                    <li>Arithmetic sequences: numbers with equal differences</li>
-                    <li>Geometric sequences: numbers with equal ratios</li>
-                    <li>Mathematical relationships: numbers connected through operations</li>
-                </ul>
-            </div>
-
-            <h3 class="subsection-heading">Implementation in Number Generators</h3>
-            <p>Modern lottery number generators can incorporate these mathematical principles to create more strategic number combinations.</p>
-            
-            <h4>Algorithm Design</h4>
-            <p>Effective generators use algorithms that consider probability distributions, combinatorial optimization, and historical frequency data to suggest numbers.</p>
-
-            <div class="key-point">
-                <strong>Remember:</strong> While mathematical strategies can improve your approach, lottery games remain random. Always play responsibly and within your means.
-            </div>
-        </div>
-
-        <div class="tutorial-section">
-            <h2 class="section-heading">Statistical Analysis in Lottery Games</h2>
-            <p>Statistical analysis provides powerful tools for understanding lottery draws and making informed number selections. By examining historical data, we can identify trends and patterns that might not be visible at first glance.</p>
-            
-            <div class="key-point">
-                <strong>Key Insight:</strong> Statistical analysis helps identify patterns in past lottery results, which can inform future number selection strategies.
-            </div>
-
-            <h3 class="subsection-heading">Data Collection and Preparation</h3>
-            <p>The foundation of any statistical analysis is reliable data. For lottery analysis, this means collecting comprehensive historical draw results.</p>
-            
-            <h4>Essential Data Elements</h4>
-            <p>When collecting lottery data, ensure you have:</p>
-            <ul>
-                <li>Complete draw history with dates</li>
-                <li>All winning numbers in correct order</li>
-                <li>Bonus numbers if applicable</li>
-                <li>Jackpot amounts and rollover information</li>
-            </ul>
-
-            <h3 class="subsection-heading">Frequency Analysis Techniques</h3>
-            <p>Frequency analysis examines how often specific numbers appear in winning combinations over time.</p>
-            
-            <div class="strategy-box">
-                <h4>Implementing Frequency Analysis</h4>
-                <p>Create frequency charts that track:</p>
-                <ul>
-                    <li>Overall appearance frequency for each number</li>
-                    <li>Frequency by position in the combination</li>
-                    <li>Frequency in relation to other numbers (pairs, triplets)</li>
-                    <li>Recent frequency vs. long-term frequency</li>
-                </ul>
-            </div>
-
-            <h3 class="subsection-heading">Trend Identification Methods</h3>
-            <p>Beyond simple frequencies, statistical methods can identify emerging trends and patterns in lottery results.</p>
-            
-            <h4>Moving Averages</h4>
-            <p>Calculate moving averages of number frequencies to smooth out short-term fluctuations and identify longer-term trends.</p>
-            
-            <div class="example">
-                <strong>Example:</strong> A 50-draw moving average can show whether a number's frequency is increasing or decreasing over time, beyond random variation.
-            </div>
-
-            <h3 class="subsection-heading">Statistical Significance Testing</h3>
-            <p>It's crucial to determine whether observed patterns are statistically significant or simply due to random chance.</p>
-            
-            <h4>Chi-Square Tests</h4>
-            <p>Use chi-square tests to determine if the distribution of numbers in lottery results differs significantly from what would be expected in a truly random draw.</p>
-
-            <h3 class="subsection-heading">Regression Analysis Applications</h3>
-            <p>Regression analysis can help identify relationships between different variables in lottery draws.</p>
-            
-            <div class="strategy-box">
-                <h4>Practical Regression Applications</h4>
-                <p>Consider these regression approaches:</p>
-                <ul>
-                    <li>Time series analysis of number frequencies</li>
-                    <li>Correlation between jackpot size and number patterns</li>
-                    <li>Relationship between draw date and number selection</li>
-                </ul>
-            </div>
-
-            <h3 class="subsection-heading">Standard Deviation and Variance</h3>
-            <p>These statistical measures help understand the dispersion of number frequencies around the expected average.</p>
-            
-            <h4>Interpreting Variance</h4>
-            <p>High variance in number frequencies might indicate non-random patterns, while low variance suggests more uniform distribution.</p>
-
-            <h3 class="subsection-heading">Confidence Intervals</h3>
-            <p>Calculate confidence intervals for number frequencies to understand the range within which the true frequency likely falls.</p>
-            
-            <div class="example">
-                <strong>Application:</strong> If a number appears significantly outside its 95% confidence interval, it might indicate an anomaly worth investigating.
-            </div>
-
-            <h3 class="subsection-heading">Implementing Statistical Analysis</h3>
-            <p>Modern lottery analysis software incorporates these statistical methods to provide actionable insights.</p>
-            
-            <div class="key-point">
-                <strong>Remember:</strong> Statistical significance doesn't guarantee future results, but it can highlight patterns worth considering in your number selection strategy.
             </div>
         </div>
 
@@ -613,56 +393,6 @@
                 </div>
             </div>
         </section>
-
-        <div class="feature-grid">
-            <div class="feature-item">
-                <div class="feature-icon">🎯</div>
-                <h3>Smart Number Generation</h3>
-                <p><strong>Algorithm-based number selection</strong></p>
-                <ul style="font-size: 0.85rem; margin-top: 10px;">
-                    <li>Advanced algorithm selects numbers</li>
-                    <li>Based on statistical distribution</li>
-                    <li>Creates unique combinations</li>
-                    <li>Perfect for frequent players</li>
-                </ul>
-            </div>
-            
-            <div class="feature-item">
-                <div class="feature-icon">⚖️</div>
-                <h3>Balanced Number Sets</h3>
-                <p><strong>Mathematically optimized combinations</strong></p>
-                <ul style="font-size: 0.85rem; margin-top: 10px;">
-                    <li>Even mix of odd and even numbers</li>
-                    <li>Balanced high and low numbers</li>
-                    <li>Optimal number distribution</li>
-                    <li>Most popular generation method</li>
-                </ul>
-            </div>
-            
-            <div class="feature-item">
-                <div class="feature-icon">🔢</div>
-                <h3>Include Lucky Numbers</h3>
-                <p><strong>Add your favorite numbers</strong></p>
-                <ul style="font-size: 0.85rem; margin-top: 10px;">
-                    <li>Click numbers to include them</li>
-                    <li>Generator builds around your picks</li>
-                    <li>Perfect for birthdays or lucky numbers</li>
-                    <li>Combine strategy with preference</li>
-                </ul>
-            </div>
-            
-            <div class="feature-item">
-                <div class="feature-icon">⚙️</div>
-                <h3>Customizable Generator</h3>
-                <p><strong>Works with any lottery game</strong></p>
-                <ul style="font-size: 0.85rem; margin-top: 10px;">
-                    <li>Adjust number range for any lottery</li>
-                    <li>Set how many numbers to generate</li>
-                    <li>Works for all major lotteries</li>
-                    <li>Quick settings adjustment</li>
-                </ul>
-            </div>
-        </div>
     </div>
 
     <footer>
