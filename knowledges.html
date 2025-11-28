@@ -176,36 +176,6 @@
             margin-bottom: 1rem;
         }
         
-        .quick-nav {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 2rem 0;
-        }
-        
-        .nav-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 1rem;
-        }
-        
-        .nav-item {
-            background: var(--light);
-            padding: 1rem;
-            border-radius: 10px;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .nav-item:hover {
-            background: var(--primary);
-            color: white;
-            transform: scale(1.05);
-        }
-        
         footer {
             background: linear-gradient(135deg, var(--secondary), var(--primary));
             color: white;
@@ -213,53 +183,6 @@
             padding: 2rem;
             margin-top: 3rem;
             border-radius: 20px 20px 0 0;
-        }
-        
-        /* Tutorial Content Styles */
-        .tutorial-section {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
-        }
-        
-        .key-point {
-            background: var(--light);
-            padding: 1.5rem;
-            border-left: 4px solid var(--accent);
-            margin: 1.5rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        
-        .strategy-box {
-            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 2rem 0;
-            border: 2px solid var(--primary);
-        }
-        
-        .example {
-            background: #fff3e0;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid #ff9800;
-        }
-        
-        .section-heading {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            border-bottom: 2px solid var(--light);
-            padding-bottom: 0.5rem;
-        }
-        
-        .subsection-heading {
-            color: var(--primary);
-            margin: 1.5rem 0 1rem 0;
-            font-size: 1.5rem;
         }
         
         @media (max-width: 768px) {
@@ -273,10 +196,6 @@
             
             .header-content, .intro-text {
                 padding: 1rem;
-            }
-            
-            .tutorial-section {
-                padding: 1.5rem;
             }
         }
     </style>
@@ -296,22 +215,6 @@
             <p>This tutorial hub covers 10 proven strategies that combine mathematical principles, statistical analysis, and psychological factors to help you make informed decisions when generating lottery numbers.</p>
         </section>
 
-        <section class="quick-nav">
-            <h3 style="color: var(--primary); margin-bottom: 1rem;">Quick Navigation</h3>
-            <div class="nav-grid">
-                <div class="nav-item" onclick="scrollToSection('mathematical')">Mathematical Approach</div>
-                <div class="nav-item" onclick="scrollToSection('statistical')">Statistical Analysis</div>
-                <div class="nav-item" onclick="scrollToSection('hot-cold')">Hot/Cold Numbers</div>
-                <div class="nav-item" onclick="scrollToSection('wheeling')">Wheeling Systems</div>
-                <div class="nav-item" onclick="scrollToSection('frequency')">Frequency Analysis</div>
-                <div class="nav-item" onclick="scrollToSection('pattern')">Pattern Recognition</div>
-                <div class="nav-item" onclick="scrollToSection('balanced')">Balanced Selection</div>
-                <div class="nav-item" onclick="scrollToSection('psychological')">Psychological Factors</div>
-                <div class="nav-item" onclick="scrollToSection('grouping')">Number Grouping</div>
-                <div class="nav-item" onclick="scrollToSection('algorithms')">Advanced Algorithms</div>
-            </div>
-        </section>
-
         <!-- Tutorial Cards -->
         <div class="tutorial-grid">
             <!-- Tutorial 1 -->
@@ -325,7 +228,6 @@
                     <li>Number distribution patterns</li>
                     <li>Optimal number spacing</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('mathematical')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 2 -->
@@ -339,7 +241,6 @@
                     <li>Statistical significance testing</li>
                     <li>Regression analysis applications</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('statistical')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 3 -->
@@ -353,7 +254,6 @@
                     <li>Balancing hot and cold numbers</li>
                     <li>Long-term vs short-term trends</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('hot-cold')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 4 -->
@@ -367,7 +267,6 @@
                     <li>Cost-effective wheeling methods</li>
                     <li>Software-assisted wheeling</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('wheeling')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 5 -->
@@ -381,7 +280,6 @@
                     <li>Number pairing frequencies</li>
                     <li>Frequency trend predictions</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('frequency')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 6 -->
@@ -395,7 +293,6 @@
                     <li>Spatial distribution analysis</li>
                     <li>Pattern avoidance strategies</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('pattern')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 7 -->
@@ -409,7 +306,6 @@
                     <li>Sum total optimization</li>
                     <li>Number range coverage</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('balanced')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 8 -->
@@ -423,7 +319,6 @@
                     <li>Pattern perception biases</li>
                     <li>Decision-making psychology</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('psychological')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 9 -->
@@ -437,7 +332,6 @@
                     <li>Decade number strategies</li>
                     <li>Prime number grouping</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('grouping')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
 
             <!-- Tutorial 10 -->
@@ -451,256 +345,7 @@
                     <li>Genetic algorithm optimization</li>
                     <li>Neural network implementations</li>
                 </ul>
-                <button class="nav-item" onclick="scrollToSection('algorithms')" style="width: 100%; margin-top: 1rem;">Read Full Tutorial</button>
             </div>
-        </div>
-
-        <!-- Tutorial Content Sections -->
-        <div id="tutorial-content">
-            <!-- Tutorial 1 Content -->
-            <div class="tutorial-section" id="mathematical">
-                <h2 class="section-heading">Mathematical Approach to Lottery Number Generation</h2>
-                <p>Mathematics provides the foundational framework for understanding lottery games and developing effective number selection strategies. While lotteries are fundamentally games of chance, mathematical principles can help players make more informed decisions and avoid common pitfalls.</p>
-                
-                <div class="key-point">
-                    <strong>Key Insight:</strong> Mathematics doesn't guarantee wins, but it helps optimize your approach and manage expectations realistically.
-                </div>
-
-                <h3 class="subsection-heading">Probability Theory Fundamentals</h3>
-                <p>Probability theory is the mathematical study of random events. In lottery contexts, it helps us understand the likelihood of specific number combinations appearing.</p>
-                
-                <h4>Basic Probability Concepts</h4>
-                <p>Every lottery number has an equal probability of being drawn in any given lottery draw. However, when we consider combinations of numbers, the probabilities become more complex and interesting.</p>
-                
-                <div class="example">
-                    <strong>Example:</strong> In a 6/49 lottery, the probability of any single combination is 1 in 13,983,816. This remains constant regardless of which specific numbers you choose.
-                </div>
-
-                <h3 class="subsection-heading">Combinatorial Mathematics in Lottery Games</h3>
-                <p>Combinatorics deals with combinations of objects belonging to a finite set in accordance with certain constraints. In lottery terms, it's about how numbers can be combined.</p>
-                
-                <h4>The Combination Formula</h4>
-                <p>The number of possible combinations in a lottery game is calculated using the combination formula: C(n,k) = n! / (k!(n-k)!) where n is the total numbers available and k is the numbers drawn.</p>
-                
-                <div class="strategy-box">
-                    <h4>Practical Application: Number Distribution</h4>
-                    <p>Use combinatorial mathematics to ensure your selected numbers are well-distributed across the entire number field. Avoid clustering numbers in small ranges.</p>
-                    <ul>
-                        <li>Spread numbers across low, medium, and high ranges</li>
-                        <li>Consider the entire number field when selecting combinations</li>
-                        <li>Avoid obvious patterns that many other players might choose</li>
-                    </ul>
-                </div>
-
-                <h3 class="subsection-heading">Optimal Number Spacing Strategies</h3>
-                <p>Number spacing refers to the gaps between numbers in your combination. Mathematical analysis shows that certain spacing patterns occur more frequently in winning combinations.</p>
-                
-                <h4>Spacing Analysis Techniques</h4>
-                <p>Calculate the differences between consecutive numbers in your combination. Research shows that winning combinations often have a mix of small, medium, and large gaps between numbers.</p>
-                
-                <div class="example">
-                    <strong>Optimal Spacing Example:</strong> For a 6-number combination, aim for gaps like: 2-5-8-4-7 (summing to the range between lowest and highest number)
-                </div>
-
-                <h3 class="subsection-heading">Sum Total Analysis</h3>
-                <p>The sum total of numbers in a combination is another mathematical factor worth considering. Historical data shows that certain sum ranges appear more frequently.</p>
-                
-                <h4>Calculating Optimal Sum Ranges</h4>
-                <p>For a 6/49 lottery, the theoretical average sum is 150. However, winning combinations often fall within specific ranges around this average.</p>
-                
-                <ul>
-                    <li>Minimum possible sum: 1+2+3+4+5+6 = 21</li>
-                    <li>Maximum possible sum: 44+45+46+47+48+49 = 279</li>
-                    <li>Most frequent sum range: 100-200</li>
-                </ul>
-
-                <h3 class="subsection-heading">Prime Number Strategies</h3>
-                <p>Prime numbers (numbers divisible only by 1 and themselves) offer an interesting mathematical approach to number selection.</p>
-                
-                <h4>Prime Number Distribution</h4>
-                <p>In a 1-49 number range, there are 15 prime numbers: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47. Including 2-3 prime numbers in your combination can be a mathematically sound strategy.</p>
-
-                <h3 class="subsection-heading">Geometric and Numerical Patterns</h3>
-                <p>While avoiding obvious patterns is generally advised, understanding mathematical patterns can help identify less obvious relationships between numbers.</p>
-                
-                <div class="strategy-box">
-                    <h4>Advanced Pattern Recognition</h4>
-                    <p>Look for mathematical relationships like arithmetic sequences, geometric progressions, or numbers related through mathematical operations.</p>
-                    <ul>
-                        <li>Arithmetic sequences: numbers with equal differences</li>
-                        <li>Geometric sequences: numbers with equal ratios</li>
-                        <li>Mathematical relationships: numbers connected through operations</li>
-                    </ul>
-                </div>
-
-                <h3 class="subsection-heading">Implementation in Number Generators</h3>
-                <p>Modern lottery number generators can incorporate these mathematical principles to create more strategic number combinations.</p>
-                
-                <h4>Algorithm Design</h4>
-                <p>Effective generators use algorithms that consider probability distributions, combinatorial optimization, and historical frequency data to suggest numbers.</p>
-
-                <div class="key-point">
-                    <strong>Remember:</strong> While mathematical strategies can improve your approach, lottery games remain random. Always play responsibly and within your means.
-                </div>
-            </div>
-
-            <!-- Tutorial 2 Content -->
-            <div class="tutorial-section" id="statistical">
-                <h2 class="section-heading">Statistical Analysis in Lottery Games</h2>
-                <p>Statistical analysis provides powerful tools for understanding lottery draws and making informed number selections. By examining historical data, we can identify trends and patterns that might not be visible at first glance.</p>
-                
-                <div class="key-point">
-                    <strong>Key Insight:</strong> Statistical analysis helps identify patterns in past lottery results, which can inform future number selection strategies.
-                </div>
-
-                <h3 class="subsection-heading">Data Collection and Preparation</h3>
-                <p>The foundation of any statistical analysis is reliable data. For lottery analysis, this means collecting comprehensive historical draw results.</p>
-                
-                <h4>Essential Data Elements</h4>
-                <p>When collecting lottery data, ensure you have:</p>
-                <ul>
-                    <li>Complete draw history with dates</li>
-                    <li>All winning numbers in correct order</li>
-                    <li>Bonus numbers if applicable</li>
-                    <li>Jackpot amounts and rollover information</li>
-                </ul>
-
-                <h3 class="subsection-heading">Frequency Analysis Techniques</h3>
-                <p>Frequency analysis examines how often specific numbers appear in winning combinations over time.</p>
-                
-                <div class="strategy-box">
-                    <h4>Implementing Frequency Analysis</h4>
-                    <p>Create frequency charts that track:</p>
-                    <ul>
-                        <li>Overall appearance frequency for each number</li>
-                        <li>Frequency by position in the combination</li>
-                        <li>Frequency in relation to other numbers (pairs, triplets)</li>
-                        <li>Recent frequency vs. long-term frequency</li>
-                    </ul>
-                </div>
-
-                <h3 class="subsection-heading">Trend Identification Methods</h3>
-                <p>Beyond simple frequencies, statistical methods can identify emerging trends and patterns in lottery results.</p>
-                
-                <h4>Moving Averages</h4>
-                <p>Calculate moving averages of number frequencies to smooth out short-term fluctuations and identify longer-term trends.</p>
-                
-                <div class="example">
-                    <strong>Example:</strong> A 50-draw moving average can show whether a number's frequency is increasing or decreasing over time, beyond random variation.
-                </div>
-
-                <h3 class="subsection-heading">Statistical Significance Testing</h3>
-                <p>It's crucial to determine whether observed patterns are statistically significant or simply due to random chance.</p>
-                
-                <h4>Chi-Square Tests</h4>
-                <p>Use chi-square tests to determine if the distribution of numbers in lottery results differs significantly from what would be expected in a truly random draw.</p>
-
-                <h3 class="subsection-heading">Regression Analysis Applications</h3>
-                <p>Regression analysis can help identify relationships between different variables in lottery draws.</p>
-                
-                <div class="strategy-box">
-                    <h4>Practical Regression Applications</h4>
-                    <p>Consider these regression approaches:</p>
-                    <ul>
-                        <li>Time series analysis of number frequencies</li>
-                        <li>Correlation between jackpot size and number patterns</li>
-                        <li>Relationship between draw date and number selection</li>
-                    </ul>
-                </div>
-
-                <h3 class="subsection-heading">Standard Deviation and Variance</h3>
-                <p>These statistical measures help understand the dispersion of number frequencies around the expected average.</p>
-                
-                <h4>Interpreting Variance</h4>
-                <p>High variance in number frequencies might indicate non-random patterns, while low variance suggests more uniform distribution.</p>
-
-                <h3 class="subsection-heading">Confidence Intervals</h3>
-                <p>Calculate confidence intervals for number frequencies to understand the range within which the true frequency likely falls.</p>
-                
-                <div class="example">
-                    <strong>Application:</strong> If a number appears significantly outside its 95% confidence interval, it might indicate an anomaly worth investigating.
-                </div>
-
-                <h3 class="subsection-heading">Implementing Statistical Analysis</h3>
-                <p>Modern lottery analysis software incorporates these statistical methods to provide actionable insights.</p>
-                
-                <div class="key-point">
-                    <strong>Remember:</strong> Statistical significance doesn't guarantee future results, but it can highlight patterns worth considering in your number selection strategy.
-                </div>
-            </div>
-
-            <!-- Tutorial 3 Content -->
-            <div class="tutorial-section" id="hot-cold">
-                <h2 class="section-heading">Hot and Cold Number Theory</h2>
-                <p>The Hot and Cold Number Theory is one of the most popular approaches to lottery number selection. This strategy categorizes numbers based on their recent appearance frequency in lottery draws.</p>
-                
-                <div class="key-point">
-                    <strong>Key Insight:</strong> Hot numbers have appeared frequently in recent draws, while cold numbers haven't appeared for an extended period.
-                </div>
-
-                <h3 class="subsection-heading">Understanding Hot Numbers</h3>
-                <p>Hot numbers are those that have been drawn frequently over a specific period. Many players believe these numbers are on a "winning streak" and more likely to appear again.</p>
-                
-                <h4>Identifying Hot Numbers</h4>
-                <p>To identify hot numbers:</p>
-                <ul>
-                    <li>Track number appearances over the last 20-50 draws</li>
-                    <li>Calculate frequency percentages</li>
-                    <li>Compare against expected averages</li>
-                    <li>Use statistical tools to identify significant deviations</li>
-                </ul>
-                
-                <div class="example">
-                    <strong>Example:</strong> If a number appears 8 times in the last 30 draws when the expected average is 4-5 times, it would be considered a hot number.
-                </div>
-
-                <h3 class="subsection-heading">Understanding Cold Numbers</h3>
-                <p>Cold numbers are those that haven't appeared for an extended period. Some players believe these numbers are "due" to appear based on probability theory.</p>
-                
-                <h4>Identifying Cold Numbers</h4>
-                <p>To identify cold numbers:</p>
-                <ul>
-                    <li>Track the number of draws since each number last appeared</li>
-                    <li>Compare against historical averages for gaps</li>
-                    <li>Calculate probability of continued absence</li>
-                    <li>Consider the law of large numbers</li>
-                </ul>
-
-                <h3 class="subsection-heading">Balancing Hot and Cold Numbers</h3>
-                <p>The most effective approach often involves a balanced combination of both hot and cold numbers.</p>
-                
-                <div class="strategy-box">
-                    <h4>Balanced Combination Strategy</h4>
-                    <p>Create combinations that include:</p>
-                    <ul>
-                        <li>2-3 hot numbers (recent frequent appearances)</li>
-                        <li>2-3 cold numbers (long absence from draws)</li>
-                        <li>1-2 medium-frequency numbers</li>
-                    </ul>
-                </div>
-
-                <h3 class="subsection-heading">Cycle Analysis</h3>
-                <p>Numbers often go through cycles of being hot and cold. Understanding these cycles can improve your strategy.</p>
-                
-                <h4>Identifying Number Cycles</h4>
-                <p>Analyze historical data to identify:</p>
-                <ul>
-                    <li>Typical duration of hot and cold cycles</li>
-                    <li>Patterns in cycle transitions</li>
-                    <li>Correlations between different numbers' cycles</li>
-                    <li>External factors that might influence cycles</li>
-                </ul>
-
-                <h3 class="subsection-heading">Implementation Strategies</h3>
-                <p>Effectively implementing hot and cold number theory requires consistent tracking and analysis.</p>
-                
-                <div class="key-point">
-                    <strong>Remember:</strong> While hot and cold number tracking can inform your strategy, each draw is independent, and past performance doesn't guarantee future results.
-                </div>
-            </div>
-
-            <!-- Additional tutorial sections would continue here -->
-            <!-- For brevity, I'm showing the structure for the first three tutorials -->
         </div>
 
         <section class="strategy-highlights">
@@ -736,14 +381,5 @@
             <p>Educational content for lottery enthusiasts - Play responsibly</p>
         </div>
     </footer>
-
-    <script>
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    </script>
 </body>
 </html>
