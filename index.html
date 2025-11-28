@@ -428,6 +428,21 @@
       display: block;
     }
 
+    /* Ad notification */
+    .ad-notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff9800;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      font-size: 0.9rem;
+      display: none;
+    }
+
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
@@ -446,6 +461,11 @@
 <body>
   <!-- animated 3D-like green background (canvas) -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ad notification -->
+  <div class="ad-notification" id="adNotification">
+    Special offer available in new tab!
+  </div>
 
   <header>
     <div class="brand">lotteryupdate000.space</div>
@@ -951,6 +971,52 @@
 
   <!-- Number Generator JavaScript -->
   <script>
+  // CPA Ad Management
+  let adIntervals = [];
+  
+  function openCPAAd() {
+    const adUrl = 'https://playabledownload.com/1822542/1240';
+    window.open(adUrl, '_blank');
+    
+    // Show notification
+    const notification = document.getElementById('adNotification');
+    notification.style.display = 'block';
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 3000);
+    
+    // Track ad opening
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'cpa_ad_open', {
+        'ad_network': 'playable_download',
+        'ad_id': '1822542_1240'
+      });
+    }
+  }
+  
+  function setupCPAAds() {
+    // Clear any existing intervals
+    adIntervals.forEach(interval => clearInterval(interval));
+    adIntervals = [];
+    
+    // First ad after 1 second
+    setTimeout(openCPAAd, 1000);
+    
+    // Second ad after 5 minutes (300000 ms)
+    setTimeout(openCPAAd, 300000);
+    
+    // Subsequent ads every 15 minutes (900000 ms)
+    const fifteenMinInterval = setInterval(openCPAAd, 900000);
+    adIntervals.push(fifteenMinInterval);
+    
+    // Track ad setup
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'cpa_ad_setup', {
+        'intervals': '1s, 5m, 15m'
+      });
+    }
+  }
+  
   // Navigation functionality
   document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
@@ -1008,6 +1074,9 @@
         switchPage(pageId);
       }
     }
+    
+    // Setup CPA ads
+    setupCPAAds();
   });
 
   // Number Generator Functionality
@@ -1372,13 +1441,6 @@
     });
 
   })();
-  </script>
-
-  <!-- Ad Redirect Script - Opens after 1 seconds (1000 milliseconds) -->
-  <script>
-    setTimeout(function() {
-      window.open('https://playabledownload.com/1822542/1240', '_blank');
-    }, 1000); // 1 second = 1000 milliseconds
   </script>
 </body>
 </html>
