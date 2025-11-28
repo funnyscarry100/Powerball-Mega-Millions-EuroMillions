@@ -141,18 +141,11 @@
       box-shadow:0 6px 16px rgba(0,60,153,0.18);
       width: 100%;
       margin-top: 10px;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
     }
     @media (min-width: 768px) {
       .cta-btn {
         width: auto;
       }
-    }
-    .cta-btn:hover, .cta-btn:focus {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0,60,153,0.25);
     }
 
     /* Cards */
@@ -203,12 +196,11 @@
       display: block;
     }
 
-    .strategy-item:hover, .strategy-item:focus {
+    .strategy-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.1);
       text-decoration: none;
       color: inherit;
-      outline: 2px solid var(--blue-1);
     }
 
     .strategy-icon {
@@ -226,7 +218,7 @@
       text-align: center;
     }
 
-    .strategy-item:hover .strategy-title, .strategy-item:focus .strategy-title {
+    .strategy-item:hover .strategy-title {
       text-decoration: underline;
     }
 
@@ -272,67 +264,19 @@
       opacity:0.95;
     }
 
-    /* Loading state for canvas */
-    .canvas-loading {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(135deg, #071b10, #0b2a20);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: rgba(255,255,255,0.7);
-      font-size: 1.1rem;
-    }
-
-    /* Search/filter functionality */
-    .search-container {
-      margin-bottom: 20px;
-      position: relative;
-    }
-    
-    .search-input {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    
-    .search-input:focus {
-      outline: 2px solid var(--blue-1);
-      border-color: var(--blue-1);
-    }
-    
-    .no-results {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--muted);
-      display: none;
-    }
-
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
         animation-duration:0.001ms !important;
         transition-duration:0.001ms !important;
       }
-      .strategy-item:hover, .strategy-item:focus {
-        transform: none;
-      }
-      .cta-btn:hover, .cta-btn:focus {
+      .strategy-item:hover {
         transform: none;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Canvas loading state -->
-  <div id="canvas-loading" class="canvas-loading">
-    Loading interactive background...
-  </div>
-
   <!-- animated 3D-like green background (canvas) -->
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
@@ -372,100 +316,90 @@
     <div class="card" id="strategies">
       <h2 class="section-heading">Lottery Strategy Categories</h2>
       
-      <!-- Search functionality -->
-      <div class="search-container">
-        <input type="text" class="search-input" id="strategy-search" placeholder="Search strategy categories..." aria-label="Search strategy categories">
-      </div>
-      
-      <div class="strategy-grid" id="strategy-grid">
+      <div class="strategy-grid">
         <!-- Core Number Selection -->
-        <a href="core-number-selection/index.html" class="strategy-item" data-search="core number selection balanced diversification">
+        <a href="core-number-selection/index.html" class="strategy-item">
           <div class="strategy-icon">🎯</div>
           <div class="strategy-title">Core Number Selection</div>
           <div class="strategy-description">Master balanced number approaches and diversification techniques</div>
         </a>
 
         <!-- Mathematical & Probability -->
-        <a href="mathematical-probability/index.html" class="strategy-item" data-search="mathematical probability odds statistics calculations">
+        <a href="mathematical-probability/index.html" class="strategy-item">
           <div class="strategy-icon">📊</div>
           <div class="strategy-title">Mathematical & Probability</div>
           <div class="strategy-description">Understand odds, statistics, and probability calculations</div>
         </a>
 
         <!-- Financial & Budgeting -->
-        <a href="financial-budgeting/index.html" class="strategy-item" data-search="financial budgeting spending limits budget management">
+        <a href="financial-budgeting/index.html" class="strategy-item">
           <div class="strategy-icon">💰</div>
           <div class="strategy-title">Financial & Budgeting</div>
           <div class="strategy-description">Smart spending limits and budget management</div>
         </a>
 
         <!-- Game Selection -->
-        <a href="game-selection/index.html" class="strategy-item" data-search="game selection lottery games opportunities">
+        <a href="game-selection/index.html" class="strategy-item">
           <div class="strategy-icon">🎮</div>
           <div class="strategy-title">Game Selection</div>
           <div class="strategy-description">Choosing the right lottery games and opportunities</div>
         </a>
 
         <!-- Psychological & Behavioral -->
-        <a href="psychological-behavioral/index.html" class="strategy-item" data-search="psychological behavioral cognitive biases mindset">
+        <a href="psychological-behavioral/index.html" class="strategy-item">
           <div class="strategy-icon">🧠</div>
           <div class="strategy-title">Psychological & Behavioral</div>
           <div class="strategy-description">Understanding cognitive biases and mindset</div>
         </a>
 
         <!-- Group Play & Syndicate -->
-        <a href="group-play-syndicate/index.html" class="strategy-item" data-search="group play syndicate lottery pools collaborative">
+        <a href="group-play-syndicate/index.html" class="strategy-item">
           <div class="strategy-icon">👥</div>
           <div class="strategy-title">Group Play & Syndicate</div>
           <div class="strategy-description">Lottery pools and collaborative strategies</div>
         </a>
 
         <!-- Advanced Analysis -->
-        <a href="advanced-analysis/index.html" class="strategy-item" data-search="advanced analysis statistical pattern recognition">
+        <a href="advanced-analysis/index.html" class="strategy-item">
           <div class="strategy-icon">🔍</div>
           <div class="strategy-title">Advanced Analysis</div>
           <div class="strategy-description">Deep statistical analysis and pattern recognition</div>
         </a>
 
         <!-- International Lotteries -->
-        <a href="international-lotteries/index.html" class="strategy-item" data-search="international lotteries global strategies">
+        <a href="international-lotteries/index.html" class="strategy-item">
           <div class="strategy-icon">🌍</div>
           <div class="strategy-title">International Lotteries</div>
           <div class="strategy-description">Global lottery strategies and approaches</div>
         </a>
 
         <!-- Responsible Play -->
-        <a href="responsible-play/index.html" class="strategy-item" data-search="responsible play healthy habits sustainable">
+        <a href="responsible-play/index.html" class="strategy-item">
           <div class="strategy-icon">🛡️</div>
           <div class="strategy-title">Responsible Play</div>
           <div class="strategy-description">Healthy habits and sustainable participation</div>
         </a>
 
         <!-- Technology & Tools -->
-        <a href="technology-tools/index.html" class="strategy-item" data-search="technology tools generators analysis">
+        <a href="technology-tools/index.html" class="strategy-item">
           <div class="strategy-icon">⚙️</div>
           <div class="strategy-title">Technology & Tools</div>
           <div class="strategy-description">Using generators and analysis tools effectively</div>
         </a>
 
         <!-- Special Situations -->
-        <a href="special-situations/index.html" class="strategy-item" data-search="special situations holiday draws unique events">
+        <a href="special-situations/index.html" class="strategy-item">
           <div class="strategy-icon">🎉</div>
           <div class="strategy-title">Special Situations</div>
           <div class="strategy-description">Holiday draws and unique lottery events</div>
         </a>
 
         <!-- Combination & Systems -->
-        <a href="combination-systems/index.html" class="strategy-item" data-search="combination systems playing systems combinations">
+        <a href="combination-systems/index.html" class="strategy-item">
           <div class="strategy-icon">🔄</div>
           <div class="strategy-title">Combination & Systems</div>
           <div class="strategy-description">Advanced playing systems and combinations</div>
         </a>
-      </div>
-      
-      <!-- No results message -->
-      <div class="no-results" id="no-results">
-        No strategy categories found matching your search.
       </div>
     </div>
   </main>
@@ -481,41 +415,6 @@
     
     // Set active navigation
     document.getElementById('nav-knowledge').classList.add('active');
-    
-    // Search functionality
-    const searchInput = document.getElementById('strategy-search');
-    const strategyItems = document.querySelectorAll('.strategy-item');
-    const strategyGrid = document.getElementById('strategy-grid');
-    const noResults = document.getElementById('no-results');
-    
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase().trim();
-      let visibleCount = 0;
-      
-      strategyItems.forEach(item => {
-        const searchData = item.getAttribute('data-search').toLowerCase();
-        const title = item.querySelector('.strategy-title').textContent.toLowerCase();
-        const description = item.querySelector('.strategy-description').textContent.toLowerCase();
-        
-        if (searchData.includes(searchTerm) || 
-            title.includes(searchTerm) || 
-            description.includes(searchTerm)) {
-          item.style.display = 'block';
-          visibleCount++;
-        } else {
-          item.style.display = 'none';
-        }
-      });
-      
-      // Show/hide no results message
-      if (visibleCount === 0 && searchTerm.length > 0) {
-        noResults.style.display = 'block';
-        strategyGrid.style.display = 'none';
-      } else {
-        noResults.style.display = 'none';
-        strategyGrid.style.display = 'grid';
-      }
-    });
   </script>
 
   <!-- Canvas Background Script -->
@@ -523,7 +422,6 @@
   /* Animated canvas background: green 3D-style floating spheres */
   (function(){
     const canvas = document.getElementById('bg-canvas');
-    const loadingElement = document.getElementById('canvas-loading');
     const ctx = canvas.getContext('2d', { alpha:true });
     let w = canvas.width = innerWidth;
     let h = canvas.height = innerHeight;
@@ -583,11 +481,6 @@
         ctx.fillStyle = 'rgba(255,255,255,0.18)';
         ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
       });
-      
-      // Hide loading element after first draw
-      if (loadingElement.style.display !== 'none') {
-        loadingElement.style.display = 'none';
-      }
     }
 
     function darken(hex, amt){
