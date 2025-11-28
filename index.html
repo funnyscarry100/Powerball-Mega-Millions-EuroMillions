@@ -1,762 +1,1446 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Lottery Number Generator - Create Winning Combinations</title>
-    <style>
-        :root {
-            --primary-blue: #0066cc;
-            --dark-blue: #004d99;
-            --light-blue: #e6f2ff;
-            --white: #ffffff;
-            --light-gray: #f8f9fa;
-            --medium-gray: #dee2e6;
-            --dark-gray: #666;
-            --success: #28a745;
-            --warning: #ffc107;
-            --danger: #dc3545;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-gray);
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-        }
-        
-        .logo span {
-            color: var(--warning);
-        }
-        
-        /* Navigation Styles */
-        nav {
-            background-color: var(--dark-blue);
-            padding: 12px 0;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            gap: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            padding: 8px 16px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-links a:hover, .nav-links a.active {
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 102, 204, 0.9), rgba(0, 77, 153, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230066cc"/><circle cx="50" cy="50" r="40" fill="%23004d99"/></svg>');
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            margin-bottom: 40px;
-            border-radius: 0 0 20px 20px;
-        }
-        
-        .hero h1 {
-            font-size: 42px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--warning);
-            color: #333;
-            padding: 14px 32px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-        }
-        
-        /* Main Content */
-        .content-section {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-        
-        .section-title {
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid var(--light-blue);
-            font-size: 28px;
-        }
-        
-        /* Generator Section */
-        .generator-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .generator-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .number-display {
-            background-color: var(--light-blue);
-            border-radius: 10px;
-            padding: 25px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        
-        .generated-numbers {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin: 15px 0;
-            letter-spacing: 3px;
-        }
-        
-        .number-controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .control-group {
-            flex: 1;
-            min-width: 200px;
-        }
-        
-        .control-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark-gray);
-        }
-        
-        .control-group input, .control-group select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 6px;
-            font-size: 16px;
-        }
-        
-        .generate-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .btn {
-            padding: 14px 24px;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            flex: 1;
-            min-width: 160px;
-        }
-        
-        .btn-primary {
-            background-color: var(--primary-blue);
-            color: white;
-        }
-        
-        .btn-secondary {
-            background-color: var(--light-blue);
-            color: var(--primary-blue);
-        }
-        
-        .btn-warning {
-            background-color: var(--warning);
-            color: #333;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Number Grid */
-        .number-grid {
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 8px;
-            margin: 20px 0;
-        }
-        
-        @media (max-width: 768px) {
-            .number-grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
-        }
-        
-        .number-cell {
-            aspect-ratio: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--light-blue);
-            border: 2px solid var(--medium-gray);
-            border-radius: 50%;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .number-cell:hover {
-            transform: scale(1.1);
-            background-color: var(--primary-blue);
-            color: white;
-        }
-        
-        .number-cell.selected {
-            background-color: var(--primary-blue);
-            color: white;
-            border-color: var(--dark-blue);
-        }
-        
-        /* Stats Section */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .stat-card {
-            background-color: var(--light-blue);
-            border-radius: 10px;
-            padding: 20px;
-            border-left: 4px solid var(--primary-blue);
-        }
-        
-        .stat-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--dark-gray);
-            margin-bottom: 10px;
-        }
-        
-        .stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-blue);
-        }
-        
-        /* Tips Section */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 20px;
-        }
-        
-        .tip-card {
-            background-color: var(--white);
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-            border-top: 4px solid var(--primary-blue);
-            transition: transform 0.3s ease;
-        }
-        
-        .tip-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .tip-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-            color: var(--primary-blue);
-        }
-        
-        .tip-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--primary-blue);
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            color: white;
-            padding: 40px 0 20px;
-            margin-top: 50px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--warning);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: white;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-        
-        /* Ad Notification */
-        .ad-notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--warning);
-            color: #333;
-            padding: 12px 20px;
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            z-index: 1000;
-            font-weight: 600;
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free Lottery Number Generator - Create winning combinations for Powerball, Mega Millions, EuroMillions. Generate random lottery numbers with smart patterns and balanced sets.">
+  <meta name="keywords" content="lottery number generator, random lottery numbers, Powerball number generator, Mega Millions numbers, EuroMillions generator, lucky numbers, winning number combinations, quick pick generator, lottery numbers, number picker, lottery combination generator">
+  
+  <!-- GitHub Pages Verification -->
+  <meta name="github-pages-verification" content="a1792acca1210e7f2059a49dae733b">
+  
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="3QM_oJV7sKVx1WgoctgK2_3BD04Eb1iJ3iPgyDoo2rQ">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH64MKGP4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KTH64MKGP4');
+  </script>
+  
+  <title>Free Lottery Number Generator - Create Winning Combinations</title>
+  <style>
+    :root {
+      --blue-1: #0066cc;
+      --blue-2: #004d99;
+      --card-bg: #ffffff;
+      --muted: #666;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: #f8f9fa;
+      height:100%;
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    /* Canvas background sits behind content */
+    #bg-canvas{
+      position:fixed;
+      inset:0;
+      z-index:-1;
+      display:block;
+    }
+    /* Header / navigation */
+    header{
+      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
+      color:#fff;
+      padding:16px 12px;
+      text-align:center;
+    }
+    header .brand{
+      font-weight:700;
+      font-size:1.25rem;
+      letter-spacing:0.2px;
+    }
+    nav{
+      background:#003c99;
+      padding:8px 0;
+      box-shadow:0 1px 0 rgba(0,0,0,0.05);
+    }
+    .nav-list{
+      display:flex;
+      gap:15px;
+      justify-content:center;
+      align-items:center;
+      margin:0;
+      padding:0 15px;
+      list-style:none;
+      flex-wrap: wrap;
+    }
+    .nav-list a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      padding:6px 10px;
+      border-radius:6px;
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
+    .nav-list a.active{
+      background:rgba(255,255,255,0.08);
+      text-decoration:underline;
+    }
+    .nav-list a:focus{
+      outline:2px solid rgba(255,255,255,0.14);
+      outline-offset:4px;
+    }
+    
+    /* Page shell */
+    .wrap{
+      max-width:1200px;
+      margin:20px auto;
+      padding:0 15px;
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      display:flex;
+      flex-direction: column;
+      gap:20px;
+      align-items:center;
+      box-shadow:0 6px 24px rgba(6,30,60,0.08);
+      margin-bottom: 20px;
+    }
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+    }
+    .hero-left{
+      flex:1;
+      width: 100%;
+    }
+    .hero-right{
+      width: 100%;
+      text-align:center;
+    }
+    @media (min-width: 768px) {
+      .hero-right {
+        width: 240px;
+        flex-shrink: 0;
+      }
+    }
+    .hero h1{
+      margin:0 0 10px 0;
+      font-size:1.5rem;
+      color:var(--blue-1);
+      line-height: 1.3;
+    }
+    @media (min-width: 768px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+    }
+    .hero p{
+      margin:8px 0;
+      color:var(--muted);
+      line-height: 1.5;
+    }
+    .cta-btn{
+      display:inline-block;
+      background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
+      color:#fff;
+      padding:12px 20px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow:0 6px 16px rgba(0,60,153,0.18);
+      width: 100%;
+      margin-top: 10px;
+    }
+    @media (min-width: 768px) {
+      .cta-btn {
+        width: auto;
+      }
+    }
+
+    /* Cards */
+    .card{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 6px 20px rgba(6,30,60,0.06);
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .small{
+      font-size:0.85rem;
+      color:var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Pattern Analyzer Styles */
+    .analyzer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+      margin: 20px 0;
+    }
+    @media (min-width: 992px) {
+      .analyzer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+    }
+    .chart-container {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid #dee2e6;
+    }
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 6px;
+      margin: 15px 0;
+      justify-content: center;
+    }
+    @media (min-width: 480px) {
+      .number-grid {
+        grid-template-columns: repeat(8, 1fr);
+        gap: 6px;
+      }
+    }
+    @media (min-width: 768px) {
+      .number-grid {
+        grid-template-columns: repeat(10, 1fr);
+        gap: 5px;
+      }
+    }
+    .number-cell {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #ddd;
+      border-radius: 50%;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 14px;
+      max-width: 45px;
+      margin: 0 auto;
+    }
+    @media (min-width: 480px) {
+      .number-cell {
+        max-width: 40px;
+        font-size: 13px;
+      }
+    }
+    .number-cell:hover {
+      transform: scale(1.1);
+    }
+    .hot { background: #ff6b6b; color: white; }
+    .warm { background: #ffa500; color: white; }
+    .cool { background: #4ecdc4; color: white; }
+    .cold { background: #45b7d1; color: white; }
+    
+    .stat-card {
+      background: white;
+      padding: 18px;
+      margin: 15px 0;
+      border-radius: 10px;
+      border-left: 4px solid var(--blue-1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    .analyzer-controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+      justify-content: center;
+    }
+    @media (min-width: 480px) {
+      .analyzer-controls {
+        justify-content: flex-start;
+      }
+    }
+    .analyzer-btn {
+      padding: 12px 18px;
+      background: var(--blue-1);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+      font-weight: 600;
+      flex: 1;
+      min-width: 140px;
+    }
+    @media (min-width: 480px) {
+      .analyzer-btn {
+        flex: none;
+      }
+    }
+    .analyzer-btn:hover {
+      background: var(--blue-2);
+      transform: translateY(-1px);
+    }
+    
+    .generated-numbers {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--blue-1);
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 8px;
+      text-align: center;
+      border: 2px dashed #dee2e6;
+    }
+    @media (min-width: 768px) {
+      .generated-numbers {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Settings Controls */
+    .settings-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 15px 0;
+    }
+    @media (min-width: 480px) {
+      .settings-controls {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+    .settings-controls label {
+      font-weight: 600;
+      color: var(--blue-1);
+      white-space: nowrap;
+    }
+    .settings-controls input {
+      padding: 8px 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      width: 70px;
+      text-align: center;
+    }
+    .settings-controls button {
+      padding: 8px 16px;
+      background: var(--blue-1);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* Section Headings */
+    .section-heading {
+      color: var(--blue-1);
+      margin: 0 0 15px 0;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 8px;
+    }
+    @media (min-width: 768px) {
+      .section-heading {
+        font-size: 1.5rem;
+      }
+    }
+    .subsection-heading {
+      color: var(--blue-1);
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    @media (min-width: 768px) {
+      .subsection-heading {
+        font-size: 1.2rem;
+      }
+    }
+
+    /* Feature Grid for Tips Section */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin: 25px 0;
+    }
+
+    .feature-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 8px;
+      border-left: 4px solid var(--blue-1);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    /* Footer */
+    footer{
+      margin-top:40px;
+      text-align:center;
+      color:#fff;
+      padding:25px 18px;
+      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
+    }
+    footer .muted{
+      color:rgba(255,255,255,0.85);
+      font-size:0.95rem;
+      margin-bottom: 8px;
+    }
+    .contact-link {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.9rem;
+      margin: 10px 0;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+    .verif{
+      font-size:0.8rem;
+      color:rgba(255,255,255,0.9);
+      margin-top:6px;
+      opacity:0.95;
+    }
+
+    /* Content sections for different pages */
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+
+    /* Ad notification */
+    .ad-notification {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ff9800;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    /* Accessibility: reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      * {
+        animation-duration:0.001ms !important;
+        transition-duration:0.001ms !important;
+      }
+      .number-cell:hover {
+        transform: none;
+      }
+      .analyzer-btn:hover {
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">Lotto<span>Genius</span></div>
-            <div class="header-info">
-                <p>Free Lottery Number Generator</p>
-            </div>
-        </div>
-    </header>
+  <!-- animated 3D-like green background (canvas) -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#">Generator</a></li>
-                <li><a href="#">Strategies</a></li>
-                <li><a href="#">Lottery Info</a></li>
-                <li><a href="#">About</a></li>
+  <!-- Ad notification -->
+  <div class="ad-notification" id="adNotification">
+    Special offer available in new tab!
+  </div>
+
+  <header>
+    <div class="brand">lotteryupdate000.space</div>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <ul class="nav-list">
+      <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+      <li><a href="#" class="nav-link" data-page="knowledge">Knowledge</a></li>
+      <li><a href="#" class="nav-link" data-page="terms">Terms</a></li>
+      <li><a href="#" class="nav-link" data-page="privacy">Privacy</a></li>
+      <li><a href="#" class="nav-link" data-page="about">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="wrap" id="content">
+    <!-- Home Page Content -->
+    <div class="content-section active" id="home-content">
+      <div class="hero">
+        <div class="hero-left">
+          <h1>Free Lottery Number Generator - Create Winning Combinations</h1>
+          <p>Generate random lottery numbers instantly for Powerball, Mega Millions, EuroMillions and more. Create balanced number combinations with our advanced lottery number picker.</p>
+          <p class="small">Our lottery number generator creates unique combinations for any lottery game worldwide.</p>
+        </div>
+        <div class="hero-right">
+          <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Generator Status</div>
+            <div id="latest-time" class="small" style="margin-top:8px;">Ready to Generate Numbers</div>
+            <div style="margin-top:12px;">
+              <a class="cta-btn" href="#generator">Generate Numbers Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Number Generator Section -->
+      <div class="card" id="generator">
+        <h2 class="section-heading">Advanced Lottery Number Generator</h2>
+        <p class="small" style="margin-bottom: 25px;">Create unique lottery number combinations instantly. Choose your generation method or click numbers to include them in your set.</p>
+
+        <div class="analyzer-grid">
+          <!-- Left Column - Number Picker & Analysis -->
+          <div>
+            <h3 class="subsection-heading">Quick Number Picker</h3>
+            <div class="number-grid" id="heatmap"></div>
+            
+            <div class="stat-card">
+              <h4 class="subsection-heading" style="margin-top: 0;">Number Combination Analysis</h4>
+              <div id="patternStats" style="font-size: 0.95rem;">
+                <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
+                <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
+                <p><strong>Sum Range:</strong> <span id="sumRange">-</span></p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column - Generator & Controls -->
+          <div>
+            <h3 class="subsection-heading">Lottery Number Generator</h3>
+            <div class="analyzer-controls">
+              <button class="analyzer-btn" onclick="generatePatternBased()">
+                🎯 Smart Numbers
+              </button>
+              <button class="analyzer-btn" onclick="generateBalanced()">
+                ⚖️ Balanced Set
+              </button>
+              <button class="analyzer-btn" onclick="generateRandom()">
+                🎲 Quick Pick
+              </button>
+            </div>
+            
+            <div id="generatedNumbers" class="generated-numbers">
+              Your lottery numbers will appear here
+            </div>
+            
+            <div class="stat-card">
+              <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
+              <div class="settings-controls">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <label for="maxNumber">Number Range: 1 to</label>
+                  <input type="number" id="maxNumber" value="69" min="10" max="100">
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <label for="numberCount">Numbers to Generate:</label>
+                  <input type="number" id="numberCount" value="6" min="1" max="15">
+                </div>
+                <button onclick="updatePreferences()" style="padding: 8px 16px;">Update Settings</button>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <h4 class="subsection-heading" style="margin-top: 0;">Number Generation Methods</h4>
+              <div id="statisticalInsights" style="font-size: 0.9rem; line-height: 1.5;">
+                <p>🔴 <strong>Smart Numbers</strong>: Algorithm-based number selection</p>
+                <p>🟠 <strong>Balanced Set</strong>: Even distribution of numbers</p>
+                <p>🔵 <strong>Quick Pick</strong>: Completely random number generation</p>
+                <p>🔷 <strong>Custom Pick</strong>: Click numbers to include favorites</p>
+                <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
+                  <strong>Note:</strong> All lottery number generation methods produce random combinations.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tips Section -->
+      <div class="card">
+        <h2 class="section-heading">💡 How to Use Our Lottery Number Generator</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <h3>Smart Number Generation</h3>
+            <p><strong>Algorithm-based number selection</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Advanced algorithm selects numbers</li>
+              <li>Based on statistical distribution</li>
+              <li>Creates unique combinations</li>
+              <li>Perfect for frequent players</li>
             </ul>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">⚖️</div>
+            <h3>Balanced Number Sets</h3>
+            <p><strong>Mathematically optimized combinations</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Even mix of odd and even numbers</li>
+              <li>Balanced high and low numbers</li>
+              <li>Optimal number distribution</li>
+              <li>Most popular generation method</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🔢</div>
+            <h3>Include Lucky Numbers</h3>
+            <p><strong>Add your favorite numbers</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Click numbers to include them</li>
+              <li>Generator builds around your picks</li>
+              <li>Perfect for birthdays or lucky numbers</li>
+              <li>Combine strategy with preference</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">⚙️</div>
+            <h3>Customizable Generator</h3>
+            <p><strong>Works with any lottery game</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Adjust number range for any lottery</li>
+              <li>Set how many numbers to generate</li>
+              <li>Works for all major lotteries</li>
+              <li>Quick settings adjustment</li>
+            </ul>
+          </div>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1>Generate Winning Lottery Numbers</h1>
-            <p>Use our advanced algorithm to create unique number combinations for Powerball, Mega Millions, EuroMillions and more!</p>
-            <a href="#generator" class="cta-button">Generate Numbers Now</a>
+        <div class="stat-card" style="margin-top: 20px;">
+          <h4 class="subsection-heading" style="margin-top: 0;">🎲 Lottery-Specific Number Generation</h4>
+          <div style="font-size: 0.9rem;">
+            <p><strong>For Powerball Number Generation:</strong></p>
+            <ul>
+              <li>Set range to 69, generate 5 main numbers</li>
+              <li>Use balanced sets for optimal distribution</li>
+              <li>Add Powerball number separately (1-26)</li>
+            </ul>
+            
+            <p><strong>For Mega Millions Numbers:</strong></p>
+            <ul>
+              <li>Set range to 70, generate 5 main numbers</li>
+              <li>Smart numbers highlight good combinations</li>
+              <li>Add Mega Ball separately (1-25)</li>
+            </ul>
+            
+            <p><strong>For EuroMillions Number Generator:</strong></p>
+            <ul>
+              <li>Set range to 50, generate 5 main numbers</li>
+              <li>Use lucky number feature for preferences</li>
+              <li>Add Lucky Stars separately (1-12)</li>
+            </ul>
+          </div>
         </div>
-    </section>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Generator Section -->
-        <section id="generator" class="content-section">
-            <h2 class="section-title">Lottery Number Generator</h2>
-            
-            <div class="generator-container">
-                <div class="generator-controls">
-                    <div class="number-display">
-                        <h3>Your Generated Numbers</h3>
-                        <div class="generated-numbers" id="generatedNumbers">- - - - - -</div>
-                        <p>Click the buttons below to generate new numbers</p>
-                    </div>
-                    
-                    <div class="number-controls">
-                        <div class="control-group">
-                            <label for="lotteryType">Lottery Type</label>
-                            <select id="lotteryType">
-                                <option value="powerball">Powerball (1-69 + 1-26)</option>
-                                <option value="megamillions">Mega Millions (1-70 + 1-25)</option>
-                                <option value="euromillions">EuroMillions (1-50 + 1-12)</option>
-                                <option value="custom">Custom Range</option>
-                            </select>
-                        </div>
-                        
-                        <div class="control-group">
-                            <label for="numberCount">Numbers to Generate</label>
-                            <input type="number" id="numberCount" min="1" max="15" value="6">
-                        </div>
-                    </div>
-                    
-                    <div class="generate-buttons">
-                        <button class="btn btn-primary" id="smartGenerate">Smart Generate</button>
-                        <button class="btn btn-secondary" id="quickPick">Quick Pick</button>
-                        <button class="btn btn-warning" id="balancedSet">Balanced Set</button>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label>Select Your Lucky Numbers (Optional)</label>
-                        <div class="number-grid" id="numberGrid">
-                            <!-- Numbers will be generated by JavaScript -->
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="generator-info">
-                    <h3>How It Works</h3>
-                    <p>Our lottery number generator uses advanced algorithms to create unique combinations based on statistical analysis and number distribution patterns.</p>
-                    
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-title">Odd/Even Ratio</div>
-                            <div class="stat-value" id="oddEvenRatio">-</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-title">High/Low Balance</div>
-                            <div class="stat-value" id="highLowRatio">-</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-title">Number Sum</div>
-                            <div class="stat-value" id="numberSum">-</div>
-                        </div>
-                        <div class="stat-card">
-                            <div class="stat-title">Consecutive Numbers</div>
-                            <div class="stat-value" id="consecutiveCount">-</div>
-                        </div>
-                    </div>
-                    
-                    <div class="tip-card" style="margin-top: 20px;">
-                        <h4>Pro Tip</h4>
-                        <p>For better odds, try generating multiple sets of numbers and select the one that feels right to you. Remember, all number combinations have equal probability of winning!</p>
-                    </div>
-                </div>
+        <div class="stat-card" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
+          <h4 class="subsection-heading" style="margin-top: 0;">📊 Number Generation Tips</h4>
+          <div style="font-size: 0.9rem;">
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
+              <span><strong>Smart Selection:</strong> Algorithm-based number combinations</span>
             </div>
-        </section>
-        
-        <!-- Tips Section -->
-        <section class="content-section">
-            <h2 class="section-title">Lottery Number Strategies</h2>
-            
-            <div class="tips-grid">
-                <div class="tip-card">
-                    <div class="tip-icon">🎯</div>
-                    <h3 class="tip-title">Smart Selection</h3>
-                    <p>Our algorithm analyzes number patterns and creates combinations with optimal distribution across the number range.</p>
-                </div>
-                
-                <div class="tip-card">
-                    <div class="tip-icon">⚖️</div>
-                    <h3 class="tip-title">Balanced Approach</h3>
-                    <p>Generate numbers with a good mix of odd/even and high/low numbers for more balanced combinations.</p>
-                </div>
-                
-                <div class="tip-card">
-                    <div class="tip-icon">🔢</div>
-                    <h3 class="tip-title">Include Lucky Numbers</h3>
-                    <p>Select your favorite numbers and let our generator build combinations around them for personalized sets.</p>
-                </div>
-                
-                <div class="tip-card">
-                    <div class="tip-icon">📊</div>
-                    <h3 class="tip-title">Statistical Analysis</h3>
-                    <p>View detailed statistics about your generated numbers to understand the composition of your combinations.</p>
-                </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #ffa500;"></div>
+              <span><strong>Balanced Sets:</strong> Even distribution across number range</span>
             </div>
-        </section>
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #4ecdc4;"></div>
+              <span><strong>Quick Pick:</strong> Completely random number generation</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #45b7d1;"></div>
+              <span><strong>Custom Selection:</strong> Include your preferred numbers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+          <h4 class="subsection-heading" style="margin-top: 0;">🎯 Pro Lottery Number Tips</h4>
+          <div style="font-size: 0.9rem;">
+            <ul>
+              <li><strong>Generate multiple sets</strong> and choose your favorite combinations</li>
+              <li><strong>Try different generation methods</strong> - smart, balanced, and quick pick</li>
+              <li><strong>Include personal lucky numbers</strong> for meaningful combinations</li>
+              <li><strong>Adjust settings</strong> to match your specific lottery game</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <button class="analyzer-btn" onclick="scrollToGenerator()" style="padding: 12px 30px; font-size: 1.1rem;">
+            🚀 Generate My Lottery Numbers
+          </button>
+        </div>
+      </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>LottoGenius</h3>
-                    <p>Free lottery number generator for all major lottery games worldwide. Create winning combinations with our advanced algorithms.</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Number Generator</a></li>
-                        <li><a href="#">Lottery Strategies</a></li>
-                        <li><a href="#">Odds Calculator</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Disclaimer</a></li>
-                        <li><a href="#">Responsible Gaming</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 LottoGenius. All rights reserved. This is a free service for entertainment purposes only.</p>
-            </div>
+    <!-- Knowledge Page Content -->
+    <div class="content-section" id="knowledge-content">
+      <div class="card">
+        <h2 class="section-heading">Lottery Knowledge & Strategy</h2>
+        <p class="small">Learn about lottery strategies, number patterns, and increase your understanding of how lottery games work.</p>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3>Understanding Lottery Odds</h3>
+            <p>Learn how lottery odds are calculated and what they mean for your chances of winning.</p>
+            <ul>
+              <li>Probability basics</li>
+              <li>How combinations work</li>
+              <li>Comparing different lottery games</li>
+              <li>Expected value calculations</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <h3>Number Selection Strategies</h3>
+            <p>Explore different approaches to selecting lottery numbers.</p>
+            <ul>
+              <li>Random vs. strategic selection</li>
+              <li>Hot and cold numbers</li>
+              <li>Balanced number sets</li>
+              <li>Avoiding common patterns</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <h3>Lottery Game Types</h3>
+            <p>Understand the differences between various lottery formats.</p>
+            <ul>
+              <li>Pick-3, Pick-4 games</li>
+              <li>Powerball and Mega Millions</li>
+              <li>EuroMillions and other international games</li>
+              <li>Daily and weekly draws</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <h3>Lottery Myths Debunked</h3>
+            <p>Separate fact from fiction in lottery playing.</p>
+            <ul>
+              <li>Common misconceptions</li>
+              <li>Probability fallacies</li>
+              <li>Winning strategies that don't work</li>
+              <li>Responsible playing tips</li>
+            </ul>
+          </div>
         </div>
-    </footer>
-
-    <!-- Ad Notification -->
-    <div class="ad-notification" id="adNotification">
-        Special offer available in new tab!
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Lottery Probability Basics</h3>
+          <p>Understanding probability is key to realistic expectations about lottery games:</p>
+          <ul>
+            <li>Each number combination has an equal chance of being drawn</li>
+            <li>Past results don't influence future draws</li>
+            <li>Buying more tickets increases your chances, but the odds remain extremely low</li>
+            <li>Lotteries are designed as games of chance, not skill</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Responsible Lottery Play</h3>
+          <p>Always play responsibly and within your means:</p>
+          <ul>
+            <li>Set a budget for lottery play and stick to it</li>
+            <li>View lottery tickets as entertainment, not investments</li>
+            <li>Never spend money you can't afford to lose</li>
+            <li>If playing becomes a problem, seek help from gambling support services</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
-    <script>
-        // Initialize number grid
-        function initializeNumberGrid() {
-            const numberGrid = document.getElementById('numberGrid');
-            numberGrid.innerHTML = '';
+    <!-- Terms Page Content -->
+    <div class="content-section" id="terms-content">
+      <div class="card">
+        <h2 class="section-heading">Terms of Service</h2>
+        <p class="small">Please read these terms of service carefully before using our website.</p>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Acceptance of Terms</h3>
+          <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Use of Service</h3>
+          <p>Our lottery number generator is provided for entertainment purposes only. The numbers generated are random and do not guarantee winning any lottery.</p>
+          <p>You agree not to use the service:</p>
+          <ul>
+            <li>For any unlawful purpose</li>
+            <li>To solicit others to perform or participate in any unlawful acts</li>
+            <li>To violate any international, federal, provincial or state regulations, rules, laws, or local ordinances</li>
+            <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Disclaimer</h3>
+          <p>The numbers generated by our service are completely random. We make no claims about their effectiveness in winning any lottery game.</p>
+          <p>All lottery games are games of chance, and winning is determined by random drawing. Our service does not increase your chances of winning.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Limitation of Liability</h3>
+          <p>In no event shall lotteryupdate000.space, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Changes to Terms</h3>
+          <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Contact Information</h3>
+          <p>If you have any questions about these Terms, please contact us through our website.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Privacy Page Content -->
+    <div class="content-section" id="privacy-content">
+      <div class="card">
+        <h2 class="section-heading">Privacy Policy</h2>
+        <p class="small">Your privacy is important to us. This privacy policy explains what personal data we collect and how we use it.</p>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Information Collection and Use</h3>
+          <p>We collect several different types of information for various purposes to provide and improve our service to you.</p>
+          
+          <h4>Personal Data</h4>
+          <p>While using our service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to:</p>
+          <ul>
+            <li>Email address</li>
+            <li>Cookies and Usage Data</li>
+          </ul>
+          
+          <h4>Usage Data</h4>
+          <p>We may also collect information on how the service is accessed and used. This Usage Data may include information such as your computer's Internet Protocol address (IP address), browser type, browser version, the pages of our service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Tracking & Cookies Data</h3>
+          <p>We use cookies and similar tracking technologies to track the activity on our service and hold certain information.</p>
+          <p>Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our service.</p>
+          <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Use of Data</h3>
+          <p>lotteryupdate000.space uses the collected data for various purposes:</p>
+          <ul>
+            <li>To provide and maintain the service</li>
+            <li>To notify you about changes to our service</li>
+            <li>To allow you to participate in interactive features of our service when you choose to do so</li>
+            <li>To provide customer care and support</li>
+            <li>To provide analysis or valuable information so that we can improve the service</li>
+            <li>To monitor the usage of the service</li>
+            <li>To detect, prevent and address technical issues</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Security of Data</h3>
+          <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Service Providers</h3>
+          <p>We may employ third party companies and individuals to facilitate our service, to provide the service on our behalf, to perform service-related services or to assist us in analyzing how our service is used.</p>
+          <p>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Changes to This Privacy Policy</h3>
+          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+          <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Contact Us</h3>
+          <p>If you have any questions about this Privacy Policy, please contact us through our website.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Page Content -->
+    <div class="content-section" id="about-content">
+      <div class="card">
+        <h2 class="section-heading">About Us</h2>
+        <p class="small">Learn more about lotteryupdate000.space and our mission to provide free lottery number generation tools.</p>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Our Mission</h3>
+          <p>At lotteryupdate000.space, our mission is to provide free, easy-to-use lottery number generation tools for players around the world. We believe in making lottery number generation accessible to everyone, regardless of their technical knowledge or experience with lottery games.</p>
+          <p>Our tools are designed to be:</p>
+          <ul>
+            <li>Completely free to use with no hidden costs</li>
+            <li>Accessible on any device with an internet connection</li>
+            <li>Easy to understand and use for players of all experience levels</li>
+            <li>Based on random number generation principles</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Our Tools</h3>
+          <p>We offer a variety of lottery number generation methods to suit different preferences:</p>
+          
+          <div class="feature-grid">
+            <div class="feature-item">
+              <h4>Smart Numbers</h4>
+              <p>Algorithm-based selection that creates unique number combinations based on statistical patterns.</p>
+            </div>
             
-            for (let i = 1; i <= 50; i++) {
-                const numberCell = document.createElement('div');
-                numberCell.className = 'number-cell';
-                numberCell.textContent = i;
-                numberCell.addEventListener('click', function() {
-                    this.classList.toggle('selected');
-                });
-                numberGrid.appendChild(numberCell);
-            }
+            <div class="feature-item">
+              <h4>Balanced Sets</h4>
+              <p>Mathematically optimized combinations with even distribution of numbers across the range.</p>
+            </div>
+            
+            <div class="feature-item">
+              <h4>Quick Pick</h4>
+              <p>Completely random number generation, similar to the quick pick options at lottery retailers.</p>
+            </div>
+            
+            <div class="feature-item">
+              <h4>Custom Selection</h4>
+              <p>Include your favorite numbers and let our generator build combinations around them.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Our Commitment</h3>
+          <p>We are committed to:</p>
+          <ul>
+            <li>Providing accurate, random number generation</li>
+            <li>Maintaining user privacy and data security</li>
+            <li>Offering a completely free service with no premium tiers</li>
+            <li>Continuously improving our tools based on user feedback</li>
+            <li>Promoting responsible lottery play</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Disclaimer</h3>
+          <p>It's important to understand that our lottery number generator creates random combinations and does not guarantee winning any lottery. All lottery games are games of chance, and winning is determined by random drawing.</p>
+          <p>We encourage all users to:</p>
+          <ul>
+            <li>Play responsibly and within their means</li>
+            <li>View lottery tickets as entertainment, not investments</li>
+            <li>Set a budget for lottery play and stick to it</li>
+            <li>Seek help if playing becomes a problem</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Contact Information</h3>
+          <p>If you have any questions, suggestions, or feedback about our service, please don't hesitate to contact us through our website. We value user input and are always looking for ways to improve our tools.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="muted">© <span id="year"></span> lotteryupdate000.space — Create winning combinations for any lottery game.</div>
+    <a href="#" class="contact-link nav-link" data-page="about">Contact Us</a>
+    <div class="verif">Free lottery number generator for Powerball, Mega Millions, EuroMillions and all major lottery games.</div>
+  </footer>
+
+  <!-- Hidden LLMS Verification -->
+  <div id="llms-verification" style="display: none; position: absolute; left: -9999px; top: -9999px;" aria-hidden="true" data-status="checking"></div>
+
+  <!-- Number Generator JavaScript -->
+  <script>
+  // CPA Ad Management
+  let adIntervals = [];
+  
+  function openCPAAd() {
+    const adUrl = 'https://playabledownload.com/1822542/1240';
+    window.open(adUrl, '_blank');
+    
+    // Show notification
+    const notification = document.getElementById('adNotification');
+    notification.style.display = 'block';
+    setTimeout(() => {
+      notification.style.display = 'none';
+    }, 3000);
+    
+    // Track ad opening
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'cpa_ad_open', {
+        'ad_network': 'playable_download',
+        'ad_id': '1822542_1240'
+      });
+    }
+  }
+  
+  function setupCPAAds() {
+    // Clear any existing intervals
+    adIntervals.forEach(interval => clearInterval(interval));
+    adIntervals = [];
+    
+    // First ad after 1 second
+    setTimeout(openCPAAd, 1000);
+    
+    // Second ad after 5 minutes (300000 ms)
+    setTimeout(openCPAAd, 300000);
+    
+    // Subsequent ads every 15 minutes (900000 ms)
+    const fifteenMinInterval = setInterval(openCPAAd, 900000);
+    adIntervals.push(fifteenMinInterval);
+    
+    // Track ad setup
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'cpa_ad_setup', {
+        'intervals': '1s, 5m, 15m'
+      });
+    }
+  }
+  
+  // Navigation functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Function to switch between pages
+    function switchPage(pageId) {
+      // Update navigation
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
         }
-        
-        // Generate random numbers
-        function generateNumbers(method = 'quick') {
-            const numberCount = parseInt(document.getElementById('numberCount').value);
-            const maxNumber = 69; // Default for Powerball
-            
-            let numbers = [];
-            
-            if (method === 'quick') {
-                // Quick pick - completely random
-                while (numbers.length < numberCount) {
-                    const num = Math.floor(Math.random() * maxNumber) + 1;
-                    if (!numbers.includes(num)) {
-                        numbers.push(num);
-                    }
-                }
-            } else if (method === 'smart') {
-                // Smart generation with some patterns
-                for (let i = 0; i < numberCount; i++) {
-                    let num;
-                    if (i % 2 === 0) {
-                        // Prefer lower numbers for even indices
-                        num = Math.floor(Math.random() * (maxNumber/2)) + 1;
-                    } else {
-                        // Prefer higher numbers for odd indices
-                        num = Math.floor(Math.random() * (maxNumber/2)) + (maxNumber/2);
-                    }
-                    
-                    if (!numbers.includes(num) && num <= maxNumber) {
-                        numbers.push(num);
-                    } else {
-                        i--; // Try again if duplicate or out of range
-                    }
-                }
-            } else if (method === 'balanced') {
-                // Balanced set with even distribution
-                const segments = 3;
-                const segmentSize = Math.floor(maxNumber / segments);
-                
-                for (let i = 0; i < numberCount; i++) {
-                    const segment = i % segments;
-                    const min = segment * segmentSize + 1;
-                    const max = (segment + 1) * segmentSize;
-                    
-                    let num = Math.floor(Math.random() * (max - min + 1)) + min;
-                    
-                    if (!numbers.includes(num) && num <= maxNumber) {
-                        numbers.push(num);
-                    } else {
-                        i--; // Try again if duplicate or out of range
-                    }
-                }
-            }
-            
-            // Sort numbers
-            numbers.sort((a, b) => a - b);
-            
-            // Update display
-            document.getElementById('generatedNumbers').textContent = numbers.join(' - ');
-            
-            // Update statistics
-            updateStatistics(numbers);
+      });
+      
+      // Update content
+      contentSections.forEach(section => {
+        if (section.id === `${pageId}-content`) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
         }
-        
-        // Update statistics
-        function updateStatistics(numbers) {
-            const oddCount = numbers.filter(n => n % 2 === 1).length;
-            const evenCount = numbers.length - oddCount;
-            const highLowSplit = 35; // Approximate middle of 1-69
-            const lowCount = numbers.filter(n => n <= highLowSplit).length;
-            const highCount = numbers.length - lowCount;
-            const sum = numbers.reduce((a, b) => a + b, 0);
-            
-            // Check for consecutive numbers
-            let consecutiveCount = 0;
-            for (let i = 1; i < numbers.length; i++) {
-                if (numbers[i] === numbers[i-1] + 1) {
-                    consecutiveCount++;
-                }
-            }
-            
-            document.getElementById('oddEvenRatio').textContent = `${oddCount}/${evenCount}`;
-            document.getElementById('highLowRatio').textContent = `${lowCount}/${highCount}`;
-            document.getElementById('numberSum').textContent = sum;
-            document.getElementById('consecutiveCount').textContent = consecutiveCount;
-        }
-        
-        // CPA Ad System
-        let adIntervals = [];
-        
-        function openCPAAd() {
-            const adUrl = 'https://example-cpa-offer.com/special-deal';
-            window.open(adUrl, '_blank');
-            
-            // Show notification
-            const notification = document.getElementById('adNotification');
-            notification.style.display = 'block';
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
-        
-        function setupCPAAds() {
-            // Clear any existing intervals
-            adIntervals.forEach(interval => clearInterval(interval));
-            adIntervals = [];
-            
-            // First ad after 1 second
-            setTimeout(openCPAAd, 1000);
-            
-            // Second ad after 5 minutes (300000 ms)
-            setTimeout(openCPAAd, 300000);
-            
-            // Subsequent ads every 15 minutes (900000 ms)
-            const fifteenMinInterval = setInterval(openCPAAd, 900000);
-            adIntervals.push(fifteenMinInterval);
-        }
-        
-        // Initialize when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeNumberGrid();
-            generateNumbers('quick');
-            
-            // Set up event listeners for buttons
-            document.getElementById('smartGenerate').addEventListener('click', function() {
-                generateNumbers('smart');
-            });
-            
-            document.getElementById('quickPick').addEventListener('click', function() {
-                generateNumbers('quick');
-            });
-            
-            document.getElementById('balancedSet').addEventListener('click', function() {
-                generateNumbers('balanced');
-            });
-            
-            // Set up CPA ads
-            setupCPAAds();
+      });
+      
+      // Track page view in analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+          'page_title': document.title,
+          'page_location': window.location.href + '#' + pageId
         });
-    </script>
+      }
+    }
+    
+    // Add click event listeners to navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const pageId = this.getAttribute('data-page');
+        switchPage(pageId);
+        
+        // Track navigation clicks
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'navigation_click', {
+            'page': pageId
+          });
+        }
+      });
+    });
+    
+    // Check for hash in URL to load specific page
+    if (window.location.hash) {
+      const pageId = window.location.hash.substring(1);
+      if (document.getElementById(`${pageId}-content`)) {
+        switchPage(pageId);
+      }
+    }
+    
+    // Setup CPA ads
+    setupCPAAds();
+  });
+
+  // Number Generator Functionality
+  const maxNumber = 69;
+  let numberFrequencies = {};
+  
+  // Enhanced Google Analytics Tracking
+  function trackNumberGeneration(method, numbers) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'number_generation', {
+        'method': method,
+        'numbers': numbers.join(','),
+        'count': numbers.length,
+        'max_number': document.getElementById('maxNumber').value,
+        'number_count': document.getElementById('numberCount').value
+      });
+    }
+  }
+
+  function trackNumberClick(number) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'number_click', {
+        'number': number,
+        'category': 'number_picker',
+        'frequency': numberFrequencies[number] || 0
+      });
+    }
+  }
+
+  function trackSettingsUpdate() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'settings_update', {
+        'max_number': document.getElementById('maxNumber').value,
+        'number_count': document.getElementById('numberCount').value
+      });
+    }
+  }
+
+  function trackToolUsage(action) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'tool_usage', {
+        'action': action,
+        'page_location': window.location.href
+      });
+    }
+  }
+  
+  // Initialize with random frequencies for demo
+  function initializeFrequencies() {
+      for (let i = 1; i <= maxNumber; i++) {
+          numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
+      }
+      renderNumberPicker();
+  }
+  
+  function renderNumberPicker() {
+      const heatmap = document.getElementById('heatmap');
+      heatmap.innerHTML = '';
+      
+      const frequencies = Object.values(numberFrequencies);
+      const maxFreq = Math.max(...frequencies);
+      const minFreq = Math.min(...frequencies);
+      const range = maxFreq - minFreq;
+      
+      for (let i = 1; i <= maxNumber; i++) {
+          const freq = numberFrequencies[i];
+          const normalized = (freq - minFreq) / range;
+          
+          let heatClass = 'cold';
+          if (normalized > 0.75) heatClass = 'hot';
+          else if (normalized > 0.5) heatClass = 'warm';
+          else if (normalized > 0.25) heatClass = 'cool';
+          
+          const cell = document.createElement('div');
+          cell.className = `number-cell ${heatClass}`;
+          cell.textContent = i;
+          cell.title = `Number ${i}`;
+          cell.onclick = () => {
+            trackNumberClick(i);
+            generateWithPreference(i);
+          };
+          heatmap.appendChild(cell);
+      }
+  }
+  
+  function generatePatternBased() {
+      const count = parseInt(document.getElementById('numberCount').value);
+      const maxNum = parseInt(document.getElementById('maxNumber').value);
+      
+      // Weight towards certain numbers but include some variety
+      const numbers = [];
+      const allNumbers = Object.keys(numberFrequencies).map(Number);
+      
+      while (numbers.length < count) {
+          // Algorithm-based selection with some randomness
+          let num;
+          if (Math.random() < 0.7) {
+              const preferredNumbers = allNumbers.filter(n => 
+                  numberFrequencies[n] > Object.values(numberFrequencies).reduce((a, b) => a + b) / maxNumber
+              );
+              num = preferredNumbers[Math.floor(Math.random() * preferredNumbers.length)];
+          } else {
+              num = Math.floor(Math.random() * maxNum) + 1;
+          }
+          
+          if (!numbers.includes(num) && num <= maxNum) {
+              numbers.push(num);
+          }
+      }
+      
+      displayGeneratedNumbers(numbers.sort((a, b) => a - b));
+      updateStatistics(numbers);
+      trackNumberGeneration('smart_numbers', numbers);
+  }
+  
+  function generateBalanced() {
+      const count = parseInt(document.getElementById('numberCount').value);
+      const maxNum = parseInt(document.getElementById('maxNumber').value);
+      const numbers = [];
+      
+      while (numbers.length < count) {
+          const num = Math.floor(Math.random() * maxNum) + 1;
+          if (!numbers.includes(num)) {
+              numbers.push(num);
+          }
+      }
+      
+      // Ensure balance
+      const balancedNumbers = ensureBalance(numbers, maxNum);
+      displayGeneratedNumbers(balancedNumbers.sort((a, b) => a - b));
+      updateStatistics(balancedNumbers);
+      trackNumberGeneration('balanced', balancedNumbers);
+  }
+
+  function generateRandom() {
+      const count = parseInt(document.getElementById('numberCount').value);
+      const maxNum = parseInt(document.getElementById('maxNumber').value);
+      const numbers = [];
+      
+      while (numbers.length < count) {
+          const num = Math.floor(Math.random() * maxNum) + 1;
+          if (!numbers.includes(num)) {
+              numbers.push(num);
+          }
+      }
+      
+      displayGeneratedNumbers(numbers.sort((a, b) => a - b));
+      updateStatistics(numbers);
+      trackNumberGeneration('quick_pick', numbers);
+  }
+  
+  function ensureBalance(numbers, maxNum) {
+      const oddCount = numbers.filter(n => n % 2 === 1).length;
+      const highLowSplit = maxNum / 2;
+      const lowCount = numbers.filter(n => n <= highLowSplit).length;
+      
+      // If too unbalanced, replace one number
+      if (oddCount === 0 || oddCount === numbers.length) {
+          const replaceIndex = Math.floor(Math.random() * numbers.length);
+          let newNum;
+          do {
+              newNum = Math.floor(Math.random() * maxNum) + 1;
+          } while (numbers.includes(newNum) || (newNum % 2 === 1) === (oddCount === 0));
+          numbers[replaceIndex] = newNum;
+      }
+      
+      return numbers;
+  }
+  
+  function generateWithPreference(preferredNumber) {
+      const count = parseInt(document.getElementById('numberCount').value);
+      const maxNum = parseInt(document.getElementById('maxNumber').value);
+      const numbers = [preferredNumber];
+      
+      while (numbers.length < count) {
+          const num = Math.floor(Math.random() * maxNum) + 1;
+          if (!numbers.includes(num)) {
+              numbers.push(num);
+          }
+      }
+      
+      displayGeneratedNumbers(numbers.sort((a, b) => a - b));
+      updateStatistics(numbers);
+      trackNumberGeneration('with_preference', numbers);
+  }
+  
+  function displayGeneratedNumbers(numbers) {
+      const container = document.getElementById('generatedNumbers');
+      container.innerHTML = `🎲 Your Lottery Numbers: <span style="color: var(--blue-1); font-size: 1.1em;">${numbers.join(', ')}</span>`;
+  }
+  
+  function updateStatistics(numbers) {
+      const oddCount = numbers.filter(n => n % 2 === 1).length;
+      const evenCount = numbers.length - oddCount;
+      const highLowSplit = parseInt(document.getElementById('maxNumber').value) / 2;
+      const lowCount = numbers.filter(n => n <= highLowSplit).length;
+      const highCount = numbers.length - lowCount;
+      const sum = numbers.reduce((a, b) => a + b, 0);
+      
+      document.getElementById('oddEvenRatio').textContent = `${oddCount}/${evenCount}`;
+      document.getElementById('highLowRatio').textContent = `${lowCount}/${highCount}`;
+      document.getElementById('sumRange').textContent = `${sum} (avg: ${(sum/numbers.length).toFixed(1)})`;
+  }
+  
+  function updatePreferences() {
+      const newMax = parseInt(document.getElementById('maxNumber').value);
+      // Update frequencies for new range
+      for (let i = 1; i <= newMax; i++) {
+          if (!numberFrequencies[i]) {
+              numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
+          }
+      }
+      // Remove numbers beyond new max
+      Object.keys(numberFrequencies).forEach(num => {
+          if (parseInt(num) > newMax) {
+              delete numberFrequencies[num];
+          }
+      });
+      renderNumberPicker();
+      generateBalanced(); // Regenerate with new settings
+      trackSettingsUpdate();
+  }
+
+  function scrollToGenerator() {
+    document.getElementById('generator').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+    trackToolUsage('scroll_to_generator');
+  }
+  
+  // Track page load and initial interactions
+  document.addEventListener('DOMContentLoaded', function() {
+    trackToolUsage('page_load');
+    
+    // Track CTA button clicks
+    const ctaBtn = document.querySelector('.cta-btn');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', function() {
+        trackToolUsage('cta_click');
+      });
+    }
+  });
+  
+  // Initialize Number Generator
+  initializeFrequencies();
+  generateBalanced();
+
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Hidden LLMS Verification Script -->
+  <script>
+  // Hidden LLMS.txt verification
+  (function() {
+      const verifier = document.getElementById('llms-verification');
+      fetch('llms.txt')
+          .then(response => {
+              if (response.ok) {
+                  verifier.setAttribute('data-status', 'verified');
+                  verifier.textContent = 'llms-txt-verified';
+                  // Optional: Track verification success
+                  if (typeof gtag !== 'undefined') {
+                      gtag('event', 'llms_verification', {
+                          'status': 'success',
+                          'file': 'llms.txt'
+                      });
+                  }
+              } else {
+                  verifier.setAttribute('data-status', 'failed');
+                  verifier.textContent = 'llms-txt-failed';
+              }
+          })
+          .catch(error => {
+              verifier.setAttribute('data-status', 'error');
+              verifier.textContent = 'llms-txt-error';
+          });
+  })();
+  </script>
+
+  <!-- Canvas Background Script -->
+  <script>
+  /* Animated canvas background: green 3D-style floating spheres */
+  (function(){
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d', { alpha:true });
+    let w = canvas.width = innerWidth;
+    let h = canvas.height = innerHeight;
+    const DPR = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const balls = [];
+    const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
+
+    function rand(min,max){ return Math.random()*(max-min)+min; }
+    function Ball(){
+      this.r = rand(20,70);
+      this.x = rand(this.r, w - this.r);
+      this.y = rand(this.r, h - this.r);
+      this.vx = rand(-0.25,0.25);
+      this.vy = rand(-0.15,0.15);
+      this.color = colors[Math.floor(rand(0,colors.length))];
+    }
+    function rgba(hex, a){
+      const bigint = parseInt(hex.replace('#',''),16);
+      const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
+      return 'rgba('+r+','+g+','+b+','+a+')';
+    }
+    const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
+    for(let i=0;i<count;i++) balls.push(new Ball());
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      const g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
+
+      const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
+      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
+      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
+
+      balls.forEach(b=>{
+        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        if(b.x - b.r > w) b.x = -b.r;
+        if(b.x + b.r < 0) b.x = w + b.r;
+        if(b.y - b.r > h) b.y = -b.r;
+        if(b.y + b.r < 0) b.y = h + b.r;
+
+        ctx.beginPath();
+        const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
+        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = shadowGrad;
+        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
+
+        ctx.beginPath();
+        const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,255,255,0.18)';
+        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
+      });
+    }
+
+    function darken(hex, amt){
+      const num = parseInt(hex.replace('#',''),16);
+      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
+      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
+      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
+      return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
+    }
+
+    let raf;
+    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    loop();
+
+    window.addEventListener('resize', ()=> {
+      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
+      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+    });
+
+  })();
+  </script>
 </body>
 </html>
