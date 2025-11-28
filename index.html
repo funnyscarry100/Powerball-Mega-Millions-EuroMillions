@@ -420,6 +420,14 @@
       opacity:0.95;
     }
 
+    /* Content sections for different pages */
+    .content-section {
+      display: none;
+    }
+    .content-section.active {
+      display: block;
+    }
+
     /* Accessibility: reduce motion */
     @media (prefers-reduced-motion: reduce){
       * {
@@ -445,221 +453,488 @@
 
   <nav aria-label="Main navigation">
     <ul class="nav-list">
-      <li><a href="index.html" class="active" id="nav-home">Home</a></li>
-      <li><a href="knowledges.html" id="nav-knowledge">Knowledge</a></li>
-      <li><a href="terms.html" id="nav-terms">Terms</a></li>
-      <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
-      <li><a href="about.html" id="nav-about">About</a></li>
+      <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+      <li><a href="#" class="nav-link" data-page="knowledge">Knowledge</a></li>
+      <li><a href="#" class="nav-link" data-page="terms">Terms</a></li>
+      <li><a href="#" class="nav-link" data-page="privacy">Privacy</a></li>
+      <li><a href="#" class="nav-link" data-page="about">About</a></li>
     </ul>
   </nav>
 
   <main class="wrap" id="content">
-    <div class="hero">
-      <div class="hero-left">
-        <h1>Free Lottery Number Generator - Create Winning Combinations</h1>
-        <p>Generate random lottery numbers instantly for Powerball, Mega Millions, EuroMillions and more. Create balanced number combinations with our advanced lottery number picker.</p>
-        <p class="small">Our lottery number generator creates unique combinations for any lottery game worldwide.</p>
-      </div>
-      <div class="hero-right">
-        <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-          <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Generator Status</div>
-          <div id="latest-time" class="small" style="margin-top:8px;">Ready to Generate Numbers</div>
-          <div style="margin-top:12px;">
-            <a class="cta-btn" href="#generator">Generate Numbers Now</a>
+    <!-- Home Page Content -->
+    <div class="content-section active" id="home-content">
+      <div class="hero">
+        <div class="hero-left">
+          <h1>Free Lottery Number Generator - Create Winning Combinations</h1>
+          <p>Generate random lottery numbers instantly for Powerball, Mega Millions, EuroMillions and more. Create balanced number combinations with our advanced lottery number picker.</p>
+          <p class="small">Our lottery number generator creates unique combinations for any lottery game worldwide.</p>
+        </div>
+        <div class="hero-right">
+          <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Generator Status</div>
+            <div id="latest-time" class="small" style="margin-top:8px;">Ready to Generate Numbers</div>
+            <div style="margin-top:12px;">
+              <a class="cta-btn" href="#generator">Generate Numbers Now</a>
+            </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Number Generator Section -->
+      <div class="card" id="generator">
+        <h2 class="section-heading">Advanced Lottery Number Generator</h2>
+        <p class="small" style="margin-bottom: 25px;">Create unique lottery number combinations instantly. Choose your generation method or click numbers to include them in your set.</p>
+
+        <div class="analyzer-grid">
+          <!-- Left Column - Number Picker & Analysis -->
+          <div>
+            <h3 class="subsection-heading">Quick Number Picker</h3>
+            <div class="number-grid" id="heatmap"></div>
+            
+            <div class="stat-card">
+              <h4 class="subsection-heading" style="margin-top: 0;">Number Combination Analysis</h4>
+              <div id="patternStats" style="font-size: 0.95rem;">
+                <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
+                <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
+                <p><strong>Sum Range:</strong> <span id="sumRange">-</span></p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column - Generator & Controls -->
+          <div>
+            <h3 class="subsection-heading">Lottery Number Generator</h3>
+            <div class="analyzer-controls">
+              <button class="analyzer-btn" onclick="generatePatternBased()">
+                🎯 Smart Numbers
+              </button>
+              <button class="analyzer-btn" onclick="generateBalanced()">
+                ⚖️ Balanced Set
+              </button>
+              <button class="analyzer-btn" onclick="generateRandom()">
+                🎲 Quick Pick
+              </button>
+            </div>
+            
+            <div id="generatedNumbers" class="generated-numbers">
+              Your lottery numbers will appear here
+            </div>
+            
+            <div class="stat-card">
+              <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
+              <div class="settings-controls">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <label for="maxNumber">Number Range: 1 to</label>
+                  <input type="number" id="maxNumber" value="69" min="10" max="100">
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                  <label for="numberCount">Numbers to Generate:</label>
+                  <input type="number" id="numberCount" value="6" min="1" max="15">
+                </div>
+                <button onclick="updatePreferences()" style="padding: 8px 16px;">Update Settings</button>
+              </div>
+            </div>
+
+            <div class="stat-card">
+              <h4 class="subsection-heading" style="margin-top: 0;">Number Generation Methods</h4>
+              <div id="statisticalInsights" style="font-size: 0.9rem; line-height: 1.5;">
+                <p>🔴 <strong>Smart Numbers</strong>: Algorithm-based number selection</p>
+                <p>🟠 <strong>Balanced Set</strong>: Even distribution of numbers</p>
+                <p>🔵 <strong>Quick Pick</strong>: Completely random number generation</p>
+                <p>🔷 <strong>Custom Pick</strong>: Click numbers to include favorites</p>
+                <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
+                  <strong>Note:</strong> All lottery number generation methods produce random combinations.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tips Section -->
+      <div class="card">
+        <h2 class="section-heading">💡 How to Use Our Lottery Number Generator</h2>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <h3>Smart Number Generation</h3>
+            <p><strong>Algorithm-based number selection</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Advanced algorithm selects numbers</li>
+              <li>Based on statistical distribution</li>
+              <li>Creates unique combinations</li>
+              <li>Perfect for frequent players</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">⚖️</div>
+            <h3>Balanced Number Sets</h3>
+            <p><strong>Mathematically optimized combinations</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Even mix of odd and even numbers</li>
+              <li>Balanced high and low numbers</li>
+              <li>Optimal number distribution</li>
+              <li>Most popular generation method</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🔢</div>
+            <h3>Include Lucky Numbers</h3>
+            <p><strong>Add your favorite numbers</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Click numbers to include them</li>
+              <li>Generator builds around your picks</li>
+              <li>Perfect for birthdays or lucky numbers</li>
+              <li>Combine strategy with preference</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <div class="feature-icon">⚙️</div>
+            <h3>Customizable Generator</h3>
+            <p><strong>Works with any lottery game</strong></p>
+            <ul style="font-size: 0.85rem; margin-top: 10px;">
+              <li>Adjust number range for any lottery</li>
+              <li>Set how many numbers to generate</li>
+              <li>Works for all major lotteries</li>
+              <li>Quick settings adjustment</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stat-card" style="margin-top: 20px;">
+          <h4 class="subsection-heading" style="margin-top: 0;">🎲 Lottery-Specific Number Generation</h4>
+          <div style="font-size: 0.9rem;">
+            <p><strong>For Powerball Number Generation:</strong></p>
+            <ul>
+              <li>Set range to 69, generate 5 main numbers</li>
+              <li>Use balanced sets for optimal distribution</li>
+              <li>Add Powerball number separately (1-26)</li>
+            </ul>
+            
+            <p><strong>For Mega Millions Numbers:</strong></p>
+            <ul>
+              <li>Set range to 70, generate 5 main numbers</li>
+              <li>Smart numbers highlight good combinations</li>
+              <li>Add Mega Ball separately (1-25)</li>
+            </ul>
+            
+            <p><strong>For EuroMillions Number Generator:</strong></p>
+            <ul>
+              <li>Set range to 50, generate 5 main numbers</li>
+              <li>Use lucky number feature for preferences</li>
+              <li>Add Lucky Stars separately (1-12)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="stat-card" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
+          <h4 class="subsection-heading" style="margin-top: 0;">📊 Number Generation Tips</h4>
+          <div style="font-size: 0.9rem;">
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
+              <span><strong>Smart Selection:</strong> Algorithm-based number combinations</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #ffa500;"></div>
+              <span><strong>Balanced Sets:</strong> Even distribution across number range</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #4ecdc4;"></div>
+              <span><strong>Quick Pick:</strong> Completely random number generation</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
+              <div style="width: 20px; height: 20px; border-radius: 50%; background: #45b7d1;"></div>
+              <span><strong>Custom Selection:</strong> Include your preferred numbers</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+          <h4 class="subsection-heading" style="margin-top: 0;">🎯 Pro Lottery Number Tips</h4>
+          <div style="font-size: 0.9rem;">
+            <ul>
+              <li><strong>Generate multiple sets</strong> and choose your favorite combinations</li>
+              <li><strong>Try different generation methods</strong> - smart, balanced, and quick pick</li>
+              <li><strong>Include personal lucky numbers</strong> for meaningful combinations</li>
+              <li><strong>Adjust settings</strong> to match your specific lottery game</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 20px;">
+          <button class="analyzer-btn" onclick="scrollToGenerator()" style="padding: 12px 30px; font-size: 1.1rem;">
+            🚀 Generate My Lottery Numbers
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Number Generator Section -->
-    <div class="card" id="generator">
-      <h2 class="section-heading">Advanced Lottery Number Generator</h2>
-      <p class="small" style="margin-bottom: 25px;">Create unique lottery number combinations instantly. Choose your generation method or click numbers to include them in your set.</p>
-
-      <div class="analyzer-grid">
-        <!-- Left Column - Number Picker & Analysis -->
-        <div>
-          <h3 class="subsection-heading">Quick Number Picker</h3>
-          <div class="number-grid" id="heatmap"></div>
+    <!-- Knowledge Page Content -->
+    <div class="content-section" id="knowledge-content">
+      <div class="card">
+        <h2 class="section-heading">Lottery Knowledge & Strategy</h2>
+        <p class="small">Learn about lottery strategies, number patterns, and increase your understanding of how lottery games work.</p>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <h3>Understanding Lottery Odds</h3>
+            <p>Learn how lottery odds are calculated and what they mean for your chances of winning.</p>
+            <ul>
+              <li>Probability basics</li>
+              <li>How combinations work</li>
+              <li>Comparing different lottery games</li>
+              <li>Expected value calculations</li>
+            </ul>
+          </div>
           
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Number Combination Analysis</h4>
-            <div id="patternStats" style="font-size: 0.95rem;">
-              <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
-              <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
-              <p><strong>Sum Range:</strong> <span id="sumRange">-</span></p>
-            </div>
+          <div class="feature-item">
+            <h3>Number Selection Strategies</h3>
+            <p>Explore different approaches to selecting lottery numbers.</p>
+            <ul>
+              <li>Random vs. strategic selection</li>
+              <li>Hot and cold numbers</li>
+              <li>Balanced number sets</li>
+              <li>Avoiding common patterns</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <h3>Lottery Game Types</h3>
+            <p>Understand the differences between various lottery formats.</p>
+            <ul>
+              <li>Pick-3, Pick-4 games</li>
+              <li>Powerball and Mega Millions</li>
+              <li>EuroMillions and other international games</li>
+              <li>Daily and weekly draws</li>
+            </ul>
+          </div>
+          
+          <div class="feature-item">
+            <h3>Lottery Myths Debunked</h3>
+            <p>Separate fact from fiction in lottery playing.</p>
+            <ul>
+              <li>Common misconceptions</li>
+              <li>Probability fallacies</li>
+              <li>Winning strategies that don't work</li>
+              <li>Responsible playing tips</li>
+            </ul>
           </div>
         </div>
         
-        <!-- Right Column - Generator & Controls -->
-        <div>
-          <h3 class="subsection-heading">Lottery Number Generator</h3>
-          <div class="analyzer-controls">
-            <button class="analyzer-btn" onclick="generatePatternBased()">
-              🎯 Smart Numbers
-            </button>
-            <button class="analyzer-btn" onclick="generateBalanced()">
-              ⚖️ Balanced Set
-            </button>
-            <button class="analyzer-btn" onclick="generateRandom()">
-              🎲 Quick Pick
-            </button>
-          </div>
-          
-          <div id="generatedNumbers" class="generated-numbers">
-            Your lottery numbers will appear here
-          </div>
-          
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
-            <div class="settings-controls">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <label for="maxNumber">Number Range: 1 to</label>
-                <input type="number" id="maxNumber" value="69" min="10" max="100">
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <label for="numberCount">Numbers to Generate:</label>
-                <input type="number" id="numberCount" value="6" min="1" max="15">
-              </div>
-              <button onclick="updatePreferences()" style="padding: 8px 16px;">Update Settings</button>
-            </div>
-          </div>
-
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Number Generation Methods</h4>
-            <div id="statisticalInsights" style="font-size: 0.9rem; line-height: 1.5;">
-              <p>🔴 <strong>Smart Numbers</strong>: Algorithm-based number selection</p>
-              <p>🟠 <strong>Balanced Set</strong>: Even distribution of numbers</p>
-              <p>🔵 <strong>Quick Pick</strong>: Completely random number generation</p>
-              <p>🔷 <strong>Custom Pick</strong>: Click numbers to include favorites</p>
-              <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
-                <strong>Note:</strong> All lottery number generation methods produce random combinations.
-              </div>
-            </div>
-          </div>
+        <div class="stat-card">
+          <h3 class="subsection-heading">Lottery Probability Basics</h3>
+          <p>Understanding probability is key to realistic expectations about lottery games:</p>
+          <ul>
+            <li>Each number combination has an equal chance of being drawn</li>
+            <li>Past results don't influence future draws</li>
+            <li>Buying more tickets increases your chances, but the odds remain extremely low</li>
+            <li>Lotteries are designed as games of chance, not skill</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Responsible Lottery Play</h3>
+          <p>Always play responsibly and within your means:</p>
+          <ul>
+            <li>Set a budget for lottery play and stick to it</li>
+            <li>View lottery tickets as entertainment, not investments</li>
+            <li>Never spend money you can't afford to lose</li>
+            <li>If playing becomes a problem, seek help from gambling support services</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <!-- Tips Section -->
-    <div class="card">
-      <h2 class="section-heading">💡 How to Use Our Lottery Number Generator</h2>
-      
-      <div class="feature-grid">
-        <div class="feature-item">
-          <div class="feature-icon">🎯</div>
-          <h3>Smart Number Generation</h3>
-          <p><strong>Algorithm-based number selection</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Advanced algorithm selects numbers</li>
-            <li>Based on statistical distribution</li>
-            <li>Creates unique combinations</li>
-            <li>Perfect for frequent players</li>
+    <!-- Terms Page Content -->
+    <div class="content-section" id="terms-content">
+      <div class="card">
+        <h2 class="section-heading">Terms of Service</h2>
+        <p class="small">Please read these terms of service carefully before using our website.</p>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Acceptance of Terms</h3>
+          <p>By accessing and using this website, you accept and agree to be bound by the terms and provision of this agreement.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Use of Service</h3>
+          <p>Our lottery number generator is provided for entertainment purposes only. The numbers generated are random and do not guarantee winning any lottery.</p>
+          <p>You agree not to use the service:</p>
+          <ul>
+            <li>For any unlawful purpose</li>
+            <li>To solicit others to perform or participate in any unlawful acts</li>
+            <li>To violate any international, federal, provincial or state regulations, rules, laws, or local ordinances</li>
+            <li>To infringe upon or violate our intellectual property rights or the intellectual property rights of others</li>
           </ul>
         </div>
         
-        <div class="feature-item">
-          <div class="feature-icon">⚖️</div>
-          <h3>Balanced Number Sets</h3>
-          <p><strong>Mathematically optimized combinations</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Even mix of odd and even numbers</li>
-            <li>Balanced high and low numbers</li>
-            <li>Optimal number distribution</li>
-            <li>Most popular generation method</li>
-          </ul>
+        <div class="stat-card">
+          <h3 class="subsection-heading">Disclaimer</h3>
+          <p>The numbers generated by our service are completely random. We make no claims about their effectiveness in winning any lottery game.</p>
+          <p>All lottery games are games of chance, and winning is determined by random drawing. Our service does not increase your chances of winning.</p>
         </div>
         
-        <div class="feature-item">
-          <div class="feature-icon">🔢</div>
-          <h3>Include Lucky Numbers</h3>
-          <p><strong>Add your favorite numbers</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Click numbers to include them</li>
-            <li>Generator builds around your picks</li>
-            <li>Perfect for birthdays or lucky numbers</li>
-            <li>Combine strategy with preference</li>
-          </ul>
+        <div class="stat-card">
+          <h3 class="subsection-heading">Limitation of Liability</h3>
+          <p>In no event shall lotteryupdate000.space, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.</p>
         </div>
         
-        <div class="feature-item">
-          <div class="feature-icon">⚙️</div>
-          <h3>Customizable Generator</h3>
-          <p><strong>Works with any lottery game</strong></p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Adjust number range for any lottery</li>
-            <li>Set how many numbers to generate</li>
-            <li>Works for all major lotteries</li>
-            <li>Quick settings adjustment</li>
-          </ul>
+        <div class="stat-card">
+          <h3 class="subsection-heading">Changes to Terms</h3>
+          <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. By continuing to access or use our Service after those revisions become effective, you agree to be bound by the revised terms.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Contact Information</h3>
+          <p>If you have any questions about these Terms, please contact us through our website.</p>
         </div>
       </div>
+    </div>
 
-      <div class="stat-card" style="margin-top: 20px;">
-        <h4 class="subsection-heading" style="margin-top: 0;">🎲 Lottery-Specific Number Generation</h4>
-        <div style="font-size: 0.9rem;">
-          <p><strong>For Powerball Number Generation:</strong></p>
+    <!-- Privacy Page Content -->
+    <div class="content-section" id="privacy-content">
+      <div class="card">
+        <h2 class="section-heading">Privacy Policy</h2>
+        <p class="small">Your privacy is important to us. This privacy policy explains what personal data we collect and how we use it.</p>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Information Collection and Use</h3>
+          <p>We collect several different types of information for various purposes to provide and improve our service to you.</p>
+          
+          <h4>Personal Data</h4>
+          <p>While using our service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you. Personally identifiable information may include, but is not limited to:</p>
           <ul>
-            <li>Set range to 69, generate 5 main numbers</li>
-            <li>Use balanced sets for optimal distribution</li>
-            <li>Add Powerball number separately (1-26)</li>
+            <li>Email address</li>
+            <li>Cookies and Usage Data</li>
           </ul>
           
-          <p><strong>For Mega Millions Numbers:</strong></p>
+          <h4>Usage Data</h4>
+          <p>We may also collect information on how the service is accessed and used. This Usage Data may include information such as your computer's Internet Protocol address (IP address), browser type, browser version, the pages of our service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Tracking & Cookies Data</h3>
+          <p>We use cookies and similar tracking technologies to track the activity on our service and hold certain information.</p>
+          <p>Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our service.</p>
+          <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our service.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Use of Data</h3>
+          <p>lotteryupdate000.space uses the collected data for various purposes:</p>
           <ul>
-            <li>Set range to 70, generate 5 main numbers</li>
-            <li>Smart numbers highlight good combinations</li>
-            <li>Add Mega Ball separately (1-25)</li>
+            <li>To provide and maintain the service</li>
+            <li>To notify you about changes to our service</li>
+            <li>To allow you to participate in interactive features of our service when you choose to do so</li>
+            <li>To provide customer care and support</li>
+            <li>To provide analysis or valuable information so that we can improve the service</li>
+            <li>To monitor the usage of the service</li>
+            <li>To detect, prevent and address technical issues</li>
           </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Security of Data</h3>
+          <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Service Providers</h3>
+          <p>We may employ third party companies and individuals to facilitate our service, to provide the service on our behalf, to perform service-related services or to assist us in analyzing how our service is used.</p>
+          <p>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Changes to This Privacy Policy</h3>
+          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+          <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Contact Us</h3>
+          <p>If you have any questions about this Privacy Policy, please contact us through our website.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Page Content -->
+    <div class="content-section" id="about-content">
+      <div class="card">
+        <h2 class="section-heading">About Us</h2>
+        <p class="small">Learn more about lotteryupdate000.space and our mission to provide free lottery number generation tools.</p>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Our Mission</h3>
+          <p>At lotteryupdate000.space, our mission is to provide free, easy-to-use lottery number generation tools for players around the world. We believe in making lottery number generation accessible to everyone, regardless of their technical knowledge or experience with lottery games.</p>
+          <p>Our tools are designed to be:</p>
+          <ul>
+            <li>Completely free to use with no hidden costs</li>
+            <li>Accessible on any device with an internet connection</li>
+            <li>Easy to understand and use for players of all experience levels</li>
+            <li>Based on random number generation principles</li>
+          </ul>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Our Tools</h3>
+          <p>We offer a variety of lottery number generation methods to suit different preferences:</p>
           
-          <p><strong>For EuroMillions Number Generator:</strong></p>
+          <div class="feature-grid">
+            <div class="feature-item">
+              <h4>Smart Numbers</h4>
+              <p>Algorithm-based selection that creates unique number combinations based on statistical patterns.</p>
+            </div>
+            
+            <div class="feature-item">
+              <h4>Balanced Sets</h4>
+              <p>Mathematically optimized combinations with even distribution of numbers across the range.</p>
+            </div>
+            
+            <div class="feature-item">
+              <h4>Quick Pick</h4>
+              <p>Completely random number generation, similar to the quick pick options at lottery retailers.</p>
+            </div>
+            
+            <div class="feature-item">
+              <h4>Custom Selection</h4>
+              <p>Include your favorite numbers and let our generator build combinations around them.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Our Commitment</h3>
+          <p>We are committed to:</p>
           <ul>
-            <li>Set range to 50, generate 5 main numbers</li>
-            <li>Use lucky number feature for preferences</li>
-            <li>Add Lucky Stars separately (1-12)</li>
+            <li>Providing accurate, random number generation</li>
+            <li>Maintaining user privacy and data security</li>
+            <li>Offering a completely free service with no premium tiers</li>
+            <li>Continuously improving our tools based on user feedback</li>
+            <li>Promoting responsible lottery play</li>
           </ul>
         </div>
-      </div>
-
-      <div class="stat-card" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
-        <h4 class="subsection-heading" style="margin-top: 0;">📊 Number Generation Tips</h4>
-        <div style="font-size: 0.9rem;">
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
-            <span><strong>Smart Selection:</strong> Algorithm-based number combinations</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ffa500;"></div>
-            <span><strong>Balanced Sets:</strong> Even distribution across number range</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #4ecdc4;"></div>
-            <span><strong>Quick Pick:</strong> Completely random number generation</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #45b7d1;"></div>
-            <span><strong>Custom Selection:</strong> Include your preferred numbers</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="stat-card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
-        <h4 class="subsection-heading" style="margin-top: 0;">🎯 Pro Lottery Number Tips</h4>
-        <div style="font-size: 0.9rem;">
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Disclaimer</h3>
+          <p>It's important to understand that our lottery number generator creates random combinations and does not guarantee winning any lottery. All lottery games are games of chance, and winning is determined by random drawing.</p>
+          <p>We encourage all users to:</p>
           <ul>
-            <li><strong>Generate multiple sets</strong> and choose your favorite combinations</li>
-            <li><strong>Try different generation methods</strong> - smart, balanced, and quick pick</li>
-            <li><strong>Include personal lucky numbers</strong> for meaningful combinations</li>
-            <li><strong>Adjust settings</strong> to match your specific lottery game</li>
+            <li>Play responsibly and within their means</li>
+            <li>View lottery tickets as entertainment, not investments</li>
+            <li>Set a budget for lottery play and stick to it</li>
+            <li>Seek help if playing becomes a problem</li>
           </ul>
         </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 20px;">
-        <button class="analyzer-btn" onclick="scrollToGenerator()" style="padding: 12px 30px; font-size: 1.1rem;">
-          🚀 Generate My Lottery Numbers
-        </button>
+        
+        <div class="stat-card">
+          <h3 class="subsection-heading">Contact Information</h3>
+          <p>If you have any questions, suggestions, or feedback about our service, please don't hesitate to contact us through our website. We value user input and are always looking for ways to improve our tools.</p>
+        </div>
       </div>
     </div>
 
@@ -667,7 +942,7 @@
 
   <footer>
     <div class="muted">© <span id="year"></span> lotteryupdate000.space — Create winning combinations for any lottery game.</div>
-    <a href="about.html" class="contact-link">Contact Us</a>
+    <a href="#" class="contact-link nav-link" data-page="about">Contact Us</a>
     <div class="verif">Free lottery number generator for Powerball, Mega Millions, EuroMillions and all major lottery games.</div>
   </footer>
 
@@ -676,6 +951,65 @@
 
   <!-- Number Generator JavaScript -->
   <script>
+  // Navigation functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Function to switch between pages
+    function switchPage(pageId) {
+      // Update navigation
+      navLinks.forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+      
+      // Update content
+      contentSections.forEach(section => {
+        if (section.id === `${pageId}-content`) {
+          section.classList.add('active');
+        } else {
+          section.classList.remove('active');
+        }
+      });
+      
+      // Track page view in analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'page_view', {
+          'page_title': document.title,
+          'page_location': window.location.href + '#' + pageId
+        });
+      }
+    }
+    
+    // Add click event listeners to navigation links
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const pageId = this.getAttribute('data-page');
+        switchPage(pageId);
+        
+        // Track navigation clicks
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'navigation_click', {
+            'page': pageId
+          });
+        }
+      });
+    });
+    
+    // Check for hash in URL to load specific page
+    if (window.location.hash) {
+      const pageId = window.location.hash.substring(1);
+      if (document.getElementById(`${pageId}-content`)) {
+        switchPage(pageId);
+      }
+    }
+  });
+
   // Number Generator Functionality
   const maxNumber = 69;
   let numberFrequencies = {};
@@ -909,9 +1243,12 @@
     trackToolUsage('page_load');
     
     // Track CTA button clicks
-    document.querySelector('.cta-btn').addEventListener('click', function() {
-      trackToolUsage('cta_click');
-    });
+    const ctaBtn = document.querySelector('.cta-btn');
+    if (ctaBtn) {
+      ctaBtn.addEventListener('click', function() {
+        trackToolUsage('cta_click');
+      });
+    }
   });
   
   // Initialize Number Generator
