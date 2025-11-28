@@ -1017,10 +1017,20 @@
     }
   }
   
-  // Navigation functionality
+  // Navigation functionality with session persistence
   document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const contentSections = document.querySelectorAll('.content-section');
+    
+    // Function to save current page to sessionStorage
+    function saveCurrentPage(pageId) {
+      sessionStorage.setItem('currentPage', pageId);
+    }
+    
+    // Function to get saved page from sessionStorage
+    function getSavedPage() {
+      return sessionStorage.getItem('currentPage');
+    }
     
     // Function to switch between pages
     function switchPage(pageId) {
@@ -1041,6 +1051,9 @@
           section.classList.remove('active');
         }
       });
+      
+      // Save current page to sessionStorage
+      saveCurrentPage(pageId);
       
       // Track page view in analytics
       if (typeof gtag !== 'undefined') {
@@ -1067,11 +1080,21 @@
       });
     });
     
-    // Check for hash in URL to load specific page
-    if (window.location.hash) {
-      const pageId = window.location.hash.substring(1);
-      if (document.getElementById(`${pageId}-content`)) {
-        switchPage(pageId);
+    // Check for saved page in sessionStorage on page load
+    const savedPage = getSavedPage();
+    if (savedPage && document.getElementById(`${savedPage}-content`)) {
+      // Use saved page
+      switchPage(savedPage);
+    } else {
+      // Check for hash in URL to load specific page
+      if (window.location.hash) {
+        const pageId = window.location.hash.substring(1);
+        if (document.getElementById(`${pageId}-content`)) {
+          switchPage(pageId);
+        }
+      } else {
+        // Default to home page if no saved page or hash
+        switchPage('home');
       }
     }
     
