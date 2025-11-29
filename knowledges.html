@@ -86,6 +86,7 @@
             border: 2px solid transparent;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .tutorial-card::before {
@@ -149,6 +150,25 @@
             font-weight: bold;
             position: absolute;
             left: 0;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .read-more-btn:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .strategy-highlights {
@@ -237,7 +257,7 @@
         <!-- Tutorial Cards -->
         <div class="tutorial-grid">
             <!-- Tutorial 1 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Mathematical-Approach-to-Lottery-Number-Generation.html')">
                 <div class="card-number">01</div>
                 <h3 class="card-title">Mathematical Approach to Lottery Number Generation</h3>
                 <p class="card-description">Discover how mathematical principles can guide your number selection process and improve your chances.</p>
@@ -247,10 +267,11 @@
                     <li>Number distribution patterns</li>
                     <li>Optimal number spacing</li>
                 </ul>
+                <a href="Mathematical-Approach-to-Lottery-Number-Generation.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 2 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Statistical-Analysis-in-Lottery-Games.html')">
                 <div class="card-number">02</div>
                 <h3 class="card-title">Statistical Analysis in Lottery Games</h3>
                 <p class="card-description">Learn how to use statistical methods to analyze past results and identify meaningful patterns.</p>
@@ -260,10 +281,11 @@
                     <li>Statistical significance testing</li>
                     <li>Regression analysis applications</li>
                 </ul>
+                <a href="Statistical-Analysis-in-Lottery-Games.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 3 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Hot-and-Cold-Number-Theory.html')">
                 <div class="card-number">03</div>
                 <h3 class="card-title">Hot and Cold Number Theory</h3>
                 <p class="card-description">Master the concept of hot and cold numbers and how to leverage this theory in your strategy.</p>
@@ -273,10 +295,11 @@
                     <li>Balancing hot and cold numbers</li>
                     <li>Long-term vs short-term trends</li>
                 </ul>
+                <a href="Hot-and-Cold-Number-Theory.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 4 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Wheeling-Systems-Strategy.html')">
                 <div class="card-number">04</div>
                 <h3 class="card-title">Wheeling Systems Strategy</h3>
                 <p class="card-description">Explore comprehensive wheeling systems that maximize coverage and improve winning potential.</p>
@@ -286,10 +309,11 @@
                     <li>Cost-effective wheeling methods</li>
                     <li>Software-assisted wheeling</li>
                 </ul>
+                <a href="Wheeling-Systems-Strategy.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 5 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Frequency-Analysis-Techniques.html')">
                 <div class="card-number">05</div>
                 <h3 class="card-title">Frequency Analysis Techniques</h3>
                 <p class="card-description">Learn advanced frequency analysis methods to identify number patterns and tendencies.</p>
@@ -299,10 +323,11 @@
                     <li>Number pairing frequencies</li>
                     <li>Frequency trend predictions</li>
                 </ul>
+                <a href="Frequency-Analysis-Techniques.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 6 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Pattern-Recognition-in-Lottery-Draws.html')">
                 <div class="card-number">06</div>
                 <h3 class="card-title">Pattern Recognition in Lottery Draws</h3>
                 <p class="card-description">Develop skills to recognize and utilize patterns in lottery number sequences.</p>
@@ -312,10 +337,11 @@
                     <li>Spatial distribution analysis</li>
                     <li>Pattern avoidance strategies</li>
                 </ul>
+                <a href="Pattern-Recognition-in-Lottery-Draws.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 7 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Balanced-Number-Selection-Method.html')">
                 <div class="card-number">07</div>
                 <h3 class="card-title">Balanced Number Selection Method</h3>
                 <p class="card-description">Master the art of creating balanced number combinations for optimal coverage.</p>
@@ -325,10 +351,11 @@
                     <li>Sum total optimization</li>
                     <li>Number range coverage</li>
                 </ul>
+                <a href="Balanced-Number-Selection-Method.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 8 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Psychological-Factors-in-Number-Selection.html')">
                 <div class="card-number">08</div>
                 <h3 class="card-title">Psychological Factors in Number Selection</h3>
                 <p class="card-description">Understand how psychology influences number choices and how to avoid common biases.</p>
@@ -338,10 +365,11 @@
                     <li>Pattern perception biases</li>
                     <li>Decision-making psychology</li>
                 </ul>
+                <a href="Psychological-Factors-in-Number-Selection.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 9 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Number-Grouping-Strategies.html')">
                 <div class="card-number">09</div>
                 <h3 class="card-title">Number Grouping Strategies</h3>
                 <p class="card-description">Learn effective number grouping techniques to create coherent and strategic combinations.</p>
@@ -351,10 +379,11 @@
                     <li>Decade number strategies</li>
                     <li>Prime number grouping</li>
                 </ul>
+                <a href="Number-Grouping-Strategies.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
 
             <!-- Tutorial 10 -->
-            <div class="tutorial-card">
+            <div class="tutorial-card" onclick="redirectToPage('Advanced-Algorithmic-Approaches.html')">
                 <div class="card-number">10</div>
                 <h3 class="card-title">Advanced Algorithmic Approaches</h3>
                 <p class="card-description">Explore cutting-edge algorithmic methods for sophisticated number generation.</p>
@@ -364,6 +393,7 @@
                     <li>Genetic algorithm optimization</li>
                     <li>Neural network implementations</li>
                 </ul>
+                <a href="Advanced-Algorithmic-Approaches.html" class="read-more-btn">Read Full Tutorial</a>
             </div>
         </div>
 
@@ -450,5 +480,33 @@
             <p>Educational content for lottery enthusiasts - Play responsibly</p>
         </div>
     </footer>
+
+    <script>
+        // Function to redirect to individual tutorial pages
+        function redirectToPage(pageUrl) {
+            window.location.href = pageUrl;
+        }
+        
+        // Add click event listeners to all tutorial cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const tutorialCards = document.querySelectorAll('.tutorial-card');
+            
+            tutorialCards.forEach(card => {
+                // Prevent the card click from triggering when clicking the button
+                card.addEventListener('click', function(e) {
+                    // If the click was on the button, let the button handle it
+                    if (e.target.tagName === 'A' || e.target.closest('a')) {
+                        return;
+                    }
+                    
+                    // Get the URL from the button inside the card
+                    const button = this.querySelector('a');
+                    if (button && button.href) {
+                        window.location.href = button.href;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
