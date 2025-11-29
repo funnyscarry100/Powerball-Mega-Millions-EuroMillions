@@ -6,21 +6,6 @@
   <meta name="description" content="Free Lottery Number Generator - Create winning combinations for Powerball, Mega Millions, EuroMillions. Generate random lottery numbers with smart patterns and balanced sets.">
   <meta name="keywords" content="lottery number generator, random lottery numbers, Powerball number generator, Mega Millions numbers, EuroMillions generator, lucky numbers, winning number combinations, quick pick generator, lottery numbers, number picker, lottery combination generator">
   
-  <!-- GitHub Pages Verification -->
-  <meta name="github-pages-verification" content="a1792acca1210e7f2059a49dae733b">
-  
-  <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="3QM_oJV7sKVx1WgoctgK2_3BD04Eb1iJ3iPgyDoo2rQ">
-  
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KTH64MKGP4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KTH64MKGP4');
-  </script>
-  
   <title>Free Lottery Number Generator - Create Winning Combinations</title>
   <style>
     :root {
@@ -32,156 +17,177 @@
     
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
     body {
       background: #f8f9fa;
-      height:100%;
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
     }
-    /* Canvas background sits behind content */
-    #bg-canvas{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      display:block;
-    }
+    
     /* Header / navigation */
-    header{
-      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
-      color:#fff;
-      padding:16px 12px;
-      text-align:center;
+    header {
+      background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
+      color: #fff;
+      padding: 16px 12px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    header .brand{
-      font-weight:700;
-      font-size:1.25rem;
-      letter-spacing:0.2px;
+    
+    header .brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 0.2px;
     }
-    nav{
-      background:#003c99;
-      padding:8px 0;
-      box-shadow:0 1px 0 rgba(0,0,0,0.05);
+    
+    nav {
+      background: #003c99;
+      padding: 8px 0;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     }
-    .nav-list{
-      display:flex;
-      gap:15px;
-      justify-content:center;
-      align-items:center;
-      margin:0;
-      padding:0 15px;
-      list-style:none;
+    
+    .nav-list {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0 15px;
+      list-style: none;
       flex-wrap: wrap;
     }
-    .nav-list a{
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      padding:6px 10px;
-      border-radius:6px;
-      font-size: 0.8rem;
+    
+    .nav-list a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 0.9rem;
       white-space: nowrap;
+      transition: background 0.3s;
     }
-    .nav-list a.active{
-      background:rgba(255,255,255,0.08);
-      text-decoration:underline;
+    
+    .nav-list a.active {
+      background: rgba(255, 255, 255, 0.15);
     }
-    .nav-list a:focus{
-      outline:2px solid rgba(255,255,255,0.14);
-      outline-offset:4px;
+    
+    .nav-list a:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
     
     /* Page shell */
-    .wrap{
-      max-width:1200px;
-      margin:20px auto;
-      padding:0 15px;
+    .wrap {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 15px;
       width: 100%;
     }
     
     /* Hero Section */
-    .hero{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      display:flex;
+    .hero {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      display: flex;
       flex-direction: column;
-      gap:20px;
-      align-items:center;
-      box-shadow:0 6px 24px rgba(6,30,60,0.08);
+      gap: 20px;
+      align-items: center;
+      box-shadow: 0 6px 24px rgba(6, 30, 60, 0.08);
       margin-bottom: 20px;
     }
+    
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
         align-items: flex-start;
       }
     }
-    .hero-left{
-      flex:1;
+    
+    .hero-left {
+      flex: 1;
       width: 100%;
     }
-    .hero-right{
+    
+    .hero-right {
       width: 100%;
-      text-align:center;
+      text-align: center;
     }
+    
     @media (min-width: 768px) {
       .hero-right {
         width: 240px;
         flex-shrink: 0;
       }
     }
-    .hero h1{
-      margin:0 0 10px 0;
-      font-size:1.5rem;
-      color:var(--blue-1);
+    
+    .hero h1 {
+      margin: 0 0 15px 0;
+      font-size: 1.8rem;
+      color: var(--blue-1);
       line-height: 1.3;
     }
+    
     @media (min-width: 768px) {
       .hero h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
     }
-    .hero p{
-      margin:8px 0;
-      color:var(--muted);
+    
+    .hero p {
+      margin: 8px 0;
+      color: var(--muted);
       line-height: 1.5;
     }
-    .cta-btn{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
-      color:#fff;
-      padding:12px 20px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:0 6px 16px rgba(0,60,153,0.18);
+    
+    .cta-btn {
+      display: inline-block;
+      background: linear-gradient(180deg, var(--blue-2), var(--blue-1));
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 6px 16px rgba(0, 60, 153, 0.18);
       width: 100%;
       margin-top: 10px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+    
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 60, 153, 0.25);
+    }
+    
     @media (min-width: 768px) {
       .cta-btn {
         width: auto;
       }
     }
-
+    
     /* Cards */
-    .card{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      box-shadow:0 6px 20px rgba(6,30,60,0.06);
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 6px 20px rgba(6, 30, 60, 0.06);
       margin-bottom: 20px;
       width: 100%;
     }
-
-    .small{
-      font-size:0.85rem;
-      color:var(--muted);
+    
+    .small {
+      font-size: 0.85rem;
+      color: var(--muted);
       line-height: 1.4;
     }
-
+    
     /* Pattern Analyzer Styles */
     .analyzer-grid {
       display: grid;
@@ -189,18 +195,14 @@
       gap: 25px;
       margin: 20px 0;
     }
+    
     @media (min-width: 992px) {
       .analyzer-grid {
         grid-template-columns: 1fr 1fr;
         gap: 30px;
       }
     }
-    .chart-container {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #dee2e6;
-    }
+    
     .number-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -208,18 +210,21 @@
       margin: 15px 0;
       justify-content: center;
     }
+    
     @media (min-width: 480px) {
       .number-grid {
         grid-template-columns: repeat(8, 1fr);
         gap: 6px;
       }
     }
+    
     @media (min-width: 768px) {
       .number-grid {
         grid-template-columns: repeat(10, 1fr);
         gap: 5px;
       }
     }
+    
     .number-cell {
       width: 100%;
       aspect-ratio: 1;
@@ -235,19 +240,23 @@
       max-width: 45px;
       margin: 0 auto;
     }
+    
     @media (min-width: 480px) {
       .number-cell {
         max-width: 40px;
         font-size: 13px;
       }
     }
+    
     .number-cell:hover {
       transform: scale(1.1);
     }
+    
     .hot { background: #ff6b6b; color: white; }
     .warm { background: #ffa500; color: white; }
     .cool { background: #4ecdc4; color: white; }
     .cold { background: #45b7d1; color: white; }
+    .selected { background: #6c5ce7; color: white; border-color: #6c5ce7; }
     
     .stat-card {
       background: white;
@@ -255,7 +264,7 @@
       margin: 15px 0;
       border-radius: 10px;
       border-left: 4px solid var(--blue-1);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     
     .analyzer-controls {
@@ -265,11 +274,13 @@
       margin: 20px 0;
       justify-content: center;
     }
+    
     @media (min-width: 480px) {
       .analyzer-controls {
         justify-content: flex-start;
       }
     }
+    
     .analyzer-btn {
       padding: 12px 18px;
       background: var(--blue-1);
@@ -277,19 +288,21 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.2s;
       font-weight: 600;
       flex: 1;
       min-width: 140px;
     }
+    
     @media (min-width: 480px) {
       .analyzer-btn {
         flex: none;
       }
     }
+    
     .analyzer-btn:hover {
       background: var(--blue-2);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
     
     .generated-numbers {
@@ -303,12 +316,13 @@
       text-align: center;
       border: 2px dashed #dee2e6;
     }
+    
     @media (min-width: 768px) {
       .generated-numbers {
         font-size: 1.3rem;
       }
     }
-
+    
     /* Settings Controls */
     .settings-controls {
       display: flex;
@@ -316,6 +330,7 @@
       gap: 12px;
       margin: 15px 0;
     }
+    
     @media (min-width: 480px) {
       .settings-controls {
         flex-direction: row;
@@ -323,11 +338,13 @@
         flex-wrap: wrap;
       }
     }
+    
     .settings-controls label {
       font-weight: 600;
       color: var(--blue-1);
       white-space: nowrap;
     }
+    
     .settings-controls input {
       padding: 8px 10px;
       border: 1px solid #ddd;
@@ -335,6 +352,7 @@
       width: 70px;
       text-align: center;
     }
+    
     .settings-controls button {
       padding: 8px 16px;
       background: var(--blue-1);
@@ -343,32 +361,40 @@
       border-radius: 5px;
       cursor: pointer;
       font-weight: 600;
+      transition: background 0.3s;
     }
-
+    
+    .settings-controls button:hover {
+      background: var(--blue-2);
+    }
+    
     /* Section Headings */
     .section-heading {
       color: var(--blue-1);
       margin: 0 0 15px 0;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       border-bottom: 2px solid #eef2f7;
       padding-bottom: 8px;
     }
+    
     @media (min-width: 768px) {
       .section-heading {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
       }
     }
+    
     .subsection-heading {
       color: var(--blue-1);
       margin: 0 0 12px 0;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
+    
     @media (min-width: 768px) {
       .subsection-heading {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
     }
-
+    
     /* Feature Grid for Tips Section */
     .feature-grid {
       display: grid;
@@ -376,73 +402,68 @@
       gap: 20px;
       margin: 25px 0;
     }
-
+    
     .feature-item {
       background: #f8f9fa;
       padding: 20px;
       border-radius: 8px;
       border-left: 4px solid var(--blue-1);
+      transition: transform 0.3s;
     }
-
+    
+    .feature-item:hover {
+      transform: translateY(-5px);
+    }
+    
     .feature-icon {
       font-size: 2rem;
       margin-bottom: 10px;
     }
-
+    
     /* Footer */
-    footer{
-      margin-top:40px;
-      text-align:center;
-      color:#fff;
-      padding:25px 18px;
-      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #fff;
+      padding: 25px 18px;
+      background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
     }
-    footer .muted{
-      color:rgba(255,255,255,0.85);
-      font-size:0.95rem;
+    
+    footer .muted {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 0.95rem;
       margin-bottom: 8px;
     }
+    
     .contact-link {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 0.9rem;
       margin: 10px 0;
       text-decoration: none;
       font-weight: 600;
       cursor: pointer;
     }
+    
     .contact-link:hover {
       text-decoration: underline;
     }
-    .verif{
-      font-size:0.8rem;
-      color:rgba(255,255,255,0.9);
-      margin-top:6px;
-      opacity:0.95;
+    
+    .verif {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-top: 6px;
+      opacity: 0.95;
     }
-
+    
     /* Content sections for different pages */
     .content-section {
       display: none;
     }
+    
     .content-section.active {
       display: block;
     }
-
-    /* Ad notification */
-    .ad-notification {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #ff9800;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 5px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-      font-size: 0.9rem;
-      display: none;
-    }
-
+    
     /* Knowledge Page Styles */
     .knowledge-grid {
       display: grid;
@@ -455,12 +476,11 @@
       background: white;
       border-radius: 15px;
       padding: 2rem;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease;
       border: 2px solid transparent;
       position: relative;
       overflow: hidden;
-      cursor: pointer;
     }
     
     .knowledge-card::before {
@@ -475,7 +495,7 @@
     
     .knowledge-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
       border-color: var(--blue-1);
     }
     
@@ -526,30 +546,11 @@
       left: 0;
     }
     
-    .knowledge-read-more {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
-      color: white;
-      padding: 12px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-    }
-    
-    .knowledge-read-more:hover {
-      background: linear-gradient(135deg, var(--blue-2), var(--blue-1));
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
-    
     .strategy-highlights {
       background: white;
       padding: 3rem;
       border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
       margin: 3rem 0;
     }
     
@@ -570,155 +571,25 @@
       margin-bottom: 1rem;
     }
     
-    .quick-nav {
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      margin: 2rem 0;
-    }
-    
-    .nav-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 1rem;
-    }
-    
-    .nav-item {
-      background: #f8f9fa;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .nav-item:hover {
-      background: var(--blue-1);
-      color: white;
-      transform: scale(1.05);
-    }
-
-    /* Tutorial Content Styles */
-    .tutorial-content {
-      display: none;
-      background: white;
-      padding: 3rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
-    }
-    
-    .tutorial-content.active {
-      display: block;
-    }
-    
-    .back-button {
-      display: inline-block;
-      background: rgba(0,102,204,0.1);
-      color: var(--blue-1);
-      padding: 10px 20px;
-      border-radius: 25px;
-      text-decoration: none;
-      margin-bottom: 2rem;
-      transition: all 0.3s ease;
-      border: 1px solid var(--blue-1);
-      cursor: pointer;
-    }
-    
-    .back-button:hover {
-      background: var(--blue-1);
-      color: white;
-    }
-    
-    .key-point {
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-left: 4px solid #ff6b6b;
-      margin: 1.5rem 0;
-      border-radius: 0 8px 8px 0;
-    }
-    
-    .strategy-box {
-      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-      padding: 2rem;
-      border-radius: 10px;
-      margin: 2rem 0;
-      border: 2px solid var(--blue-1);
-    }
-    
-    .example {
-      background: #fff3e0;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin: 1.5rem 0;
-      border-left: 4px solid #ff9800;
-    }
-    
-    .tutorial-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 2px solid #eef2f7;
-    }
-    
-    .tutorial-nav-button {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
-      color: white;
-      padding: 12px 25px;
-      border-radius: 25px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-    
-    .tutorial-nav-button:hover {
-      background: linear-gradient(135deg, var(--blue-2), var(--blue-1));
-      transform: scale(1.05);
-    }
-
     /* Accessibility: reduce motion */
-    @media (prefers-reduced-motion: reduce){
+    @media (prefers-reduced-motion: reduce) {
       * {
-        animation-duration:0.001ms !important;
-        transition-duration:0.001ms !important;
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
       }
-      .number-cell:hover {
-        transform: none;
-      }
-      .analyzer-btn:hover {
-        transform: none;
-      }
+      
+      .number-cell:hover,
+      .analyzer-btn:hover,
+      .feature-item:hover,
       .knowledge-card:hover {
-        transform: none;
-      }
-      .knowledge-read-more:hover {
-        transform: none;
-      }
-      .nav-item:hover {
-        transform: none;
-      }
-      .tutorial-nav-button:hover {
         transform: none;
       }
     }
   </style>
 </head>
 <body>
-  <!-- animated 3D-like green background (canvas) -->
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
-
-  <!-- Ad notification -->
-  <div class="ad-notification" id="adNotification">
-    Special offer available in new tab!
-  </div>
-
   <header>
-    <div class="brand">lotteryupdate000.space</div>
+    <div class="brand">Lottery Number Generator</div>
   </header>
 
   <nav aria-label="Main navigation">
@@ -745,7 +616,7 @@
             <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Generator Status</div>
             <div id="latest-time" class="small" style="margin-top:8px;">Ready to Generate Numbers</div>
             <div style="margin-top:12px;">
-              <a class="cta-btn" href="#generator">Generate Numbers Now</a>
+              <button class="cta-btn" onclick="scrollToGenerator()">Generate Numbers Now</button>
             </div>
           </div>
         </div>
@@ -950,25 +821,8 @@
         <h2 class="section-heading">Lottery Knowledge & Strategy</h2>
         <p class="small">Learn about lottery strategies, number patterns, and increase your understanding of how lottery games work.</p>
         
-        <div class="quick-nav">
-          <h3 style="color: var(--blue-1); margin-bottom: 1rem;">Quick Navigation</h3>
-          <div class="nav-grid">
-            <div class="nav-item" data-tutorial="1">Mathematical Approach</div>
-            <div class="nav-item" data-tutorial="2">Statistical Analysis</div>
-            <div class="nav-item" data-tutorial="3">Hot/Cold Numbers</div>
-            <div class="nav-item" data-tutorial="4">Wheeling Systems</div>
-            <div class="nav-item" data-tutorial="5">Frequency Analysis</div>
-            <div class="nav-item" data-tutorial="6">Pattern Recognition</div>
-            <div class="nav-item" data-tutorial="7">Balanced Selection</div>
-            <div class="nav-item" data-tutorial="8">Psychological Factors</div>
-            <div class="nav-item" data-tutorial="9">Number Grouping</div>
-            <div class="nav-item" data-tutorial="10">Advanced Algorithms</div>
-          </div>
-        </div>
-
-        <div class="knowledge-grid" id="knowledge-cards">
-          <!-- Tutorial 1 -->
-          <div class="knowledge-card" data-tutorial="1">
+        <div class="knowledge-grid">
+          <div class="knowledge-card">
             <div class="card-number">01</div>
             <h3 class="knowledge-title">Mathematical Approach to Lottery Number Generation</h3>
             <p class="knowledge-description">Discover how mathematical principles can guide your number selection process and improve your chances.</p>
@@ -978,11 +832,9 @@
               <li>Number distribution patterns</li>
               <li>Optimal number spacing</li>
             </ul>
-            <div class="knowledge-read-more" data-tutorial="1">Read Full Tutorial</div>
           </div>
 
-          <!-- Tutorial 2 -->
-          <div class="knowledge-card" data-tutorial="2">
+          <div class="knowledge-card">
             <div class="card-number">02</div>
             <h3 class="knowledge-title">Statistical Analysis in Lottery Games</h3>
             <p class="knowledge-description">Learn how to use statistical methods to analyze past results and identify meaningful patterns.</p>
@@ -992,11 +844,9 @@
               <li>Statistical significance testing</li>
               <li>Regression analysis applications</li>
             </ul>
-            <div class="knowledge-read-more" data-tutorial="2">Read Full Tutorial</div>
           </div>
 
-          <!-- Tutorial 3 -->
-          <div class="knowledge-card" data-tutorial="3">
+          <div class="knowledge-card">
             <div class="card-number">03</div>
             <h3 class="knowledge-title">Hot and Cold Number Theory</h3>
             <p class="knowledge-description">Master the concept of hot and cold numbers and how to leverage this theory in your strategy.</p>
@@ -1006,11 +856,9 @@
               <li>Balancing hot and cold numbers</li>
               <li>Long-term vs short-term trends</li>
             </ul>
-            <div class="knowledge-read-more" data-tutorial="3">Read Full Tutorial</div>
           </div>
 
-          <!-- Tutorial 4 -->
-          <div class="knowledge-card" data-tutorial="4">
+          <div class="knowledge-card">
             <div class="card-number">04</div>
             <h3 class="knowledge-title">Wheeling Systems Strategy</h3>
             <p class="knowledge-description">Explore comprehensive wheeling systems that maximize coverage and improve winning potential.</p>
@@ -1020,11 +868,9 @@
               <li>Cost-effective wheeling methods</li>
               <li>Software-assisted wheeling</li>
             </ul>
-            <div class="knowledge-read-more" data-tutorial="4">Read Full Tutorial</div>
           </div>
 
-          <!-- Tutorial 5 -->
-          <div class="knowledge-card" data-tutorial="5">
+          <div class="knowledge-card">
             <div class="card-number">05</div>
             <h3 class="knowledge-title">Frequency Analysis Techniques</h3>
             <p class="knowledge-description">Learn advanced frequency analysis methods to identify number patterns and tendencies.</p>
@@ -1034,11 +880,9 @@
               <li>Number pairing frequencies</li>
               <li>Frequency trend predictions</li>
             </ul>
-            <div class="knowledge-read-more" data-tutorial="5">Read Full Tutorial</div>
           </div>
 
-          <!-- Tutorial 6 -->
-          <div class="knowledge-card" data-tutorial="6">
+          <div class="knowledge-card">
             <div class="card-number">06</div>
             <h3 class="knowledge-title">Pattern Recognition in Lottery Draws</h3>
             <p class="knowledge-description">Develop skills to recognize and utilize patterns in lottery number sequences.</p>
@@ -1048,253 +892,7 @@
               <li>Spatial distribution analysis</li>
               <li>Pattern avoidance strategies</li>
             </ul>
-            <div class="knowledge-read-more" data-tutorial="6">Read Full Tutorial</div>
           </div>
-
-          <!-- Tutorial 7 -->
-          <div class="knowledge-card" data-tutorial="7">
-            <div class="card-number">07</div>
-            <h3 class="knowledge-title">Balanced Number Selection Method</h3>
-            <p class="knowledge-description">Master the art of creating balanced number combinations for optimal coverage.</p>
-            <ul class="knowledge-features">
-              <li>Odd-even ratio balancing</li>
-              <li>High-low number distribution</li>
-              <li>Sum total optimization</li>
-              <li>Number range coverage</li>
-            </ul>
-            <div class="knowledge-read-more" data-tutorial="7">Read Full Tutorial</div>
-          </div>
-
-          <!-- Tutorial 8 -->
-          <div class="knowledge-card" data-tutorial="8">
-            <div class="card-number">08</div>
-            <h3 class="knowledge-title">Psychological Factors in Number Selection</h3>
-            <p class="knowledge-description">Understand how psychology influences number choices and how to avoid common biases.</p>
-            <ul class="knowledge-features">
-              <li>Cognitive biases in gambling</li>
-              <li>Number preference psychology</li>
-              <li>Pattern perception biases</li>
-              <li>Decision-making psychology</li>
-            </ul>
-            <div class="knowledge-read-more" data-tutorial="8">Read Full Tutorial</div>
-          </div>
-
-          <!-- Tutorial 9 -->
-          <div class="knowledge-card" data-tutorial="9">
-            <div class="card-number">09</div>
-            <h3 class="knowledge-title">Number Grouping Strategies</h3>
-            <p class="knowledge-description">Learn effective number grouping techniques to create coherent and strategic combinations.</p>
-            <ul class="knowledge-features">
-              <li>Numerical value grouping</li>
-              <li>Position-based grouping</li>
-              <li>Decade number strategies</li>
-              <li>Prime number grouping</li>
-            </ul>
-            <div class="knowledge-read-more" data-tutorial="9">Read Full Tutorial</div>
-          </div>
-
-          <!-- Tutorial 10 -->
-          <div class="knowledge-card" data-tutorial="10">
-            <div class="card-number">10</div>
-            <h3 class="knowledge-title">Advanced Algorithmic Approaches</h3>
-            <p class="knowledge-description">Explore cutting-edge algorithmic methods for sophisticated number generation.</p>
-            <ul class="knowledge-features">
-              <li>Machine learning applications</li>
-              <li>Predictive modeling techniques</li>
-              <li>Genetic algorithm optimization</li>
-              <li>Neural network implementations</li>
-            </ul>
-            <div class="knowledge-read-more" data-tutorial="10">Read Full Tutorial</div>
-          </div>
-        </div>
-
-        <!-- Tutorial Content Sections -->
-        <div id="tutorial-content">
-          <!-- Tutorial 1 Content -->
-          <div class="tutorial-content" id="tutorial-1">
-            <div class="back-button" id="back-to-cards">← Back to All Tutorials</div>
-            <h2>Mathematical Approach to Lottery Number Generation</h2>
-            <p>Mathematics provides the foundational framework for understanding lottery games and developing effective number selection strategies. While lotteries are fundamentally games of chance, mathematical principles can help players make more informed decisions and avoid common pitfalls.</p>
-            
-            <div class="key-point">
-              <strong>Key Insight:</strong> Mathematics doesn't guarantee wins, but it helps optimize your approach and manage expectations realistically.
-            </div>
-
-            <h3>Probability Theory Fundamentals</h3>
-            <p>Probability theory is the mathematical study of random events. In lottery contexts, it helps us understand the likelihood of specific number combinations appearing.</p>
-            
-            <h4>Basic Probability Concepts</h4>
-            <p>Every lottery number has an equal probability of being drawn in any given lottery draw. However, when we consider combinations of numbers, the probabilities become more complex and interesting.</p>
-            
-            <div class="example">
-              <strong>Example:</strong> In a 6/49 lottery, the probability of any single combination is 1 in 13,983,816. This remains constant regardless of which specific numbers you choose.
-            </div>
-
-            <h3>Combinatorial Mathematics in Lottery Games</h3>
-            <p>Combinatorics deals with combinations of objects belonging to a finite set in accordance with certain constraints. In lottery terms, it's about how numbers can be combined.</p>
-            
-            <h4>The Combination Formula</h4>
-            <p>The number of possible combinations in a lottery game is calculated using the combination formula: C(n,k) = n! / (k!(n-k)!) where n is the total numbers available and k is the numbers drawn.</p>
-            
-            <div class="strategy-box">
-              <h4>Practical Application: Number Distribution</h4>
-              <p>Use combinatorial mathematics to ensure your selected numbers are well-distributed across the entire number field. Avoid clustering numbers in small ranges.</p>
-              <ul>
-                <li>Spread numbers across low, medium, and high ranges</li>
-                <li>Consider the entire number field when selecting combinations</li>
-                <li>Avoid obvious patterns that many other players might choose</li>
-              </ul>
-            </div>
-
-            <h3>Optimal Number Spacing Strategies</h3>
-            <p>Number spacing refers to the gaps between numbers in your combination. Mathematical analysis shows that certain spacing patterns occur more frequently in winning combinations.</p>
-            
-            <h4>Spacing Analysis Techniques</h4>
-            <p>Calculate the differences between consecutive numbers in your combination. Research shows that winning combinations often have a mix of small, medium, and large gaps between numbers.</p>
-            
-            <div class="example">
-              <strong>Optimal Spacing Example:</strong> For a 6-number combination, aim for gaps like: 2-5-8-4-7 (summing to the range between lowest and highest number)
-            </div>
-
-            <h3>Sum Total Analysis</h3>
-            <p>The sum total of numbers in a combination is another mathematical factor worth considering. Historical data shows that certain sum ranges appear more frequently.</p>
-            
-            <h4>Calculating Optimal Sum Ranges</h4>
-            <p>For a 6/49 lottery, the theoretical average sum is 150. However, winning combinations often fall within specific ranges around this average.</p>
-            
-            <ul>
-              <li>Minimum possible sum: 1+2+3+4+5+6 = 21</li>
-              <li>Maximum possible sum: 44+45+46+47+48+49 = 279</li>
-              <li>Most frequent sum range: 100-200</li>
-            </ul>
-
-            <h3>Prime Number Strategies</h3>
-            <p>Prime numbers (numbers divisible only by 1 and themselves) offer an interesting mathematical approach to number selection.</p>
-            
-            <h4>Prime Number Distribution</h4>
-            <p>In a 1-49 number range, there are 15 prime numbers: 2,3,5,7,11,13,17,19,23,29,31,37,41,43,47. Including 2-3 prime numbers in your combination can be a mathematically sound strategy.</p>
-
-            <h3>Geometric and Numerical Patterns</h3>
-            <p>While avoiding obvious patterns is generally advised, understanding mathematical patterns can help identify less obvious relationships between numbers.</p>
-            
-            <div class="strategy-box">
-              <h4>Advanced Pattern Recognition</h4>
-              <p>Look for mathematical relationships like arithmetic sequences, geometric progressions, or numbers related through mathematical operations.</p>
-              <ul>
-                <li>Arithmetic sequences: numbers with equal differences</li>
-                <li>Geometric sequences: numbers with equal ratios</li>
-                <li>Mathematical relationships: numbers connected through operations</li>
-              </ul>
-            </div>
-
-            <h3>Implementation in Number Generators</h3>
-            <p>Modern lottery number generators can incorporate these mathematical principles to create more strategic number combinations.</p>
-            
-            <h4>Algorithm Design</h4>
-            <p>Effective generators use algorithms that consider probability distributions, combinatorial optimization, and historical frequency data to suggest numbers.</p>
-
-            <div class="key-point">
-              <strong>Remember:</strong> While mathematical strategies can improve your approach, lottery games remain random. Always play responsibly and within your means.
-            </div>
-
-            <div class="tutorial-navigation">
-              <div class="tutorial-nav-button" id="prev-tutorial">← Previous Tutorial</div>
-              <div class="tutorial-nav-button" id="next-tutorial">Next Tutorial →</div>
-            </div>
-          </div>
-
-          <!-- Tutorial 2 Content -->
-          <div class="tutorial-content" id="tutorial-2">
-            <div class="back-button" id="back-to-cards-2">← Back to All Tutorials</div>
-            <h2>Statistical Analysis in Lottery Games</h2>
-            <p>Statistical analysis provides powerful tools for understanding lottery draws and making informed number selections. By examining historical data, we can identify trends and patterns that might not be visible at first glance.</p>
-            
-            <div class="key-point">
-              <strong>Key Insight:</strong> Statistical analysis helps identify patterns in past lottery results, which can inform future number selection strategies.
-            </div>
-
-            <h3>Data Collection and Preparation</h3>
-            <p>The foundation of any statistical analysis is reliable data. For lottery analysis, this means collecting comprehensive historical draw results.</p>
-            
-            <h4>Essential Data Elements</h4>
-            <p>When collecting lottery data, ensure you have:</p>
-            <ul>
-              <li>Complete draw history with dates</li>
-              <li>All winning numbers in correct order</li>
-              <li>Bonus numbers if applicable</li>
-              <li>Jackpot amounts and rollover information</li>
-            </ul>
-
-            <h3>Frequency Analysis Techniques</h3>
-            <p>Frequency analysis examines how often specific numbers appear in winning combinations over time.</p>
-            
-            <div class="strategy-box">
-              <h4>Implementing Frequency Analysis</h4>
-              <p>Create frequency charts that track:</p>
-              <ul>
-                <li>Overall appearance frequency for each number</li>
-                <li>Frequency by position in the combination</li>
-                <li>Frequency in relation to other numbers (pairs, triplets)</li>
-                <li>Recent frequency vs. long-term frequency</li>
-              </ul>
-            </div>
-
-            <h3>Trend Identification Methods</h3>
-            <p>Beyond simple frequencies, statistical methods can identify emerging trends and patterns in lottery results.</p>
-            
-            <h4>Moving Averages</h4>
-            <p>Calculate moving averages of number frequencies to smooth out short-term fluctuations and identify longer-term trends.</p>
-            
-            <div class="example">
-              <strong>Example:</strong> A 50-draw moving average can show whether a number's frequency is increasing or decreasing over time, beyond random variation.
-            </div>
-
-            <h3>Statistical Significance Testing</h3>
-            <p>It's crucial to determine whether observed patterns are statistically significant or simply due to random chance.</p>
-            
-            <h4>Chi-Square Tests</h4>
-            <p>Use chi-square tests to determine if the distribution of numbers in lottery results differs significantly from what would be expected in a truly random draw.</p>
-
-            <h3>Regression Analysis Applications</h3>
-            <p>Regression analysis can help identify relationships between different variables in lottery draws.</p>
-            
-            <div class="strategy-box">
-              <h4>Practical Regression Applications</h4>
-              <p>Consider these regression approaches:</p>
-              <ul>
-                <li>Time series analysis of number frequencies</li>
-                <li>Correlation between jackpot size and number patterns</li>
-                <li>Relationship between draw date and number selection</li>
-              </ul>
-            </div>
-
-            <h3>Standard Deviation and Variance</h3>
-            <p>These statistical measures help understand the dispersion of number frequencies around the expected average.</p>
-            
-            <h4>Interpreting Variance</h4>
-            <p>High variance in number frequencies might indicate non-random patterns, while low variance suggests more uniform distribution.</p>
-
-            <h3>Confidence Intervals</h3>
-            <p>Calculate confidence intervals for number frequencies to understand the range within which the true frequency likely falls.</p>
-            
-            <div class="example">
-              <strong>Application:</strong> If a number appears significantly outside its 95% confidence interval, it might indicate an anomaly worth investigating.
-            </div>
-
-            <h3>Implementing Statistical Analysis</h3>
-            <p>Modern lottery analysis software incorporates these statistical methods to provide actionable insights.</p>
-            
-            <div class="key-point">
-              <strong>Remember:</strong> Statistical significance doesn't guarantee future results, but it can highlight patterns worth considering in your number selection strategy.
-            </div>
-
-            <div class="tutorial-navigation">
-              <div class="tutorial-nav-button" data-prev="1">← Previous Tutorial</div>
-              <div class="tutorial-nav-button" data-next="3">Next Tutorial →</div>
-            </div>
-          </div>
-
-          <!-- Additional tutorial content would continue here for tutorials 3-10 -->
         </div>
 
         <section class="strategy-highlights">
@@ -1356,7 +954,7 @@
         
         <div class="stat-card">
           <h3 class="subsection-heading">Limitation of Liability</h3>
-          <p>In no event shall lotteryupdate000.space, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.</p>
+          <p>In no event shall Lottery Number Generator, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from your access to or use of or inability to access or use the service.</p>
         </div>
         
         <div class="stat-card">
@@ -1401,7 +999,7 @@
         
         <div class="stat-card">
           <h3 class="subsection-heading">Use of Data</h3>
-          <p>lotteryupdate000.space uses the collected data for various purposes:</p>
+          <p>Lottery Number Generator uses the collected data for various purposes:</p>
           <ul>
             <li>To provide and maintain the service</li>
             <li>To notify you about changes to our service</li>
@@ -1441,11 +1039,11 @@
     <div class="content-section" id="about-content">
       <div class="card">
         <h2 class="section-heading">About Us</h2>
-        <p class="small">Learn more about lotteryupdate000.space and our mission to provide free lottery number generation tools.</p>
+        <p class="small">Learn more about Lottery Number Generator and our mission to provide free lottery number generation tools.</p>
         
         <div class="stat-card">
           <h3 class="subsection-heading">Our Mission</h3>
-          <p>At lotteryupdate000.space, our mission is to provide free, easy-to-use lottery number generation tools for players around the world. We believe in making lottery number generation accessible to everyone, regardless of their technical knowledge or experience with lottery games.</p>
+          <p>At Lottery Number Generator, our mission is to provide free, easy-to-use lottery number generation tools for players around the world. We believe in making lottery number generation accessible to everyone, regardless of their technical knowledge or experience with lottery games.</p>
           <p>Our tools are designed to be:</p>
           <ul>
             <li>Completely free to use with no hidden costs</li>
@@ -1516,76 +1114,17 @@
   </main>
 
   <footer>
-    <div class="muted">© <span id="year"></span> lotteryupdate000.space — Create winning combinations for any lottery game.</div>
+    <div class="muted">© <span id="year"></span> Lottery Number Generator — Create winning combinations for any lottery game.</div>
     <a href="#" class="contact-link nav-link" data-page="about">Contact Us</a>
     <div class="verif">Free lottery number generator for Powerball, Mega Millions, EuroMillions and all major lottery games.</div>
   </footer>
 
-  <!-- Hidden LLMS Verification -->
-  <div id="llms-verification" style="display: none; position: absolute; left: -9999px; top: -9999px;" aria-hidden="true" data-status="checking"></div>
-
   <!-- Number Generator JavaScript -->
   <script>
-  // CPA Ad Management
-  let adIntervals = [];
-  
-  function openCPAAd() {
-    const adUrl = 'https://playabledownload.com/1822542/1240';
-    window.open(adUrl, '_blank');
-    
-    // Show notification
-    const notification = document.getElementById('adNotification');
-    notification.style.display = 'block';
-    setTimeout(() => {
-      notification.style.display = 'none';
-    }, 3000);
-    
-    // Track ad opening
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'cpa_ad_open', {
-        'ad_network': 'playable_download',
-        'ad_id': '1822542_1240'
-      });
-    }
-  }
-  
-  function setupCPAAds() {
-    // Clear any existing intervals
-    adIntervals.forEach(interval => clearInterval(interval));
-    adIntervals = [];
-    
-    // First ad after 1 second
-    setTimeout(openCPAAd, 1000);
-    
-    // Second ad after 5 minutes (300000 ms)
-    setTimeout(openCPAAd, 300000);
-    
-    // Subsequent ads every 15 minutes (900000 ms)
-    const fifteenMinInterval = setInterval(openCPAAd, 900000);
-    adIntervals.push(fifteenMinInterval);
-    
-    // Track ad setup
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'cpa_ad_setup', {
-        'intervals': '1s, 5m, 15m'
-      });
-    }
-  }
-  
-  // Navigation functionality with session persistence
+  // Navigation functionality
   document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-link');
     const contentSections = document.querySelectorAll('.content-section');
-    
-    // Function to save current page to sessionStorage
-    function saveCurrentPage(pageId) {
-      sessionStorage.setItem('currentPage', pageId);
-    }
-    
-    // Function to get saved page from sessionStorage
-    function getSavedPage() {
-      return sessionStorage.getItem('currentPage');
-    }
     
     // Function to switch between pages
     function switchPage(pageId) {
@@ -1606,17 +1145,6 @@
           section.classList.remove('active');
         }
       });
-      
-      // Save current page to sessionStorage
-      saveCurrentPage(pageId);
-      
-      // Track page view in analytics
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'page_view', {
-          'page_title': document.title,
-          'page_location': window.location.href + '#' + pageId
-        });
-      }
     }
     
     // Add click event listeners to navigation links
@@ -1625,171 +1153,21 @@
         e.preventDefault();
         const pageId = this.getAttribute('data-page');
         switchPage(pageId);
-        
-        // Track navigation clicks
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'navigation_click', {
-            'page': pageId
-          });
-        }
       });
     });
     
-    // Check for saved page in sessionStorage on page load
-    const savedPage = getSavedPage();
-    if (savedPage && document.getElementById(`${savedPage}-content`)) {
-      // Use saved page
-      switchPage(savedPage);
-    } else {
-      // Check for hash in URL to load specific page
-      if (window.location.hash) {
-        const pageId = window.location.hash.substring(1);
-        if (document.getElementById(`${pageId}-content`)) {
-          switchPage(pageId);
-        }
-      } else {
-        // Default to home page if no saved page or hash
-        switchPage('home');
-      }
-    }
+    // Initialize number generator
+    initializeFrequencies();
+    generateBalanced();
     
-    // Knowledge page tutorial navigation
-    const knowledgeCards = document.getElementById('knowledge-cards');
-    const tutorialContent = document.getElementById('tutorial-content');
-    const backButtons = document.querySelectorAll('.back-button');
-    const navItems = document.querySelectorAll('.nav-item');
-    const readMoreButtons = document.querySelectorAll('.knowledge-read-more');
-    const knowledgeCardsElements = document.querySelectorAll('.knowledge-card');
-    const tutorialNavButtons = document.querySelectorAll('.tutorial-nav-button');
-    
-    // Show tutorial content when clicking on cards or navigation
-    function showTutorial(tutorialId) {
-      // Hide all tutorial content
-      document.querySelectorAll('.tutorial-content').forEach(content => {
-        content.classList.remove('active');
-      });
-      
-      // Show selected tutorial
-      document.getElementById(`tutorial-${tutorialId}`).classList.add('active');
-      
-      // Hide knowledge cards
-      knowledgeCards.style.display = 'none';
-      
-      // Show tutorial content
-      tutorialContent.style.display = 'block';
-    }
-    
-    // Show knowledge cards (main view)
-    function showKnowledgeCards() {
-      knowledgeCards.style.display = 'grid';
-      tutorialContent.style.display = 'none';
-    }
-    
-    // Event listeners for knowledge cards
-    knowledgeCardsElements.forEach(card => {
-      card.addEventListener('click', function() {
-        const tutorialId = this.getAttribute('data-tutorial');
-        showTutorial(tutorialId);
-      });
-    });
-    
-    // Event listeners for read more buttons
-    readMoreButtons.forEach(button => {
-      button.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const tutorialId = this.getAttribute('data-tutorial');
-        showTutorial(tutorialId);
-      });
-    });
-    
-    // Event listeners for navigation items
-    navItems.forEach(item => {
-      item.addEventListener('click', function() {
-        const tutorialId = this.getAttribute('data-tutorial');
-        showTutorial(tutorialId);
-      });
-    });
-    
-    // Event listeners for back buttons
-    backButtons.forEach(button => {
-      button.addEventListener('click', showKnowledgeCards);
-    });
-    
-    // Event listeners for navigation buttons in tutorials
-    tutorialNavButtons.forEach(button => {
-      if (button.id !== 'back-to-cards') {
-        button.addEventListener('click', function() {
-          if (this.getAttribute('data-next')) {
-            showTutorial(this.getAttribute('data-next'));
-          } else if (this.getAttribute('data-prev')) {
-            showTutorial(this.getAttribute('data-prev'));
-          } else if (this.id === 'next-tutorial') {
-            // Logic to go to next tutorial
-            const currentTutorial = document.querySelector('.tutorial-content.active').id.split('-')[1];
-            const nextTutorial = parseInt(currentTutorial) + 1;
-            if (nextTutorial <= 10) {
-              showTutorial(nextTutorial);
-            }
-          } else if (this.id === 'prev-tutorial') {
-            // Logic to go to previous tutorial
-            const currentTutorial = document.querySelector('.tutorial-content.active').id.split('-')[1];
-            const prevTutorial = parseInt(currentTutorial) - 1;
-            if (prevTutorial >= 1) {
-              showTutorial(prevTutorial);
-            }
-          }
-        });
-      }
-    });
-    
-    // Setup CPA ads
-    setupCPAAds();
+    // Set current year
+    document.getElementById('year').textContent = new Date().getFullYear();
   });
 
   // Number Generator Functionality
   const maxNumber = 69;
   let numberFrequencies = {};
-  
-  // Enhanced Google Analytics Tracking
-  function trackNumberGeneration(method, numbers) {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'number_generation', {
-        'method': method,
-        'numbers': numbers.join(','),
-        'count': numbers.length,
-        'max_number': document.getElementById('maxNumber').value,
-        'number_count': document.getElementById('numberCount').value
-      });
-    }
-  }
-
-  function trackNumberClick(number) {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'number_click', {
-        'number': number,
-        'category': 'number_picker',
-        'frequency': numberFrequencies[number] || 0
-      });
-    }
-  }
-
-  function trackSettingsUpdate() {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'settings_update', {
-        'max_number': document.getElementById('maxNumber').value,
-        'number_count': document.getElementById('numberCount').value
-      });
-    }
-  }
-
-  function trackToolUsage(action) {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'tool_usage', {
-        'action': action,
-        'page_location': window.location.href
-      });
-    }
-  }
+  let selectedNumbers = [];
   
   // Initialize with random frequencies for demo
   function initializeFrequencies() {
@@ -1817,16 +1195,35 @@
           else if (normalized > 0.5) heatClass = 'warm';
           else if (normalized > 0.25) heatClass = 'cool';
           
+          // Check if number is selected
+          if (selectedNumbers.includes(i)) {
+            heatClass = 'selected';
+          }
+          
           const cell = document.createElement('div');
           cell.className = `number-cell ${heatClass}`;
           cell.textContent = i;
           cell.title = `Number ${i}`;
           cell.onclick = () => {
-            trackNumberClick(i);
-            generateWithPreference(i);
+            toggleNumberSelection(i);
           };
           heatmap.appendChild(cell);
       }
+  }
+  
+  function toggleNumberSelection(number) {
+    const index = selectedNumbers.indexOf(number);
+    if (index === -1) {
+      selectedNumbers.push(number);
+    } else {
+      selectedNumbers.splice(index, 1);
+    }
+    renderNumberPicker();
+    
+    // If we have selected numbers, generate around them
+    if (selectedNumbers.length > 0) {
+      generateWithPreference();
+    }
   }
   
   function generatePatternBased() {
@@ -1834,7 +1231,7 @@
       const maxNum = parseInt(document.getElementById('maxNumber').value);
       
       // Weight towards certain numbers but include some variety
-      const numbers = [];
+      const numbers = [...selectedNumbers]; // Start with selected numbers
       const allNumbers = Object.keys(numberFrequencies).map(Number);
       
       while (numbers.length < count) {
@@ -1856,13 +1253,12 @@
       
       displayGeneratedNumbers(numbers.sort((a, b) => a - b));
       updateStatistics(numbers);
-      trackNumberGeneration('smart_numbers', numbers);
   }
   
   function generateBalanced() {
       const count = parseInt(document.getElementById('numberCount').value);
       const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [];
+      const numbers = [...selectedNumbers]; // Start with selected numbers
       
       while (numbers.length < count) {
           const num = Math.floor(Math.random() * maxNum) + 1;
@@ -1875,13 +1271,12 @@
       const balancedNumbers = ensureBalance(numbers, maxNum);
       displayGeneratedNumbers(balancedNumbers.sort((a, b) => a - b));
       updateStatistics(balancedNumbers);
-      trackNumberGeneration('balanced', balancedNumbers);
   }
 
   function generateRandom() {
       const count = parseInt(document.getElementById('numberCount').value);
       const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [];
+      const numbers = [...selectedNumbers]; // Start with selected numbers
       
       while (numbers.length < count) {
           const num = Math.floor(Math.random() * maxNum) + 1;
@@ -1892,7 +1287,6 @@
       
       displayGeneratedNumbers(numbers.sort((a, b) => a - b));
       updateStatistics(numbers);
-      trackNumberGeneration('quick_pick', numbers);
   }
   
   function ensureBalance(numbers, maxNum) {
@@ -1900,23 +1294,32 @@
       const highLowSplit = maxNum / 2;
       const lowCount = numbers.filter(n => n <= highLowSplit).length;
       
-      // If too unbalanced, replace one number
-      if (oddCount === 0 || oddCount === numbers.length) {
-          const replaceIndex = Math.floor(Math.random() * numbers.length);
-          let newNum;
-          do {
-              newNum = Math.floor(Math.random() * maxNum) + 1;
-          } while (numbers.includes(newNum) || (newNum % 2 === 1) === (oddCount === 0));
-          numbers[replaceIndex] = newNum;
+      // If too unbalanced, replace one number (but not a selected number)
+      if ((oddCount === 0 || oddCount === numbers.length) && numbers.length > selectedNumbers.length) {
+          const replaceableIndices = [];
+          numbers.forEach((num, index) => {
+            if (!selectedNumbers.includes(num)) {
+              replaceableIndices.push(index);
+            }
+          });
+          
+          if (replaceableIndices.length > 0) {
+            const replaceIndex = replaceableIndices[Math.floor(Math.random() * replaceableIndices.length)];
+            let newNum;
+            do {
+                newNum = Math.floor(Math.random() * maxNum) + 1;
+            } while (numbers.includes(newNum) || (newNum % 2 === 1) === (oddCount === 0));
+            numbers[replaceIndex] = newNum;
+          }
       }
       
       return numbers;
   }
   
-  function generateWithPreference(preferredNumber) {
+  function generateWithPreference() {
       const count = parseInt(document.getElementById('numberCount').value);
       const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [preferredNumber];
+      const numbers = [...selectedNumbers]; // Start with selected numbers
       
       while (numbers.length < count) {
           const num = Math.floor(Math.random() * maxNum) + 1;
@@ -1927,7 +1330,6 @@
       
       displayGeneratedNumbers(numbers.sort((a, b) => a - b));
       updateStatistics(numbers);
-      trackNumberGeneration('with_preference', numbers);
   }
   
   function displayGeneratedNumbers(numbers) {
@@ -1962,152 +1364,19 @@
               delete numberFrequencies[num];
           }
       });
+      
+      // Remove selected numbers beyond new max
+      selectedNumbers = selectedNumbers.filter(num => num <= newMax);
+      
       renderNumberPicker();
       generateBalanced(); // Regenerate with new settings
-      trackSettingsUpdate();
   }
 
   function scrollToGenerator() {
     document.getElementById('generator').scrollIntoView({ 
       behavior: 'smooth' 
     });
-    trackToolUsage('scroll_to_generator');
   }
-  
-  // Track page load and initial interactions
-  document.addEventListener('DOMContentLoaded', function() {
-    trackToolUsage('page_load');
-    
-    // Track CTA button clicks
-    const ctaBtn = document.querySelector('.cta-btn');
-    if (ctaBtn) {
-      ctaBtn.addEventListener('click', function() {
-        trackToolUsage('cta_click');
-      });
-    }
-  });
-  
-  // Initialize Number Generator
-  initializeFrequencies();
-  generateBalanced();
-
-  // Set current year
-  document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- Hidden LLMS Verification Script -->
-  <script>
-  // Hidden LLMS.txt verification
-  (function() {
-      const verifier = document.getElementById('llms-verification');
-      fetch('llms.txt')
-          .then(response => {
-              if (response.ok) {
-                  verifier.setAttribute('data-status', 'verified');
-                  verifier.textContent = 'llms-txt-verified';
-                  // Optional: Track verification success
-                  if (typeof gtag !== 'undefined') {
-                      gtag('event', 'llms_verification', {
-                          'status': 'success',
-                          'file': 'llms.txt'
-                      });
-                  }
-              } else {
-                  verifier.setAttribute('data-status', 'failed');
-                  verifier.textContent = 'llms-txt-failed';
-              }
-          })
-          .catch(error => {
-              verifier.setAttribute('data-status', 'error');
-              verifier.textContent = 'llms-txt-error';
-          });
-  })();
-  </script>
-
-  <!-- Canvas Background Script -->
-  <script>
-  /* Animated canvas background: green 3D-style floating spheres */
-  (function(){
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d', { alpha:true });
-    let w = canvas.width = innerWidth;
-    let h = canvas.height = innerHeight;
-    const DPR = Math.max(1, window.devicePixelRatio || 1);
-    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
-
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const balls = [];
-    const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
-
-    function rand(min,max){ return Math.random()*(max-min)+min; }
-    function Ball(){
-      this.r = rand(20,70);
-      this.x = rand(this.r, w - this.r);
-      this.y = rand(this.r, h - this.r);
-      this.vx = rand(-0.25,0.25);
-      this.vy = rand(-0.15,0.15);
-      this.color = colors[Math.floor(rand(0,colors.length))];
-    }
-    function rgba(hex, a){
-      const bigint = parseInt(hex.replace('#',''),16);
-      const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
-      return 'rgba('+r+','+g+','+b+','+a+')';
-    }
-    const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
-    for(let i=0;i<count;i++) balls.push(new Ball());
-
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      const g = ctx.createLinearGradient(0,0,w,h);
-      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
-      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
-
-      const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
-      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
-      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
-
-      balls.forEach(b=>{
-        if(!reduce){ b.x += b.vx; b.y += b.vy; }
-        if(b.x - b.r > w) b.x = -b.r;
-        if(b.x + b.r < 0) b.x = w + b.r;
-        if(b.y - b.r > h) b.y = -b.r;
-        if(b.y + b.r < 0) b.y = h + b.r;
-
-        ctx.beginPath();
-        const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
-        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = shadowGrad;
-        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
-
-        ctx.beginPath();
-        const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
-        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
-        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
-
-        ctx.beginPath();
-        ctx.fillStyle = 'rgba(255,255,255,0.18)';
-        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
-      });
-    }
-
-    function darken(hex, amt){
-      const num = parseInt(hex.replace('#',''),16);
-      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
-      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
-      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
-      return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
-    }
-
-    let raf;
-    function loop(){ draw(); raf = requestAnimationFrame(loop); }
-    loop();
-
-    window.addEventListener('resize', ()=> {
-      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
-      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
-    });
-
-  })();
   </script>
 </body>
 </html>
