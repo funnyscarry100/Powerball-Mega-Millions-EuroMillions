@@ -1,16 +1,66 @@
+# robots.txt for lotteryupdate000.space
+# Last Updated: 2025-12-05
+# Contact: crypto123432@yahoo.com
+
 User-agent: *
 Allow: /
+Crawl-delay: 2
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /private/
 
-# Specific allowances for AI crawlers
+# --- AI & Search Engine Bot Specific Rules ---
+# These bots are explicitly allowed per your requirements.
 User-agent: GPTBot
 Allow: /
+Crawl-delay: 2
+
 User-agent: ChatGPT-User
 Allow: /
+Crawl-delay: 2
+
 User-agent: CCBot
 Allow: /
+Crawl-delay: 2
+
 User-agent: Google-Extended
 Allow: /
+Crawl-delay: 2
+
 User-agent: anthropic-ai
 Allow: /
+Crawl-delay: 2
+
 User-agent: Claude-Web
 Allow: /
+Crawl-delay: 2
+
+# --- Common Search Engine Bots ---
+# Good practice to explicitly allow major engines.
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 5
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 3
+
+# --- Sitemap Location (Crucial for SEO) ---
+# Tells all compliant bots where to find your sitemap.
+Sitemap: https://lotteryupdate000.space/sitemap.xml
