@@ -1,37 +1,16 @@
 User-agent: *
 Allow: /
-Allow: /terms.html
-Allow: /privacy.html
 
-# Specific AI crawler allowances
+# Specific allowances for AI crawlers
 User-agent: GPTBot
 Allow: /
-Allow: /terms.html
-Allow: /privacy.html
-
 User-agent: ChatGPT-User
 Allow: /
-Allow: /terms.html
-Allow: /privacy.html
-
 User-agent: CCBot
 Allow: /
-Allow: /terms.html
-Allow: /privacy.html
-
 User-agent: Google-Extended
 Allow: /
-Allow: /terms.html
-Allow: /privacy.html
-
 User-agent: anthropic-ai
 Allow: /
-Allow: /terms.html
-Allow: /privacy.html
-
 User-agent: Claude-Web
 Allow: /
-Allow: /terms.html
-Allow: /privacy.html
-
-Sitemap: https://lotteryupdate000.space/sitemap.xml
