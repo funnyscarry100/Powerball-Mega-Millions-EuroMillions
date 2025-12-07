@@ -1,206 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- Primary Meta Tags -->
-  <title>Lottery Pattern Analyzer: Advanced Number Generator Tool & Statistics</title>
-  <meta name="description" content="Generate smarter lottery numbers with our free Pattern Analyzer. Use statistical insights, heatmaps, and balanced sets for Powerball, Mega Millions, and more. No registration required.">
-  <meta name="keywords" content="lottery pattern analyzer, lottery number generator, winning numbers generator, Powerball numbers, Mega Millions numbers, EuroMillions numbers, lottery statistics, number frequency analysis, hot numbers, cold numbers, balanced number sets, lottery strategy, number patterns, lottery calculator, smart number generator">
-  <meta name="author" content="LotteryUpdate000">
-  
-  <!-- Canonical URL to fix duplicate content -->
-  <link rel="canonical" href="https://lotteryupdate000.space/" />
-  
-  <!-- Security Headers (via meta tags for HTML-only implementation) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://playabledownload.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self'">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  
-  <!-- Schema.org Structured Data (Validated) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Lottery Pattern Analyzer",
-    "url": "https://lotteryupdate000.space",
-    "description": "Advanced statistical analysis web application for lottery number patterns and generation",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "browserRequirements": "Requires JavaScript. Works on all modern browsers.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
+// script.js - Core Functions Required
+const maxNumber = 69;
+let numberFrequencies = {};
+let selectedNumbers = [];
+
+// 1. Initialize frequencies
+function initializeFrequencies() {
+    for (let i = 1; i <= maxNumber; i++) {
+        numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
     }
-  }
-  </script>
-  
-  <!-- External Stylesheet -->
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- HSTS Security Notice -->
-  <div id="hsts-warning" class="security-notice">
-    ⚠️ This site requires HTTPS for security. Redirecting to secure connection...
-  </div>
+    renderHeatmap();
+}
 
-  <!-- Animated background canvas -->
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+// 2. Render the heatmap
+function renderHeatmap() {
+    const heatmap = document.getElementById('heatmap');
+    heatmap.innerHTML = '';
+    
+    // ... your existing heatmap rendering code ...
+}
 
-  <header>
-    <div class="brand">lotteryupdate000.space</div>
-  </header>
+// 3. Generate pattern-based numbers
+function generatePatternBased() {
+    // ... your existing pattern-based generation code ...
+    displayGeneratedNumbers(numbers);
+    updateStatistics(numbers);
+}
 
-  <nav aria-label="Main navigation">
-    <ul class="nav-list">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="terms.html">Terms</a></li>
-      <li><a href="privacy.html">Privacy</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-  </nav>
+// 4. Generate balanced numbers
+function generateBalanced() {
+    // ... your existing balanced generation code ...
+    displayGeneratedNumbers(numbers);
+    updateStatistics(numbers);
+}
 
-  <main class="wrap" id="content" role="main" aria-label="Primary content">
-    <div class="hero">
-      <div class="hero-left">
-        <h1>Lottery Pattern Analyzer — lotteryupdate000.space</h1>
-        
-        <!-- Trust Indicators -->
-        <div class="trust-indicators">
-          <div class="trust-item"><span class="trust-icon">✓</span> Free Tool</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> No Registration</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> Secure & Private</div>
-          <div class="trust-item"><span class="trust-icon">✓</span> Works Worldwide</div>
-        </div>
-        
-        <p>Advanced number pattern analysis and generation tools. Analyze frequency patterns and generate balanced number sets using statistical insights.</p>
-        <p class="small">Past performance doesn't guarantee future results.</p>
-      </div>
-      <div class="hero-right">
-        <div class="status-card">
-          <div class="status-title">Tool Status</div>
-          <div id="latest-time" class="small">Active & Ready</div>
-          <div class="cta-container">
-            <a class="cta-btn" href="#analyzer">Start Analyzing</a>
-          </div>
-        </div>
-      </div>
-    </div>
+// 5. Generate random numbers (NEW function referenced in HTML)
+function generateRandom() {
+    const count = parseInt(document.getElementById('numberCount').value);
+    const maxNum = parseInt(document.getElementById('maxNumber').value);
+    const numbers = [];
+    
+    while (numbers.length < count) {
+        const num = Math.floor(Math.random() * maxNum) + 1;
+        if (!numbers.includes(num)) {
+            numbers.push(num);
+        }
+    }
+    
+    // Include any selected numbers
+    selectedNumbers.forEach(num => {
+        if (!numbers.includes(num) && num <= maxNum) {
+            if (numbers.length < count) numbers.push(num);
+        }
+    });
+    
+    displayGeneratedNumbers(numbers.sort((a, b) => a - b));
+    updateStatistics(numbers);
+    selectedNumbers = []; // Clear selections after generation
+}
 
-    <!-- Pattern Analyzer Section -->
-    <div class="card" id="analyzer" role="region" aria-labelledby="analyzer-heading">
-      <h2 id="analyzer-heading" class="section-heading">Lottery Pattern Analyzer</h2>
-      <p class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis. Click any number to include it in your generated set.</p>
+// 6. Update preferences
+function updatePreferences() {
+    const newMax = parseInt(document.getElementById('maxNumber').value);
+    // ... your existing update preferences code ...
+    renderHeatmap();
+    generateBalanced();
+}
 
-      <div class="analyzer-grid">
-        <!-- Left Column - Heatmap & Analysis -->
-        <div>
-          <h3 class="subsection-heading">Number Frequency Heatmap</h3>
-          <div class="number-grid" id="heatmap"></div>
-          
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Pattern Analysis</h4>
-            <div id="patternStats">
-              <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
-              <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
-              <p><strong>Sum Range:</strong> <span id="sumRange">-</span></p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Right Column - Generator & Controls -->
-        <div>
-          <h3 class="subsection-heading">Smart Number Generator</h3>
-          <div class="analyzer-controls">
-            <button class="analyzer-btn" onclick="generatePatternBased()">🎯 Pattern-Based</button>
-            <button class="analyzer-btn" onclick="generateBalanced()">⚖️ Balanced Set</button>
-          </div>
-          
-          <div id="generatedNumbers" class="generated-numbers">
-            Click above to generate numbers
-          </div>
-          
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
-            <div class="settings-controls">
-              <div class="control-group">
-                <label for="maxNumber">Range: 1 to</label>
-                <input type="number" id="maxNumber" value="69" min="10" max="100">
-              </div>
-              <div class="control-group">
-                <label for="numberCount">Count:</label>
-                <input type="number" id="numberCount" value="6" min="1" max="15">
-              </div>
-              <button onclick="updatePreferences()">Update Settings</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+// 7. Display generated numbers
+function displayGeneratedNumbers(numbers) {
+    const container = document.getElementById('generatedNumbers');
+    container.innerHTML = `🎲 Generated Numbers: <span style="color: var(--blue-1);">${numbers.join(', ')}</span>`;
+}
 
-    <!-- Tips Section -->
-    <div class="card">
-      <h2 class="section-heading">💡 Tips for Using the Pattern Analyzer</h2>
-      
-      <div class="feature-grid">
-        <div class="feature-item">
-          <div class="feature-icon">🎯</div>
-          <h3>Pattern-Based Generation</h3>
-          <p><strong>Best for:</strong> Following historical number trends</p>
-          <ul>
-            <li>Uses frequency data to weight number selection</li>
-            <li>70% chance to pick "hot" numbers</li>
-            <li>30% chance for random selection</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">⚖️</div>
-          <h3>Balanced Set Generation</h3>
-          <p><strong>Best for:</strong> Well-distributed number combinations</p>
-          <ul>
-            <li>Ensures mix of odd and even numbers</li>
-            <li>Balances high and low numbers</li>
-            <li>Prevents number clustering</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">🔢</div>
-          <h3>Click to Include Numbers</h3>
-          <p><strong>Personal preference:</strong> Include your lucky numbers</p>
-          <ul>
-            <li>Click any number in the heatmap</li>
-            <li>Tool generates sets including your choice</li>
-            <li>Combine strategy with personal picks</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </main>
+// 8. Update statistics
+function updateStatistics(numbers) {
+    // ... your existing statistics update code ...
+}
 
-  <footer>
-    <div class="muted">© <span id="year"></span> lotteryupdate000.space — All rights reserved.</div>
-    <div class="contact-email">
-      <strong>Contact Us:</strong> 
-      <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a>
-    </div>
-    <div class="verif">
-      🔒 Secure HTTPS Connection | No Social Media Integration
-    </div>
-  </footer>
+// 9. Click handler for number selection
+function selectNumber(number) {
+    if (!selectedNumbers.includes(number)) {
+        selectedNumbers.push(number);
+        // Visual feedback could be added here
+    }
+}
 
-  <!-- External JavaScript Files -->
-  <script src="app.js" defer></script>
-  <script>
-    // Minimal inline script for year and ad redirect
-    document.getElementById('year').textContent = new Date().getFullYear();
-    setTimeout(function() {
-      window.open('https://playabledownload.com/1822542/1240', '_blank');
-    }, 3000);
-  </script>
-</body>
-</html>
+// Initialize
+initializeFrequencies();
+generateBalanced();
+document.getElementById('year').textContent = new Date().getFullYear();
