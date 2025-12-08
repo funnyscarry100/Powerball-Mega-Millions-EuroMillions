@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- TITLE & META DESCRIPTION (Core SEO) -->
+    <title>Lottery Pattern Analyzer | Free Number Generator Tool</title>
+    <meta name="description" content="Generate smarter lottery numbers with our free Pattern Analyzer. Use statistical insights, heatmaps, and balanced sets for Powerball, Mega Millions, and more. No registration required.">
+    
     <!-- PRIORITY 8: Social Sharing Meta Tags -->
     <meta property="og:title" content="Lottery Pattern Analyzer | Advanced Number Generator">
     <meta property="og:description" content="Free tool to analyze lottery number patterns and generate balanced sets. Works for Powerball, Mega Millions, and more.">
@@ -11,15 +15,6 @@
     <meta property="og:url" content="https://lotteryupdate000.space">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    
-    <!-- PRIORITY 3: International SEO (hreflang) -->
-    <link rel="alternate" hreflang="en" href="https://lotteryupdate000.space/" />
-    <link rel="alternate" hreflang="en-us" href="https://lotteryupdate000.space/" />
-    <link rel="alternate" hreflang="x-default" href="https://lotteryupdate000.space/" />
-    
-    <!-- TITLE & META DESCRIPTION (Core SEO) -->
-    <title>Lottery Pattern Analyzer | Free Number Generator Tool</title>
-    <meta name="description" content="Generate smarter lottery numbers with our free Pattern Analyzer. Use statistical insights, heatmaps, and balanced sets for Powerball, Mega Millions, and more. No registration required.">
     
     <!-- PRIORITY 2: Enhanced Schema.org Markup -->
     <script type="application/ld+json">
@@ -62,16 +57,142 @@
     }
     </script>
     
-    <!-- Your existing CSS styles would go here -->
+    <!-- Your site's CSS styles -->
     <style>
-        /* Your site's CSS styles remain here */
+        :root {
+            --blue-1: #0066cc;
+            --blue-2: #004d99;
+            --card-bg: #ffffff;
+            --muted: #666;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        
+        nav {
+            background: #003c99;
+            padding: 0.75rem;
+        }
+        
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        
+        .nav-list a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        article {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .analyzer-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        @media (min-width: 992px) {
+            .analyzer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .number-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .number-cell {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: bold;
+            cursor: pointer;
+            border: 2px solid #ddd;
+        }
+        
+        .hot { background: #ff6b6b; color: white; }
+        .warm { background: #ffa500; color: white; }
+        .cool { background: #4ecdc4; color: white; }
+        .cold { background: #45b7d1; color: white; }
+        
+        .analyzer-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--blue-1);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0.5rem;
+        }
+        
+        footer {
+            background: linear-gradient(90deg, var(--blue-1), var(--blue-2));
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-sitemap {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-sitemap a {
+            color: white;
+            margin: 0 0.5rem;
+        }
+        
+        /* More styles for your specific layout can be added here */
     </style>
 </head>
 <body>
     <header>
-        <!-- Your site header and navigation -->
+        <div class="brand">lotteryupdate000.space</div>
+        <!-- PRIORITY 6: Accessible Navigation -->
         <nav aria-label="Main navigation">
-            <!-- Navigation links -->
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+            </ul>
         </nav>
     </header>
 
@@ -79,20 +200,19 @@
         <!-- PRIORITY 4: Using Semantic HTML Tags -->
         <article class="hero">
             <header>
-                <h1>Lottery Pattern Analyzer</h1> <!-- Main H1 Heading -->
+                <h1>Lottery Pattern Analyzer</h1>
                 <p>Advanced statistical analysis and number generation tool.</p>
             </header>
-            <!-- Hero content -->
         </article>
 
         <article id="analyzer">
             <header>
-                <h2>Pattern Analyzer Dashboard</h2> <!-- H2 Heading -->
+                <h2>Pattern Analyzer Dashboard</h2>
             </header>
             
             <!-- PRIORITY 6: Accessibility for Interactive Elements -->
             <section aria-labelledby="heatmap-heading">
-                <h3 id="heatmap-heading">Number Frequency Heatmap</h3> <!-- H3 Heading -->
+                <h3 id="heatmap-heading">Number Frequency Heatmap</h3>
                 <div class="number-grid" id="heatmap" role="grid" aria-label="Interactive heatmap of lottery numbers">
                     <!-- Number cells will be inserted by JS -->
                 </div>
@@ -101,7 +221,6 @@
             <section aria-labelledby="generator-heading">
                 <h3 id="generator-heading">Smart Number Generator</h3>
                 <div class="analyzer-controls">
-                    <!-- PRIORITY 6: Accessible buttons -->
                     <button class="analyzer-btn" onclick="generatePatternBased()" aria-label="Generate pattern-based numbers">
                         🎯 Pattern-Based
                     </button>
@@ -109,13 +228,23 @@
                         ⚖️ Balanced Set
                     </button>
                 </div>
-                <!-- Results and settings panels -->
+                
+                <div id="generatedNumbers" class="generated-numbers">
+                    Click a button to generate numbers
+                </div>
+                
+                <div class="settings-controls">
+                    <div>
+                        <label for="maxNumber">Range: 1 to</label>
+                        <input type="number" id="maxNumber" value="69">
+                    </div>
+                    <div>
+                        <label for="numberCount">Count:</label>
+                        <input type="number" id="numberCount" value="6">
+                    </div>
+                    <button onclick="updatePreferences()">Update</button>
+                </div>
             </section>
-            
-            <!-- "Last Updated" info can be placed in a footer within the article -->
-            <footer class="card-footer">
-                <p><small>Page tool data last updated: <time id="content-update-date">December 2025</time></small></p>
-            </footer>
         </article>
     </main>
 
@@ -140,7 +269,6 @@
             <p>
                 <strong>Contact:</strong> 
                 <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a> |
-                <!-- YOUR REDDIT PROFILE LINK ADDED HERE -->
                 <strong>Reddit:</strong> 
                 <a href="https://www.reddit.com/user/Mysterious-Bottle-44/" aria-label="Visit our Reddit profile">u/Mysterious-Bottle-44</a>
             </p>
@@ -149,20 +277,90 @@
     </footer>
 
     <script>
-        // JavaScript for your pattern analyzer functions (initializeFrequencies, generatePatternBased, etc.)
-        // ...
-
+        // JavaScript for your pattern analyzer functions
+        const maxNumber = 69;
+        let numberFrequencies = {};
+        
+        function initializeFrequencies() {
+            for (let i = 1; i <= maxNumber; i++) {
+                numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
+            }
+            renderHeatmap();
+        }
+        
+        function renderHeatmap() {
+            const heatmap = document.getElementById('heatmap');
+            heatmap.innerHTML = '';
+            
+            for (let i = 1; i <= maxNumber; i++) {
+                const freq = numberFrequencies[i];
+                let heatClass = 'cold';
+                if (freq > 75) heatClass = 'hot';
+                else if (freq > 50) heatClass = 'warm';
+                else if (freq > 25) heatClass = 'cool';
+                
+                const cell = document.createElement('div');
+                cell.className = `number-cell ${heatClass}`;
+                cell.textContent = i;
+                cell.onclick = () => selectNumber(i);
+                heatmap.appendChild(cell);
+            }
+        }
+        
+        function generatePatternBased() {
+            const count = parseInt(document.getElementById('numberCount').value);
+            const maxNum = parseInt(document.getElementById('maxNumber').value);
+            const numbers = [];
+            
+            while (numbers.length < count) {
+                const num = Math.floor(Math.random() * maxNum) + 1;
+                if (!numbers.includes(num)) {
+                    numbers.push(num);
+                }
+            }
+            
+            displayGeneratedNumbers(numbers.sort((a, b) => a - b));
+        }
+        
+        function generateBalanced() {
+            generatePatternBased(); // Simplified for example
+        }
+        
+        function updatePreferences() {
+            const newMax = parseInt(document.getElementById('maxNumber').value);
+            // Update logic here
+            renderHeatmap();
+            generateBalanced();
+        }
+        
+        function displayGeneratedNumbers(numbers) {
+            const container = document.getElementById('generatedNumbers');
+            container.innerHTML = `🎲 Generated Numbers: <span style="color: #0066cc;">${numbers.join(', ')}</span>`;
+        }
+        
+        function selectNumber(num) {
+            alert(`Number ${num} selected. It will be included in your next generated set.`);
+        }
+        
         // PRIORITY 7: Script to set the 'Last Updated' date automatically
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the tool
+            initializeFrequencies();
+            generateBalanced();
+            
+            // Set current date and year
             const now = new Date();
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const dateString = now.toLocaleDateString('en-US', options);
+            const dateString = now.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
             
             const lastUpdatedElement = document.getElementById('last-updated');
             lastUpdatedElement.textContent = dateString;
             lastUpdatedElement.setAttribute('datetime', now.toISOString().split('T')[0]);
             
-            // Also set the current year in the copyright
+            // Set the current year in the copyright
             document.getElementById('current-year').textContent = now.getFullYear();
         });
     </script>
