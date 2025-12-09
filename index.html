@@ -4,64 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- SEO Meta Tags -->
-  <title>Lottery Pattern Analyzer | Advanced Number Generator & Statistics</title>
-  <meta name="description" content="Free lottery pattern analyzer with statistical insights. Generate balanced number sets for Powerball, Mega Millions using frequency analysis and smart algorithms.">
-  <meta name="keywords" content="lottery pattern analyzer, lottery number generator, Powerball, Mega Millions, statistics, frequency analysis">
+  <!-- SEO Meta Tags (Populated by JavaScript) -->
+  <title id="seo-title">Lottery Pattern Analyzer | Advanced Number Generator & Statistics</title>
+  <meta id="seo-description" name="description" content="Free lottery pattern analyzer with statistical insights. Generate balanced number sets for Powerball, Mega Millions using frequency analysis and smart algorithms.">
+  <meta name="keywords" content="lottery pattern analyzer, lottery number generator, lotto generator, number generator for lottery, lucky lottery number generator, Random number generation - Topic, Lottery - Topic, international lottery number generator, free online lottery worldwide tools">
   <meta name="author" content="LotteryUpdate000">
   <link rel="canonical" href="https://lotteryupdate000.space/" />
   
-  <!-- Schema.org Markup (Priority #2) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Lottery Pattern Analyzer",
-    "url": "https://lotteryupdate000.space",
-    "description": "Advanced statistical analysis web application for lottery number patterns and generation",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "inLanguage": "en",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
-  }
+  <!-- Schema.org Markup (Populated by JavaScript) -->
+  <script type="application/ld+json" id="schema-webapp">
   </script>
   
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is the Lottery Pattern Analyzer free to use?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, our lottery pattern analyzer tool is completely free to use with no registration required."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What lottery games does this tool support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The tool can be customized for any lottery game including Powerball, Mega Millions, EuroMillions, and others by adjusting the number range and count settings."
-        }
-      }
-    ]
-  }
+  <script type="application/ld+json" id="schema-faq">
   </script>
   
-  <!-- Social Meta Tags (Priority #8) -->
-  <meta property="og:title" content="Lottery Pattern Analyzer | Advanced Number Generator">
-  <meta property="og:description" content="Free tool to analyze lottery number patterns and generate balanced sets. Works for Powerball, Mega Millions, and more.">
+  <!-- Social Meta Tags (Populated by JavaScript) -->
+  <meta property="og:title" id="og-title" content="">
+  <meta property="og:description" id="og-description" content="">
   <meta property="og:url" content="https://lotteryupdate000.space">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
   
+  <!-- CSS Styles (unchanged) -->
   <style>
     :root {
       --blue-1: #0066cc;
@@ -527,37 +491,37 @@
   <main class="wrap" id="content">
     <div class="hero">
       <div class="hero-left">
-        <h1>Lottery Pattern Analyzer — Advanced Number Generator</h1>
+        <h1 id="main-heading">Lottery Pattern Analyzer — Advanced Number Generator</h1>
         
         <div class="trust-indicators">
           <div class="trust-item">
             <span class="trust-icon">✓</span>
-            <span>Free Tool</span>
+            <span id="trust-1">Free Tool</span>
           </div>
           <div class="trust-item">
             <span class="trust-icon">✓</span>
-            <span>No Registration</span>
+            <span id="trust-2">No Registration</span>
           </div>
           <div class="trust-item">
             <span class="trust-icon">✓</span>
-            <span>Secure & Private</span>
+            <span id="trust-3">Secure & Private</span>
           </div>
           <div class="trust-item">
             <span class="trust-icon">✓</span>
-            <span>Works Worldwide</span>
+            <span id="trust-4">Works Worldwide</span>
           </div>
         </div>
         
-        <p>Advanced number pattern analysis and generation tools. Analyze frequency patterns and generate balanced number sets using statistical insights.</p>
-        <p class="small">Past performance doesn't guarantee future results. Lottery outcomes are random.</p>
+        <p id="hero-description">Advanced number pattern analysis and generation tools. Analyze frequency patterns and generate balanced number sets using statistical insights.</p>
+        <p id="hero-disclaimer" class="small">Past performance doesn't guarantee future results. Lottery outcomes are random.</p>
       </div>
       <div class="hero-right">
         <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-          <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Tool Status</div>
+          <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;" id="status-label">Tool Status</div>
           <div id="latest-time" class="small" style="margin-top:8px;">Active & Ready</div>
           
           <div style="margin-top:12px;">
-            <button class="cta-btn" onclick="scrollToAnalyzer()">Start Analyzing</button>
+            <button class="cta-btn" onclick="scrollToAnalyzer()" id="cta-button">Start Analyzing</button>
           </div>
         </div>
       </div>
@@ -565,17 +529,17 @@
 
     <!-- Pattern Analyzer Section -->
     <div class="card" id="analyzer">
-      <h2 class="section-heading">Lottery Pattern Analyzer</h2>
-      <p class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis. Click any number to include it in your generated set.</p>
+      <h2 id="analyzer-heading" class="section-heading">Lottery Pattern Analyzer</h2>
+      <p id="analyzer-subtitle" class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis. Click any number to include it in your generated set.</p>
 
       <div class="analyzer-grid">
         <!-- Left Column - Heatmap & Analysis -->
         <div>
-          <h3 class="subsection-heading">Number Frequency Heatmap</h3>
+          <h3 id="heatmap-heading" class="subsection-heading">Number Frequency Heatmap</h3>
           <div class="number-grid" id="heatmap"></div>
           
           <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Pattern Analysis</h4>
+            <h4 id="analysis-heading" class="subsection-heading" style="margin-top: 0;">Pattern Analysis</h4>
             <div id="patternStats" style="font-size: 0.95rem;">
               <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
               <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
@@ -586,15 +550,15 @@
         
         <!-- Right Column - Generator & Controls -->
         <div>
-          <h3 class="subsection-heading">Smart Number Generator</h3>
+          <h3 id="generator-heading" class="subsection-heading">Smart Number Generator</h3>
           <div class="analyzer-controls">
-            <button class="analyzer-btn" onclick="generatePatternBased()">
+            <button class="analyzer-btn" onclick="generatePatternBased()" id="btn-pattern">
               🎯 Pattern-Based
             </button>
-            <button class="analyzer-btn" onclick="generateBalanced()">
+            <button class="analyzer-btn" onclick="generateBalanced()" id="btn-balanced">
               ⚖️ Balanced Set
             </button>
-            <button class="analyzer-btn" onclick="generateRandom()">
+            <button class="analyzer-btn" onclick="generateRandom()" id="btn-random">
               🎲 Random
             </button>
           </div>
@@ -604,7 +568,7 @@
           </div>
           
           <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
+            <h4 id="settings-heading" class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
             <div class="settings-controls">
               <div style="display: flex; align-items: center; gap: 8px;">
                 <label for="maxNumber">Range: 1 to</label>
@@ -614,12 +578,12 @@
                 <label for="numberCount">Count:</label>
                 <input type="number" id="numberCount" value="6" min="1" max="15">
               </div>
-              <button onclick="updatePreferences()">Update Settings</button>
+              <button onclick="updatePreferences()" id="btn-update">Update Settings</button>
             </div>
           </div>
 
           <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Heatmap Legend</h4>
+            <h4 id="legend-heading" class="subsection-heading" style="margin-top: 0;">Heatmap Legend</h4>
             <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
               <div style="display: flex; align-items: center; gap: 10px;">
                 <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
@@ -645,38 +609,38 @@
 
     <!-- Tips Section -->
     <div class="card">
-      <h2 class="section-heading">How to Use the Pattern Analyzer</h2>
+      <h2 id="tips-heading" class="section-heading">How to Use the Pattern Analyzer</h2>
       
       <div class="feature-grid">
         <div class="feature-item">
           <div class="feature-icon">🎯</div>
-          <h3>Pattern-Based Generation</h3>
-          <p>Uses historical frequency data to weight number selection towards "hot" numbers while maintaining variety.</p>
+          <h3 id="tip-1-title">Pattern-Based Generation</h3>
+          <p id="tip-1-desc">Uses historical frequency data to weight number selection towards "hot" numbers while maintaining variety.</p>
         </div>
         
         <div class="feature-item">
           <div class="feature-icon">⚖️</div>
-          <h3>Balanced Sets</h3>
-          <p>Creates well-distributed combinations with balanced odd/even and high/low number ratios.</p>
+          <h3 id="tip-2-title">Balanced Sets</h3>
+          <p id="tip-2-desc">Creates well-distributed combinations with balanced odd/even and high/low number ratios.</p>
         </div>
         
         <div class="feature-item">
           <div class="feature-icon">🔢</div>
-          <h3>Interactive Selection</h3>
-          <p>Click any number in the heatmap to include it in your next generated set. Combine strategy with personal picks.</p>
+          <h3 id="tip-3-title">Interactive Selection</h3>
+          <p id="tip-3-desc">Click any number in the heatmap to include it in your next generated set. Combine strategy with personal picks.</p>
         </div>
         
         <div class="feature-item">
           <div class="feature-icon">⚙️</div>
-          <h3>Customizable Settings</h3>
-          <p>Adjust number range and count to match different lottery games like Powerball, Mega Millions, and EuroMillions.</p>
+          <h3 id="tip-4-title">Customizable Settings</h3>
+          <p id="tip-4-desc">Adjust number range and count to match different lottery games like Powerball, Mega Millions, and EuroMillions.</p>
         </div>
       </div>
 
       <div class="stat-card" style="margin-top: 20px; background: #fff3cd; border-left: 4px solid #ffc107;">
-        <h4 class="subsection-heading" style="margin-top: 0;">Important Note</h4>
+        <h4 id="disclaimer-heading" class="subsection-heading" style="margin-top: 0;">Important Note</h4>
         <div style="font-size: 0.9rem;">
-          <p>All lottery games are based on random chance. This tool provides statistical analysis for entertainment purposes only and does not increase your chances of winning.</p>
+          <p id="disclaimer-text">All lottery games are based on random chance. This tool provides statistical analysis for entertainment purposes only and does not increase your chances of winning.</p>
         </div>
       </div>
     </div>
@@ -716,12 +680,158 @@
 
   <!-- Pattern Analyzer JavaScript -->
   <script>
-    // Pattern Analyzer Functionality
+    // ============================================
+    // KEYWORD & CONTENT CONFIGURATION
+    // ============================================
+    // UPDATE THESE VALUES TO CHANGE THE SITE'S TEXT
+    const pageKeywords = {
+        // SEO & Meta Tags
+        pageTitle: "Free Lottery Number Generator | Pattern Analyzer & Lotto Tool",
+        metaDescription: "Use our free online lottery number generator and pattern analyzer. Create balanced sets for Powerball, Mega Millions, and worldwide lotto games with smart statistics.",
+        ogTitle: "Free Lottery Number Generator & Pattern Analyzer Tool",
+        ogDescription: "Generate lottery numbers online for free. Analyze patterns and create balanced number sets for any international lottery game.",
+
+        // Hero Section
+        mainHeading: "Free Lottery Number Generator & Pattern Analyzer",
+        heroDescription: "Generate lottery numbers online with our free tool. Use statistical pattern analysis and smart algorithms to create balanced number sets for Powerball, Mega Millions, and international lotto games.",
+        heroDisclaimer: "Lottery outcomes are random. This is a free tool for entertainment and analysis.",
+
+        // Trust Indicators
+        trust1: "Free Online Tool",
+        trust2: "No Sign-Up Required",
+        trust3: "Secure & Private",
+        trust4: "Works Worldwide",
+
+        // Pattern Analyzer Section
+        analyzerHeading: "Lottery Number Generator & Pattern Analyzer",
+        analyzerSubtitle: "Generate lottery numbers and analyze frequency patterns. Click numbers to include them in your personalized set.",
+        heatmapHeading: "Lotto Number Frequency Heatmap",
+        analysisHeading: "Number Pattern Analysis",
+        generatorHeading: "Smart Lotto Number Generator",
+        settingsHeading: "Lotto Game Settings",
+        legendHeading: "Heatmap Guide",
+
+        // Button Text
+        ctaButton: "Generate Numbers Now",
+        btnPattern: "🎯 Use Number Patterns",
+        btnBalanced: "⚖️ Get Balanced Set",
+        btnRandom: "🎲 Pure Random Numbers",
+        btnUpdate: "Apply Settings",
+
+        // Status Label
+        statusLabel: "Generator Status",
+
+        // Tips Section
+        tipsHeading: "How to Use This Lotto Number Generator",
+        tip1Title: "Pattern-Based Numbers",
+        tip1Desc: "Generates numbers weighted by historical frequency data from past lottery draws.",
+        tip2Title: "Balanced Number Sets",
+        tip2Desc: "Creates well-distributed combinations with a good mix of odd/even and high/low numbers.",
+        tip3Title: "Pick Your Numbers",
+        tip3Desc: "Click any number in the heatmap to lock it in. The generator will build a set around your choices.",
+        tip4Title: "Adjust for Any Game",
+        tip4Desc: "Customize the number range and count to match Powerball, Mega Millions, EuroMillions, or your local lottery.",
+
+        // Disclaimer
+        disclaimerHeading: "Important Disclaimer",
+        disclaimerText: "This is a free random number generation tool for entertainment. Lottery games are based on chance, and no system can guarantee a win. Please play responsibly."
+    };
+
+    // ============================================
+    // FUNCTION TO RENDER ALL TEXT CONTENT
+    // ============================================
+    function renderTextContent() {
+        // 1. Update SEO & Meta Tags in <head>
+        document.getElementById('seo-title').textContent = pageKeywords.pageTitle;
+        document.getElementById('seo-description').setAttribute('content', pageKeywords.metaDescription);
+        document.getElementById('og-title').setAttribute('content', pageKeywords.ogTitle);
+        document.getElementById('og-description').setAttribute('content', pageKeywords.ogDescription);
+
+        // 2. Update Schema.org Structured Data
+        const webAppSchema = {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": pageKeywords.analyzerHeading,
+            "url": "https://lotteryupdate000.space",
+            "description": pageKeywords.metaDescription,
+            "applicationCategory": "UtilitiesApplication",
+            "operatingSystem": "Any",
+            "inLanguage": "en",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+        };
+        document.getElementById('schema-webapp').textContent = JSON.stringify(webAppSchema);
+
+        const faqSchema = {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Is this lottery number generator free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, this is a completely free online lottery number generator and pattern analysis tool with no registration required."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What lotteries can I generate numbers for?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "You can customize it for Powerball, Mega Millions, EuroMillions, or any lottery worldwide by adjusting the number range and count in the settings."
+                    }
+                }
+            ]
+        };
+        document.getElementById('schema-faq').textContent = JSON.stringify(faqSchema);
+
+        // 3. Update Hero Section
+        document.getElementById('main-heading').textContent = pageKeywords.mainHeading;
+        document.getElementById('hero-description').textContent = pageKeywords.heroDescription;
+        document.getElementById('hero-disclaimer').textContent = pageKeywords.heroDisclaimer;
+        document.getElementById('trust-1').textContent = pageKeywords.trust1;
+        document.getElementById('trust-2').textContent = pageKeywords.trust2;
+        document.getElementById('trust-3').textContent = pageKeywords.trust3;
+        document.getElementById('trust-4').textContent = pageKeywords.trust4;
+        document.getElementById('status-label').textContent = pageKeywords.statusLabel;
+        document.getElementById('cta-button').textContent = pageKeywords.ctaButton;
+
+        // 4. Update Pattern Analyzer Section
+        document.getElementById('analyzer-heading').textContent = pageKeywords.analyzerHeading;
+        document.getElementById('analyzer-subtitle').textContent = pageKeywords.analyzerSubtitle;
+        document.getElementById('heatmap-heading').textContent = pageKeywords.heatmapHeading;
+        document.getElementById('analysis-heading').textContent = pageKeywords.analysisHeading;
+        document.getElementById('generator-heading').textContent = pageKeywords.generatorHeading;
+        document.getElementById('settings-heading').textContent = pageKeywords.settingsHeading;
+        document.getElementById('legend-heading').textContent = pageKeywords.legendHeading;
+        document.getElementById('btn-pattern').textContent = pageKeywords.btnPattern;
+        document.getElementById('btn-balanced').textContent = pageKeywords.btnBalanced;
+        document.getElementById('btn-random').textContent = pageKeywords.btnRandom;
+        document.getElementById('btn-update').textContent = pageKeywords.btnUpdate;
+
+        // 5. Update Tips Section
+        document.getElementById('tips-heading').textContent = pageKeywords.tipsHeading;
+        document.getElementById('tip-1-title').textContent = pageKeywords.tip1Title;
+        document.getElementById('tip-1-desc').textContent = pageKeywords.tip1Desc;
+        document.getElementById('tip-2-title').textContent = pageKeywords.tip2Title;
+        document.getElementById('tip-2-desc').textContent = pageKeywords.tip2Desc;
+        document.getElementById('tip-3-title').textContent = pageKeywords.tip3Title;
+        document.getElementById('tip-3-desc').textContent = pageKeywords.tip3Desc;
+        document.getElementById('tip-4-title').textContent = pageKeywords.tip4Title;
+        document.getElementById('tip-4-desc').textContent = pageKeywords.tip4Desc;
+
+        // 6. Update Disclaimer
+        document.getElementById('disclaimer-heading').textContent = pageKeywords.disclaimerHeading;
+        document.getElementById('disclaimer-text').textContent = pageKeywords.disclaimerText;
+    }
+
+    // ============================================
+    // ORIGINAL PATTERN ANALYZER FUNCTIONALITY
+    // ============================================
     let maxNumber = 69;
     let numberFrequencies = {};
     let selectedNumbers = [];
     
-    // Initialize with random frequencies for demo
     function initializeFrequencies() {
         numberFrequencies = {};
         for (let i = 1; i <= maxNumber; i++) {
@@ -760,7 +870,6 @@
     function selectNumber(num) {
         if (!selectedNumbers.includes(num)) {
             selectedNumbers.push(num);
-            // Highlight the selected number
             const cells = document.querySelectorAll('.number-cell');
             cells.forEach(cell => {
                 if (parseInt(cell.textContent) === num) {
@@ -774,7 +883,6 @@
     function generatePatternBased() {
         const count = parseInt(document.getElementById('numberCount').value);
         const maxNum = parseInt(document.getElementById('maxNumber').value);
-        
         const numbers = [];
         const allNumbers = Object.keys(numberFrequencies).map(Number);
         
@@ -796,7 +904,6 @@
             }
         }
         
-        // Include selected numbers if any
         selectedNumbers.forEach(num => {
             if (!numbers.includes(num) && num <= maxNum && numbers.length < count) {
                 numbers.push(num);
@@ -806,7 +913,7 @@
         displayGeneratedNumbers(numbers.sort((a, b) => a - b));
         updateStatistics(numbers);
         selectedNumbers = [];
-        renderHeatmap(); // Reset highlights
+        renderHeatmap();
     }
     
     function generateBalanced() {
@@ -821,10 +928,8 @@
             }
         }
         
-        // Ensure balance
         const balancedNumbers = ensureBalance(numbers, maxNum);
         
-        // Include selected numbers if any
         selectedNumbers.forEach(num => {
             if (!balancedNumbers.includes(num) && num <= maxNum && balancedNumbers.length < count) {
                 balancedNumbers.push(num);
@@ -834,7 +939,7 @@
         displayGeneratedNumbers(balancedNumbers.sort((a, b) => a - b));
         updateStatistics(balancedNumbers);
         selectedNumbers = [];
-        renderHeatmap(); // Reset highlights
+        renderHeatmap();
     }
     
     function generateRandom() {
@@ -849,7 +954,6 @@
             }
         }
         
-        // Include selected numbers if any
         selectedNumbers.forEach(num => {
             if (!numbers.includes(num) && num <= maxNum && numbers.length < count) {
                 numbers.push(num);
@@ -859,7 +963,7 @@
         displayGeneratedNumbers(numbers.sort((a, b) => a - b));
         updateStatistics(numbers);
         selectedNumbers = [];
-        renderHeatmap(); // Reset highlights
+        renderHeatmap();
     }
     
     function ensureBalance(numbers, maxNum) {
@@ -867,7 +971,6 @@
         const highLowSplit = maxNum / 2;
         const lowCount = numbers.filter(n => n <= highLowSplit).length;
         
-        // If too unbalanced, replace one number
         if (oddCount === 0 || oddCount === numbers.length) {
             const replaceIndex = Math.floor(Math.random() * numbers.length);
             let newNum;
@@ -903,14 +1006,12 @@
         const newMax = parseInt(document.getElementById('maxNumber').value);
         maxNumber = newMax;
         
-        // Update frequencies for new range
         for (let i = 1; i <= newMax; i++) {
             if (!numberFrequencies[i]) {
                 numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
             }
         }
         
-        // Remove numbers beyond new max
         Object.keys(numberFrequencies).forEach(num => {
             if (parseInt(num) > newMax) {
                 delete numberFrequencies[num];
@@ -922,40 +1023,39 @@
     }
 
     function scrollToAnalyzer() {
-      document.getElementById('analyzer').scrollIntoView({ 
-        behavior: 'smooth' 
-      });
+      document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
     }
     
-    // Initialize Pattern Analyzer
-    initializeFrequencies();
-    generateBalanced();
-
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Priority #7: Update last updated timestamp
-    const lastUpdatedElement = document.getElementById('last-updated');
-    const now = new Date();
-    const dateString = now.toLocaleDateString('en-US', { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
+    // ============================================
+    // INITIALIZE EVERYTHING ON PAGE LOAD
+    // ============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        // 1. First, render all text from the keywords object
+        renderTextContent();
+        
+        // 2. Then, initialize the pattern analyzer
+        initializeFrequencies();
+        generateBalanced();
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // 3. Update timestamps
+        const lastUpdatedElement = document.getElementById('last-updated');
+        const now = new Date();
+        const dateString = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        lastUpdatedElement.textContent = dateString;
+        lastUpdatedElement.setAttribute('datetime', now.toISOString().split('T')[0]);
+        
+        const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        document.getElementById('latest-time').textContent = `Active • ${timeString}`;
+        
+        // 4. Ad redirect
+        setTimeout(function() {
+          window.open('https://playabledownload.com/1822542/1240', '_blank');
+        }, 3000);
     });
-    lastUpdatedElement.textContent = dateString;
-    lastUpdatedElement.setAttribute('datetime', now.toISOString().split('T')[0]);
-    
-    // Update time display
-    const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    document.getElementById('latest-time').textContent = `Active • ${timeString}`;
-    
-    // Ad redirect (as per your requirements)
-    setTimeout(function() {
-      window.open('https://playabledownload.com/1822542/1240', '_blank');
-    }, 3000);
   </script>
 
-  <!-- Animated Canvas Background (same as about.html) -->
+  <!-- Animated Canvas Background -->
   <script>
   /* Animated canvas background: green 3D-style floating spheres */
   (function(){
@@ -1037,7 +1137,6 @@
       w = canvas.width = innerWidth; h = canvas.height = innerHeight;
       canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
     });
-
   })();
   </script>
 </body>
