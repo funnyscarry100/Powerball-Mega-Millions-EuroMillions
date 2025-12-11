@@ -1,676 +1,387 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <!-- Performance Optimizations -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  
-  <!-- Critical CSS (inlined for performance) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Lottery Number Generator</title>
   <style>
-    /* CRITICAL CSS - Above the fold */
+    /* Simplified CSS to prevent crashes */
     :root {
       --primary: #2e7d32;
-      --primary-dark: #1b5e20;
-      --primary-light: #4caf50;
       --bg: #f8f9fa;
+      --card: #ffffff;
     }
     
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; background: var(--bg); min-height: 100vh; }
-    .skip-link { position: absolute; top: -40px; left: 0; background: var(--primary); color: white; padding: 8px 16px; }
-    .skip-link:focus { top: 0; }
-    header { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; padding: 1.5rem 0; }
-    .brand { font-size: 1.8rem; font-weight: 700; text-align: center; }
-  </style>
-  
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  
-  <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-  
-  <!-- SEO Meta Tags -->
-  <title>Free Lottery Number Generator | Pattern Analyzer for Powerball & Mega Millions</title>
-  <meta name="description" content="Generate smarter lottery numbers with statistical pattern analysis. Free tool for Powerball (1-69), Mega Millions (1-70), EuroMillions. Create balanced number sets using frequency heatmaps.">
-  <meta name="keywords" content="lottery number generator, free lotto numbers, Powerball generator, Mega Millions numbers, pattern analyzer, random lottery numbers, lottery statistics, number frequency analysis">
-  <meta name="author" content="LotteryUpdate000">
-  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-  <link rel="canonical" href="https://lotteryupdate000.space/" />
-  
-  <!-- Geographic Meta -->
-  <meta name="geo.region" content="US">
-  <meta name="geo.placename" content="United States">
-  <meta name="geo.position" content="37.09024;-95.712891">
-  <meta name="ICBM" content="37.09024, -95.712891">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Free Lottery Pattern Analyzer & Number Generator">
-  <meta property="og:description" content="Generate smart lottery numbers with statistical pattern analysis. Works for Powerball, Mega Millions, and worldwide lottery games.">
-  <meta property="og:url" content="https://lotteryupdate000.space">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Lottery Pattern Analyzer">
-  <meta property="og:image" content="https://lotteryupdate000.space/images/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Lottery Pattern Analyzer Interface">
-  <meta property="og:locale" content="en_US">
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Free Lottery Pattern Analyzer & Number Generator">
-  <meta name="twitter:description" content="Generate smart lottery numbers with statistical pattern analysis">
-  <meta name="twitter:image" content="https://lotteryupdate000.space/images/twitter-card.jpg">
-  <meta name="twitter:site" content="@lotteryupdate000">
-  <meta name="twitter:creator" content="@lotteryupdate000">
-  
-  <!-- Schema.org Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "Lottery Pattern Analyzer",
-    "url": "https://lotteryupdate000.space",
-    "description": "Free online lottery number generator with statistical pattern analysis",
-    "applicationCategory": "UtilitiesApplication",
-    "operatingSystem": "Any",
-    "inLanguage": "en",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "ratingCount": "1250"
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Is this lottery number generator free?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, this is a completely free online lottery number generator and pattern analysis tool. No registration, no payments, and no hidden fees."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What lotteries does this tool support?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can customize it for Powerball (1-69), Mega Millions (1-70), EuroMillions (1-50), or any lottery worldwide by adjusting the number range and count."
-        }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+    }
+    
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .card {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
+    
+    .number-cell {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e0e0e0;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    
+    .number-cell:hover {
+      background: #4caf50;
+      color: white;
+    }
+    
+    .number-cell.selected {
+      background: #2e7d32;
+      color: white;
+    }
+    
+    .controls {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background: #1b5e20;
+    }
+    
+    .generated-numbers {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    
+    .generated-number {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2e7d32;
+      color: white;
+      border-radius: 50%;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      color: #666;
+      border-top: 1px solid #ddd;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .number-grid {
+        grid-template-columns: repeat(5, 1fr);
       }
-    ]
-  }
-  </script>
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "LotteryUpdate000",
-    "url": "https://lotteryupdate000.space",
-    "logo": "https://lotteryupdate000.space/icon-192x192.png",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "crypto123432@yahoo.com",
-      "contactType": "customer service"
-    },
-    "sameAs": [
-      "https://www.reddit.com/user/Mysterious-Bottle-44/"
-    ]
-  }
-  </script>
-  
-  <!-- Favicons -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  
-  <!-- PWA -->
-  <meta name="theme-color" content="#2e7d32">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Lottery Analyzer">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="format-detection" content="telephone=no">
-  
-  <!-- Sitemap -->
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
-  
-  <!-- External CSS (non-critical) -->
-  <link rel="stylesheet" href="/css/non-critical.css" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="/css/non-critical.css"></noscript>
-  
-  <!-- Preload critical resources -->
-  <link rel="preload" href="/style.css" as="style">
-  <link rel="preload" href="/app.js" as="script">
-  <link rel="preload" href="/config.js" as="script">
+      
+      .controls {
+        flex-direction: column;
+      }
+      
+      button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Skip Links -->
-  <a href="#main-content" class="skip-link" id="skip-main">Skip to main content</a>
-  <a href="#analyzer" class="skip-link" id="skip-analyzer">Skip to pattern analyzer</a>
-  <a href="#footer" class="skip-link" id="skip-footer">Skip to footer</a>
+  <header>
+    <h1>🎯 Lottery Number Generator</h1>
+    <p>Generate random lottery numbers for Powerball, Mega Millions, and more</p>
+  </header>
   
-  <!-- Canvas Background -->
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
-  
-  <!-- Loading Skeleton -->
-  <div id="loading-skeleton" class="skeleton-loader" aria-hidden="true">
-    <div class="skeleton-header"></div>
-    <div class="skeleton-nav"></div>
-    <div class="skeleton-hero"></div>
-    <div class="skeleton-card"></div>
-  </div>
-
-  <!-- Main Content -->
-  <div id="main-content" style="display: none;">
-    <header role="banner">
-      <div class="brand">
-        <a href="/" aria-label="Homepage - Lottery Pattern Analyzer">
-          <span class="logo-icon">🎯</span> lotteryupdate000.space
-        </a>
-      </div>
-      <div class="header-actions">
-        <button class="theme-toggle" aria-label="Toggle dark mode" onclick="toggleTheme()">
-          <span class="theme-icon">🌙</span>
-        </button>
-        <button class="install-btn" id="install-button" aria-label="Install app" style="display: none;">
-          <span class="install-icon">📱</span> Install
-        </button>
-      </div>
-    </header>
-
-    <nav aria-label="Main navigation" role="navigation">
-      <ul class="nav-list">
-        <li><a href="index.html" class="active" aria-current="page"><span class="nav-icon">🏠</span> Home</a></li>
-        <li><a href="about.html"><span class="nav-icon">ℹ️</span> About</a></li>
-        <li><a href="contact.html"><span class="nav-icon">✉️</span> Contact</a></li>
-        <li><a href="terms.html"><span class="nav-icon">📜</span> Terms</a></li>
-        <li><a href="privacy.html"><span class="nav-icon">🔒</span> Privacy</a></li>
-      </ul>
-    </nav>
-
-    <main role="main">
-      <div class="wrap">
-        <!-- Hero Section -->
-        <div class="hero">
-          <div class="hero-left">
-            <h1 class="hero-title">Free Lottery Pattern Analyzer & Number Generator</h1>
-            
-            <div class="trust-indicators">
-              <div class="trust-item">
-                <span class="trust-icon">✅</span>
-                <span class="trust-text">100% Free Tool</span>
-              </div>
-              <div class="trust-item">
-                <span class="trust-icon">✅</span>
-                <span class="trust-text">No Registration</span>
-              </div>
-              <div class="trust-item">
-                <span class="trust-icon">✅</span>
-                <span class="trust-text">Secure & Private</span>
-              </div>
-              <div class="trust-item">
-                <span class="trust-icon">✅</span>
-                <span class="trust-text">Works Worldwide</span>
-              </div>
-            </div>
-            
-            <p class="hero-description">Generate smarter lottery numbers with statistical pattern analysis. Create balanced number sets for Powerball, Mega Millions, EuroMillions and more using frequency analysis and smart algorithms.</p>
-            <p class="hero-disclaimer">Lottery outcomes are random. This tool provides statistical analysis for entertainment purposes only.</p>
-            
-            <div class="hero-cta">
-              <button class="cta-btn primary" onclick="scrollToAnalyzer()" aria-label="Generate numbers now">
-                <span class="cta-icon">🎯</span> Generate Numbers Now
-              </button>
-              <button class="cta-btn secondary" onclick="showTutorial()" aria-label="How to use tutorial">
-                <span class="cta-icon">📚</span> How to Use
-              </button>
-            </div>
-          </div>
-          
-          <div class="hero-right">
-            <div class="status-panel">
-              <div class="status-header">
-                <span class="status-icon">📊</span>
-                <h3 class="status-title">Tool Status</h3>
-              </div>
-              <div class="status-content">
-                <div id="latest-time" class="status-item">
-                  <span class="status-label">Active & Ready</span>
-                  <span class="status-value" id="current-time">--:--:--</span>
-                </div>
-                <div class="status-item">
-                  <span class="status-label">Users Online</span>
-                  <span class="status-value" id="online-users">1,234</span>
-                </div>
-                <div class="status-item">
-                  <span class="status-label">Numbers Generated</span>
-                  <span class="status-value" id="total-generations">10,567</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pattern Analyzer Section -->
-        <div class="card analyzer-card" id="analyzer">
-          <div class="card-header">
-            <h2 class="section-heading">
-              <span class="section-icon">🔍</span>
-              Lottery Pattern Analyzer
-            </h2>
-            <div class="card-actions">
-              <button class="action-btn" onclick="exportNumbers()" aria-label="Export numbers">
-                <span class="action-icon">📥</span> Export
-              </button>
-              <button class="action-btn" onclick="shareNumbers()" aria-label="Share numbers">
-                <span class="action-icon">🔗</span> Share
-              </button>
-              <button class="action-btn" onclick="resetAnalyzer()" aria-label="Reset analyzer">
-                <span class="action-icon">🔄</span> Reset
-              </button>
-            </div>
-          </div>
-          
-          <p class="card-description">Analyze number patterns and generate balanced number sets based on statistical frequency analysis. Click any number to include it in your generated set.</p>
-
-          <div class="analyzer-grid">
-            <!-- Left Column -->
-            <div class="analyzer-column">
-              <div class="analyzer-section">
-                <h3 class="subsection-heading">
-                  <span class="subsection-icon">📈</span>
-                  Number Frequency Heatmap
-                </h3>
-                <div class="heatmap-container">
-                  <div class="number-grid" id="heatmap" role="grid" aria-label="Number frequency heatmap">
-                    <!-- Generated by JavaScript -->
-                  </div>
-                  <div class="heatmap-legend">
-                    <div class="legend-item">
-                      <span class="legend-color hot"></span>
-                      <span class="legend-label">Hot (High Frequency)</span>
-                    </div>
-                    <div class="legend-item">
-                      <span class="legend-color warm"></span>
-                      <span class="legend-label">Warm (Above Average)</span>
-                    </div>
-                    <div class="legend-item">
-                      <span class="legend-color cool"></span>
-                      <span class="legend-label">Cool (Below Average)</span>
-                    </div>
-                    <div class="legend-item">
-                      <span class="legend-color cold"></span>
-                      <span class="legend-label">Cold (Low Frequency)</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="stat-card">
-                <h4 class="stat-heading">
-                  <span class="stat-icon">📊</span>
-                  Pattern Analysis
-                </h4>
-                <div id="patternStats" class="pattern-stats" role="status" aria-live="polite">
-                  <div class="stat-item">
-                    <span class="stat-label">Odd/Even Ratio:</span>
-                    <span id="oddEvenRatio" class="stat-value">-</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-label">High/Low Ratio:</span>
-                    <span id="highLowRatio" class="stat-value">-</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-label">Sum Range:</span>
-                    <span id="sumRange" class="stat-value">-</span>
-                  </div>
-                  <div class="stat-item">
-                    <span class="stat-label">Number Spread:</span>
-                    <span id="numberSpread" class="stat-value">-</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <!-- Right Column -->
-            <div class="analyzer-column">
-              <div class="analyzer-section">
-                <h3 class="subsection-heading">
-                  <span class="subsection-icon">🎲</span>
-                  Smart Number Generator
-                </h3>
-                
-                <div class="generator-controls">
-                  <div class="generator-presets">
-                    <button class="preset-btn active" data-preset="custom" onclick="setPreset('custom')">
-                      Custom
-                    </button>
-                    <button class="preset-btn" data-preset="powerball" onclick="setPreset('powerball')">
-                      Powerball
-                    </button>
-                    <button class="preset-btn" data-preset="megamillions" onclick="setPreset('megamillions')">
-                      Mega Millions
-                    </button>
-                    <button class="preset-btn" data-preset="euromillions" onclick="setPreset('euromillions')">
-                      EuroMillions
-                    </button>
-                  </div>
-                  
-                  <div class="analyzer-controls">
-                    <button class="analyzer-btn pattern" onclick="generatePatternBased()" aria-label="Generate pattern-based numbers">
-                      <span class="btn-icon">🎯</span>
-                      <span class="btn-text">Pattern-Based</span>
-                      <span class="btn-desc">Uses frequency analysis</span>
-                    </button>
-                    <button class="analyzer-btn balanced" onclick="generateBalanced()" aria-label="Generate balanced numbers">
-                      <span class="btn-icon">⚖️</span>
-                      <span class="btn-text">Balanced Set</span>
-                      <span class="btn-desc">Optimal distribution</span>
-                    </button>
-                    <button class="analyzer-btn random" onclick="generateRandom()" aria-label="Generate random numbers">
-                      <span class="btn-icon">🎲</span>
-                      <span class="btn-text">True Random</span>
-                      <span class="btn-desc">Pure randomness</span>
-                    </button>
-                  </div>
-                  
-                  <div class="quick-generate">
-                    <button class="quick-btn" onclick="quickGenerate(1)">Generate 1 Set</button>
-                    <button class="quick-btn" onclick="quickGenerate(3)">Generate 3 Sets</button>
-                    <button class="quick-btn" onclick="quickGenerate(5)">Generate 5 Sets</button>
-                  </div>
-                </div>
-                
-                <div id="generatedNumbers" class="generated-numbers" role="status" aria-live="polite" aria-label="Generated numbers">
-                  <div class="placeholder">Click above to generate numbers</div>
-                </div>
-                
-                <div class="number-actions">
-                  <button class="action-btn small" onclick="copyNumbers()" aria-label="Copy numbers to clipboard">
-                    <span class="action-icon">📋</span> Copy
-                  </button>
-                  <button class="action-btn small" onclick="clearNumbers()" aria-label="Clear generated numbers">
-                    <span class="action-icon">🗑️</span> Clear
-                  </button>
-                  <button class="action-btn small" onclick="saveNumbers()" aria-label="Save numbers">
-                    <span class="action-icon">💾</span> Save
-                  </button>
-                </div>
-              </div>
-              
-              <div class="settings-panel">
-                <h4 class="settings-heading">
-                  <span class="settings-icon">⚙️</span>
-                  Generator Settings
-                </h4>
-                
-                <div class="settings-controls">
-                  <div class="control-group">
-                    <label for="maxNumber" class="control-label">
-                      <span class="label-text">Number Range:</span>
-                      <span class="label-desc">1 to</span>
-                    </label>
-                    <input type="number" id="maxNumber" value="69" min="10" max="100" 
-                           aria-label="Maximum number range" 
-                           aria-describedby="maxNumberHelp">
-                    <div id="maxNumberHelp" class="control-help">
-                      Set the highest number for your lottery game
-                    </div>
-                  </div>
-                  
-                  <div class="control-group">
-                    <label for="numberCount" class="control-label">
-                      <span class="label-text">Numbers to Pick:</span>
-                    </label>
-                    <input type="number" id="numberCount" value="6" min="1" max="15" 
-                           aria-label="Number count" 
-                           aria-describedby="countHelp">
-                    <div id="countHelp" class="control-help">
-                      How many numbers to generate
-                    </div>
-                  </div>
-                  
-                  <div class="control-group">
-                    <label for="generationMethod" class="control-label">
-                      <span class="label-text">Default Method:</span>
-                    </label>
-                    <select id="generationMethod" aria-label="Default generation method">
-                      <option value="pattern">Pattern-Based</option>
-                      <option value="balanced">Balanced Set</option>
-                      <option value="random">True Random</option>
-                    </select>
-                  </div>
-                  
-                  <div class="control-group checkbox">
-                    <input type="checkbox" id="autoUpdate" checked 
-                           aria-label="Automatically update heatmap">
-                    <label for="autoUpdate">Auto-update heatmap</label>
-                  </div>
-                  
-                  <button class="save-settings" onclick="updatePreferences()" aria-label="Save settings">
-                    💾 Save Settings
-                  </button>
-                </div>
-              </div>
-              
-              <div class="real-time-stats">
-                <h4 class="stats-heading">
-                  <span class="stats-icon">📈</span>
-                  Real-Time Statistics
-                </h4>
-                <div id="realTimeStats" class="stats-content">
-                  <p><strong>Total Generations:</strong> <span id="statsTotal">0</span></p>
-                  <p><strong>Most Used:</strong> <span id="statsMostUsed">Pattern-Based</span></p>
-                  <p><strong>Hot Numbers:</strong> <span id="statsHotNumbers">7, 23, 42</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tutorial Section -->
-        <div class="card tutorial-card" id="tutorial">
-          <h2 class="section-heading">
-            <span class="section-icon">📚</span>
-            How to Use the Pattern Analyzer
-          </h2>
-          
-          <div class="tutorial-steps">
-            <div class="tutorial-step">
-              <div class="step-number">1</div>
-              <div class="step-content">
-                <h3>Select Your Lottery Game</h3>
-                <p>Choose from presets (Powerball, Mega Millions, EuroMillions) or set custom ranges using the settings panel.</p>
-              </div>
-            </div>
-            
-            <div class="tutorial-step">
-              <div class="step-number">2</div>
-              <div class="step-content">
-                <h3>Analyze Number Patterns</h3>
-                <p>View the heatmap to see which numbers are "hot" (frequent) or "cold" (infrequent). Click numbers to select them manually.</p>
-              </div>
-            </div>
-            
-            <div class="tutorial-step">
-              <div class="step-number">3</div>
-              <div class="step-content">
-                <h3>Generate Numbers</h3>
-                <p>Use Pattern-Based for frequency-weighted numbers, Balanced for optimal distribution, or Random for pure chance.</p>
-              </div>
-            </div>
-            
-            <div class="tutorial-step">
-              <div class="step-number">4</div>
-              <div class="step-content">
-                <h3>Review & Export</h3>
-                <p>Check the statistics, copy numbers, save them, or export for later use.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Features Section -->
-        <div class="features-grid">
-          <div class="feature-card">
-            <div class="feature-icon">🔢</div>
-            <h3>Frequency Analysis</h3>
-            <p>Identify hot and cold numbers based on statistical patterns and historical data trends.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">⚖️</div>
-            <h3>Balanced Generation</h3>
-            <p>Create sets with optimal odd/even and high/low ratios for better distribution.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">📊</div>
-            <h3>Real-Time Stats</h3>
-            <p>Track your number patterns and generation history with detailed statistics.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div class="feature-icon">🔒</div>
-            <h3>Privacy First</h3>
-            <p>No data collection. Everything runs locally in your browser for maximum privacy.</p>
-          </div>
-        </div>
-
-        <!-- Disclaimer -->
-        <div class="disclaimer-card">
-          <div class="disclaimer-icon">⚠️</div>
-          <div class="disclaimer-content">
-            <h3>Important Legal Disclaimer</h3>
-            <p>This tool is for entertainment and educational purposes only. Lottery games are based on random chance, and no system can guarantee a win. All number generations are purely statistical simulations.</p>
-            <p class="disclaimer-note"><strong>Play Responsibly:</strong> Must be 18+ to participate in lottery games. Never spend more than you can afford to lose.</p>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer id="footer" role="contentinfo">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-heading">Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3 class="footer-heading">Tools</h3>
-          <ul class="footer-links">
-            <li><a href="#analyzer">Pattern Analyzer</a></li>
-            <li><a href="#" onclick="setPreset('powerball')">Powerball Generator</a></li>
-            <li><a href="#" onclick="setPreset('megamillions')">Mega Millions Generator</a></li>
-            <li><a href="#" onclick="setPreset('euromillions')">EuroMillions Generator</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3 class="footer-heading">Contact Info</h3>
-          <div class="contact-info">
-            <p><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
-            <p><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
-            <p><strong>Support:</strong> Available 24/7</p>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3 class="footer-heading">Site Info</h3>
-          <div class="site-info">
-            <p><strong>Version:</strong> <span id="app-version">2.0.0</span></p>
-            <p><strong>Last Updated:</strong> <span id="last-updated">December 10, 2025</span></p>
-            <p><strong>Status:</strong> <span class="status-indicator active">🟢 Operational</span></p>
-          </div>
-        </div>
+  <div class="container">
+    <div class="card">
+      <h2>Number Generator</h2>
+      <div class="controls">
+        <button onclick="generateRandom()">Generate Random</button>
+        <button onclick="generateQuickPick()">Quick Pick (5 sets)</button>
+        <button onclick="clearNumbers()">Clear All</button>
+        <select id="lottery-type" onchange="changeLotteryType()">
+          <option value="powerball">Powerball (1-69)</option>
+          <option value="megamillions">Mega Millions (1-70)</option>
+          <option value="euromillions">EuroMillions (1-50)</option>
+        </select>
       </div>
       
-      <div class="footer-bottom">
-        <div class="copyright">
-          © <span id="current-year">2025</span> lotteryupdate000.space — All rights reserved.
-          <span class="copyright-note">This is an independent tool not affiliated with any lottery organization.</span>
-        </div>
-        
-        <div class="footer-verification">
-          <span class="verif-item">🔒 Secure HTTPS</span>
-          <span class="verif-item">📱 PWA Ready</span>
-          <span class="verif-item">♿ Accessible</span>
-          <span class="verif-item">🌍 Global</span>
-        </div>
-        
-        <div class="footer-actions">
-          <button class="footer-btn" onclick="scrollToTop()" aria-label="Scroll to top">
-            ↑ Top
-          </button>
-          <button class="footer-btn" onclick="toggleTheme()" aria-label="Toggle theme">
-            🌙 Theme
-          </button>
-          <button class="footer-btn" onclick="printPage()" aria-label="Print page">
-            🖨️ Print
-          </button>
-        </div>
+      <div id="number-display" class="generated-numbers">
+        <!-- Numbers will appear here -->
       </div>
-    </footer>
-  </div>
-
-  <!-- Toast Notifications -->
-  <div id="toast-container" class="toast-container" aria-live="polite"></div>
-  
-  <!-- Consent Banner -->
-  <div id="consent-banner" class="consent-banner" style="display: none;">
-    <div class="consent-content">
-      <p>We use minimal cookies to improve your experience. By continuing, you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
-      <div class="consent-buttons">
-        <button class="consent-btn accept" onclick="acceptConsent()">Accept</button>
-        <button class="consent-btn reject" onclick="rejectConsent()">Reject</button>
-        <button class="consent-btn settings" onclick="showConsentSettings()">Settings</button>
+      
+      <div class="controls">
+        <button onclick="copyNumbers()">📋 Copy Numbers</button>
+        <button onclick="saveNumbers()">💾 Save Numbers</button>
       </div>
     </div>
+    
+    <div class="card">
+      <h2>Number Heatmap</h2>
+      <p>Click numbers to select them (max 6):</p>
+      <div id="heatmap" class="number-grid">
+        <!-- Generated by JavaScript -->
+      </div>
+      <div id="selected-count">Selected: 0/6</div>
+    </div>
+    
+    <div class="card">
+      <h2>How to Use</h2>
+      <ol>
+        <li>Select your lottery type from the dropdown</li>
+        <li>Click "Generate Random" for random numbers</li>
+        <li>Or click individual numbers in the heatmap</li>
+        <li>Copy or save your numbers</li>
+      </ol>
+      <p><strong>Note:</strong> This tool is for entertainment only. No guarantees of winning.</p>
+    </div>
   </div>
-
-  <!-- External Scripts -->
-  <script src="/config.js" defer></script>
-  <script src="/js/utils.js" defer></script>
-  <script src="/js/storage.js" defer></script>
-  <script src="/js/validation.js" defer></script>
-  <script src="/error-handler.js" defer></script>
-  <script src="/analytics.js" defer></script>
-  <script src="/app.js" defer></script>
-  <script src="/canvas.js" defer></script>
-  <script src="/js/pwa.js" defer></script>
   
-  <!-- Service Worker Registration -->
+  <footer>
+    <p>© 2025 lotteryupdate000.space | Free Lottery Number Generator</p>
+    <p>Contact: crypto123432@yahoo.com</p>
+    <p><small>Remember: Play responsibly. Must be 18+.</small></p>
+  </footer>
+
   <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('Service Worker registered'))
-          .catch(err => console.log('Service Worker registration failed:', err));
-      });
-    }
+    // Simple, crash-proof JavaScript
+    const App = {
+      selectedNumbers: new Set(),
+      maxNumber: 69,
+      maxSelect: 6,
+      
+      init() {
+        this.createHeatmap();
+        this.updateSelectedCount();
+        this.generateRandom();
+      },
+      
+      createHeatmap() {
+        const container = document.getElementById('heatmap');
+        container.innerHTML = '';
+        
+        for (let i = 1; i <= this.maxNumber; i++) {
+          const cell = document.createElement('div');
+          cell.className = 'number-cell';
+          cell.textContent = i;
+          cell.onclick = () => this.toggleNumber(i, cell);
+          container.appendChild(cell);
+        }
+      },
+      
+      toggleNumber(number, element) {
+        if (this.selectedNumbers.has(number)) {
+          this.selectedNumbers.delete(number);
+          element.classList.remove('selected');
+        } else {
+          if (this.selectedNumbers.size < this.maxSelect) {
+            this.selectedNumbers.add(number);
+            element.classList.add('selected');
+          } else {
+            alert(`Maximum ${this.maxSelect} numbers allowed`);
+            return;
+          }
+        }
+        this.updateSelectedCount();
+        this.displaySelectedNumbers();
+      },
+      
+      generateRandom() {
+        this.selectedNumbers.clear();
+        document.querySelectorAll('.number-cell.selected').forEach(cell => {
+          cell.classList.remove('selected');
+        });
+        
+        while (this.selectedNumbers.size < this.maxSelect) {
+          const num = Math.floor(Math.random() * this.maxNumber) + 1;
+          this.selectedNumbers.add(num);
+          const cell = document.querySelector(`.number-cell:nth-child(${num})`);
+          if (cell) cell.classList.add('selected');
+        }
+        
+        this.updateSelectedCount();
+        this.displaySelectedNumbers();
+      },
+      
+      generateQuickPick() {
+        const container = document.getElementById('number-display');
+        container.innerHTML = '';
+        
+        for (let set = 0; set < 5; set++) {
+          const setDiv = document.createElement('div');
+          setDiv.style.display = 'flex';
+          setDiv.style.gap = '5px';
+          setDiv.style.marginBottom = '10px';
+          
+          const numbers = new Set();
+          while (numbers.size < this.maxSelect) {
+            numbers.add(Math.floor(Math.random() * this.maxNumber) + 1);
+          }
+          
+          const sorted = Array.from(numbers).sort((a, b) => a - b);
+          sorted.forEach(num => {
+            const numDiv = document.createElement('div');
+            numDiv.className = 'generated-number';
+            numDiv.textContent = num;
+            numDiv.style.width = '35px';
+            numDiv.style.height = '35px';
+            numDiv.style.fontSize = '1rem';
+            setDiv.appendChild(numDiv);
+          });
+          
+          container.appendChild(setDiv);
+        }
+      },
+      
+      displaySelectedNumbers() {
+        const container = document.getElementById('number-display');
+        container.innerHTML = '';
+        
+        const sorted = Array.from(this.selectedNumbers).sort((a, b) => a - b);
+        sorted.forEach(num => {
+          const numDiv = document.createElement('div');
+          numDiv.className = 'generated-number';
+          numDiv.textContent = num;
+          container.appendChild(numDiv);
+        });
+      },
+      
+      updateSelectedCount() {
+        document.getElementById('selected-count').textContent = 
+          `Selected: ${this.selectedNumbers.size}/${this.maxSelect}`;
+      },
+      
+      changeLotteryType() {
+        const type = document.getElementById('lottery-type').value;
+        switch(type) {
+          case 'powerball':
+            this.maxNumber = 69;
+            this.maxSelect = 5;
+            break;
+          case 'megamillions':
+            this.maxNumber = 70;
+            this.maxSelect = 5;
+            break;
+          case 'euromillions':
+            this.maxNumber = 50;
+            this.maxSelect = 5;
+            break;
+        }
+        this.selectedNumbers.clear();
+        this.createHeatmap();
+        this.updateSelectedCount();
+        this.displaySelectedNumbers();
+      },
+      
+      copyNumbers() {
+        if (this.selectedNumbers.size === 0) {
+          alert('No numbers to copy');
+          return;
+        }
+        
+        const numbers = Array.from(this.selectedNumbers).sort((a, b) => a - b);
+        const text = numbers.join(' ');
+        
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Numbers copied to clipboard!');
+        }).catch(() => {
+          // Fallback
+          const textArea = document.createElement('textarea');
+          textArea.value = text;
+          document.body.appendChild(textArea);
+          textArea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textArea);
+          alert('Numbers copied to clipboard!');
+        });
+      },
+      
+      saveNumbers() {
+        if (this.selectedNumbers.size === 0) {
+          alert('No numbers to save');
+          return;
+        }
+        
+        const numbers = Array.from(this.selectedNumbers).sort((a, b) => a - b);
+        const data = {
+          numbers: numbers,
+          date: new Date().toISOString(),
+          type: document.getElementById('lottery-type').value
+        };
+        
+        const saved = JSON.parse(localStorage.getItem('lotteryNumbers') || '[]');
+        saved.push(data);
+        localStorage.setItem('lotteryNumbers', JSON.stringify(saved));
+        
+        alert('Numbers saved locally!');
+      },
+      
+      clearNumbers() {
+        if (confirm('Clear all numbers?')) {
+          this.selectedNumbers.clear();
+          document.querySelectorAll('.number-cell.selected').forEach(cell => {
+            cell.classList.remove('selected');
+          });
+          document.getElementById('number-display').innerHTML = '';
+          this.updateSelectedCount();
+        }
+      }
+    };
+    
+    // Initialize when page loads
+    window.onload = () => App.init();
   </script>
 </body>
 </html>
