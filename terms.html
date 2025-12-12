@@ -887,6 +887,32 @@
       });
     }
     
+    // Toast notification function (for theme changes)
+    function showToast(message) {
+      // Create toast container if it doesn't exist
+      let container = document.querySelector('.toast-container');
+      if (!container) {
+        container = document.createElement('div');
+        container.className = 'toast-container';
+        document.body.appendChild(container);
+      }
+      
+      // Create toast
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      container.appendChild(toast);
+      
+      // Remove toast after 3 seconds
+      setTimeout(() => {
+        toast.remove();
+        // Remove container if empty
+        if (container.children.length === 0) {
+          container.remove();
+        }
+      }, 3000);
+    }
+    
     // Initialize everything
     document.addEventListener('DOMContentLoaded', () => {
       initTheme();
