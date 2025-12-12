@@ -1010,7 +1010,18 @@
       </div>
     </header>
 
-    <!-- Visitor Info Bar -->
+    <!-- Navigation -->
+    <nav>
+      <div class="container">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span>🏠</span> Home</a></li>
+          <li class="nav-item"><a href="other-tools.html" class="nav-link"><span>🛠️</span> Other Tools</a></li>
+          <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Visitor Location & Current Time -->
     <div class="visitor-info">
       <div class="container">
         <div class="visitor-content">
@@ -1022,27 +1033,9 @@
             <span>🕒</span>
             <span id="visitor-time">Loading time...</span>
           </div>
-          <div class="visitor-item">
-            <span>👤</span>
-            <span id="visitor-count">1,234 users online</span>
-          </div>
         </div>
       </div>
     </div>
-
-    <!-- Navigation -->
-    <nav>
-      <div class="container">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="index.html" class="nav-link active"><span>🏠</span> Home</a></li>
-          <li class="nav-item"><a href="other-tools.html" class="nav-link"><span>🛠️</span> Other Tools</a></li>
-          <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link"><span>ℹ️</span> About</a></li>
-          <li class="nav-item"><a href="terms.html" class="nav-link"><span>📜</span> Terms</a></li>
-          <li class="nav-item"><a href="privacy.html" class="nav-link"><span>🔒</span> Privacy</a></li>
-        </ul>
-      </div>
-    </nav>
 
     <main>
       <div class="container">
@@ -1365,9 +1358,16 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="other-tools.html">Other Tools</a></li>
               <li><a href="guides.html">Guides</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="privacy.html">Privacy</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-section">
+            <h3>Information</h3>
+            <ul class="footer-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
             </ul>
           </div>
           
@@ -1387,15 +1387,6 @@
               <p style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
               <p style="margin-bottom: 8px;"><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
               <p><strong>Support:</strong> Available 24/7</p>
-            </div>
-          </div>
-          
-          <div class="footer-section">
-            <h3>Site Info</h3>
-            <div>
-              <p style="margin-bottom: 8px;"><strong>Version:</strong> <span id="app-version">2.0.0</span></p>
-              <p style="margin-bottom: 8px;"><strong>Last Updated:</strong> <span id="last-updated">December 2024</span></p>
-              <p><strong>Status:</strong> <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; background: rgba(76, 175, 80, 0.1); color: var(--success); border-radius: 10px; font-size: 0.85rem;">🟢 Operational</span></p>
             </div>
           </div>
         </div>
@@ -1591,7 +1582,6 @@
         const base = 1234;
         const variation = Math.floor(Math.random() * 100) - 50;
         const onlineUsers = base + variation;
-        document.getElementById('visitor-count').textContent = `${onlineUsers.toLocaleString()} users online`;
         document.getElementById('online-users').textContent = onlineUsers.toLocaleString();
       },
       
