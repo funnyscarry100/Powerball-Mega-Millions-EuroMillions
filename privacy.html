@@ -1,459 +1,1042 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy - LotteryUpdate000</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Security Headers -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+  
+  <!-- SEO Meta Tags -->
+  <title>Privacy Policy | Lottery Pattern Analyzer</title>
+  <meta name="description" content="Privacy Policy for Lottery Pattern Analyzer - We don't collect personal data. Learn how we protect your privacy.">
+  <meta name="keywords" content="privacy policy, data privacy, no data collection, lottery tool privacy">
+  <meta name="author" content="LotteryUpdate000">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lotteryupdate000.space/privacy.html" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Privacy Policy - Lottery Pattern Analyzer">
+  <meta property="og:description" content="We don't collect personal data. Your privacy is our priority.">
+  <meta property="og:url" content="https://lotteryupdate000.space/privacy.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicons -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+  
+  <!-- PWA -->
+  <meta name="theme-color" content="#2e7d32">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="mobile-web-app-capable" content="yes">
+  
+  <!-- Inline CSS - Same as index.html -->
   <style>
-    :root {
-      --blue-1: #0066cc;
-      --blue-2: #004d99;
-      --card-bg: #ffffff;
-      --muted: #666;
-    }
-    
+    /* ==========================================================================
+       CSS Reset & Base Styles
+       ========================================================================== */
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
     
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
     body {
-      background: #f8f9fa;
-      height: 100%;
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f8f9fa;
+      min-height: 100vh;
     }
     
-    /* Canvas background sits behind content */
-    #bg-canvas{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      display:block;
+    /* ==========================================================================
+       CSS Variables & Theme
+       ========================================================================== */
+    :root {
+      /* Colors */
+      --primary: #2e7d32;
+      --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
+      --secondary: #2196f3;
+      --accent: #ff9800;
+      --danger: #f44336;
+      --warning: #ffc107;
+      --success: #4caf50;
+      
+      /* Backgrounds */
+      --bg-primary: #ffffff;
+      --bg-secondary: #f8f9fa;
+      --bg-tertiary: #f1f3f4;
+      
+      /* Text */
+      --text-primary: #202124;
+      --text-secondary: #5f6368;
+      --text-tertiary: #80868b;
+      
+      /* Borders */
+      --border-light: #dadce0;
+      --border-medium: #e0e0e0;
+      
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+      
+      /* Radius */
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+      
+      /* Spacing */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 32px;
+      --space-xl: 48px;
+      
+      /* Transitions */
+      --transition-fast: 150ms ease;
+      --transition-base: 250ms ease;
     }
     
-    /* Header / navigation */
-    header{
-      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
-      color:#fff;
-      padding:16px 12px;
-      text-align:center;
+    /* Dark Mode */
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-secondary: #1e1e1e;
+      --bg-tertiary: #2d2d2d;
+      --text-primary: #e8eaed;
+      --text-secondary: #9aa0a6;
+      --border-light: #3c4043;
+      --border-medium: #5f6368;
     }
     
-    header .brand{
-      font-weight:700;
-      font-size:1.25rem;
-      letter-spacing:0.2px;
+    /* ==========================================================================
+       Utility Classes
+       ========================================================================== */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
     }
     
-    nav{
-      background:#003c99;
-      padding:8px 0;
-      box-shadow:0 1px 0 rgba(0,0,0,0.05);
+    .d-none {
+      display: none !important;
     }
     
-    .nav-list{
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      align-items:center;
-      margin:0;
-      padding:0 15px;
-      list-style:none;
+    .d-flex {
+      display: flex;
+    }
+    
+    .flex-column {
+      flex-direction: column;
+    }
+    
+    .flex-row {
+      flex-direction: row;
+    }
+    
+    .align-items-center {
+      align-items: center;
+    }
+    
+    .justify-content-center {
+      justify-content: center;
+    }
+    
+    .justify-content-between {
+      justify-content: space-between;
+    }
+    
+    .flex-wrap {
       flex-wrap: wrap;
     }
     
-    .nav-list a{
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      padding:8px 12px;
-      border-radius:6px;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
+    .gap-1 { gap: var(--space-xs); }
+    .gap-2 { gap: var(--space-sm); }
+    .gap-3 { gap: var(--space-md); }
+    .gap-4 { gap: var(--space-lg); }
     
-    .nav-list a.active{
-      background:rgba(255,255,255,0.08);
-      text-decoration:underline;
-    }
-    
-    .nav-list a:focus{
-      outline:2px solid rgba(255,255,255,0.14);
-      outline-offset:4px;
-    }
-    
-    /* Page shell */
-    .wrap{
-      max-width:1200px;
-      margin:20px auto;
-      padding:0 15px;
+    .w-100 {
       width: 100%;
     }
     
-    /* Hero Section */
-    .hero{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      display:flex;
-      flex-direction: column;
-      gap:20px;
-      align-items:center;
-      box-shadow:0 6px 24px rgba(6,30,60,0.08);
-      margin-bottom: 20px;
+    .text-center {
+      text-align: center;
     }
     
-    @media (min-width: 768px) {
-      .hero {
-        flex-direction: row;
-        align-items: flex-start;
-      }
+    .mt-1 { margin-top: var(--space-xs); }
+    .mt-2 { margin-top: var(--space-sm); }
+    .mt-3 { margin-top: var(--space-md); }
+    .mt-4 { margin-top: var(--space-lg); }
+    
+    .mb-1 { margin-bottom: var(--space-xs); }
+    .mb-2 { margin-bottom: var(--space-sm); }
+    .mb-3 { margin-bottom: var(--space-md); }
+    .mb-4 { margin-bottom: var(--space-lg); }
+    
+    .p-1 { padding: var(--space-xs); }
+    .p-2 { padding: var(--space-sm); }
+    .p-3 { padding: var(--space-md); }
+    .p-4 { padding: var(--space-lg); }
+    
+    /* ==========================================================================
+       Layout Components
+       ========================================================================== */
+    
+    /* Skip Links */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: var(--primary);
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 1000;
     }
     
-    .hero-left{
-      flex:1;
-      width: 100%;
+    .skip-link:focus {
+      top: 10px;
     }
     
-    .hero-right{
-      width: 100%;
-      text-align:center;
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
     }
     
-    @media (min-width: 768px) {
-      .hero-right {
-        width: 240px;
-        flex-shrink: 0;
-      }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
     }
     
-    .hero h1{
-      margin:0 0 10px 0;
-      font-size:1.5rem;
-      color:var(--blue-1);
-      line-height: 1.3;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.5rem;
+      font-weight: 700;
     }
     
-    @media (min-width: 768px) {
-      .hero h1 {
-        font-size: 1.8rem;
-      }
+    .brand a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     
-    .hero p{
-      margin:8px 0;
-      color:var(--muted);
-      line-height: 1.5;
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
     
-    /* Cards */
-    .card{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      box-shadow:0 6px 20px rgba(6,30,60,0.06);
-      margin-bottom: 20px;
-      width: 100%;
+    /* Navigation */
+    nav {
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-light);
+      position: sticky;
+      top: 60px;
+      z-index: 99;
     }
     
-    .small{
-      font-size:0.85rem;
-      color:var(--muted);
-      line-height: 1.4;
+    .nav-list {
+      display: flex;
+      list-style: none;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
     
-    /* Section Headings */
-    .section-heading {
-      color: var(--blue-1);
-      margin: 0 0 15px 0;
-      font-size: 1.3rem;
-      border-bottom: 2px solid #eef2f7;
-      padding-bottom: 8px;
+    .nav-list::-webkit-scrollbar {
+      display: none;
     }
     
-    @media (min-width: 768px) {
-      .section-heading {
-        font-size: 1.5rem;
-      }
+    .nav-item {
+      flex-shrink: 0;
     }
     
-    .subsection-heading {
-      color: var(--blue-1);
-      margin: 0 0 12px 0;
-      font-size: 1.1rem;
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: var(--text-secondary);
+      transition: all var(--transition-fast);
+      border-bottom: 3px solid transparent;
     }
     
-    @media (min-width: 768px) {
-      .subsection-heading {
-        font-size: 1.2rem;
-      }
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--primary);
+      border-bottom-color: var(--primary);
+      background: rgba(46, 125, 50, 0.05);
     }
     
-    /* Content styles for legal pages */
-    .content-section {
-      margin-bottom: 30px;
-    }
-    
-    .content-section h2 {
-      color: var(--blue-1);
-      margin: 25px 0 15px 0;
-      font-size: 1.3rem;
-    }
-    
-    .content-section h3 {
-      color: var(--blue-1);
-      margin: 20px 0 10px 0;
-      font-size: 1.1rem;
-    }
-    
-    .content-section p {
-      margin: 12px 0;
-      line-height: 1.6;
-    }
-    
-    .content-section ul, .content-section ol {
-      margin: 15px 0;
-      padding-left: 25px;
-    }
-    
-    .content-section li {
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-    
-    .highlight-box {
-      background: #f8f9fa;
-      border-left: 4px solid var(--blue-1);
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
+    /* Main Content */
+    main {
+      min-height: calc(100vh - 140px);
+      padding: var(--space-xl) 0;
+      background: var(--bg-secondary);
     }
     
     /* Footer */
-    footer{
-      margin-top:40px;
-      text-align:center;
-      color:#fff;
-      padding:25px 18px;
-      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
+    footer {
+      background: var(--bg-primary);
+      border-top: 1px solid var(--border-light);
+      padding: var(--space-xl) 0 var(--space-lg);
     }
     
-    footer .muted{
-      color:rgba(255,255,255,0.85);
-      font-size:0.95rem;
-      margin-bottom: 8px;
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
     }
     
-    .contact-email {
-      color: rgba(255,255,255,0.9);
-      font-size: 0.9rem;
-      margin: 10px 0;
+    .footer-section h3 {
+      font-size: 1.125rem;
+      margin-bottom: var(--space-sm);
+      color: var(--text-primary);
     }
     
-    .contact-email a {
-      color: #fff;
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 6px;
+    }
+    
+    .footer-links a {
+      color: var(--text-secondary);
       text-decoration: none;
+      font-size: 0.9rem;
+      transition: color var(--transition-fast);
+    }
+    
+    .footer-links a:hover {
+      color: var(--primary);
+      padding-left: 4px;
+    }
+    
+    .footer-bottom {
+      padding-top: var(--space-lg);
+      border-top: 1px solid var(--border-light);
+      text-align: center;
+      color: var(--text-tertiary);
+      font-size: 0.9rem;
+    }
+    
+    /* ==========================================================================
+       Component Styles
+       ========================================================================== */
+    
+    /* Cards */
+    .card {
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-light);
+    }
+    
+    /* Buttons */
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 500;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+    }
+    
+    .btn-secondary:hover {
+      background: var(--border-light);
+    }
+    
+    /* Page Header */
+    .page-header {
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+    
+    .page-title {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-sm);
+      color: var(--primary-dark);
+    }
+    
+    .page-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    /* Privacy Commitment Banner */
+    .privacy-banner {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      color: white;
+      padding: var(--space-xl);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+    
+    .privacy-banner h2 {
+      font-size: 2rem;
+      margin-bottom: var(--space-sm);
+    }
+    
+    .privacy-banner p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    
+    /* Content Sections */
+    .content-section {
+      margin-bottom: var(--space-xl);
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    /* Legal Content */
+    .legal-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .legal-section {
+      margin-bottom: var(--space-xl);
+    }
+    
+    .legal-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-md);
+      color: var(--primary-dark);
+      padding-bottom: var(--space-sm);
+      border-bottom: 2px solid var(--primary-light);
+    }
+    
+    .legal-section h3 {
+      font-size: 1.25rem;
+      margin: var(--space-lg) 0 var(--space-md);
+      color: var(--text-primary);
+    }
+    
+    .legal-section p {
+      margin-bottom: var(--space-md);
+      line-height: 1.7;
+    }
+    
+    .legal-section ul,
+    .legal-section ol {
+      margin-bottom: var(--space-md);
+      padding-left: var(--space-lg);
+    }
+    
+    .legal-section li {
+      margin-bottom: var(--space-sm);
+      line-height: 1.6;
+    }
+    
+    .privacy-note {
+      background: rgba(76, 175, 80, 0.1);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--success);
+      margin: var(--space-md) 0;
+    }
+    
+    .privacy-note strong {
+      color: var(--success);
+    }
+    
+    .warning-note {
+      background: rgba(255, 193, 7, 0.1);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--warning);
+      margin: var(--space-md) 0;
+    }
+    
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: var(--space-lg) 0;
+    }
+    
+    .data-table th,
+    .data-table td {
+      padding: var(--space-sm);
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+    }
+    
+    .data-table th {
+      background: var(--bg-tertiary);
       font-weight: 600;
     }
     
-    .contact-email a:hover {
-      text-decoration: underline;
+    .last-updated {
+      text-align: center;
+      color: var(--text-tertiary);
+      font-style: italic;
+      margin-top: var(--space-xl);
+      padding-top: var(--space-md);
+      border-top: 1px solid var(--border-light);
     }
     
-    .verif{
-      font-size:0.8rem;
-      color:rgba(255,255,255,0.9);
-      margin-top:6px;
-      opacity:0.95;
+    /* ==========================================================================
+       Responsive Design
+       ========================================================================== */
+    @media (max-width: 768px) {
+      html {
+        font-size: 14px;
+      }
+      
+      .page-title {
+        font-size: 2rem;
+      }
+      
+      .privacy-banner h2 {
+        font-size: 1.5rem;
+      }
+      
+      .privacy-banner p {
+        font-size: 1rem;
+      }
+      
+      .legal-section h2 {
+        font-size: 1.3rem;
+      }
+      
+      .legal-section h3 {
+        font-size: 1.1rem;
+      }
+      
+      .data-table {
+        display: block;
+        overflow-x: auto;
+      }
+      
+      .nav-list {
+        justify-content: space-between;
+      }
+      
+      .nav-link {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
     }
     
-    /* Accessibility: reduce motion */
-    @media (prefers-reduced-motion: reduce){
-      * {
-        animation-duration:0.001ms !important;
-        transition-duration:0.001ms !important;
+    @media (max-width: 480px) {
+      .card {
+        padding: var(--space-md);
+      }
+      
+      .page-title {
+        font-size: 1.75rem;
+      }
+      
+      .privacy-banner {
+        padding: var(--space-lg);
+      }
+      
+      .legal-section {
+        padding: var(--space-md);
+      }
+    }
+    
+    /* Print Styles */
+    @media print {
+      .no-print {
+        display: none !important;
+      }
+      
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      
+      .card {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+      }
+      
+      .privacy-banner {
+        background: #f0f0f0 !important;
+        color: black !important;
+      }
+      
+      a {
+        color: black !important;
+        text-decoration: underline !important;
+      }
+      
+      .btn {
+        display: none !important;
       }
     }
   </style>
 </head>
 <body>
-  <!-- animated 3D-like green background (canvas) -->
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <!-- Skip Links -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <a href="#footer" class="skip-link">Skip to footer</a>
 
+  <!-- Header -->
   <header>
-    <div class="brand">lotteryupdate000.space</div>
-  </header>
-
-  <nav aria-label="Main navigation">
-    <ul class="nav-list">
-      <li><a href="index.html" id="nav-home">Home</a></li>
-      <li><a href="terms.html" id="nav-terms">Terms</a></li>
-      <li><a href="privacy.html" class="active" id="nav-privacy">Privacy</a></li>
-      <li><a href="about.html" id="nav-about">About</a></li>
-    </ul>
-  </nav>
-
-  <main class="wrap" id="content">
-    <div class="hero">
-      <div class="hero-left">
-        <h1>Privacy Policy</h1>
-        <p>Your privacy is important to us. This policy explains what information we collect and how we use it.</p>
-        <p class="small">Last updated: <span id="privacy-date"></span></p>
+    <div class="container">
+      <div class="header-content">
+        <div class="brand">
+          <a href="/" aria-label="Lottery Pattern Analyzer">
+            <span>🎯</span> lotteryupdate000.space
+          </a>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-secondary" id="theme-toggle">
+            <span id="theme-icon">🌙</span> Theme
+          </button>
+        </div>
       </div>
     </div>
+  </header>
 
-    <div class="card">
-      <div class="content-section">
-        <h2>1. Information We Collect</h2>
-        <p>Lotteryupdate000.space is committed to protecting your privacy. We collect minimal information to provide and improve our services:</p>
-        
-        <h3>Personal Information</h3>
-        <p>We do not require you to create an account or provide personal information to use our basic services.</p>
-        
-        <h3>Automatically Collected Information</h3>
-        <p>When you visit our website, we may automatically collect certain information about your device, including:</p>
-        <ul>
-          <li>IP address</li>
-          <li>Browser type and version</li>
-          <li>Pages you visit on our site</li>
-          <li>Time and date of your visit</li>
-          <li>Time spent on those pages</li>
-        </ul>
-        
-        <h3>Cookies and Tracking Technologies</h3>
-        <p>We use cookies and similar tracking technologies to track activity on our Service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.</p>
-        
-        <h2>2. How We Use Your Information</h2>
-        <p>We use the collected information for various purposes:</p>
-        <ul>
-          <li>To provide and maintain our Service</li>
-          <li>To notify you about changes to our Service</li>
-          <li>To provide customer support</li>
-          <li>To gather analysis or valuable information so that we can improve our Service</li>
-          <li>To monitor the usage of our Service</li>
-          <li>To detect, prevent and address technical issues</li>
-        </ul>
-        
-        <h2>3. Data Security</h2>
-        <p>The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.</p>
-        
-        <h2>4. Third-Party Services</h2>
-        <p>We may employ third-party companies and individuals to facilitate our Service, provide the Service on our behalf, perform Service-related services, or assist us in analyzing how our Service is used. These third parties have access to your Personal Information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
-        
-        <h2>5. Children's Privacy</h2>
-        <p>Our Service does not address anyone under the age of 18. We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your child has provided us with Personal Information, please contact us.</p>
-        
-        <h2>6. Changes to This Privacy Policy</h2>
-        <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
-        
-        <h2>7. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact us:</p>
-        <p><strong>Email:</strong> crypto123432@yahoo.com</p>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="index.html" class="nav-link"><span>🏠</span> Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link"><span>ℹ️</span> About</a></li>
+        <li class="nav-item"><a href="contact.html" class="nav-link"><span>✉️</span> Contact</a></li>
+        <li class="nav-item"><a href="terms.html" class="nav-link"><span>📜</span> Terms</a></li>
+        <li class="nav-item"><a href="privacy.html" class="nav-link active"><span>🔒</span> Privacy</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <div class="container">
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">Privacy Policy</h1>
+        <p class="page-subtitle">Your privacy is our top priority. Learn how we protect your data and what information we collect (spoiler: almost none).</p>
+      </div>
+
+      <!-- Privacy Commitment Banner -->
+      <div class="privacy-banner">
+        <h2>🔒 No Data Collection. Guaranteed.</h2>
+        <p>We don't collect personal information. We don't use tracking cookies. We don't sell data. Your privacy is protected by design.</p>
+      </div>
+
+      <div class="legal-content">
+        <!-- Introduction -->
+        <div class="legal-section">
+          <h2>1. Introduction</h2>
+          <p>Welcome to Lottery Pattern Analyzer. We are committed to protecting your privacy and being transparent about our data practices. This Privacy Policy explains how we handle information when you use our Service.</p>
+          
+          <div class="privacy-note">
+            <p><strong>Key Principle:</strong> Our Service is designed to run entirely in your browser. We don't collect personal data, and we don't send your information to our servers.</p>
+          </div>
+        </div>
+
+        <!-- Information We Don't Collect -->
+        <div class="legal-section">
+          <h2>2. Information We Don't Collect</h2>
+          <p>To make it absolutely clear, here's what we <strong>DO NOT</strong> collect:</p>
+          
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Type of Data</th>
+                <th>Why We Don't Collect It</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Personal Information</strong><br>Name, email, address, phone</td>
+                <td>No registration required. No accounts. No need for personal details.</td>
+              </tr>
+              <tr>
+                <td><strong>Financial Information</strong><br>Payment details, credit cards</td>
+                <td>Our Service is 100% free. No payments, no financial data.</td>
+              </tr>
+              <tr>
+                <td><strong>Location Data</strong><br>GPS, IP address, location</td>
+                <td>We don't track your location. No geolocation services used.</td>
+              </tr>
+              <tr>
+                <td><strong>Usage Analytics</strong><br>Page views, clicks, session data</td>
+                <td>No tracking cookies. No analytics. No behavioral tracking.</td>
+              </tr>
+              <tr>
+                <td><strong>Generated Numbers</strong><br>Numbers you create</td>
+                <td>Numbers stay in your browser. Not sent to our servers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Information Processed Locally -->
+        <div class="legal-section">
+          <h2>3. Information Processed Locally</h2>
+          <p>Our Service runs entirely in your web browser. Here's what happens locally:</p>
+          
+          <h3>3.1 Browser Storage</h3>
+          <p>We use your browser's local storage to save:</p>
+          <ul>
+            <li><strong>Theme Preference:</strong> Your dark/light mode choice</li>
+            <li><strong>Settings:</strong> Your preferred generator settings</li>
+            <li><strong>Saved Numbers:</strong> Numbers you choose to save (optional)</li>
+          </ul>
+          
+          <div class="privacy-note">
+            <p><strong>Important:</strong> This data stays on your device. We cannot access it. You can clear it anytime using your browser's settings.</p>
+          </div>
+          
+          <h3>3.2 Temporary Processing</h3>
+          <p>While using the Service, your browser temporarily processes:</p>
+          <ul>
+            <li>Number generation algorithms</li>
+            <li>Statistical calculations</li>
+            <li>Heatmap visualizations</li>
+          </ul>
+          <p>All processing happens in your browser and is discarded when you close the tab.</p>
+        </div>
+
+        <!-- Cookies and Tracking -->
+        <div class="legal-section">
+          <h2>4. Cookies and Tracking Technologies</h2>
+          <p>We use minimal, essential cookies only:</p>
+          
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Cookie Type</th>
+                <th>Purpose</th>
+                <th>Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Theme Preference</strong></td>
+                <td>Remember your dark/light mode choice</td>
+                <td>1 year</td>
+              </tr>
+              <tr>
+                <td><strong>Settings Storage</strong></td>
+                <td>Remember your generator preferences</td>
+                <td>1 year</td>
+              </tr>
+            </tbody>
+          </table>
+          
+          <div class="privacy-note">
+            <p><strong>No Tracking Cookies:</strong> We don't use analytics cookies, advertising cookies, or any third-party tracking technologies.</p>
+          </div>
+          
+          <p>You can control cookies through your browser settings. Most browsers allow you to refuse cookies or delete them. However, disabling cookies may affect some functionality of our Service.</p>
+        </div>
+
+        <!-- Third-Party Services -->
+        <div class="legal-section">
+          <h2>5. Third-Party Services</h2>
+          <p>We keep third-party services to an absolute minimum:</p>
+          
+          <h3>5.1 Web Hosting</h3>
+          <p>Our website is hosted on standard web hosting services. These providers may collect basic server logs (IP address, browser type, access times) for security and maintenance purposes.</p>
+          
+          <h3>5.2 No External Analytics</h3>
+          <p>We don't use Google Analytics, Facebook Pixel, or any other analytics services.</p>
+          
+          <h3>5.3 No Social Media Plugins</h3>
+          <p>We don't embed social media widgets or plugins that could track you.</p>
+          
+          <h3>5.4 No Advertising Networks</h3>
+          <p>We don't display ads, so there are no ad networks tracking your activity.</p>
+        </div>
+
+        <!-- Data Security -->
+        <div class="legal-section">
+          <h2>6. Data Security</h2>
+          <p>We implement security measures designed to protect your information:</p>
+          
+          <h3>6.1 Technical Measures</h3>
+          <ul>
+            <li><strong>HTTPS Encryption:</strong> All communication is encrypted</li>
+            <li><strong>Security Headers:</strong> Modern web security headers implemented</li>
+            <li><strong>No Data Transmission:</strong> Your data doesn't leave your browser</li>
+          </ul>
+          
+          <h3>6.2 Organizational Measures</h3>
+          <ul>
+            <li><strong>Privacy by Design:</strong> Built with privacy as a core principle</li>
+            <li><strong>Minimal Data:</strong> Collect only what's absolutely necessary</li>
+            <li><strong>Transparency:</strong> Clear communication about data practices</li>
+          </ul>
+          
+          <div class="warning-note">
+            <p><strong>Important:</strong> While we take reasonable security measures, no method of transmission over the Internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
+          </div>
+        </div>
+
+        <!-- Your Rights -->
+        <div class="legal-section">
+          <h2>7. Your Privacy Rights</h2>
+          <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+          
+          <h3>7.1 Access and Control</h3>
+          <p>Since we don't collect personal data, there's no personal information for us to provide, modify, or delete. However, you can:</p>
+          <ul>
+            <li>Clear your browser's local storage to remove saved settings</li>
+            <li>Use private/incognito browsing mode</li>
+            <li>Disable cookies in your browser settings</li>
+          </ul>
+          
+          <h3>7.2 Data Portability</h3>
+          <p>You can export any numbers you generate using our built-in export feature. The data is saved as a JSON file on your device.</p>
+          
+          <h3>7.3 Right to Be Forgotten</h3>
+          <p>Since we don't store your personal data, there's nothing for us to delete from our servers. Any data stored locally on your device can be cleared through your browser settings.</p>
+        </div>
+
+        <!-- Children's Privacy -->
+        <div class="legal-section">
+          <h2>8. Children's Privacy</h2>
+          <p>Our Service is not intended for individuals under the age of 18 ("Children").</p>
+          
+          <p>We do not knowingly collect personal information from Children. If you are a parent or guardian and you believe your child has provided us with personal information, please contact us.</p>
+          
+          <p>Since our Service involves lottery number generation, it is intended for adults of legal gambling age in their jurisdiction.</p>
+        </div>
+
+        <!-- International Transfers -->
+        <div class="legal-section">
+          <h2>9. International Data Transfers</h2>
+          <p>Since we don't collect personal data, there are no international data transfers to worry about.</p>
+          
+          <p>Our Service is accessible worldwide, but all data processing happens locally in your browser. No personal information crosses international borders.</p>
+        </div>
+
+        <!-- Changes to Privacy Policy -->
+        <div class="legal-section">
+          <h2>10. Changes to This Privacy Policy</h2>
+          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+          
+          <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+          
+          <p>If we make material changes to this policy, we will make reasonable efforts to notify you through a notice on our website.</p>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="legal-section">
+          <h2>11. Contact Us</h2>
+          <p>If you have any questions about this Privacy Policy, please contact us:</p>
+          
+          <p><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
+          <p><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
+          
+          <p>We typically respond to privacy-related inquiries within 24-48 hours.</p>
+          
+          <div class="privacy-note">
+            <p><strong>Data Protection Officer:</strong> Since we don't process personal data on a large scale, we don't have a formal Data Protection Officer. However, we take all privacy inquiries seriously and will respond promptly.</p>
+          </div>
+        </div>
+
+        <!-- Compliance -->
+        <div class="legal-section">
+          <h2>12. Compliance with Laws</h2>
+          <p>We strive to comply with applicable privacy laws and regulations, including:</p>
+          
+          <ul>
+            <li><strong>GDPR (General Data Protection Regulation):</strong> European Union</li>
+            <li><strong>CCPA (California Consumer Privacy Act):</strong> California, USA</li>
+            <li><strong>PIPEDA (Personal Information Protection):</strong> Canada</li>
+            <li><strong>Other applicable privacy laws</strong></li>
+          </ul>
+          
+          <p>If you believe we have not adhered to these laws or have concerns about our data practices, please contact us immediately.</p>
+        </div>
+
+        <!-- Last Updated -->
+        <div class="last-updated">
+          <p><strong>Last Updated:</strong> December 10, 2024</p>
+          <p>This Privacy Policy is effective as of the date above.</p>
+        </div>
       </div>
     </div>
   </main>
 
-  <footer>
-    <div class="muted">© <span id="year"></span> lotteryupdate000.space — All rights reserved.</div>
-    <div class="contact-email">
-      <strong>Contact Us:</strong> 
-      <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a>
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Tools</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#analyzer">Pattern Analyzer</a></li>
+            <li><a href="index.html" onclick="setPreset('powerball'); return false;">Powerball Generator</a></li>
+            <li><a href="index.html" onclick="setPreset('megamillions'); return false;">Mega Millions Generator</a></li>
+            <li><a href="index.html" onclick="setPreset('euromillions'); return false;">EuroMillions Generator</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contact Info</h3>
+          <div>
+            <p style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
+            <p style="margin-bottom: 8px;"><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
+            <p><strong>Support:</strong> Available 24/7</p>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Site Info</h3>
+          <div>
+            <p style="margin-bottom: 8px;"><strong>Version:</strong> 2.0.0</p>
+            <p style="margin-bottom: 8px;"><strong>Last Updated:</strong> December 2024</p>
+            <p><strong>Status:</strong> <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; background: rgba(76, 175, 80, 0.1); color: var(--success); border-radius: 10px; font-size: 0.85rem;">🟢 Operational</span></p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div style="margin-bottom: 15px;">
+          © <span id="current-year">2024</span> lotteryupdate000.space — All rights reserved.
+          <div style="margin-top: 5px; font-size: 0.75rem; opacity: 0.7;">
+            This is an independent tool not affiliated with any lottery organization.
+          </div>
+        </div>
+        
+        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 15px;">
+          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">🔒 Secure HTTPS</span>
+          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">📱 PWA Ready</span>
+          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">♿ Accessible</span>
+          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">🌍 Global</span>
+        </div>
+        
+        <div style="display: flex; gap: 8px; justify-content: center;">
+          <button class="btn btn-sm" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
+          <button class="btn btn-sm" id="theme-toggle-footer">🌙 Theme</button>
+          <button class="btn btn-sm" onclick="window.print()">🖨️ Print</button>
+        </div>
+      </div>
     </div>
   </footer>
 
+  <!-- JavaScript -->
   <script>
-    // Set current year and date
-    document.getElementById('year').textContent = new Date().getFullYear();
-    document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
-      day: 'numeric' 
-    });
-  </script>
-
-  <script>
-  /* Animated canvas background: green 3D-style floating spheres */
-  (function(){
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d', { alpha:true });
-    let w = canvas.width = innerWidth;
-    let h = canvas.height = innerHeight;
-    const DPR = Math.max(1, window.devicePixelRatio || 1);
-    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
-
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const balls = [];
-    const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
-
-    function rand(min,max){ return Math.random()*(max-min)+min; }
-    function Ball(){
-      this.r = rand(20,70);
-      this.x = rand(this.r, w - this.r);
-      this.y = rand(this.r, h - this.r);
-      this.vx = rand(-0.25,0.25);
-      this.vy = rand(-0.15,0.15);
-      this.color = colors[Math.floor(rand(0,colors.length))];
+    // Theme Management
+    function initTheme() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeIcon(theme);
+      
+      // Theme toggle buttons
+      document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
+      document.getElementById('theme-toggle-footer')?.addEventListener('click', toggleTheme);
     }
-    function rgba(hex, a){
-      const bigint = parseInt(hex.replace('#',''),16);
-      const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
-      return 'rgba('+r+','+g+','+b+','+a+')';
+    
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+      
+      // Show toast notification
+      showToast(`Switched to ${newTheme} theme`);
     }
-    const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
-    for(let i=0;i<count;i++) balls.push(new Ball());
-
-    function draw(){
-      ctx.clearRect(0,0,w,h);
-      const g = ctx.createLinearGradient(0,0,w,h);
-      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
-      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
-
-      const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
-      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
-      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
-
-      balls.forEach(b=>{
-        if(!reduce){ b.x += b.vx; b.y += b.vy; }
-        if(b.x - b.r > w) b.x = -b.r;
-        if(b.x + b.r < 0) b.x = w + b.r;
-        if(b.y - b.r > h) b.y = -b.r;
-        if(b.y + b.r < 0) b.y = h + b.r;
-
-        ctx.beginPath();
-        const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
-        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
-        ctx.fillStyle = shadowGrad;
-        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
-
-        ctx.beginPath();
-        const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
-        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
-        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
-
-        ctx.beginPath();
-        ctx.fillStyle = 'rgba(255,255,255,0.18)';
-        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
+    
+    function updateThemeIcon(theme) {
+      const icon = theme === 'light' ? '🌙' : '☀️';
+      const themeIcon = document.getElementById('theme-icon');
+      const themeFooterBtn = document.getElementById('theme-toggle-footer');
+      
+      if (themeIcon) themeIcon.textContent = icon;
+      if (themeFooterBtn) themeFooterBtn.innerHTML = `${icon} Theme`;
+    }
+    
+    // Set current year
+    function setCurrentYear() {
+      const yearElements = document.querySelectorAll('#current-year');
+      const currentYear = new Date().getFullYear();
+      yearElements.forEach(element => {
+        if (element) element.textContent = currentYear;
       });
     }
-
-    function darken(hex, amt){
-      const num = parseInt(hex.replace('#',''),16);
-      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
-      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
-      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
-      return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
-    }
-
-    let raf;
-    function loop(){ draw(); raf = requestAnimationFrame(loop); }
-    loop();
-
-    window.addEventListener('resize', ()=> {
-      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
-      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+    
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      setCurrentYear();
     });
-
-  })();
   </script>
 </body>
 </html>
