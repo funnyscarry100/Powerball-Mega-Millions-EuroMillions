@@ -1,1047 +1,562 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  
-  <!-- SEO Meta Tags -->
-  <title>About Us | Lottery Pattern Analyzer & Number Generator</title>
-  <meta name="description" content="Learn about our free lottery number generator tool, our mission, and how we help lottery players make smarter choices.">
-  <meta name="keywords" content="about lottery tool, lottery analyzer about, free number generator about">
-  <meta name="author" content="LotteryUpdate000">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://lotteryupdate000.space/about.html" />
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="About Our Lottery Pattern Analyzer">
-  <meta property="og:description" content="Learn about our free lottery number generator tool and our mission">
-  <meta property="og:url" content="https://lotteryupdate000.space/about.html">
-  <meta property="og:type" content="website">
-  
-  <!-- Favicons -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
-  
-  <!-- PWA -->
-  <meta name="theme-color" content="#2e7d32">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="mobile-web-app-capable" content="yes">
-  
-  <!-- Inline CSS - Same as index.html -->
-  <style>
-    /* ==========================================================================
-       CSS Reset & Base Styles
-       ========================================================================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      background-color: #f8f9fa;
-      min-height: 100vh;
-    }
-    
-    /* ==========================================================================
-       CSS Variables & Theme
-       ========================================================================== */
-    :root {
-      /* Colors */
-      --primary: #2e7d32;
-      --primary-dark: #1b5e20;
-      --primary-light: #4caf50;
-      --secondary: #2196f3;
-      --accent: #ff9800;
-      --danger: #f44336;
-      --warning: #ffc107;
-      --success: #4caf50;
-      
-      /* Backgrounds */
-      --bg-primary: #ffffff;
-      --bg-secondary: #f8f9fa;
-      --bg-tertiary: #f1f3f4;
-      
-      /* Text */
-      --text-primary: #202124;
-      --text-secondary: #5f6368;
-      --text-tertiary: #80868b;
-      
-      /* Borders */
-      --border-light: #dadce0;
-      --border-medium: #e0e0e0;
-      
-      /* Shadows */
-      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-      --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-      --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-      
-      /* Radius */
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      
-      /* Spacing */
-      --space-xs: 8px;
-      --space-sm: 16px;
-      --space-md: 24px;
-      --space-lg: 32px;
-      --space-xl: 48px;
-      
-      /* Transitions */
-      --transition-fast: 150ms ease;
-      --transition-base: 250ms ease;
-    }
-    
-    /* Dark Mode */
-    [data-theme="dark"] {
-      --bg-primary: #121212;
-      --bg-secondary: #1e1e1e;
-      --bg-tertiary: #2d2d2d;
-      --text-primary: #e8eaed;
-      --text-secondary: #9aa0a6;
-      --border-light: #3c4043;
-      --border-medium: #5f6368;
-    }
-    
-    /* ==========================================================================
-       Utility Classes
-       ========================================================================== */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-md);
-    }
-    
-    .d-none {
-      display: none !important;
-    }
-    
-    .d-flex {
-      display: flex;
-    }
-    
-    .flex-column {
-      flex-direction: column;
-    }
-    
-    .flex-row {
-      flex-direction: row;
-    }
-    
-    .align-items-center {
-      align-items: center;
-    }
-    
-    .justify-content-center {
-      justify-content: center;
-    }
-    
-    .justify-content-between {
-      justify-content: space-between;
-    }
-    
-    .flex-wrap {
-      flex-wrap: wrap;
-    }
-    
-    .gap-1 { gap: var(--space-xs); }
-    .gap-2 { gap: var(--space-sm); }
-    .gap-3 { gap: var(--space-md); }
-    .gap-4 { gap: var(--space-lg); }
-    
-    .w-100 {
-      width: 100%;
-    }
-    
-    .text-center {
-      text-align: center;
-    }
-    
-    .mt-1 { margin-top: var(--space-xs); }
-    .mt-2 { margin-top: var(--space-sm); }
-    .mt-3 { margin-top: var(--space-md); }
-    .mt-4 { margin-top: var(--space-lg); }
-    
-    .mb-1 { margin-bottom: var(--space-xs); }
-    .mb-2 { margin-bottom: var(--space-sm); }
-    .mb-3 { margin-bottom: var(--space-md); }
-    .mb-4 { margin-bottom: var(--space-lg); }
-    
-    .p-1 { padding: var(--space-xs); }
-    .p-2 { padding: var(--space-sm); }
-    .p-3 { padding: var(--space-md); }
-    .p-4 { padding: var(--space-lg); }
-    
-    /* ==========================================================================
-       Layout Components
-       ========================================================================== */
-    
-    /* Skip Links */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 10px;
-      background: var(--primary);
-      color: white;
-      padding: 8px 16px;
-      text-decoration: none;
-      border-radius: 4px;
-      z-index: 1000;
-    }
-    
-    .skip-link:focus {
-      top: 10px;
-    }
-    
-    /* Header */
-    header {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: white;
-      padding: 1rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-md);
-    }
-    
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    
-    .brand a {
-      color: white;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    /* Navigation */
-    nav {
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border-light);
-      position: sticky;
-      top: 60px;
-      z-index: 99;
-    }
-    
-    .nav-list {
-      display: flex;
-      list-style: none;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    
-    .nav-list::-webkit-scrollbar {
-      display: none;
-    }
-    
-    .nav-item {
-      flex-shrink: 0;
-    }
-    
-    .nav-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      text-decoration: none;
-      color: var(--text-secondary);
-      transition: all var(--transition-fast);
-      border-bottom: 3px solid transparent;
-    }
-    
-    .nav-link:hover,
-    .nav-link.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
-      background: rgba(46, 125, 50, 0.05);
-    }
-    
-    /* Main Content */
-    main {
-      min-height: calc(100vh - 140px);
-      padding: var(--space-xl) 0;
-      background: var(--bg-secondary);
-    }
-    
-    /* Footer */
-    footer {
-      background: var(--bg-primary);
-      border-top: 1px solid var(--border-light);
-      padding: var(--space-xl) 0 var(--space-lg);
-    }
-    
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-lg);
-      margin-bottom: var(--space-lg);
-    }
-    
-    .footer-section h3 {
-      font-size: 1.125rem;
-      margin-bottom: var(--space-sm);
-      color: var(--text-primary);
-    }
-    
-    .footer-links {
-      list-style: none;
-    }
-    
-    .footer-links li {
-      margin-bottom: 6px;
-    }
-    
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color var(--transition-fast);
-    }
-    
-    .footer-links a:hover {
-      color: var(--primary);
-      padding-left: 4px;
-    }
-    
-    .footer-bottom {
-      padding-top: var(--space-lg);
-      border-top: 1px solid var(--border-light);
-      text-align: center;
-      color: var(--text-tertiary);
-      font-size: 0.9rem;
-    }
-    
-    /* ==========================================================================
-       Component Styles
-       ========================================================================== */
-    
-    /* Cards */
-    .card {
-      background: var(--bg-primary);
-      border-radius: var(--radius-md);
-      padding: var(--space-lg);
-      margin-bottom: var(--space-lg);
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border-light);
-    }
-    
-    /* Buttons */
-    .btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-weight: 500;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-sm);
-    }
-    
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-    
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-    
-    .btn-secondary {
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: 1px solid var(--border-light);
-    }
-    
-    .btn-secondary:hover {
-      background: var(--border-light);
-    }
-    
-    /* Page Header */
-    .page-header {
-      text-align: center;
-      margin-bottom: var(--space-xl);
-    }
-    
-    .page-title {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-sm);
-      color: var(--primary-dark);
-    }
-    
-    .page-subtitle {
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    /* Content Sections */
-    .content-section {
-      margin-bottom: var(--space-xl);
-    }
-    
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: var(--space-md);
-      color: var(--primary-dark);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    /* Team Grid */
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-    
-    .team-member {
-      text-align: center;
-      padding: var(--space-lg);
-      background: var(--bg-primary);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-light);
-    }
-    
-    .member-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: var(--primary-light);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-      margin: 0 auto var(--space-md);
-    }
-    
-    /* Timeline */
-    .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: var(--space-lg) auto;
-    }
-    
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 30px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--primary-light);
-    }
-    
-    .timeline-item {
-      position: relative;
-      margin-bottom: var(--space-xl);
-      padding-left: 70px;
-    }
-    
-    .timeline-date {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 60px;
-      text-align: center;
-      font-weight: 600;
-      color: var(--primary);
-    }
-    
-    .timeline-content {
-      background: var(--bg-primary);
-      padding: var(--space-md);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-light);
-    }
-    
-    /* FAQ */
-    .faq-list {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .faq-item {
-      margin-bottom: var(--space-md);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-    }
-    
-    .faq-question {
-      padding: var(--space-md);
-      background: var(--bg-primary);
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .faq-answer {
-      padding: 0 var(--space-md);
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-    }
-    
-    .faq-answer.active {
-      padding: var(--space-md);
-      max-height: 500px;
-    }
-    
-    /* Contact Info */
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-    
-    .contact-item {
-      text-align: center;
-      padding: var(--space-lg);
-      background: var(--bg-primary);
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-light);
-    }
-    
-    .contact-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-sm);
-      color: var(--primary);
-    }
-    
-    /* ==========================================================================
-       Responsive Design
-       ========================================================================== */
-    @media (max-width: 768px) {
-      html {
-        font-size: 14px;
-      }
-      
-      .page-title {
-        font-size: 2rem;
-      }
-      
-      .team-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .contact-info {
-        grid-template-columns: 1fr;
-      }
-      
-      .timeline::before {
-        left: 20px;
-      }
-      
-      .timeline-item {
-        padding-left: 50px;
-      }
-      
-      .timeline-date {
-        width: 40px;
-        font-size: 0.875rem;
-      }
-      
-      .nav-list {
-        justify-content: space-between;
-      }
-      
-      .nav-link {
-        padding: 10px;
-        font-size: 0.9rem;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .card {
-        padding: var(--space-md);
-      }
-      
-      .page-title {
-        font-size: 1.75rem;
-      }
-    }
-    
-    /* Print Styles */
-    @media print {
-      .no-print {
-        display: none !important;
-      }
-      
-      body {
-        background: white !important;
-        color: black !important;
-      }
-      
-      .card {
-        box-shadow: none !important;
-        border: 1px solid #ddd !important;
-      }
-      
-      a {
-        color: black !important;
-        text-decoration: underline !important;
-      }
-      
-      .btn {
-        display: none !important;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Platform | Global Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d5be3;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: #2d5be3;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+        
+        nav ul li a:hover {
+            color: #2d5be3;
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .quick-links {
+            display: flex;
+            margin-left: 30px;
+            padding-left: 30px;
+            border-left: 1px solid #eaeaea;
+        }
+        
+        .quick-links a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .quick-links a:hover {
+            color: #2d5be3;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2d5be3;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d5be3 0%, #6c8dfa 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .feature {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 180px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .feature i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        /* Support Section */
+        .support-section {
+            background-color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .support-section h2 {
+            font-size: 2.5rem;
+            color: #2d5be3;
+            margin-bottom: 15px;
+        }
+        
+        .support-hours {
+            font-size: 1.5rem;
+            color: #4CAF50;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        
+        .support-description {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        
+        .support-badge {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        /* Info Section */
+        .info-section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 40px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .info-item {
+            padding: 20px;
+            border-left: 4px solid #2d5be3;
+            background-color: #f8f9ff;
+        }
+        
+        .info-item h3 {
+            color: #2d5be3;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .info-item p {
+            color: #555;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a2236;
+            color: #d1d9ff;
+            padding: 60px 0 30px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #2d5be3;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #a0a9d0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #2d5be3;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2a344a;
+            color: #a0a9d0;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .features {
+                gap: 15px;
+            }
+            
+            .feature {
+                width: 160px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links, .quick-links {
+                display: none;
+                width: 100%;
+                margin: 20px 0 0;
+                padding: 0;
+                border: none;
+            }
+            
+            .nav-links.active, .quick-links.active {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .quick-links {
+                flex-direction: column;
+            }
+            
+            .quick-links a {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .support-section h2 {
+                font-size: 2rem;
+            }
+            
+            .support-hours {
+                font-size: 1.3rem;
+            }
+            
+            .info-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Skip Links -->
-  <a href="#main-content" class="skip-link">Skip to main content</a>
-  <a href="#footer" class="skip-link">Skip to footer</a>
-
-  <!-- Header -->
-  <header>
-    <div class="container">
-      <div class="header-content">
-        <div class="brand">
-          <a href="/" aria-label="Lottery Pattern Analyzer">
-            <span>🎯</span> lotteryupdate000.space
-          </a>
-        </div>
-        <div class="header-actions">
-          <button class="btn btn-secondary" id="theme-toggle">
-            <span id="theme-icon">🌙</span> Theme
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Navigation -->
-  <nav>
-    <div class="container">
-      <ul class="nav-list">
-        <li class="nav-item"><a href="index.html" class="nav-link"><span>🏠</span> Home</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link active"><span>ℹ️</span> About</a></li>
-        <li class="nav-item"><a href="contact.html" class="nav-link"><span>✉️</span> Contact</a></li>
-        <li class="nav-item"><a href="terms.html" class="nav-link"><span>📜</span> Terms</a></li>
-        <li class="nav-item"><a href="privacy.html" class="nav-link"><span>🔒</span> Privacy</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <main id="main-content">
-    <div class="container">
-      <!-- Page Header -->
-      <div class="page-header">
-        <h1 class="page-title">About Lottery Pattern Analyzer</h1>
-        <p class="page-subtitle">Learn about our mission, our team, and how we're revolutionizing lottery number generation with statistical analysis</p>
-      </div>
-
-      <!-- Our Mission -->
-      <div class="card content-section">
-        <h2 class="section-title"><span>🎯</span> Our Mission</h2>
-        <p>At Lottery Pattern Analyzer, our mission is to provide lottery players with powerful, free tools that help make informed decisions when choosing their numbers. We believe that while lottery games are based on chance, understanding patterns and statistics can enhance the gaming experience.</p>
-        
-        <p>Founded in 2023, we've helped over 100,000 users generate smarter lottery numbers. Our tool is completely free, requires no registration, and runs entirely in your browser for maximum privacy and security.</p>
-      </div>
-
-      <!-- What We Do -->
-      <div class="card content-section">
-        <h2 class="section-title"><span>🚀</span> What We Do</h2>
-        <p>We provide a comprehensive lottery number generator and pattern analysis tool that offers:</p>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-md); margin-top: var(--space-lg);">
-          <div style="padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-            <h3 style="margin-bottom: 8px; color: var(--primary);">Statistical Analysis</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">We analyze historical data patterns to identify hot and cold numbers.</p>
-          </div>
-          <div style="padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-            <h3 style="margin-bottom: 8px; color: var(--primary);">Smart Generation</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">Multiple generation methods including pattern-based, balanced, and random.</p>
-          </div>
-          <div style="padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-            <h3 style="margin-bottom: 8px; color: var(--primary);">Privacy First</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">No data collection. Everything runs locally in your browser.</p>
-          </div>
-          <div style="padding: var(--space-md); background: var(--bg-tertiary); border-radius: var(--radius-sm);">
-            <h3 style="margin-bottom: 8px; color: var(--primary);">Global Support</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem;">Works with Powerball, Mega Millions, EuroMillions, and custom games.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Our Values -->
-      <div class="card content-section">
-        <h2 class="section-title"><span>❤️</span> Our Values</h2>
-        
-        <div style="margin-top: var(--space-lg);">
-          <div style="margin-bottom: var(--space-lg);">
-            <h3 style="margin-bottom: 8px; color: var(--primary);">Free Forever</h3>
-            <p>We believe in providing valuable tools without charging money. Our service will always be 100% free with no hidden fees or premium tiers.</p>
-          </div>
-          
-          <div style="margin-bottom: var(--space-lg);">
-            <h3 style="margin-bottom: 8px; color: var(--primary);">User Privacy</h3>
-            <p>We don't collect personal data. We don't use tracking cookies. We don't sell information. Your privacy is our top priority.</p>
-          </div>
-          
-          <div style="margin-bottom: var(--space-lg);">
-            <h3 style="margin-bottom: 8px; color: var(--primary);">Responsible Gaming</h3>
-            <p>We promote responsible gaming. Our tools are for entertainment purposes, and we always remind users to play responsibly and within their means.</p>
-          </div>
-          
-          <div>
-            <h3 style="margin-bottom: 8px; color: var(--primary);">Transparency</h3>
-            <p>We're open about what our tool can and cannot do. We don't make false promises about winning chances - we provide statistical analysis for entertainment.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- FAQ -->
-      <div class="card content-section">
-        <h2 class="section-title"><span>❓</span> Frequently Asked Questions</h2>
-        
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-              Is this tool really free?
-              <span>▼</span>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>SecurePlatform</span>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <div class="nav-links" id="navLinks">
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#support">Support</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                        
+                        <div class="quick-links" id="quickLinks">
+                            <a href="#terms">Terms of Service</a>
+                            <a href="#privacy">Privacy Policy</a>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div class="faq-answer">
-              <p>Yes, absolutely! Our lottery pattern analyzer is 100% free. No registration required, no hidden fees, no premium upgrades. We believe in providing valuable tools without charging money.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-              Do you collect personal data?
-              <span>▼</span>
-            </div>
-            <div class="faq-answer">
-              <p>No, we do not collect any personal data. Our tool runs entirely in your browser. We don't use tracking cookies, analytics, or any data collection methods. Your privacy is guaranteed.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-              Can this tool guarantee a win?
-              <span>▼</span>
-            </div>
-            <div class="faq-answer">
-              <p>No, and no tool can. Lottery games are based on random chance. Our tool provides statistical analysis and pattern recognition for entertainment purposes only. We never guarantee wins.</p>
-            </div>
-          </div>
-          
-          <div class="faq-item">
-            <div class="faq-question" onclick="toggleFaq(this)">
-              What lotteries do you support?
-              <span>▼</span>
-            </div>
-            <div class="faq-answer">
-              <p>We support all major lotteries including Powerball, Mega Millions, EuroMillions, and many others. You can also customize the settings for any lottery worldwide by adjusting the number range and count.</p>
-            </div>
-          </div>
         </div>
-      </div>
+    </header>
 
-      <!-- Contact Information -->
-      <div class="card content-section">
-        <h2 class="section-title"><span>📞</span> Contact Us</h2>
-        <p>Have questions, suggestions, or need support? We're here to help!</p>
-        
-        <div class="contact-info">
-          <div class="contact-item">
-            <div class="contact-icon">📧</div>
-            <h3>Email</h3>
-            <p><a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">Response within 24 hours</p>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">💬</div>
-            <h3>Community</h3>
-            <p><a href="https://www.reddit.com/user/Mysterious-Bottle-44/">Reddit Community</a></p>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">Join our discussions</p>
-          </div>
-          
-          <div class="contact-item">
-            <div class="contact-icon">🕒</div>
-            <h3>Support Hours</h3>
-            <p>24/7 Available</p>
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">We're always here to help</p>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Secure Global Platform</h1>
+            <p>Advanced security and accessibility solutions for a connected world. Our platform ensures seamless, secure experiences across all devices and regions.</p>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-lock"></i>
+                    <span>Secure HTTPS</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>PWA Ready</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-universal-access"></i>
+                    <span>Accessible</span>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-globe"></i>
+                    <span>Global</span>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Disclaimer -->
-      <div style="background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1)); border-radius: var(--radius-md); padding: var(--space-lg); margin-top: var(--space-xl); border-left: 5px solid var(--warning);">
-        <div style="display: flex; gap: 15px; align-items: flex-start;">
-          <div style="font-size: 1.8rem; flex-shrink: 0;">⚠️</div>
-          <div>
-            <h3 style="margin-bottom: 8px; color: var(--warning);">Important Disclaimer</h3>
-            <p style="color: var(--text-primary); margin-bottom: 8px;">This tool is for entertainment and educational purposes only. Lottery games are based on random chance, and no system can guarantee a win. All number generations are purely statistical simulations.</p>
-            <p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255, 193, 7, 0.3); font-weight: 600; color: var(--warning);">
-              <strong>Play Responsibly:</strong> Must be 18+ to participate in lottery games. Never spend more than you can afford to lose.
-            </p>
-          </div>
+    <!-- Support Section -->
+    <section class="support-section" id="support">
+        <div class="container">
+            <h2>Support Hours</h2>
+            <div class="support-hours">24/7 Available</div>
+            <p class="support-description">We're always here to help, providing round-the-clock assistance for all your needs. Our dedicated support team is ready to assist you anytime, anywhere.</p>
+            <div class="support-badge">Support: Available 24/7</div>
         </div>
-      </div>
-    </div>
-  </main>
+    </section>
 
-  <!-- Footer -->
-  <footer id="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Quick Links</h3>
-          <ul class="footer-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-          </ul>
+    <!-- Site Info Section -->
+    <section class="info-section" id="services">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-item">
+                    <h3>Version</h3>
+                    <p><strong>2.0.0</strong> - Latest stable release with enhanced security features and improved performance.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Last Updated</h3>
+                    <p><strong>December 2024</strong> - Featuring the newest security protocols and accessibility improvements.</p>
+                </div>
+                <div class="info-item">
+                    <h3>Platform Status</h3>
+                    <p>All systems operational. Security monitoring active 24/7 with real-time threat detection.</p>
+                </div>
+            </div>
         </div>
-        
-        <div class="footer-section">
-          <h3>Tools</h3>
-          <ul class="footer-links">
-            <li><a href="index.html#analyzer">Pattern Analyzer</a></li>
-            <li><a href="index.html" onclick="setPreset('powerball'); return false;">Powerball Generator</a></li>
-            <li><a href="index.html" onclick="setPreset('megamillions'); return false;">Mega Millions Generator</a></li>
-            <li><a href="index.html" onclick="setPreset('euromillions'); return false;">EuroMillions Generator</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Contact Info</h3>
-          <div>
-            <p style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
-            <p style="margin-bottom: 8px;"><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
-            <p><strong>Support:</strong> Available 24/7</p>
-          </div>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Site Info</h3>
-          <div>
-            <p style="margin-bottom: 8px;"><strong>Version:</strong> 2.0.0</p>
-            <p style="margin-bottom: 8px;"><strong>Last Updated:</strong> December 2024</p>
-            <p><strong>Status:</strong> <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; background: rgba(76, 175, 80, 0.1); color: var(--success); border-radius: 10px; font-size: 0.85rem;">🟢 Operational</span></p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <div style="margin-bottom: 15px;">
-          © <span id="current-year">2024</span> lotteryupdate000.space — All rights reserved.
-          <div style="margin-top: 5px; font-size: 0.75rem; opacity: 0.7;">
-            This is an independent tool not affiliated with any lottery organization.
-          </div>
-        </div>
-        
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 15px;">
-          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">🔒 Secure HTTPS</span>
-          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">📱 PWA Ready</span>
-          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">♿ Accessible</span>
-          <span style="display: flex; align-items: center; gap: 4px; padding: 4px 10px; background: var(--bg-tertiary); border-radius: 12px; font-size: 0.85rem;">🌍 Global</span>
-        </div>
-        
-        <div style="display: flex; gap: 8px; justify-content: center;">
-          <button class="btn btn-sm" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
-          <button class="btn btn-sm" id="theme-toggle-footer">🌙 Theme</button>
-          <button class="btn btn-sm" onclick="window.print()">🖨️ Print</button>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- JavaScript -->
-  <script>
-    // Theme Management
-    function initTheme() {
-      const theme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', theme);
-      updateThemeIcon(theme);
-      
-      // Theme toggle buttons
-      document.getElementById('theme-toggle')?.addEventListener('click', toggleTheme);
-      document.getElementById('theme-toggle-footer')?.addEventListener('click', toggleTheme);
-    }
-    
-    function toggleTheme() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeIcon(newTheme);
-      
-      // Show toast notification
-      showToast(`Switched to ${newTheme} theme`);
-    }
-    
-    function updateThemeIcon(theme) {
-      const icon = theme === 'light' ? '🌙' : '☀️';
-      const themeIcon = document.getElementById('theme-icon');
-      const themeFooterBtn = document.getElementById('theme-toggle-footer');
-      
-      if (themeIcon) themeIcon.textContent = icon;
-      if (themeFooterBtn) themeFooterBtn.innerHTML = `${icon} Theme`;
-    }
-    
-    // FAQ Toggle
-    function toggleFaq(element) {
-      const answer = element.nextElementSibling;
-      const isActive = answer.classList.contains('active');
-      
-      // Close all other FAQ answers
-      document.querySelectorAll('.faq-answer.active').forEach(item => {
-        if (item !== answer) {
-          item.classList.remove('active');
-          item.previousElementSibling.querySelector('span').textContent = '▼';
-        }
-      });
-      
-      // Toggle current FAQ
-      if (isActive) {
-        answer.classList.remove('active');
-        element.querySelector('span').textContent = '▼';
-      } else {
-        answer.classList.add('active');
-        element.querySelector('span').textContent = '▲';
-      }
-    }
-    
-    // Toast Notifications
-    function showToast(message, type = 'info') {
-      // Create toast container if it doesn't exist
-      let container = document.getElementById('toast-container');
-      if (!container) {
-        container = document.createElement('div');
-        container.id = 'toast-container';
-        container.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          z-index: 1000;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          max-width: 300px;
-        `;
-        document.body.appendChild(container);
-      }
-      
-      // Create toast
-      const toast = document.createElement('div');
-      toast.style.cssText = `
-        background: var(--bg-primary);
-        border-left: 4px solid var(--primary);
-        padding: 12px 16px;
-        border-radius: 8px;
-        box-shadow: var(--shadow-lg);
-        animation: slideIn 0.3s ease;
-      `;
-      
-      if (type === 'error') {
-        toast.style.borderLeftColor = 'var(--danger)';
-      } else if (type === 'warning') {
-        toast.style.borderLeftColor = 'var(--warning)';
-      } else if (type === 'success') {
-        toast.style.borderLeftColor = 'var(--success)';
-      }
-      
-      toast.textContent = message;
-      toast.setAttribute('role', 'alert');
-      
-      container.appendChild(toast);
-      
-      // Remove toast after 3 seconds
-      setTimeout(() => {
-        toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 300);
-      }, 3000);
-    }
-    
-    // Set current year
-    function setCurrentYear() {
-      const yearElements = document.querySelectorAll('#current-year');
-      const currentYear = new Date().getFullYear();
-      yearElements.forEach(element => {
-        if (element) element.textContent = currentYear;
-      });
-    }
-    
-    // Initialize everything
-    document.addEventListener('DOMContentLoaded', () => {
-      initTheme();
-      setCurrentYear();
-      
-      // Add CSS animation for toast
-      if (!document.querySelector('#toast-animation')) {
-        const style = document.createElement('style');
-        style.id = 'toast-animation';
-        style.textContent = `
-          @keyframes slideIn {
-            from {
-              transform: translateX(100%);
-              opacity: 0;
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Site Info</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Version: 2.0.0</li>
+                        <li><i class="fas fa-calendar-alt"></i> Last Updated: December 2024</li>
+                        <li><i class="fas fa-lock"></i> Secure HTTPS</li>
+                        <li><i class="fas fa-mobile-alt"></i> PWA Ready</li>
+                        <li><i class="fas fa-universal-access"></i> Accessible</li>
+                        <li><i class="fas fa-globe"></i> Global</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Available 24/7</li>
+                        <li><i class="fas fa-headset"></i> Live Chat Support</li>
+                        <li><i class="fas fa-envelope"></i> Email Support</li>
+                        <li><i class="fas fa-phone"></i> Emergency Hotline</li>
+                        <li><i class="fas fa-question-circle"></i> Knowledge Base</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecurePlatform. All rights reserved. | Designed with security and accessibility in mind.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            const quickLinks = document.getElementById('quickLinks');
+            
+            navLinks.classList.toggle('active');
+            quickLinks.classList.toggle('active');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
-            to {
-              transform: translateX(0);
-              opacity: 1;
-            }
-          }
-        `;
-        document.head.appendChild(style);
-      }
-    });
-  </script>
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('navLinks');
+                    const quickLinks = document.getElementById('quickLinks');
+                    const menuBtnIcon = document.querySelector('#mobileMenuBtn i');
+                    
+                    if(navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        quickLinks.classList.remove('active');
+                        menuBtnIcon.classList.remove('fa-times');
+                        menuBtnIcon.classList.add('fa-bars');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
