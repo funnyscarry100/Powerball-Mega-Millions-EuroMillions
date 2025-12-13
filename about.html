@@ -1,1365 +1,507 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  
-  <!-- Security Headers -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
-  
-  <!-- SEO Meta Tags -->
-  <title>About lotteryupdate000.space | Advanced Lottery Analysis Platform</title>
-  <meta name="description" content="lotteryupdate000.space provides advanced statistical analysis tools for lottery number research. Professional pattern recognition and data analysis platform.">
-  <meta name="keywords" content="lottery analysis platform, number pattern recognition, statistical lottery tools, data analysis platform">
-  <meta name="author" content="lotteryupdate000.space">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://lotteryupdate000.space/about.html" />
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="About lotteryupdate000.space">
-  <meta property="og:description" content="Advanced statistical analysis platform for lottery number research and pattern recognition.">
-  <meta property="og:url" content="https://lotteryupdate000.space/about.html">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="lotteryupdate000.space">
-  <meta property="og:image" content="https://lotteryupdate000.space/images/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  
-  <!-- Favicons -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
-  
-  <!-- PWA -->
-  <meta name="theme-color" content="#1a365d">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="mobile-web-app-capable" content="yes">
-  
-  <!-- Inline CSS -->
-  <style>
-    /* ==========================================================================
-       CSS Reset & Base Styles
-       ========================================================================== */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-      line-height: 1.6;
-      color: #2d3748;
-      background-color: #f7fafc;
-      min-height: 100vh;
-    }
-    
-    /* ==========================================================================
-       CSS Variables & Theme
-       ========================================================================== */
-    :root {
-      /* Primary Colors - Professional Blue Theme */
-      --primary: #2b6cb0;
-      --primary-dark: #2c5282;
-      --primary-light: #4299e1;
-      --primary-lightest: #ebf8ff;
-      
-      /* Secondary Colors */
-      --secondary: #718096;
-      --accent: #805ad5;
-      --success: #38a169;
-      --warning: #d69e2e;
-      --danger: #e53e3e;
-      --info: #3182ce;
-      
-      /* Backgrounds */
-      --bg-primary: #ffffff;
-      --bg-secondary: #f7fafc;
-      --bg-tertiary: #edf2f7;
-      
-      /* Text */
-      --text-primary: #2d3748;
-      --text-secondary: #4a5568;
-      --text-tertiary: #718096;
-      --text-light: #a0aec0;
-      
-      /* Borders */
-      --border-light: #e2e8f0;
-      --border-medium: #cbd5e0;
-      
-      /* Shadows */
-      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      
-      /* Radius */
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 14px;
-      --radius-xl: 20px;
-      --radius-full: 9999px;
-      
-      /* Spacing */
-      --space-xs: 8px;
-      --space-sm: 16px;
-      --space-md: 24px;
-      --space-lg: 32px;
-      --space-xl: 48px;
-      --space-xxl: 64px;
-      
-      /* Transitions */
-      --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    /* Dark Mode */
-    [data-theme="dark"] {
-      --bg-primary: #1a202c;
-      --bg-secondary: #2d3748;
-      --bg-tertiary: #4a5568;
-      --text-primary: #f7fafc;
-      --text-secondary: #e2e8f0;
-      --text-tertiary: #cbd5e0;
-      --border-light: #4a5568;
-      --border-medium: #718096;
-    }
-    
-    /* ==========================================================================
-       Utility Classes
-       ========================================================================== */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-md);
-    }
-    
-    .content-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    
-    .d-none {
-      display: none !important;
-    }
-    
-    .d-flex {
-      display: flex;
-    }
-    
-    .flex-column {
-      flex-direction: column;
-    }
-    
-    .flex-row {
-      flex-direction: row;
-    }
-    
-    .align-items-center {
-      align-items: center;
-    }
-    
-    .justify-content-center {
-      justify-content: center;
-    }
-    
-    .justify-content-between {
-      justify-content: space-between;
-    }
-    
-    .flex-wrap {
-      flex-wrap: wrap;
-    }
-    
-    .gap-1 { gap: var(--space-xs); }
-    .gap-2 { gap: var(--space-sm); }
-    .gap-3 { gap: var(--space-md); }
-    .gap-4 { gap: var(--space-lg); }
-    .gap-5 { gap: var(--space-xl); }
-    
-    .w-100 {
-      width: 100%;
-    }
-    
-    .text-center {
-      text-align: center;
-    }
-    
-    .text-left {
-      text-align: left;
-    }
-    
-    .text-right {
-      text-align: right;
-    }
-    
-    .mt-1 { margin-top: var(--space-xs); }
-    .mt-2 { margin-top: var(--space-sm); }
-    .mt-3 { margin-top: var(--space-md); }
-    .mt-4 { margin-top: var(--space-lg); }
-    .mt-5 { margin-top: var(--space-xl); }
-    
-    .mb-1 { margin-bottom: var(--space-xs); }
-    .mb-2 { margin-bottom: var(--space-sm); }
-    .mb-3 { margin-bottom: var(--space-md); }
-    .mb-4 { margin-bottom: var(--space-lg); }
-    .mb-5 { margin-bottom: var(--space-xl); }
-    
-    .p-1 { padding: var(--space-xs); }
-    .p-2 { padding: var(--space-sm); }
-    .p-3 { padding: var(--space-md); }
-    .p-4 { padding: var(--space-lg); }
-    .p-5 { padding: var(--space-xl); }
-    
-    /* ==========================================================================
-       Layout Components
-       ========================================================================== */
-    
-    /* Header - Simplified */
-    .site-header {
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--border-light);
-      padding: var(--space-md) 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.95);
-    }
-    
-    [data-theme="dark"] .site-header {
-      background: rgba(26, 32, 44, 0.95);
-    }
-    
-    .header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-md);
-    }
-    
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-    
-    .brand a {
-      color: inherit;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    
-    .brand-logo {
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-    
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-    }
-    
-    /* Buttons */
-    .btn {
-      padding: 10px 20px;
-      border: none;
-      border-radius: var(--radius-md);
-      font-weight: 500;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-    
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-    
-    .btn-primary:hover {
-      background: var(--primary-dark);
-    }
-    
-    .btn-secondary {
-      background: var(--bg-tertiary);
-      color: var(--text-primary);
-      border: 1px solid var(--border-light);
-    }
-    
-    .btn-secondary:hover {
-      background: var(--bg-secondary);
-    }
-    
-    .btn-outline {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-    }
-    
-    .btn-outline:hover {
-      background: var(--primary-lightest);
-    }
-    
-    .btn-sm {
-      padding: 6px 12px;
-      font-size: 0.875rem;
-    }
-    
-    /* Main Content */
-    main {
-      min-height: calc(100vh - 180px);
-      padding: var(--space-xl) 0;
-    }
-    
-    /* Page Header */
-    .page-header {
-      text-align: center;
-      margin-bottom: var(--space-xxl);
-    }
-    
-    .page-title {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-      line-height: 1.2;
-    }
-    
-    .page-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-    
-    /* Content Sections */
-    .content-section {
-      margin-bottom: var(--space-xxl);
-    }
-    
-    .section-header {
-      margin-bottom: var(--space-xl);
-      text-align: center;
-    }
-    
-    .section-title {
-      font-size: 1.75rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-    }
-    
-    .section-subtitle {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    
-    /* Cards */
-    .card {
-      background: var(--bg-primary);
-      border-radius: var(--radius-lg);
-      padding: var(--space-xl);
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border-light);
-      transition: transform var(--transition-base), box-shadow var(--transition-base);
-    }
-    
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    .card-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-lg);
-      display: inline-block;
-    }
-    
-    .card-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-    }
-    
-    .card-text {
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-    
-    /* Stats Grid */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-xl);
-    }
-    
-    .stat-item {
-      text-align: center;
-      padding: var(--space-lg);
-      background: var(--bg-primary);
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-light);
-    }
-    
-    .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: var(--space-xs);
-      display: block;
-    }
-    
-    .stat-label {
-      font-size: 1rem;
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-    
-    /* Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--space-xl);
-      margin-top: var(--space-xl);
-    }
-    
-    .feature-card {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-    }
-    
-    .feature-icon {
-      width: 56px;
-      height: 56px;
-      background: var(--primary-lightest);
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: var(--space-lg);
-      font-size: 1.5rem;
-      color: var(--primary);
-    }
-    
-    .feature-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-    }
-    
-    .feature-description {
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-    
-    /* Process Steps */
-    .process-steps {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-xl);
-      position: relative;
-      margin-top: var(--space-xl);
-    }
-    
-    .process-step {
-      display: flex;
-      gap: var(--space-lg);
-      align-items: flex-start;
-      position: relative;
-    }
-    
-    .step-number {
-      width: 48px;
-      height: 48px;
-      background: var(--primary);
-      color: white;
-      border-radius: var(--radius-full);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-      font-size: 1.125rem;
-      flex-shrink: 0;
-    }
-    
-    .step-content {
-      flex: 1;
-    }
-    
-    .step-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: var(--space-sm);
-    }
-    
-    .step-description {
-      color: var(--text-secondary);
-      line-height: 1.7;
-    }
-    
-    /* Quote Section */
-    .quote-section {
-      background: var(--primary-lightest);
-      border-radius: var(--radius-xl);
-      padding: var(--space-xxl);
-      text-align: center;
-      margin: var(--space-xxl) 0;
-      border: 1px solid var(--border-light);
-    }
-    
-    [data-theme="dark"] .quote-section {
-      background: var(--bg-tertiary);
-    }
-    
-    .quote-icon {
-      font-size: 3rem;
-      color: var(--primary);
-      margin-bottom: var(--space-lg);
-      opacity: 0.8;
-    }
-    
-    .quote-text {
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.6;
-      margin-bottom: var(--space-lg);
-      font-style: italic;
-    }
-    
-    .quote-author {
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-    
-    /* CTA Section */
-    .cta-section {
-      text-align: center;
-      padding: var(--space-xxl) 0;
-    }
-    
-    .cta-title {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: var(--space-lg);
-    }
-    
-    .cta-description {
-      font-size: 1.125rem;
-      color: var(--text-secondary);
-      max-width: 600px;
-      margin: 0 auto var(--space-xl);
-      line-height: 1.6;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: var(--space-md);
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    
-    /* Footer */
-    .site-footer {
-      background: var(--bg-primary);
-      border-top: 1px solid var(--border-light);
-      padding: var(--space-xl) 0 var(--space-lg);
-    }
-    
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-xl);
-      margin-bottom: var(--space-xl);
-    }
-    
-    .footer-section h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: var(--space-md);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .footer-links {
-      list-style: none;
-    }
-    
-    .footer-links li {
-      margin-bottom: var(--space-xs);
-    }
-    
-    .footer-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: color var(--transition-fast);
-    }
-    
-    .footer-links a:hover {
-      color: var(--primary);
-    }
-    
-    .footer-bottom {
-      padding-top: var(--space-lg);
-      border-top: 1px solid var(--border-light);
-      text-align: center;
-      color: var(--text-tertiary);
-      font-size: 0.9rem;
-    }
-    
-    .footer-actions {
-      display: flex;
-      gap: var(--space-sm);
-      justify-content: center;
-      margin-top: var(--space-md);
-    }
-    
-    /* ==========================================================================
-       Responsive Design
-       ========================================================================== */
-    @media (max-width: 1024px) {
-      .page-title {
-        font-size: 2.25rem;
-      }
-      
-      .section-title {
-        font-size: 1.5rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      html {
-        font-size: 15px;
-      }
-      
-      .page-title {
-        font-size: 2rem;
-      }
-      
-      .page-subtitle {
-        font-size: 1.125rem;
-      }
-      
-      .card {
-        padding: var(--space-lg);
-      }
-      
-      .features-grid {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-      }
-      
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .process-step {
-        flex-direction: column;
-        gap: var(--space-md);
-      }
-      
-      .quote-section {
-        padding: var(--space-xl);
-      }
-      
-      .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .cta-buttons .btn {
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      html {
-        font-size: 14px;
-      }
-      
-      .page-title {
-        font-size: 1.75rem;
-      }
-      
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .header-content {
-        flex-direction: column;
-        gap: var(--space-sm);
-      }
-      
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: var(--space-lg);
-      }
-    }
-    
-    /* Print Styles */
-    @media print {
-      .no-print {
-        display: none !important;
-      }
-      
-      body {
-        background: white !important;
-        color: black !important;
-      }
-      
-      .card,
-      .stat-item {
-        box-shadow: none !important;
-        border: 1px solid #ddd !important;
-      }
-      
-      .cta-section,
-      .footer-actions {
-        display: none !important;
-      }
-    }
-    
-    /* ==========================================================================
-       Animations
-       ========================================================================== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.05);
-      }
-      100% {
-        transform: scale(1);
-      }
-    }
-    
-    .animate-fade-in-up {
-      animation: fadeInUp 0.6s ease-out;
-    }
-    
-    .animate-pulse {
-      animation: pulse 2s infinite;
-    }
-    
-    /* ==========================================================================
-       Dark Mode Adjustments
-       ========================================================================== */
-    [data-theme="dark"] {
-      .card,
-      .stat-item {
-        background: var(--bg-secondary);
-      }
-      
-      .feature-icon {
-        background: rgba(66, 153, 225, 0.1);
-      }
-      
-      .btn-outline:hover {
-        background: rgba(66, 153, 225, 0.1);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Secure Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles specific to about page */
+        .about-hero {
+            background: linear-gradient(135deg, #2d5be3 0%, #6c8dfa 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 60px;
+        }
+        
+        .about-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .about-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            opacity: 0.95;
+        }
+        
+        .about-content {
+            padding: 0 0 80px;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .mission-card, .vision-card {
+            background: white;
+            padding: 40px 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mission-card h2, .vision-card h2 {
+            color: #2d5be3;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .mission-card h2 i, .vision-card h2 i {
+            background: #2d5be3;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .team-section {
+            margin-bottom: 60px;
+        }
+        
+        .team-section h2 {
+            text-align: center;
+            color: #2d5be3;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-8px);
+        }
+        
+        .member-img {
+            height: 220px;
+            background: linear-gradient(135deg, #2d5be3 0%, #6c8dfa 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+        }
+        
+        .member-info {
+            padding: 25px;
+        }
+        
+        .member-info h3 {
+            color: #2d5be3;
+            margin-bottom: 8px;
+            font-size: 1.4rem;
+        }
+        
+        .member-info .role {
+            color: #4CAF50;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .values-section {
+            background: #f8f9ff;
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+        }
+        
+        .values-section h2 {
+            text-align: center;
+            color: #2d5be3;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: #2d5be3;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+        
+        .value-item h3 {
+            color: #2d5be3;
+            margin-bottom: 12px;
+            font-size: 1.3rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+        
+        .cta-section h2 {
+            color: #2d5be3;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+            font-size: 1.1rem;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #2d5be3;
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid #2d5be3;
+        }
+        
+        .cta-button:hover {
+            background: white;
+            color: #2d5be3;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-hero {
+                padding: 80px 0 60px;
+            }
+            
+            .mission-card, .vision-card {
+                padding: 30px 25px;
+            }
+            
+            .values-section {
+                padding: 50px 25px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .mission-card h2, .vision-card h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Main Content -->
-  <div id="main-content">
-    <!-- Header -->
-    <header class="site-header">
-      <div class="container">
-        <div class="header-content">
-          <div class="brand">
-            <a href="index.html">
-              <span class="brand-logo">📊</span>
-              <span>lotteryupdate000.space</span>
-            </a>
-          </div>
-          <div class="header-actions">
-            <button class="btn btn-secondary btn-sm" id="theme-toggle">
-              <span id="theme-icon">🌙</span>
-            </button>
-            <a href="index.html" class="btn btn-outline btn-sm">
-              <span>←</span> Back to Tools
-            </a>
-          </div>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>SecurePlatform</span>
+                </div>
+                
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <nav>
+                    <div class="nav-links" id="navLinks">
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="#mission">About</a></li>
+                            <li><a href="index.html#services">Services</a></li>
+                            <li><a href="index.html#support">Support</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                        
+                        <div class="quick-links" id="quickLinks">
+                            <a href="#terms">Terms of Service</a>
+                            <a href="#privacy">Privacy Policy</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
         </div>
-      </div>
     </header>
 
-    <main>
-      <div class="container content-container">
-        <!-- Page Header -->
-        <header class="page-header animate-fade-in-up">
-          <h1 class="page-title">About lotteryupdate000.space</h1>
-          <p class="page-subtitle">
-            Your premier platform for advanced lottery number analysis and statistical pattern recognition. 
-            Discover our mission, technology, and commitment to excellence.
-          </p>
-        </header>
-
-        <!-- Introduction -->
-        <section class="content-section animate-fade-in-up" style="animation-delay: 0.1s;">
-          <div class="card">
-            <div class="section-header">
-              <h2 class="section-title">Our Platform</h2>
-              <p class="section-subtitle">
-                lotteryupdate000.space is a sophisticated statistical analysis platform designed 
-                for lottery number research and pattern recognition.
-              </p>
-            </div>
-            
-            <div class="card-text">
-              <p style="margin-bottom: var(--space-md);">
-                We provide advanced analytical tools that utilize statistical methods, 
-                pattern recognition algorithms, and data visualization techniques to help 
-                users analyze lottery number patterns across various lottery systems.
-              </p>
-              
-              <p>
-                Our platform is built on the principle of making complex statistical analysis 
-                accessible and understandable to everyone, regardless of their mathematical 
-                background.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Features -->
-        <section class="content-section animate-fade-in-up" style="animation-delay: 0.2s;">
-          <div class="section-header">
-            <h2 class="section-title">Platform Features</h2>
-            <p class="section-subtitle">
-              Advanced tools and capabilities for comprehensive lottery number analysis
-            </p>
-          </div>
-          
-          <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon">
-                📈
-              </div>
-              <h3 class="feature-title">Statistical Analysis</h3>
-              <p class="feature-description">
-                Advanced statistical methods to analyze number frequency, distribution patterns, 
-                and historical trends across multiple lottery systems.
-              </p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                🔍
-              </div>
-              <h3 class="feature-title">Pattern Recognition</h3>
-              <p class="feature-description">
-                Sophisticated algorithms that identify recurring patterns, trends, 
-                and statistical anomalies in lottery number data.
-              </p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                🎯
-              </div>
-              <h3 class="feature-title">Smart Generation</h3>
-              <p class="feature-description">
-                Intelligent number generation based on statistical analysis, pattern 
-                recognition, and balanced distribution principles.
-              </p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                🔒
-              </div>
-              <h3 class="feature-title">Privacy Protection</h3>
-              <p class="feature-description">
-                All analysis is performed locally in your browser - no data collection, 
-                external tracking, or personal information storage.
-              </p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                🌍
-              </div>
-              <h3 class="feature-title">Global Coverage</h3>
-              <p class="feature-description">
-                Support for all major lottery systems worldwide including Powerball, 
-                Mega Millions, EuroMillions, and custom configurations.
-              </p>
-            </div>
-            
-            <div class="feature-card">
-              <div class="feature-icon">
-                📱
-              </div>
-              <h3 class="feature-title">Cross-Platform</h3>
-              <p class="feature-description">
-                Fully responsive design that works perfectly on desktop, tablet, 
-                and mobile devices with offline capabilities.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- How It Works -->
-        <section class="content-section animate-fade-in-up" style="animation-delay: 0.3s;">
-          <div class="card">
-            <div class="section-header">
-              <h2 class="section-title">How Our Platform Works</h2>
-              <p class="section-subtitle">
-                A streamlined process for comprehensive lottery number analysis
-              </p>
-            </div>
-            
-            <div class="process-steps">
-              <div class="process-step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                  <h3 class="step-title">Data Analysis</h3>
-                  <p class="step-description">
-                    Our algorithms analyze historical lottery data to identify statistical patterns, 
-                    frequency distributions, and number trends across different lottery systems.
-                  </p>
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About SecurePlatform</h1>
+            <p>We are dedicated to creating secure, accessible, and innovative digital solutions for a connected world. Our mission is to protect your digital assets while providing seamless experiences across all platforms.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Security First</span>
                 </div>
-              </div>
-              
-              <div class="process-step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                  <h3 class="step-title">Pattern Recognition</h3>
-                  <p class="step-description">
-                    Advanced pattern recognition techniques identify recurring sequences, 
-                    distribution anomalies, and statistical correlations in the data.
-                  </p>
+                <div class="feature">
+                    <i class="fas fa-users"></i>
+                    <span>User Focused</span>
                 </div>
-              </div>
-              
-              <div class="process-step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                  <h3 class="step-title">Visualization</h3>
-                  <p class="step-description">
-                    Complex statistical data is presented through intuitive visualizations 
-                    including heatmaps, charts, and interactive graphs for easy interpretation.
-                  </p>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <span>Innovation</span>
                 </div>
-              </div>
-              
-              <div class="process-step">
-                <div class="step-number">4</div>
-                <div class="step-content">
-                  <h3 class="step-title">Analysis & Insights</h3>
-                  <p class="step-description">
-                    Generate comprehensive analysis reports with actionable insights, 
-                    statistical probabilities, and pattern-based recommendations.
-                  </p>
+                <div class="feature">
+                    <i class="fas fa-globe-americas"></i>
+                    <span>Global Reach</span>
                 </div>
-              </div>
             </div>
-          </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Platform Stats -->
-        <section class="content-section animate-fade-in-up" style="animation-delay: 0.4s;">
-          <div class="section-header">
-            <h2 class="section-title">Platform Statistics</h2>
-            <p class="section-subtitle">
-              Key metrics that demonstrate our platform's reach and capabilities
-            </p>
-          </div>
-          
-          <div class="stats-grid">
-            <div class="stat-item">
-              <span class="stat-number" id="stat-users">10,000+</span>
-              <span class="stat-label">Active Users</span>
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <!-- Mission & Vision -->
+            <div class="mission-vision">
+                <div class="mission-card" id="mission">
+                    <h2><i class="fas fa-bullseye"></i> Our Mission</h2>
+                    <p>To provide cutting-edge security solutions that empower businesses and individuals to operate safely in the digital world. We believe that security should be accessible, transparent, and seamless for everyone.</p>
+                    <p>Our team works tirelessly to stay ahead of emerging threats while maintaining user-friendly interfaces that don't compromise on protection.</p>
+                </div>
+                
+                <div class="vision-card">
+                    <h2><i class="fas fa-eye"></i> Our Vision</h2>
+                    <p>To create a safer digital ecosystem where technology enhances lives without compromising security or privacy. We envision a world where digital interactions are inherently secure by design.</p>
+                    <p>By 2030, we aim to protect over 1 million businesses and 100 million individuals worldwide through our innovative security platforms.</p>
+                </div>
             </div>
             
-            <div class="stat-item">
-              <span class="stat-number" id="stat-analyses">500K+</span>
-              <span class="stat-label">Analyses Performed</span>
+            <!-- Team Section -->
+            <div class="team-section">
+                <h2>Our Leadership Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-img">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Alex Johnson</h3>
+                            <div class="role">CEO & Founder</div>
+                            <p>15+ years in cybersecurity. Former security architect at global tech firms.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-img">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Sarah Chen</h3>
+                            <div class="role">CTO</div>
+                            <p>Expert in encryption technologies and secure system architecture.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="member-img">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="member-info">
+                            <h3>Marcus Rodriguez</h3>
+                            <div class="role">Head of Security</div>
+                            <p>Leads our threat intelligence and incident response teams.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="stat-item">
-              <span class="stat-number" id="stat-lotteries">50+</span>
-              <span class="stat-label">Lottery Systems</span>
+            <!-- Values Section -->
+            <div class="values-section">
+                <h2>Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>Security First</h3>
+                        <p>We prioritize security in every decision, product, and service we deliver.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3>Trust & Transparency</h3>
+                        <p>We believe in building trust through transparent operations and communication.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovation</h3>
+                        <p>We continuously evolve to stay ahead of emerging threats and technologies.</p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Customer Focus</h3>
+                        <p>Our solutions are designed with the end-user experience in mind.</p>
+                    </div>
+                </div>
             </div>
             
-            <div class="stat-item">
-              <span class="stat-number" id="stat-algorithms">25+</span>
-              <span class="stat-label">Analysis Algorithms</span>
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2>Join Our Secure Community</h2>
+                <p>Become part of a growing network of businesses and individuals who trust SecurePlatform with their digital security needs. Our 24/7 support team is always ready to help you stay protected.</p>
+                <a href="index.html#contact" class="cta-button">Get In Touch</a>
             </div>
-          </div>
-        </section>
-
-        <!-- Quote -->
-        <section class="quote-section animate-fade-in-up" style="animation-delay: 0.5s;">
-          <div class="quote-icon">"</div>
-          <p class="quote-text">
-            Our mission is to democratize access to advanced statistical analysis tools 
-            and empower users with data-driven insights for lottery number research.
-          </p>
-          <div class="quote-author">— lotteryupdate000.space Platform</div>
-        </section>
-
-        <!-- Technology -->
-        <section class="content-section animate-fade-in-up" style="animation-delay: 0.6s;">
-          <div class="card">
-            <div class="section-header">
-              <h2 class="section-title">Technology Stack</h2>
-              <p class="section-subtitle">
-                Built with modern technologies for optimal performance and reliability
-              </p>
-            </div>
-            
-            <div class="card-text">
-              <p style="margin-bottom: var(--space-md);">
-                Our platform utilizes cutting-edge web technologies and sophisticated algorithms:
-              </p>
-              
-              <div style="display: flex; flex-wrap: wrap; gap: var(--space-sm); margin: var(--space-lg) 0;">
-                <span style="background: var(--primary-lightest); color: var(--primary); padding: 8px 16px; border-radius: var(--radius-md); font-weight: 500;">Statistical Algorithms</span>
-                <span style="background: var(--primary-lightest); color: var(--primary); padding: 8px 16px; border-radius: var(--radius-md); font-weight: 500;">Pattern Recognition</span>
-                <span style="background: var(--primary-lightest); color: var(--primary); padding: 8px 16px; border-radius: var(--radius-md); font-weight: 500;">Data Visualization</span>
-                <span style="background: var(--primary-lightest); color: var(--primary); padding: 8px 16px; border-radius: var(--radius-md); font-weight: 500;">Machine Learning</span>
-                <span style="background: var(--primary-lightest); color: var(--primary); padding: 8px 16px; border-radius: var(--radius-md); font-weight: 500;">Real-time Processing</span>
-                <span style="background: var(--primary-lightest); color: var(--primary); padding: 8px 16px; border-radius: var(--radius-md); font-weight: 500;">Predictive Analytics</span>
-              </div>
-              
-              <p>
-                All processing is done client-side in your browser, ensuring maximum privacy 
-                and optimal performance without relying on external servers.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta-section animate-fade-in-up" style="animation-delay: 0.7s;">
-          <h2 class="cta-title">Ready to Experience Advanced Analysis?</h2>
-          <p class="cta-description">
-            Join thousands of users who trust our platform for their lottery number analysis needs. 
-            Experience the power of professional statistical analysis tools.
-          </p>
-          
-          <div class="cta-buttons">
-            <a href="index.html" class="btn btn-primary animate-pulse">
-              <span>🚀</span> Try Our Analysis Tools
-            </a>
-            <a href="index.html" class="btn btn-secondary">
-              <span>📖</span> View Documentation
-            </a>
-          </div>
-        </section>
-      </div>
-    </main>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3>Platform</h3>
-            <ul class="footer-links">
-              <li><a href="index.html">Analysis Tools</a></li>
-              <li><a href="index.html">Documentation</a></li>
-              <li><a href="index.html">Features</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section">
-            <h3>Information</h3>
-            <ul class="footer-links">
-              <li><a href="about.html">About Platform</a></li>
-              <li><a href="privacy.html">Privacy Policy</a></li>
-              <li><a href="terms.html">Terms of Service</a></li>
-            </ul>
-          </div>
-          
-          <div class="footer-section">
-            <h3>Support</h3>
-            <ul class="footer-links">
-              <li><a href="index.html">Help Center</a></li>
-              <li><a href="index.html">User Guides</a></li>
-              <li><a href="index.html">System Requirements</a></li>
-            </ul>
-          </div>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About SecurePlatform</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Founded: 2018</li>
+                        <li><i class="fas fa-users"></i> Protected Users: 500K+</li>
+                        <li><i class="fas fa-building"></i> Global Offices: 5 Countries</li>
+                        <li><i class="fas fa-shield-alt"></i> Security Certifications: ISO 27001</li>
+                        <li><i class="fas fa-award"></i> Awards: 15+ Industry Recognitions</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#support">Support</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><i class="fas fa-clock"></i> Available 24/7</li>
+                        <li><i class="fas fa-headset"></i> Live Chat Support</li>
+                        <li><i class="fas fa-envelope"></i> Email: support@secureplatform.com</li>
+                        <li><i class="fas fa-phone"></i> Emergency: +1-800-SECURE</li>
+                        <li><i class="fas fa-question-circle"></i> Knowledge Base</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 SecurePlatform. All rights reserved. | Designed with security and accessibility in mind.</p>
+            </div>
         </div>
-        
-        <div class="footer-bottom">
-          <div style="margin-bottom: var(--space-sm);">
-            © <span id="current-year">2024</span> lotteryupdate000.space — Advanced Lottery Analysis Platform
-          </div>
-          <div style="font-size: 0.85rem; color: var(--text-tertiary); margin-bottom: var(--space-sm);">
-            Statistical analysis platform for entertainment and analytical purposes.
-          </div>
-          
-          <div class="footer-actions">
-            <button class="btn btn-secondary btn-sm" id="theme-toggle-footer">
-              <span>🌙</span> Theme
-            </button>
-            <button class="btn btn-secondary btn-sm" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-              <span>↑</span> Back to Top
-            </button>
-          </div>
-        </div>
-      </div>
     </footer>
-  </div>
 
-  <!-- JavaScript -->
-  <script>
-    // Application State
-    const PlatformApp = {
-      theme: localStorage.getItem('theme') || 'light',
-      
-      // Initialize
-      init() {
-        this.setupEventListeners();
-        this.applyTheme();
-        this.animateStats();
-        this.setCurrentYear();
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            const quickLinks = document.getElementById('quickLinks');
+            
+            navLinks.classList.toggle('active');
+            quickLinks.classList.toggle('active');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
         
-        // Add scroll animations
-        this.initScrollAnimations();
-      },
-      
-      // Event Listeners
-      setupEventListeners() {
-        // Theme toggle
-        document.getElementById('theme-toggle').addEventListener('click', () => this.toggleTheme());
-        const themeToggleFooter = document.getElementById('theme-toggle-footer');
-        if (themeToggleFooter) {
-          themeToggleFooter.addEventListener('click', () => this.toggleTheme());
-        }
-        
-        // Smooth scroll for anchor links
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-          anchor.addEventListener('click', function (e) {
-            if (this.getAttribute('href') === '#') return;
-            
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-              targetElement.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-              });
-            }
-          });
-        });
-      },
-      
-      // Theme Functions
-      toggleTheme() {
-        this.theme = this.theme === 'light' ? 'dark' : 'light';
-        this.applyTheme();
-        this.showNotification(`Switched to ${this.theme} theme`);
-      },
-      
-      applyTheme() {
-        document.documentElement.setAttribute('data-theme', this.theme);
-        localStorage.setItem('theme', this.theme);
-        const icon = this.theme === 'light' ? '🌙' : '☀️';
-        document.getElementById('theme-icon').textContent = icon;
-        
-        const themeToggleFooter = document.getElementById('theme-toggle-footer');
-        if (themeToggleFooter) {
-          themeToggleFooter.innerHTML = `${icon} Theme`;
-        }
-      },
-      
-      // Animate Statistics
-      animateStats() {
-        const stats = {
-          users: 10000,
-          analyses: 500000,
-          lotteries: 50,
-          algorithms: 25
-        };
-        
-        Object.keys(stats).forEach(stat => {
-          const element = document.getElementById(`stat-${stat}`);
-          if (element) {
-            this.animateCounter(element, stats[stat], stat === 'analyses' ? 'K+' : '+');
-          }
-        });
-      },
-      
-      animateCounter(element, target, suffix = '+') {
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
-          
-          if (suffix === 'K+') {
-            const value = current >= 1000 ? `${(current/1000).toFixed(0)}K` : Math.floor(current);
-            element.textContent = value + suffix;
-          } else {
-            element.textContent = Math.floor(current) + suffix;
-          }
-        }, 30);
-      },
-      
-      // Set Current Year
-      setCurrentYear() {
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-      },
-      
-      // Scroll Animations
-      initScrollAnimations() {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-            }
-          });
-        }, {
-          threshold: 0.1,
-          rootMargin: '0px 0px -50px 0px'
-        });
-        
-        // Observe all animate-fade-in-up elements
-        document.querySelectorAll('.animate-fade-in-up').forEach(el => {
-          el.style.opacity = '0';
-          el.style.transform = 'translateY(20px)';
-          el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-          observer.observe(el);
-        });
-      },
-      
-      // Notification
-      showNotification(message) {
-        // Create notification element
-        const notification = document.createElement('div');
-        notification.textContent = message;
-        notification.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          background: var(--primary);
-          color: white;
-          padding: 12px 20px;
-          border-radius: var(--radius-md);
-          font-weight: 500;
-          z-index: 1000;
-          opacity: 0;
-          transform: translateY(10px);
-          transition: opacity 0.3s, transform 0.3s;
-          box-shadow: var(--shadow-lg);
-        `;
-        
-        document.body.appendChild(notification);
-        
-        // Animate in
-        setTimeout(() => {
-          notification.style.opacity = '1';
-          notification.style.transform = 'translateY(0)';
-        }, 10);
-        
-        // Remove after delay
-        setTimeout(() => {
-          notification.style.opacity = '0';
-          notification.style.transform = 'translateY(10px)';
-          setTimeout(() => notification.remove(), 300);
-        }, 3000);
-      },
-      
-      // PWA Support
-      initPWA() {
-        let deferredPrompt;
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-          e.preventDefault();
-          deferredPrompt = e;
-          
-          // Show install button if needed
-          const installBtn = document.getElementById('install-button');
-          if (installBtn) {
-            installBtn.style.display = 'flex';
-            installBtn.addEventListener('click', () => {
-              installBtn.style.display = 'none';
-              deferredPrompt.prompt();
-              deferredPrompt.userChoice.then((choice) => {
-                if (choice.outcome === 'accepted') {
-                  this.showNotification('Platform installed successfully!');
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const navLinks = document.getElementById('navLinks');
+                    const quickLinks = document.getElementById('quickLinks');
+                    const menuBtnIcon = document.querySelector('#mobileMenuBtn i');
+                    
+                    if(navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        quickLinks.classList.remove('active');
+                        menuBtnIcon.classList.remove('fa-times');
+                        menuBtnIcon.classList.add('fa-bars');
+                    }
                 }
-                deferredPrompt = null;
-              });
             });
-          }
         });
-      }
-    };
-    
-    // Initialize app
-    document.addEventListener('DOMContentLoaded', () => {
-      PlatformApp.init();
-      PlatformApp.initPWA();
-    });
-    
-    // Error handling
-    window.addEventListener('error', (e) => {
-      console.error('Platform error:', e.error);
-    });
-  </script>
+    </script>
 </body>
 </html>
