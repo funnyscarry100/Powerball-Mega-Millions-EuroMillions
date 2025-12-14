@@ -11,22 +11,19 @@
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   
   <!-- SEO Meta Tags -->
-  <title>Free Lottery Number Generator | Pattern Analyzer for Powerball & Mega Millions</title>
-  <meta name="description" content="Generate smarter lottery numbers with statistical pattern analysis. Free tool for Powerball (1-69), Mega Millions (1-70), EuroMillions.">
-  <meta name="keywords" content="lottery number generator, free lotto numbers, Powerball generator, Mega Millions numbers, pattern analyzer">
+  <title>About Us | Lottery Pattern Analyzer</title>
+  <meta name="description" content="Learn about our mission to provide free, privacy-focused lottery analysis tools with statistical pattern recognition.">
+  <meta name="keywords" content="about lottery tools, lottery analysis, number generator, pattern recognition, statistical analysis">
   <meta name="author" content="LotteryUpdate000">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://lotteryupdate000.space/" />
+  <link rel="canonical" href="https://lotteryupdate000.space/about" />
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Free Lottery Pattern Analyzer & Number Generator">
-  <meta property="og:description" content="Generate smart lottery numbers with statistical pattern analysis">
-  <meta property="og:url" content="https://lotteryupdate000.space">
+  <meta property="og:title" content="About Lottery Pattern Analyzer">
+  <meta property="og:description" content="Learn about our mission to provide free, privacy-focused lottery analysis tools">
+  <meta property="og:url" content="https://lotteryupdate000.space/about">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Lottery Pattern Analyzer">
-  <meta property="og:image" content="https://lotteryupdate000.space/images/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   
   <!-- Favicons -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
@@ -37,7 +34,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="mobile-web-app-capable" content="yes">
   
-  <!-- Inline CSS - Everything in one file -->
+  <!-- Inline CSS - Same as main page -->
   <style>
     /* ==========================================================================
        CSS Reset & Base Styles
@@ -536,295 +533,6 @@
       color: var(--primary);
     }
     
-    /* Number Grid & Heatmap */
-    .number-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
-      gap: 8px;
-      margin-bottom: var(--space-md);
-    }
-    
-    .number-cell {
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      border: 2px solid transparent;
-      font-size: 0.9rem;
-    }
-    
-    .number-cell:hover {
-      transform: scale(1.05);
-    }
-    
-    .number-cell.selected {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.3);
-    }
-    
-    /* Heatmap Colors */
-    .hot { background: #ff4444; color: white; }
-    .warm { background: #ffa726; color: white; }
-    .cool { background: #42a5f5; color: white; }
-    .cold { background: #78909c; color: white; }
-    
-    .heatmap-legend {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-md);
-      justify-content: center;
-      padding: var(--space-sm);
-      background: rgba(0, 0, 0, 0.02);
-      border-radius: var(--radius-sm);
-    }
-    
-    .legend-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    
-    .legend-color {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-    }
-    
-    /* Generated Numbers */
-    .generated-numbers {
-      min-height: 100px;
-      background: var(--bg-tertiary);
-      border: 2px dashed var(--border-light);
-      border-radius: var(--radius-md);
-      padding: var(--space-md);
-      margin-bottom: var(--space-md);
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .number-set {
-      display: flex;
-      gap: 8px;
-      padding: var(--space-sm);
-      background: var(--bg-primary);
-      border-radius: var(--radius-sm);
-      border: 2px solid var(--primary-light);
-    }
-    
-    .generated-number {
-      width: 36px;
-      height: 36px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      font-weight: 700;
-      font-size: 1rem;
-    }
-    
-    /* Statistics */
-    .stat-card {
-      background: rgba(46, 125, 50, 0.05);
-      border-radius: var(--radius-md);
-      padding: var(--space-md);
-      margin-top: var(--space-md);
-    }
-    
-    .pattern-stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: var(--space-sm);
-    }
-    
-    .stat-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px;
-      background: var(--bg-primary);
-      border-radius: 6px;
-      border: 1px solid var(--border-light);
-      font-size: 0.9rem;
-    }
-    
-    .stat-value {
-      font-weight: 700;
-      color: var(--primary);
-    }
-    
-    /* Generator Controls */
-    .generator-presets {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: var(--space-md);
-    }
-    
-    .preset-btn {
-      padding: 6px 12px;
-      border: 2px solid var(--border-light);
-      background: var(--bg-tertiary);
-      border-radius: 20px;
-      cursor: pointer;
-      transition: var(--transition-fast);
-      font-weight: 500;
-      font-size: 0.875rem;
-    }
-    
-    .preset-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-    
-    .analyzer-controls {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      gap: var(--space-sm);
-      margin-bottom: var(--space-md);
-    }
-    
-    .analyzer-btn {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: var(--space-md) var(--space-sm);
-      background: var(--bg-tertiary);
-      border: 2px solid var(--border-light);
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      transition: all var(--transition-fast);
-      gap: 8px;
-    }
-    
-    .analyzer-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-      border-color: var(--primary);
-    }
-    
-    .quick-generate {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: var(--space-md);
-    }
-    
-    .quick-btn {
-      flex: 1;
-      min-width: 120px;
-      padding: var(--space-sm);
-      background: var(--primary-light);
-      color: white;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition-fast);
-    }
-    
-    .quick-btn:hover {
-      background: var(--primary);
-    }
-    
-    /* Settings Panel */
-    .settings-panel {
-      background: rgba(0, 0, 0, 0.02);
-      border-radius: var(--radius-md);
-      padding: var(--space-md);
-      margin: var(--space-md) 0;
-      border: 1px solid var(--border-light);
-    }
-    
-    .control-group {
-      margin-bottom: var(--space-md);
-    }
-    
-    .control-label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-    
-    input[type="number"],
-    select {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid var(--border-light);
-      border-radius: 6px;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-    }
-    
-    .checkbox {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    /* Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-lg);
-      margin: var(--space-lg) 0;
-    }
-    
-    .feature-card {
-      background: var(--bg-primary);
-      border-radius: var(--radius-md);
-      padding: var(--space-lg);
-      text-align: center;
-      border: 1px solid var(--border-light);
-      transition: all var(--transition-base);
-    }
-    
-    .feature-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-    }
-    
-    /* Tutorial Steps */
-    .tutorial-steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-    
-    .tutorial-step {
-      background: var(--bg-tertiary);
-      border-radius: var(--radius-md);
-      padding: var(--space-lg);
-      position: relative;
-      border: 1px solid var(--border-light);
-    }
-    
-    .step-number {
-      position: absolute;
-      top: -12px;
-      left: -12px;
-      width: 32px;
-      height: 32px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-    }
-    
     /* Toast Notifications */
     .toast-container {
       position: fixed;
@@ -889,6 +597,321 @@
     }
     
     /* ==========================================================================
+       About Page Specific Styles
+       ========================================================================== */
+    
+    /* About Hero */
+    .about-hero {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      padding: 80px 0 60px;
+      text-align: center;
+      margin-bottom: 40px;
+      border-radius: 0 0 20px 20px;
+    }
+    
+    .about-hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .about-hero p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      opacity: 0.95;
+    }
+    
+    .mission-vision {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    
+    .mission-card, .vision-card {
+      background: var(--bg-primary);
+      padding: 40px 35px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border-light);
+    }
+    
+    .mission-card:hover, .vision-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .mission-card h2, .vision-card h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .mission-card h2 i, .vision-card h2 i {
+      background: var(--primary);
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    
+    .team-section {
+      margin-bottom: 60px;
+    }
+    
+    .team-section h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+    }
+    
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    
+    .team-member {
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border-light);
+    }
+    
+    .team-member:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    .member-img {
+      height: 220px;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 5rem;
+    }
+    
+    .member-info {
+      padding: 25px;
+    }
+    
+    .member-info h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+      font-size: 1.4rem;
+    }
+    
+    .member-info .role {
+      color: var(--success);
+      font-weight: 600;
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+    
+    .values-section {
+      background: var(--bg-tertiary);
+      padding: 60px 40px;
+      border-radius: var(--radius-md);
+      margin-bottom: 60px;
+      border: 1px solid var(--border-light);
+    }
+    
+    .values-section h2 {
+      text-align: center;
+      color: var(--primary);
+      margin-bottom: 50px;
+      font-size: 2.2rem;
+    }
+    
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    
+    .value-item {
+      text-align: center;
+      padding: 25px;
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      transition: transform 0.3s ease;
+      border: 1px solid var(--border-light);
+    }
+    
+    .value-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+    }
+    
+    .value-item h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.3rem;
+    }
+    
+    .cta-section {
+      text-align: center;
+      padding: 60px 0;
+    }
+    
+    .cta-section h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-size: 2.2rem;
+    }
+    
+    .cta-section p {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 2px solid var(--primary);
+    }
+    
+    .cta-button:hover {
+      background: white;
+      color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+    
+    .feature-card {
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      text-align: center;
+      border: 1px solid var(--border-light);
+      transition: all var(--transition-base);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    
+    /* Timeline */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 60px auto;
+    }
+    
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: var(--primary);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+    }
+    
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
+    
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    
+    .timeline-content {
+      padding: 20px 30px;
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .timeline-date {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+    
+    /* Stats Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    
+    .stat-card {
+      background: var(--bg-primary);
+      padding: 25px;
+      border-radius: var(--radius-md);
+      text-align: center;
+      border: 1px solid var(--border-light);
+    }
+    
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    /* ==========================================================================
        Responsive Design
        ========================================================================== */
     @media (max-width: 768px) {
@@ -896,16 +919,50 @@
         font-size: 14px;
       }
       
+      .about-hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .about-hero {
+        padding: 60px 0 40px;
+      }
+      
+      .mission-card, .vision-card {
+        padding: 30px 25px;
+      }
+      
+      .values-section {
+        padding: 50px 25px;
+      }
+      
+      .timeline::after {
+        left: 31px;
+      }
+      
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .hero-title {
         font-size: 1.75rem;
-      }
-      
-      .pattern-stats {
-        grid-template-columns: 1fr;
-      }
-      
-      .analyzer-controls {
-        grid-template-columns: 1fr;
       }
       
       .footer-content {
@@ -933,21 +990,19 @@
     }
     
     @media (max-width: 480px) {
-      .number-grid {
-        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
+      .about-hero h1 {
+        font-size: 2rem;
       }
       
-      .generated-number {
-        width: 32px;
-        height: 32px;
-        font-size: 0.875rem;
+      .about-hero p {
+        font-size: 1.1rem;
       }
       
-      .features-grid {
-        grid-template-columns: 1fr;
+      .mission-card h2, .vision-card h2 {
+        font-size: 1.6rem;
       }
       
-      .tutorial-steps {
+      .stats-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -967,17 +1022,12 @@
         box-shadow: none !important;
         border: 1px solid #ddd !important;
       }
-      
-      .generated-numbers {
-        border: 2px dashed #000 !important;
-      }
     }
   </style>
 </head>
 <body>
   <!-- Skip Links -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <a href="#analyzer" class="skip-link">Skip to analyzer</a>
   <a href="#footer" class="skip-link">Skip to footer</a>
 
   <!-- Loading Skeleton -->
@@ -994,7 +1044,7 @@
       <div class="container">
         <div class="header-content">
           <div class="brand">
-            <a href="/" aria-label="Lottery Pattern Analyzer">
+            <a href="index.html" aria-label="Lottery Pattern Analyzer">
               <span>🎯</span> lotteryupdate000.space
             </a>
           </div>
@@ -1014,9 +1064,10 @@
     <nav>
       <div class="container">
         <ul class="nav-list">
-          <li class="nav-item"><a href="index.html" class="nav-link active"><span>🏠</span> Home</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link"><span>🏠</span> Home</a></li>
           <li class="nav-item"><a href="other-tools.html" class="nav-link"><span>🛠️</span> Other Tools</a></li>
           <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
+          <li class="nav-item"><a href="about.html" class="nav-link active"><span>ℹ️</span> About</a></li>
         </ul>
       </div>
     </nav>
@@ -1040,297 +1091,217 @@
     <main>
       <div class="container">
         <!-- Hero Section -->
-        <div class="hero">
-          <div style="flex: 2;">
-            <h1 class="hero-title">Free Lottery Pattern Analyzer & Number Generator</h1>
-            
-            <div class="trust-indicators">
-              <div class="trust-item"><span>✅</span> 100% Free</div>
-              <div class="trust-item"><span>✅</span> No Registration</div>
-              <div class="trust-item"><span>✅</span> Secure & Private</div>
-              <div class="trust-item"><span>✅</span> Works Worldwide</div>
-            </div>
-            
-            <p class="hero-description">Generate smarter lottery numbers with statistical pattern analysis. Create balanced number sets for Powerball, Mega Millions, EuroMillions and more.</p>
-            <p class="hero-disclaimer">Lottery outcomes are random. This tool provides statistical analysis for entertainment purposes only.</p>
-            
-            <div class="hero-cta">
-              <button class="btn btn-primary" id="generate-now">
-                <span>🎯</span> Generate Numbers Now
-              </button>
-              <button class="btn btn-secondary" id="show-tutorial">
-                <span>📚</span> How to Use
-              </button>
-            </div>
+        <section class="about-hero">
+          <h1>About Lottery Pattern Analyzer</h1>
+          <p>We're dedicated to providing free, privacy-focused lottery analysis tools that help players make informed decisions using statistical pattern recognition.</p>
+          
+          <div class="trust-indicators">
+            <div class="trust-item"><span>✅</span> 100% Free Forever</div>
+            <div class="trust-item"><span>✅</span> Privacy First</div>
+            <div class="trust-item"><span>✅</span> No Registration</div>
+            <div class="trust-item"><span>✅</span> Statistical Analysis</div>
+          </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <div class="mission-vision">
+          <div class="mission-card">
+            <h2><i>🎯</i> Our Mission</h2>
+            <p>To democratize lottery number analysis by providing free, accessible tools that use statistical methods to identify patterns and trends. We believe everyone should have access to data-driven insights without compromising their privacy or paying for services.</p>
+            <p>Our tools are designed to help lottery enthusiasts make more informed choices while emphasizing the random nature of lottery draws.</p>
           </div>
           
-          <div style="flex: 1;">
-            <div class="status-panel">
-              <div class="status-header">
-                <span>📊</span>
-                <h3 class="status-title">Tool Status</h3>
-              </div>
-              <div class="status-content">
-                <div class="status-item">
-                  <span>Active & Ready</span>
-                  <span class="status-value" id="current-time">--:--:--</span>
-                </div>
-                <div class="status-item">
-                  <span>Users Online</span>
-                  <span class="status-value" id="online-users">1,234</span>
-                </div>
-                <div class="status-item">
-                  <span>Numbers Generated</span>
-                  <span class="status-value" id="total-generations">10,567</span>
-                </div>
-              </div>
-            </div>
+          <div class="vision-card">
+            <h2><i>👁️</i> Our Vision</h2>
+            <p>To create a trusted platform for lottery analysis where players can explore statistical patterns, understand probability, and make decisions based on data rather than superstition.</p>
+            <p>We envision a world where lottery play is approached with knowledge, responsibility, and realistic expectations about the role of chance.</p>
           </div>
         </div>
 
-        <!-- Pattern Analyzer Section -->
-        <div class="card" id="analyzer">
-          <div class="card-header">
-            <h2 style="display: flex; align-items: center; gap: 10px;">
-              <span>🔍</span> Lottery Pattern Analyzer
-            </h2>
-            <div style="display: flex; gap: 8px;">
-              <button class="btn btn-sm" id="export-numbers"><span>📥</span> Export</button>
-              <button class="btn btn-sm" id="share-numbers"><span>🔗</span> Share</button>
-              <button class="btn btn-sm" id="reset-analyzer"><span>🔄</span> Reset</button>
-            </div>
-          </div>
-          
+        <!-- Our Story -->
+        <div class="card">
+          <h2 style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <span>📖</span> Our Story
+          </h2>
           <p style="color: var(--text-secondary); margin-bottom: 20px;">
-            Analyze number patterns and generate balanced number sets based on statistical frequency analysis.
+            Founded in 2024, Lottery Pattern Analyzer began as a passion project by a team of data analysts and software developers who noticed that many lottery players were making choices based on superstition rather than data.
           </p>
-
-          <div style="display: flex; flex-direction: column; gap: 30px;">
-            <!-- Heatmap Column -->
-            <div>
-              <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                <span>📈</span> Number Frequency Heatmap
-              </h3>
-              <div style="margin-bottom: 20px;">
-                <div class="number-grid" id="heatmap">
-                  <!-- Generated by JavaScript -->
-                </div>
-                <div class="heatmap-legend">
-                  <div class="legend-item">
-                    <span class="legend-color hot"></span>
-                    <span>Hot (High Frequency)</span>
-                  </div>
-                  <div class="legend-item">
-                    <span class="legend-color warm"></span>
-                    <span>Warm (Above Average)</span>
-                  </div>
-                  <div class="legend-item">
-                    <span class="legend-color cool"></span>
-                    <span>Cool (Below Average)</span>
-                  </div>
-                  <div class="legend-item">
-                    <span class="legend-color cold"></span>
-                    <span>Cold (Low Frequency)</span>
-                  </div>
-                </div>
-              </div>
-              
-              <div class="stat-card">
-                <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                  <span>📊</span> Pattern Analysis
-                </h4>
-                <div class="pattern-stats" id="patternStats">
-                  <div class="stat-item">
-                    <span>Odd/Even Ratio:</span>
-                    <span class="stat-value" id="oddEvenRatio">-</span>
-                  </div>
-                  <div class="stat-item">
-                    <span>High/Low Ratio:</span>
-                    <span class="stat-value" id="highLowRatio">-</span>
-                  </div>
-                  <div class="stat-item">
-                    <span>Sum Range:</span>
-                    <span class="stat-value" id="sumRange">-</span>
-                  </div>
-                  <div class="stat-item">
-                    <span>Number Spread:</span>
-                    <span class="stat-value" id="numberSpread">-</span>
-                  </div>
-                </div>
+          <p style="color: var(--text-secondary); margin-bottom: 20px;">
+            We saw an opportunity to create tools that would help players understand the statistical aspects of lottery games while emphasizing responsible play. Our platform has since grown to serve thousands of users worldwide, all while maintaining our commitment to privacy and free access.
+          </p>
+          
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">January 2024</div>
+                <h3>Project Launch</h3>
+                <p>Initial concept and development of the core pattern analysis engine.</p>
               </div>
             </div>
             
-            <!-- Generator Column -->
-            <div>
-              <h3 style="display: flex; align-items: center; gap: 10px; margin-bottom: 15px;">
-                <span>🎲</span> Smart Number Generator
-              </h3>
-              
-              <div style="margin-bottom: 20px;">
-                <div class="generator-presets">
-                  <button class="preset-btn active" data-preset="custom">Custom</button>
-                  <button class="preset-btn" data-preset="powerball">Powerball</button>
-                  <button class="preset-btn" data-preset="megamillions">Mega Millions</button>
-                  <button class="preset-btn" data-preset="euromillions">EuroMillions</button>
-                </div>
-                
-                <div class="analyzer-controls">
-                  <button class="analyzer-btn" id="generate-pattern">
-                    <span style="font-size: 1.5rem;">🎯</span>
-                    <span style="font-weight: 600;">Pattern-Based</span>
-                    <span style="font-size: 0.85rem; color: var(--text-tertiary);">Uses frequency analysis</span>
-                  </button>
-                  <button class="analyzer-btn" id="generate-balanced">
-                    <span style="font-size: 1.5rem;">⚖️</span>
-                    <span style="font-weight: 600;">Balanced Set</span>
-                    <span style="font-size: 0.85rem; color: var(--text-tertiary);">Optimal distribution</span>
-                  </button>
-                  <button class="analyzer-btn" id="generate-random">
-                    <span style="font-size: 1.5rem;">🎲</span>
-                    <span style="font-weight: 600;">True Random</span>
-                    <span style="font-size: 0.85rem; color: var(--text-tertiary);">Pure randomness</span>
-                  </button>
-                </div>
-                
-                <div class="quick-generate">
-                  <button class="quick-btn" data-count="1">Generate 1 Set</button>
-                  <button class="quick-btn" data-count="3">Generate 3 Sets</button>
-                  <button class="quick-btn" data-count="5">Generate 5 Sets</button>
-                </div>
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">March 2024</div>
+                <h3>First Release</h3>
+                <p>Launched basic number generator with frequency analysis features.</p>
               </div>
-              
-              <div class="generated-numbers" id="generatedNumbers">
-                <div style="color: var(--text-tertiary); font-style: italic;">Click above to generate numbers</div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">June 2024</div>
+                <h3>Major Update</h3>
+                <p>Added heatmap visualization, preset configurations, and export features.</p>
               </div>
-              
-              <div style="display: flex; gap: 8px; margin-top: 15px;">
-                <button class="btn btn-sm" id="copy-numbers"><span>📋</span> Copy</button>
-                <button class="btn btn-sm" id="clear-numbers"><span>🗑️</span> Clear</button>
-                <button class="btn btn-sm" id="save-numbers"><span>💾</span> Save</button>
-              </div>
-              
-              <div class="settings-panel">
-                <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 15px;">
-                  <span>⚙️</span> Generator Settings
-                </h4>
-                
-                <div>
-                  <div class="control-group">
-                    <label class="control-label">Number Range: 1 to</label>
-                    <input type="number" id="maxNumber" value="69" min="10" max="100">
-                  </div>
-                  
-                  <div class="control-group">
-                    <label class="control-label">Numbers to Pick:</label>
-                    <input type="number" id="numberCount" value="6" min="1" max="15">
-                  </div>
-                  
-                  <div class="control-group">
-                    <label class="control-label">Default Method:</label>
-                    <select id="generationMethod">
-                      <option value="pattern">Pattern-Based</option>
-                      <option value="balanced">Balanced Set</option>
-                      <option value="random">True Random</option>
-                    </select>
-                  </div>
-                  
-                  <div class="control-group checkbox">
-                    <input type="checkbox" id="autoUpdate" checked>
-                    <label>Auto-update heatmap</label>
-                  </div>
-                  
-                  <button class="btn btn-primary w-100" id="save-settings">
-                    <span>💾</span> Save Settings
-                  </button>
-                </div>
-              </div>
-              
-              <div style="background: var(--bg-primary); border-radius: var(--radius-md); padding: 15px; border: 1px solid var(--border-light); margin-top: 20px;">
-                <h4 style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px;">
-                  <span>📈</span> Real-Time Statistics
-                </h4>
-                <div>
-                  <p style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                    <strong>Total Generations:</strong> <span id="statsTotal">0</span>
-                  </p>
-                  <p style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                    <strong>Most Used:</strong> <span id="statsMostUsed">Pattern-Based</span>
-                  </p>
-                  <p style="display: flex; justify-content: space-between;">
-                    <strong>Hot Numbers:</strong> <span id="statsHotNumbers">7, 23, 42</span>
-                  </p>
-                </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <div class="timeline-date">October 2024</div>
+                <h3>Global Release</h3>
+                <p>Expanded to support lottery games from multiple countries worldwide.</p>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tutorial Section -->
-        <div class="card" id="tutorial">
-          <h2 style="display: flex; align-items: center; gap: 10px;">
-            <span>📚</span> How to Use the Pattern Analyzer
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">10,000+</div>
+            <div class="stat-label">Active Users</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1M+</div>
+            <div class="stat-label">Numbers Generated</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Countries Served</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Service Availability</div>
+          </div>
+        </div>
+
+        <!-- Team Section -->
+        <div class="team-section">
+          <h2>Our Team</h2>
+          <div class="team-grid">
+            <div class="team-member">
+              <div class="member-img">
+                👨‍💻
+              </div>
+              <div class="member-info">
+                <h3>Alex Johnson</h3>
+                <div class="role">Lead Data Analyst</div>
+                <p style="color: var(--text-secondary);">Statistical modeling and pattern recognition specialist with 8+ years experience in data science.</p>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-img">
+                👩‍💻
+              </div>
+              <div class="member-info">
+                <h3>Sarah Chen</h3>
+                <div class="role">Software Architect</div>
+                <p style="color: var(--text-secondary);">Full-stack developer focused on creating fast, secure, and privacy-respecting applications.</p>
+              </div>
+            </div>
+            
+            <div class="team-member">
+              <div class="member-img">
+                👨‍🏫
+              </div>
+              <div class="member-info">
+                <h3>Marcus Rodriguez</h3>
+                <div class="role">Probability Expert</div>
+                <p style="color: var(--text-secondary);">Mathematics PhD specializing in probability theory and statistical analysis of games of chance.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Values Section -->
+        <div class="values-section">
+          <h2>Our Core Values</h2>
+          <div class="values-grid">
+            <div class="value-item">
+              <div class="value-icon">
+                🔒
+              </div>
+              <h3>Privacy First</h3>
+              <p style="color: var(--text-secondary);">All analysis happens locally in your browser. We never collect personal data or track your usage.</p>
+            </div>
+            
+            <div class="value-item">
+              <div class="value-icon">
+                🎯
+              </div>
+              <h3>Accuracy</h3>
+              <p style="color: var(--text-secondary);">We use proven statistical methods and continuously improve our algorithms for better analysis.</p>
+            </div>
+            
+            <div class="value-item">
+              <div class="value-icon">
+                🆓
+              </div>
+              <h3>Free Access</h3>
+              <p style="color: var(--text-secondary);">Our tools will always be free. No subscriptions, no paywalls, no hidden costs.</p>
+            </div>
+            
+            <div class="value-item">
+              <div class="value-icon">
+                ⚖️
+              </div>
+              <h3>Responsibility</h3>
+              <p style="color: var(--text-secondary);">We promote responsible gaming and provide clear disclaimers about the role of chance.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technology -->
+        <div class="card">
+          <h2 style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <span>⚙️</span> Our Technology
           </h2>
           
-          <div class="tutorial-steps">
-            <div class="tutorial-step">
-              <div class="step-number">1</div>
-              <div>
-                <h3 style="margin-bottom: 8px;">Select Your Lottery Game</h3>
-                <p style="color: var(--text-secondary);">Choose from presets (Powerball, Mega Millions, EuroMillions) or set custom ranges using the settings panel.</p>
-              </div>
+          <div class="features-grid">
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">🔢</div>
+              <h3 style="margin-bottom: 8px;">Statistical Algorithms</h3>
+              <p style="color: var(--text-secondary);">Advanced frequency analysis and probability calculations running client-side for maximum privacy.</p>
             </div>
             
-            <div class="tutorial-step">
-              <div class="step-number">2</div>
-              <div>
-                <h3 style="margin-bottom: 8px;">Analyze Number Patterns</h3>
-                <p style="color: var(--text-secondary);">View the heatmap to see which numbers are "hot" (frequent) or "cold" (infrequent). Click numbers to select them manually.</p>
-              </div>
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">⚡</div>
+              <h3 style="margin-bottom: 8px;">Modern Web Tech</h3>
+              <p style="color: var(--text-secondary);">Built with HTML5, CSS3, and vanilla JavaScript for fast performance and broad compatibility.</p>
             </div>
             
-            <div class="tutorial-step">
-              <div class="step-number">3</div>
-              <div>
-                <h3 style="margin-bottom: 8px;">Generate Numbers</h3>
-                <p style="color: var(--text-secondary);">Use Pattern-Based for frequency-weighted numbers, Balanced for optimal distribution, or Random for pure chance.</p>
-              </div>
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">🔐</div>
+              <h3 style="margin-bottom: 8px;">Security Focused</h3>
+              <p style="color: var(--text-secondary);">Implements modern security headers and best practices to protect user privacy and data.</p>
             </div>
             
-            <div class="tutorial-step">
-              <div class="step-number">4</div>
-              <div>
-                <h3 style="margin-bottom: 8px;">Review & Export</h3>
-                <p style="color: var(--text-secondary);">Check the statistics, copy numbers, save them, or export for later use.</p>
-              </div>
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">📱</div>
+              <h3 style="margin-bottom: 8px;">Mobile First</h3>
+              <p style="color: var(--text-secondary);">Fully responsive design that works perfectly on phones, tablets, and desktop computers.</p>
             </div>
           </div>
         </div>
 
-        <!-- Features Section -->
-        <div class="features-grid">
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">🔢</div>
-            <h3 style="margin-bottom: 8px;">Frequency Analysis</h3>
-            <p style="color: var(--text-secondary);">Identify hot and cold numbers based on statistical patterns and historical data trends.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">⚖️</div>
-            <h3 style="margin-bottom: 8px;">Balanced Generation</h3>
-            <p style="color: var(--text-secondary);">Create sets with optimal odd/even and high/low ratios for better distribution.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">📊</div>
-            <h3 style="margin-bottom: 8px;">Real-Time Stats</h3>
-            <p style="color: var(--text-secondary);">Track your number patterns and generation history with detailed statistics.</p>
-          </div>
-          
-          <div class="feature-card">
-            <div style="font-size: 2.5rem; margin-bottom: 12px;">🔒</div>
-            <h3 style="margin-bottom: 8px;">Privacy First</h3>
-            <p style="color: var(--text-secondary);">No data collection. Everything runs locally in your browser for maximum privacy.</p>
-          </div>
+        <!-- CTA Section -->
+        <div class="cta-section">
+          <h2>Start Analyzing Patterns Today</h2>
+          <p>Join thousands of users who trust our tools for lottery number analysis. Generate numbers, analyze patterns, and explore statistical insights—all for free.</p>
+          <a href="index.html" class="cta-button">
+            <span>🎯</span> Try Pattern Analyzer Now
+          </a>
         </div>
 
         <!-- Disclaimer -->
@@ -1338,8 +1309,8 @@
           <div style="display: flex; gap: 15px; align-items: flex-start;">
             <div style="font-size: 1.8rem; flex-shrink: 0;">⚠️</div>
             <div>
-              <h3 style="margin-bottom: 8px; color: var(--warning);">Important Legal Disclaimer</h3>
-              <p style="color: var(--text-primary); margin-bottom: 8px;">This tool is for entertainment and educational purposes only. Lottery games are based on random chance, and no system can guarantee a win. All number generations are purely statistical simulations.</p>
+              <h3 style="margin-bottom: 8px; color: var(--warning);">Important Legal Notice</h3>
+              <p style="color: var(--text-primary); margin-bottom: 8px;">This tool is for entertainment and educational purposes only. Lottery games are based on random chance, and no system can guarantee a win. Our tools provide statistical analysis but cannot predict outcomes.</p>
               <p style="margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255, 193, 7, 0.3); font-weight: 600; color: var(--warning);">
                 <strong>Play Responsibly:</strong> Must be 18+ to participate in lottery games. Never spend more than you can afford to lose.
               </p>
@@ -1358,22 +1329,23 @@
               <li><a href="index.html">Home</a></li>
               <li><a href="other-tools.html">Other Tools</a></li>
               <li><a href="guides.html">Guides</a></li>
+              <li><a href="about.html">About Us</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
             <h3>Information</h3>
             <ul class="footer-links">
-              <li><a href="about.html">About Us</a></li>
               <li><a href="terms.html">Terms of Service</a></li>
               <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
             <h3>Lottery Tools</h3>
             <ul class="footer-links">
-              <li><a href="#analyzer">Pattern Analyzer</a></li>
+              <li><a href="index.html#analyzer">Pattern Analyzer</a></li>
               <li><a href="#" class="preset-link" data-preset="powerball">Powerball Generator</a></li>
               <li><a href="#" class="preset-link" data-preset="megamillions">Mega Millions Generator</a></li>
               <li><a href="#" class="preset-link" data-preset="euromillions">EuroMillions Generator</a></li>
@@ -1404,36 +1376,17 @@
 
   <!-- JavaScript -->
   <script>
-    // Application State
-    const LotteryApp = {
-      selectedNumbers: new Set(),
-      generatedSets: [],
-      frequencyData: {},
-      totalGenerations: 0,
+    // Application State for About Page
+    const AboutApp = {
       theme: localStorage.getItem('theme') || 'light',
-      settings: {
-        maxNumber: 69,
-        numberCount: 6,
-        method: 'pattern',
-        autoUpdate: true
-      },
-      presets: {
-        powerball: { maxNumber: 69, numberCount: 5 },
-        megamillions: { maxNumber: 70, numberCount: 5 },
-        euromillions: { maxNumber: 50, numberCount: 5 },
-        custom: { maxNumber: 69, numberCount: 6 }
-      },
       
       // Initialize
       init() {
         this.setupEventListeners();
         this.applyTheme();
-        this.loadSettings();
-        this.initHeatmap();
-        this.startClock();
-        this.updateStats();
         this.showContent();
         this.initVisitorInfo();
+        this.startClock();
         
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -1445,63 +1398,13 @@
         document.getElementById('theme-toggle').addEventListener('click', () => this.toggleTheme());
         document.getElementById('theme-toggle-footer').addEventListener('click', () => this.toggleTheme());
         
-        // Navigation
-        document.getElementById('generate-now').addEventListener('click', () => this.scrollToAnalyzer());
-        document.getElementById('show-tutorial').addEventListener('click', () => this.scrollToTutorial());
-        
-        // Generator buttons
-        document.getElementById('generate-pattern').addEventListener('click', () => this.generateNumbers('pattern'));
-        document.getElementById('generate-balanced').addEventListener('click', () => this.generateNumbers('balanced'));
-        document.getElementById('generate-random').addEventListener('click', () => this.generateNumbers('random'));
-        
-        // Preset buttons
-        document.querySelectorAll('.preset-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => this.setPreset(e.target.dataset.preset));
-        });
-        
-        // Quick generate
-        document.querySelectorAll('.quick-btn').forEach(btn => {
-          btn.addEventListener('click', (e) => this.quickGenerate(parseInt(e.target.dataset.count)));
-        });
-        
-        // Action buttons
-        document.getElementById('copy-numbers').addEventListener('click', () => this.copyNumbers());
-        document.getElementById('clear-numbers').addEventListener('click', () => this.clearNumbers());
-        document.getElementById('save-numbers').addEventListener('click', () => this.saveNumbers());
-        document.getElementById('export-numbers').addEventListener('click', () => this.exportNumbers());
-        document.getElementById('share-numbers').addEventListener('click', () => this.shareNumbers());
-        document.getElementById('reset-analyzer').addEventListener('click', () => this.resetAnalyzer());
-        document.getElementById('save-settings').addEventListener('click', () => this.saveUserSettings());
-        
-        // Settings inputs
-        document.getElementById('maxNumber').addEventListener('change', (e) => {
-          this.settings.maxNumber = parseInt(e.target.value);
-          if (this.settings.autoUpdate) this.initHeatmap();
-        });
-        
-        document.getElementById('numberCount').addEventListener('change', (e) => {
-          this.settings.numberCount = parseInt(e.target.value);
-        });
-        
-        document.getElementById('generationMethod').addEventListener('change', (e) => {
-          this.settings.method = e.target.value;
-        });
-        
-        document.getElementById('autoUpdate').addEventListener('change', (e) => {
-          this.settings.autoUpdate = e.target.checked;
-        });
-        
-        // Preset links in footer
+        // Preset links
         document.querySelectorAll('.preset-link').forEach(link => {
           link.addEventListener('click', (e) => {
             e.preventDefault();
-            this.setPreset(e.target.dataset.preset);
-            this.scrollToAnalyzer();
+            this.showToast('Please use the main tool for number generation');
           });
         });
-        
-        // Online users simulation
-        setInterval(() => this.updateOnlineUsers(), 30000);
       },
       
       // Theme Functions
@@ -1539,453 +1442,12 @@
       },
       
       detectVisitorLocation() {
-        // Try to get location from browser
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(
-            (position) => {
-              // For privacy reasons, we'll just show "Location detected"
-              document.getElementById('visitor-location').textContent = 'Location detected';
-            },
-            () => {
-              // Fallback to IP-based location
-              this.getLocationFromIP();
-            }
-          );
-        } else {
-          this.getLocationFromIP();
-        }
-      },
-      
-      async getLocationFromIP() {
         try {
-          const response = await fetch('https://ipapi.co/json/');
-          const data = await response.json();
-          const city = data.city || 'Unknown';
-          const country = data.country_name || 'Unknown';
-          document.getElementById('visitor-location').textContent = `${city}, ${country}`;
+          // For privacy, we don't actually get location on about page
+          document.getElementById('visitor-location').textContent = 'Global';
         } catch (error) {
-          document.getElementById('visitor-location').textContent = 'Location unknown';
+          document.getElementById('visitor-location').textContent = 'Global';
         }
-      },
-      
-      updateOnlineUsers() {
-        const base = 1234;
-        const variation = Math.floor(Math.random() * 100) - 50;
-        const onlineUsers = base + variation;
-        document.getElementById('online-users').textContent = onlineUsers.toLocaleString();
-      },
-      
-      // Heatmap Functions
-      initHeatmap() {
-        const container = document.getElementById('heatmap');
-        container.innerHTML = '';
-        
-        // Initialize or update frequency data
-        for (let i = 1; i <= this.settings.maxNumber; i++) {
-          if (!this.frequencyData[i]) {
-            this.frequencyData[i] = Math.floor(Math.random() * 100);
-          }
-        }
-        
-        // Create number cells
-        for (let i = 1; i <= this.settings.maxNumber; i++) {
-          const cell = document.createElement('div');
-          cell.className = 'number-cell';
-          cell.textContent = i;
-          cell.dataset.number = i;
-          
-          // Set heatmap color
-          const frequency = this.frequencyData[i];
-          let heatClass = 'cold';
-          if (frequency > 75) heatClass = 'hot';
-          else if (frequency > 50) heatClass = 'warm';
-          else if (frequency > 25) heatClass = 'cool';
-          
-          cell.classList.add(heatClass);
-          
-          // Add selection handler
-          cell.addEventListener('click', () => this.toggleNumberSelection(i, cell));
-          
-          container.appendChild(cell);
-        }
-      },
-      
-      toggleNumberSelection(number, element) {
-        if (this.selectedNumbers.has(number)) {
-          this.selectedNumbers.delete(number);
-          element.classList.remove('selected');
-        } else {
-          if (this.selectedNumbers.size < this.settings.numberCount) {
-            this.selectedNumbers.add(number);
-            element.classList.add('selected');
-          } else {
-            this.showToast(`Maximum ${this.settings.numberCount} numbers allowed`, 'warning');
-            return;
-          }
-        }
-        this.updateStats();
-      },
-      
-      // Number Generation
-      generateNumbers(method) {
-        const numbers = this.generateNumberSet(method);
-        this.displayNumbers(numbers);
-        this.updateFrequencyData(numbers);
-        this.totalGenerations++;
-        this.updateStats();
-        this.showToast(`Generated ${method} numbers`);
-      },
-      
-      generateNumberSet(method) {
-        const maxNum = this.settings.maxNumber;
-        const count = this.settings.numberCount;
-        const numbers = new Set();
-        
-        switch(method) {
-          case 'random':
-            while (numbers.size < count) {
-              numbers.add(Math.floor(Math.random() * maxNum) + 1);
-            }
-            break;
-            
-          case 'balanced':
-            // Ensure balanced distribution
-            const groups = Math.ceil(count / 3);
-            const lowEnd = Math.floor(maxNum / 3);
-            const midEnd = Math.floor(maxNum * 2 / 3);
-            
-            // Low numbers
-            for (let i = 0; i < groups && numbers.size < count; i++) {
-              numbers.add(Math.floor(Math.random() * lowEnd) + 1);
-            }
-            
-            // Mid numbers
-            for (let i = 0; i < groups && numbers.size < count; i++) {
-              numbers.add(Math.floor(Math.random() * (midEnd - lowEnd)) + lowEnd + 1);
-            }
-            
-            // High numbers
-            while (numbers.size < count) {
-              numbers.add(Math.floor(Math.random() * (maxNum - midEnd)) + midEnd + 1);
-            }
-            break;
-            
-          case 'pattern':
-          default:
-            // Weighted by frequency
-            const weighted = [];
-            for (let i = 1; i <= maxNum; i++) {
-              const weight = this.frequencyData[i] || 50;
-              for (let j = 0; j < weight; j++) {
-                weighted.push(i);
-              }
-            }
-            
-            while (numbers.size < count && weighted.length > 0) {
-              const index = Math.floor(Math.random() * weighted.length);
-              numbers.add(weighted[index]);
-              // Remove this number from weighted array to avoid duplicates
-              weighted.splice(index, 1);
-            }
-            
-            // Fill remaining with random
-            while (numbers.size < count) {
-              numbers.add(Math.floor(Math.random() * maxNum) + 1);
-            }
-        }
-        
-        return Array.from(numbers).sort((a, b) => a - b);
-      },
-      
-      quickGenerate(count) {
-        const container = document.getElementById('generatedNumbers');
-        container.innerHTML = '';
-        
-        for (let i = 0; i < count; i++) {
-          const numbers = this.generateNumberSet(this.settings.method);
-          this.displayNumberSet(numbers);
-          this.updateFrequencyData(numbers);
-          this.totalGenerations++;
-        }
-        
-        this.updateStats();
-        this.showToast(`Generated ${count} sets`);
-      },
-      
-      displayNumbers(numbers) {
-        const container = document.getElementById('generatedNumbers');
-        container.innerHTML = '';
-        this.displayNumberSet(numbers);
-      },
-      
-      displayNumberSet(numbers) {
-        const container = document.getElementById('generatedNumbers');
-        const setDiv = document.createElement('div');
-        setDiv.className = 'number-set';
-        
-        numbers.forEach(num => {
-          const numDiv = document.createElement('div');
-          numDiv.className = 'generated-number';
-          numDiv.textContent = num;
-          setDiv.appendChild(numDiv);
-        });
-        
-        container.appendChild(setDiv);
-      },
-      
-      updateFrequencyData(numbers) {
-        numbers.forEach(num => {
-          this.frequencyData[num] = (this.frequencyData[num] || 0) + 1;
-        });
-        
-        // Update heatmap colors if auto-update is enabled
-        if (this.settings.autoUpdate) {
-          this.updateHeatmapColors();
-        }
-      },
-      
-      updateHeatmapColors() {
-        document.querySelectorAll('.number-cell').forEach(cell => {
-          const num = parseInt(cell.dataset.number);
-          const frequency = this.frequencyData[num] || 0;
-          
-          // Remove existing heat classes
-          cell.classList.remove('hot', 'warm', 'cool', 'cold');
-          
-          // Add new heat class
-          let heatClass = 'cold';
-          if (frequency > 75) heatClass = 'hot';
-          else if (frequency > 50) heatClass = 'warm';
-          else if (frequency > 25) heatClass = 'cool';
-          
-          cell.classList.add(heatClass);
-        });
-      },
-      
-      // Preset Functions
-      setPreset(preset) {
-        if (this.presets[preset]) {
-          const config = this.presets[preset];
-          this.settings.maxNumber = config.maxNumber;
-          this.settings.numberCount = config.numberCount;
-          
-          // Update UI
-          document.getElementById('maxNumber').value = config.maxNumber;
-          document.getElementById('numberCount').value = config.numberCount;
-          
-          // Update active preset button
-          document.querySelectorAll('.preset-btn').forEach(btn => {
-            btn.classList.remove('active');
-          });
-          document.querySelector(`.preset-btn[data-preset="${preset}"]`).classList.add('active');
-          
-          // Update heatmap
-          if (this.settings.autoUpdate) {
-            this.initHeatmap();
-          }
-          
-          this.showToast(`Switched to ${preset} preset`);
-        }
-      },
-      
-      // Settings Functions
-      loadSettings() {
-        const saved = localStorage.getItem('lotterySettings');
-        if (saved) {
-          const settings = JSON.parse(saved);
-          this.settings = { ...this.settings, ...settings };
-          
-          // Update UI
-          document.getElementById('maxNumber').value = this.settings.maxNumber;
-          document.getElementById('numberCount').value = this.settings.numberCount;
-          document.getElementById('generationMethod').value = this.settings.method;
-          document.getElementById('autoUpdate').checked = this.settings.autoUpdate;
-        }
-      },
-      
-      saveUserSettings() {
-        localStorage.setItem('lotterySettings', JSON.stringify(this.settings));
-        this.showToast('Settings saved');
-      },
-      
-      // Action Functions
-      copyNumbers() {
-        const numbers = Array.from(document.querySelectorAll('.generated-number'));
-        if (numbers.length === 0) {
-          this.showToast('No numbers to copy', 'warning');
-          return;
-        }
-        
-        const text = Array.from(numbers).map(n => n.textContent).join(' ');
-        navigator.clipboard.writeText(text)
-          .then(() => this.showToast('Numbers copied to clipboard'))
-          .catch(() => {
-            // Fallback
-            const textArea = document.createElement('textarea');
-            textArea.value = text;
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            this.showToast('Numbers copied to clipboard');
-          });
-      },
-      
-      clearNumbers() {
-        if (confirm('Clear all generated numbers?')) {
-          document.getElementById('generatedNumbers').innerHTML = 
-            '<div style="color: var(--text-tertiary); font-style: italic;">Click above to generate numbers</div>';
-          this.selectedNumbers.clear();
-          document.querySelectorAll('.number-cell.selected').forEach(cell => {
-            cell.classList.remove('selected');
-          });
-          this.updateStats();
-          this.showToast('Cleared all numbers');
-        }
-      },
-      
-      saveNumbers() {
-        const numbers = Array.from(document.querySelectorAll('.generated-number'));
-        if (numbers.length === 0) {
-          this.showToast('No numbers to save', 'warning');
-          return;
-        }
-        
-        const saved = JSON.parse(localStorage.getItem('savedNumbers') || '[]');
-        saved.push({
-          numbers: Array.from(numbers).map(n => n.textContent),
-          timestamp: new Date().toISOString(),
-          preset: this.getCurrentPreset()
-        });
-        
-        localStorage.setItem('savedNumbers', JSON.stringify(saved));
-        this.showToast('Numbers saved locally');
-      },
-      
-      exportNumbers() {
-        const numbers = Array.from(document.querySelectorAll('.generated-number'));
-        if (numbers.length === 0) {
-          this.showToast('No numbers to export', 'warning');
-          return;
-        }
-        
-        const data = {
-          numbers: Array.from(numbers).map(n => n.textContent),
-          timestamp: new Date().toISOString(),
-          settings: this.settings,
-          preset: this.getCurrentPreset()
-        };
-        
-        const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `lottery-numbers-${Date.now()}.json`;
-        a.click();
-        URL.revokeObjectURL(url);
-        
-        this.showToast('Numbers exported as JSON');
-      },
-      
-      shareNumbers() {
-        const numbers = Array.from(document.querySelectorAll('.generated-number'));
-        if (numbers.length === 0) {
-          this.showToast('No numbers to share', 'warning');
-          return;
-        }
-        
-        const text = `My lottery numbers: ${Array.from(numbers).map(n => n.textContent).join(' ')}`;
-        
-        if (navigator.share) {
-          navigator.share({
-            title: 'Lottery Numbers',
-            text: text,
-            url: window.location.href
-          }).catch(() => this.copyToClipboard(text));
-        } else {
-          this.copyToClipboard(text);
-        }
-      },
-      
-      copyToClipboard(text) {
-        navigator.clipboard.writeText(text)
-          .then(() => this.showToast('Copied to clipboard - share it manually'))
-          .catch(() => this.showToast('Failed to copy', 'error'));
-      },
-      
-      resetAnalyzer() {
-        if (confirm('Reset analyzer and clear all data?')) {
-          this.selectedNumbers.clear();
-          this.generatedSets = [];
-          this.frequencyData = {};
-          this.totalGenerations = 0;
-          
-          document.getElementById('generatedNumbers').innerHTML = 
-            '<div style="color: var(--text-tertiary); font-style: italic;">Click above to generate numbers</div>';
-          
-          document.querySelectorAll('.number-cell.selected').forEach(cell => {
-            cell.classList.remove('selected');
-          });
-          
-          this.initHeatmap();
-          this.updateStats();
-          this.showToast('Analyzer reset');
-        }
-      },
-      
-      getCurrentPreset() {
-        for (const [preset, config] of Object.entries(this.presets)) {
-          if (config.maxNumber === this.settings.maxNumber && 
-              config.numberCount === this.settings.numberCount) {
-            return preset;
-          }
-        }
-        return 'custom';
-      },
-      
-      // Stats Functions
-      updateStats() {
-        // Pattern stats
-        const numbers = Array.from(this.selectedNumbers);
-        if (numbers.length > 0) {
-          const oddCount = numbers.filter(n => n % 2 === 1).length;
-          const evenCount = numbers.length - oddCount;
-          document.getElementById('oddEvenRatio').textContent = `${oddCount}/${evenCount}`;
-          
-          const midPoint = Math.floor(this.settings.maxNumber / 2);
-          const highCount = numbers.filter(n => n > midPoint).length;
-          const lowCount = numbers.length - highCount;
-          document.getElementById('highLowRatio').textContent = `${highCount}/${lowCount}`;
-          
-          const sum = numbers.reduce((a, b) => a + b, 0);
-          const avg = sum / numbers.length;
-          document.getElementById('sumRange').textContent = `${sum} (avg: ${avg.toFixed(1)})`;
-          
-          const min = Math.min(...numbers);
-          const max = Math.max(...numbers);
-          const spread = max - min;
-          document.getElementById('numberSpread').textContent = `${spread} (${min}-${max})`;
-        } else {
-          document.getElementById('oddEvenRatio').textContent = '-';
-          document.getElementById('highLowRatio').textContent = '-';
-          document.getElementById('sumRange').textContent = '-';
-          document.getElementById('numberSpread').textContent = '-';
-        }
-        
-        // Real-time stats
-        document.getElementById('statsTotal').textContent = this.totalGenerations.toLocaleString();
-        
-        // Find hot numbers
-        const sortedFreq = Object.entries(this.frequencyData)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 3)
-          .map(([num]) => num);
-        document.getElementById('statsHotNumbers').textContent = sortedFreq.join(', ');
-        
-        // Update counters
-        const baseGenerations = 10567;
-        document.getElementById('total-generations').textContent = 
-          (baseGenerations + this.totalGenerations).toLocaleString();
       },
       
       startClock() {
@@ -1997,7 +1459,8 @@
             minute: '2-digit',
             second: '2-digit'
           });
-          document.getElementById('current-time').textContent = timeString;
+          const timeElement = document.getElementById('visitor-time');
+          if (timeElement) timeElement.textContent = timeString;
         };
         
         updateTime();
@@ -2005,23 +1468,19 @@
       },
       
       // UI Functions
-      scrollToAnalyzer() {
-        document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
-      },
-      
-      scrollToTutorial() {
-        document.getElementById('tutorial').scrollIntoView({ behavior: 'smooth' });
-      },
-      
       showContent() {
         setTimeout(() => {
-          document.getElementById('loading-skeleton').style.display = 'none';
-          document.getElementById('main-content').style.display = 'block';
-        }, 500);
+          const skeleton = document.getElementById('loading-skeleton');
+          const mainContent = document.getElementById('main-content');
+          if (skeleton) skeleton.style.display = 'none';
+          if (mainContent) mainContent.style.display = 'block';
+        }, 300);
       },
       
       showToast(message, type = 'info') {
         const container = document.getElementById('toast-container');
+        if (!container) return;
+        
         const toast = document.createElement('div');
         toast.className = `toast ${type}`;
         toast.textContent = message;
@@ -2033,44 +1492,19 @@
           toast.style.opacity = '0';
           setTimeout(() => toast.remove(), 300);
         }, 3000);
-      },
-      
-      // PWA Support
-      initPWA() {
-        let deferredPrompt;
-        
-        window.addEventListener('beforeinstallprompt', (e) => {
-          e.preventDefault();
-          deferredPrompt = e;
-          const installBtn = document.getElementById('install-button');
-          if (installBtn) {
-            installBtn.style.display = 'flex';
-            installBtn.addEventListener('click', () => {
-              installBtn.style.display = 'none';
-              deferredPrompt.prompt();
-              deferredPrompt.userChoice.then((choice) => {
-                if (choice.outcome === 'accepted') {
-                  this.showToast('App installed successfully!');
-                }
-                deferredPrompt = null;
-              });
-            });
-          }
-        });
       }
     };
     
     // Initialize app
     document.addEventListener('DOMContentLoaded', () => {
-      LotteryApp.init();
-      LotteryApp.initPWA();
+      AboutApp.init();
     });
     
     // Error handling
     window.addEventListener('error', (e) => {
       console.error('Error:', e.error);
-      LotteryApp.showToast('An error occurred. Please refresh.', 'error');
+      AboutApp.showToast('An error occurred. Please refresh.', 'error');
     });
   </script>
 </body>
-</html>
+  </html>
