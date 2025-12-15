@@ -47,6 +47,7 @@
     :root {
       --primary: #2e7d32;
       --primary-dark: #1b5e20;
+      --primary-light: #4caf50;
       --bg-primary: #ffffff;
       --bg-secondary: #f8f9fa;
       --bg-tertiary: #f1f3f4;
@@ -57,6 +58,7 @@
       --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
       --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
       --radius-md: 12px;
+      --space-xs: 8px;
       --space-sm: 16px;
       --space-md: 24px;
       --space-lg: 32px;
@@ -224,6 +226,52 @@
       margin-bottom: var(--space-lg);
     }
     
+    /* Tool Description Section */
+    .tool-description {
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-lg);
+      margin-bottom: var(--space-lg);
+      border-left: 5px solid var(--primary);
+    }
+    
+    .description-title {
+      font-size: 1.5rem;
+      margin-bottom: var(--space-sm);
+      color: var(--primary);
+    }
+    
+    .description-text {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+    
+    .description-text strong {
+      color: var(--text-primary);
+    }
+    
+    /* Feature Grid */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: var(--space-sm);
+      margin: var(--space-md) 0;
+    }
+    
+    .feature-item {
+      background: var(--bg-tertiary);
+      border-radius: 8px;
+      padding: var(--space-sm);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .feature-item span {
+      font-size: 1.5rem;
+    }
+    
     /* FAQ Section */
     .faq-section {
       margin: var(--space-xl) 0;
@@ -335,6 +383,14 @@
         font-size: 2rem;
       }
       
+      .description-title {
+        font-size: 1.3rem;
+      }
+      
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      
       .footer-content {
         grid-template-columns: 1fr;
       }
@@ -387,6 +443,48 @@
         <div class="about-hero-content">
           <h1 class="about-hero-title">About Lottery Pattern Analyzer</h1>
           <p class="about-hero-subtitle">Transforming lottery number generation through statistical analysis and smart technology</p>
+        </div>
+      </div>
+
+      <!-- Tool Description Section -->
+      <div class="tool-description">
+        <h2 class="description-title">Free Lottery Pattern Analyzer & Number Generator</h2>
+        <p class="description-text">
+          <strong>A complete, single-file web tool</strong> that analyzes number frequency patterns and generates statistically balanced sets for Powerball, Mega Millions, and other lotteries. Features a real-time heatmap, multiple generation methods, and works entirely offline.
+        </p>
+        
+        <div class="feature-grid">
+          <div class="feature-item">
+            <span>📊</span>
+            <span>Real-time heatmap visualization</span>
+          </div>
+          <div class="feature-item">
+            <span>🎯</span>
+            <span>Statistical pattern analysis</span>
+          </div>
+          <div class="feature-item">
+            <span>⚡</span>
+            <span>Works entirely offline</span>
+          </div>
+          <div class="feature-item">
+            <span>🔒</span>
+            <span>100% private & secure</span>
+          </div>
+          <div class="feature-item">
+            <span>🎲</span>
+            <span>Multiple generation methods</span>
+          </div>
+          <div class="feature-item">
+            <span>🌍</span>
+            <span>Worldwide lottery support</span>
+          </div>
+        </div>
+        
+        <div style="margin-top: var(--space-md); padding: var(--space-sm); background: rgba(46, 125, 50, 0.05); border-radius: 8px;">
+          <p style="color: var(--primary); font-weight: 500; margin: 0;">
+            <span style="margin-right: 8px;">✅</span>
+            All features are completely free - no registration required!
+          </p>
         </div>
       </div>
 
