@@ -578,7 +578,7 @@
         </div>
         <div class="header-actions">
           <button class="btn btn-secondary" id="theme-toggle">
-            <span id="theme-icon">🌙</span>
+            <span id="theme-icon">🌙</span> Theme
           </button>
         </div>
       </div>
@@ -590,8 +590,8 @@
     <div class="container">
       <ul class="nav-list">
         <li class="nav-item"><a href="index.html" class="nav-link"><span>🏠</span> Home</a></li>
-        <li class="nav-item"><a href="tools.html" class="nav-link"><span>⚙️</span> Tools</a></li>
-        <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
+        <li class="nav-item"><a href="index.html#tools" class="nav-link"><span>🛠️</span> Other Tools</a></li>
+        <li class="nav-item"><a href="index.html#guides" class="nav-link"><span>📚</span> Guides</a></li>
         <li class="nav-item"><a href="terms.html" class="nav-link active"><span>📜</span> Terms</a></li>
       </ul>
     </div>
@@ -783,8 +783,8 @@
           <h3>Quick Links</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="tools.html">Tools</a></li>
-            <li><a href="guides.html">Guides</a></li>
+            <li><a href="index.html#tools">Other Tools</a></li>
+            <li><a href="index.html#guides">Guides</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
             <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
@@ -799,32 +799,12 @@
             <li><a href="index.html" onclick="setPreset('euromillions'); return false;">EuroMillions Generator</a></li>
           </ul>
         </div>
-        
-        <div class="footer-section">
-          <h3>Guides</h3>
-          <ul class="footer-links">
-            <li><a href="guides.html#getting-started">Getting Started</a></li>
-            <li><a href="guides.html#analysis-methods">Analysis Methods</a></li>
-            <li><a href="guides.html#faq">FAQ</a></li>
-            <li><a href="guides.html#tips">Tips & Strategies</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-section">
-          <h3>Status</h3>
-          <div>
-            <p style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-              <span style="color: #4CAF50; font-size: 1.2rem;">●</span> 
-              <strong>Status:</strong> 🟢 Operational
-            </p>
-            <p style="margin-bottom: 8px;"><strong>Updated:</strong> Dec 10 2025</p>
-            <p><strong>Version:</strong> 2.0.0</p>
-          </div>
-        </div>
       </div>
       
       <div class="footer-bottom">
         <div style="margin-bottom: 15px;">
+          Status: <span style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; background: rgba(76, 175, 80, 0.1); color: var(--success); border-radius: 10px; font-size: 0.85rem; margin-left: 5px;">🟢 Operational</span>
+          <br>
           © 2025 lotteryupdate000.space — All rights reserved.
           <div style="margin-top: 5px; font-size: 0.75rem; opacity: 0.7;">
             This is an independent tool not affiliated with any lottery organization.
@@ -839,7 +819,7 @@
         
         <div style="display: flex; gap: 8px; justify-content: center;">
           <button class="btn btn-sm" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Top</button>
-          <button class="btn btn-sm" id="theme-toggle-footer"></button>
+          <button class="btn btn-sm" id="theme-toggle-footer">🌙 Theme</button>
           <button class="btn btn-sm" onclick="window.print()">🖨️ Print</button>
         </div>
       </div>
@@ -877,7 +857,7 @@
       const themeFooterBtn = document.getElementById('theme-toggle-footer');
       
       if (themeIcon) themeIcon.textContent = icon;
-      if (themeFooterBtn) themeFooterBtn.innerHTML = `${icon}`;
+      if (themeFooterBtn) themeFooterBtn.innerHTML = `${icon} Theme`;
     }
     
     // Set current year
@@ -922,4 +902,4 @@
     });
   </script>
 </body>
-</html>
+            </html>
