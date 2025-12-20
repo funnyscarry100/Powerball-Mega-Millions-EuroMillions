@@ -1,3 +1,38 @@
+# robots.txt for Lottery Pattern Analyzer
+# Generated: 2025-12-20
+
 User-agent: *
 Allow: /
+Allow: /sitemap.xml
+Allow: /robots.txt
+Disallow: /admin/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search/
+Disallow: /?ref=*
+
+Crawl-delay: 2
+
+# Sitemaps
 Sitemap: https://lotteryupdate000.space/sitemap.xml
+Sitemap: https://lotteryupdate000.space/sitemap-pages.xml
+Sitemap: https://lotteryupdate000.space/sitemap-articles.xml
+
+# Special bots
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: GPTBot
+Allow: /
