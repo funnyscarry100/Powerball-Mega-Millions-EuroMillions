@@ -438,24 +438,32 @@
       font-size: 0.875rem;
     }
     
-    /* Hero Section */
+    /* Hero Section - Updated for mobile */
     .hero {
       display: flex;
       flex-direction: column;
       gap: var(--space-lg);
       margin-bottom: var(--space-lg);
+      text-align: center;
     }
     
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       .hero {
-        flex-direction: row;
+        text-align: left;
       }
     }
     
     .hero-title {
-      font-size: 2.25rem;
+      font-size: 2rem;
       margin-bottom: var(--space-sm);
       color: var(--primary-dark);
+      line-height: 1.2;
+    }
+    
+    @media (min-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
     }
     
     .trust-indicators {
@@ -463,6 +471,13 @@
       flex-wrap: wrap;
       gap: var(--space-sm);
       margin: var(--space-md) 0;
+      justify-content: center;
+    }
+    
+    @media (min-width: 768px) {
+      .trust-indicators {
+        justify-content: flex-start;
+      }
     }
     
     .trust-item {
@@ -480,6 +495,7 @@
       font-size: 1.1rem;
       margin-bottom: var(--space-md);
       color: var(--text-secondary);
+      line-height: 1.6;
     }
     
     .hero-disclaimer {
@@ -490,6 +506,7 @@
       border-radius: var(--radius-sm);
       border-left: 3px solid var(--warning);
       margin-bottom: var(--space-md);
+      text-align: left;
     }
     
     .hero-cta {
@@ -497,43 +514,13 @@
       gap: var(--space-sm);
       flex-wrap: wrap;
       margin-top: var(--space-md);
+      justify-content: center;
     }
     
-    /* Status Panel */
-    .status-panel {
-      background: var(--bg-primary);
-      border-radius: var(--radius-md);
-      padding: var(--space-lg);
-      box-shadow: var(--shadow-md);
-      border: 1px solid var(--border-light);
-    }
-    
-    .status-header {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: var(--space-md);
-      padding-bottom: var(--space-sm);
-      border-bottom: 1px solid var(--border-light);
-    }
-    
-    .status-title {
-      font-size: 1.125rem;
-      color: var(--primary);
-    }
-    
-    .status-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--space-sm);
-      padding: 8px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    }
-    
-    .status-value {
-      font-weight: 700;
-      color: var(--primary);
+    @media (min-width: 768px) {
+      .hero-cta {
+        justify-content: flex-start;
+      }
     }
     
     /* Number Grid & Heatmap */
@@ -542,6 +529,13 @@
       grid-template-columns: repeat(auto-fill, minmax(40px, 1fr));
       gap: 8px;
       margin-bottom: var(--space-md);
+    }
+    
+    @media (max-width: 480px) {
+      .number-grid {
+        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
+        gap: 6px;
+      }
     }
     
     .number-cell {
@@ -631,6 +625,14 @@
       font-size: 1rem;
     }
     
+    @media (max-width: 480px) {
+      .generated-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.875rem;
+      }
+    }
+    
     /* Statistics */
     .stat-card {
       background: rgba(46, 125, 50, 0.05);
@@ -643,6 +645,12 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: var(--space-sm);
+    }
+    
+    @media (max-width: 480px) {
+      .pattern-stats {
+        grid-template-columns: 1fr;
+      }
     }
     
     .stat-item {
@@ -667,6 +675,13 @@
       gap: 8px;
       flex-wrap: wrap;
       margin-bottom: var(--space-md);
+      justify-content: center;
+    }
+    
+    @media (min-width: 768px) {
+      .generator-presets {
+        justify-content: flex-start;
+      }
     }
     
     .preset-btn {
@@ -691,6 +706,12 @@
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: var(--space-sm);
       margin-bottom: var(--space-md);
+    }
+    
+    @media (max-width: 480px) {
+      .analyzer-controls {
+        grid-template-columns: 1fr;
+      }
     }
     
     .analyzer-btn {
@@ -734,6 +755,14 @@
     
     .quick-btn:hover {
       background: var(--primary);
+    }
+    
+    @media (max-width: 480px) {
+      .quick-btn {
+        min-width: 100px;
+        padding: 10px;
+        font-size: 0.9rem;
+      }
     }
     
     /* Settings Panel */
@@ -780,6 +809,12 @@
       margin: var(--space-lg) 0;
     }
     
+    @media (max-width: 480px) {
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
     .feature-card {
       background: var(--bg-primary);
       border-radius: var(--radius-md);
@@ -800,6 +835,12 @@
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: var(--space-lg);
       margin-top: var(--space-lg);
+    }
+    
+    @media (max-width: 480px) {
+      .tutorial-steps {
+        grid-template-columns: 1fr;
+      }
     }
     
     .tutorial-step {
@@ -835,6 +876,14 @@
       flex-direction: column;
       gap: 8px;
       max-width: 300px;
+    }
+    
+    @media (max-width: 768px) {
+      .toast-container {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+      }
     }
     
     .toast {
@@ -900,14 +949,6 @@
         font-size: 1.75rem;
       }
       
-      .pattern-stats {
-        grid-template-columns: 1fr;
-      }
-      
-      .analyzer-controls {
-        grid-template-columns: 1fr;
-      }
-      
       .footer-content {
         grid-template-columns: 1fr;
       }
@@ -930,24 +971,43 @@
         align-items: flex-start;
         gap: 4px;
       }
+      
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+      }
+      
+      .card-header > div {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .card-header h2 {
+        width: 100%;
+        text-align: center;
+      }
     }
     
     @media (max-width: 480px) {
-      .number-grid {
-        grid-template-columns: repeat(auto-fill, minmax(35px, 1fr));
-      }
-      
-      .generated-number {
-        width: 32px;
-        height: 32px;
-        font-size: 0.875rem;
-      }
-      
       .features-grid {
         grid-template-columns: 1fr;
       }
       
       .tutorial-steps {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+      
+      .generator-presets {
+        justify-content: center;
+      }
+      
+      .analyzer-controls {
         grid-template-columns: 1fr;
       }
     }
@@ -1038,52 +1098,27 @@
 
     <main>
       <div class="container">
-        <!-- Hero Section -->
+        <!-- Hero Section - Updated for mobile -->
         <div class="hero">
-          <div style="flex: 2;">
-            <h1 class="hero-title">Free Lottery Pattern Analyzer & Number Generator</h1>
-            
-            <div class="trust-indicators">
-              <div class="trust-item"><span>✅</span> 100% Free</div>
-              <div class="trust-item"><span>✅</span> No Registration</div>
-              <div class="trust-item"><span>✅</span> Secure & Private</div>
-              <div class="trust-item"><span>✅</span> Works Worldwide</div>
-            </div>
-            
-            <p class="hero-description">Generate smarter lottery numbers with statistical pattern analysis. Create balanced number sets for Powerball, Mega Millions, EuroMillions and more.</p>
-            <p class="hero-disclaimer">Lottery outcomes are random. This tool provides statistical analysis for entertainment purposes only.</p>
-            
-            <div class="hero-cta">
-              <button class="btn btn-primary" id="generate-now">
-                <span>🎯</span> Generate Numbers Now
-              </button>
-              <button class="btn btn-secondary" id="show-tutorial">
-                <span>📚</span> How to Use
-              </button>
-            </div>
+          <h1 class="hero-title">Free Lottery Pattern Analyzer & Number Generator</h1>
+          
+          <div class="trust-indicators">
+            <div class="trust-item"><span>✅</span> 100% Free</div>
+            <div class="trust-item"><span>✅</span> No Registration</div>
+            <div class="trust-item"><span>✅</span> Secure & Private</div>
+            <div class="trust-item"><span>✅</span> Works Worldwide</div>
           </div>
           
-          <div style="flex: 1;">
-            <div class="status-panel">
-              <div class="status-header">
-                <span>📊</span>
-                <h3 class="status-title">Tool Status</h3>
-              </div>
-              <div class="status-content">
-                <div class="status-item">
-                  <span>Active & Ready</span>
-                  <span class="status-value" id="current-time">--:--:--</span>
-                </div>
-                <div class="status-item">
-                  <span>Users Online</span>
-                  <span class="status-value" id="online-users">1,234</span>
-                </div>
-                <div class="status-item">
-                  <span>Numbers Generated</span>
-                  <span class="status-value" id="total-generations">10,567</span>
-                </div>
-              </div>
-            </div>
+          <p class="hero-description">Generate smarter lottery numbers with statistical pattern analysis. Create balanced number sets for Powerball, Mega Millions, EuroMillions and more.</p>
+          <p class="hero-disclaimer">Lottery outcomes are random. This tool provides statistical analysis for entertainment purposes only.</p>
+          
+          <div class="hero-cta">
+            <button class="btn btn-primary" id="generate-now">
+              <span>🎯</span> Generate Numbers Now
+            </button>
+            <button class="btn btn-secondary" id="show-tutorial">
+              <span>📚</span> How to Use
+            </button>
           </div>
         </div>
 
@@ -1436,7 +1471,6 @@
         this.applyTheme();
         this.loadSettings();
         this.initHeatmap();
-        this.startClock();
         this.updateStats();
         this.showContent();
         this.initVisitorInfo();
@@ -1505,9 +1539,6 @@
             this.scrollToAnalyzer();
           });
         });
-        
-        // Online users simulation
-        setInterval(() => this.updateOnlineUsers(), 30000);
       },
       
       // Theme Functions
@@ -1572,13 +1603,6 @@
         } catch (error) {
           document.getElementById('visitor-location').textContent = 'Location unknown';
         }
-      },
-      
-      updateOnlineUsers() {
-        const base = 1234;
-        const variation = Math.floor(Math.random() * 100) - 50;
-        const onlineUsers = base + variation;
-        document.getElementById('online-users').textContent = onlineUsers.toLocaleString();
       },
       
       // Heatmap Functions
@@ -1987,27 +2011,6 @@
           .slice(0, 3)
           .map(([num]) => num);
         document.getElementById('statsHotNumbers').textContent = sortedFreq.join(', ');
-        
-        // Update counters
-        const baseGenerations = 10567;
-        document.getElementById('total-generations').textContent = 
-          (baseGenerations + this.totalGenerations).toLocaleString();
-      },
-      
-      startClock() {
-        const updateTime = () => {
-          const now = new Date();
-          const timeString = now.toLocaleTimeString('en-US', {
-            hour12: false,
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit'
-          });
-          document.getElementById('current-time').textContent = timeString;
-        };
-        
-        updateTime();
-        setInterval(updateTime, 1000);
       },
       
       // UI Functions
