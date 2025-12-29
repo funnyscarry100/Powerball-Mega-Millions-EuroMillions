@@ -432,7 +432,7 @@
     
     /* Guide Content */
     .guide-content {
-      max-width: 900px;
+      max-width: 800px;
       margin: 0 auto;
     }
     
@@ -441,7 +441,7 @@
     }
     
     .guide-section h2 {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       margin-bottom: var(--space-md);
       color: var(--primary-dark);
       padding-bottom: var(--space-sm);
@@ -449,15 +449,9 @@
     }
     
     .guide-section h3 {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       margin: var(--space-lg) 0 var(--space-md);
       color: var(--text-primary);
-    }
-    
-    .guide-section h4 {
-      font-size: 1.2rem;
-      margin: var(--space-md) 0 var(--space-sm);
-      color: var(--primary);
     }
     
     .guide-section p {
@@ -476,7 +470,19 @@
       line-height: 1.6;
     }
     
-    .guide-note {
+    .tip-box {
+      background: var(--bg-tertiary);
+      padding: var(--space-md);
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--accent);
+      margin: var(--space-md) 0;
+    }
+    
+    .tip-box strong {
+      color: var(--accent);
+    }
+    
+    .warning-box {
       background: var(--bg-tertiary);
       padding: var(--space-md);
       border-radius: var(--radius-sm);
@@ -484,125 +490,8 @@
       margin: var(--space-md) 0;
     }
     
-    .guide-tip {
-      background: rgba(76, 175, 80, 0.1);
-      padding: var(--space-md);
-      border-radius: var(--radius-sm);
-      border-left: 4px solid var(--success);
-      margin: var(--space-md) 0;
-    }
-    
-    .guide-warning {
-      background: rgba(244, 67, 54, 0.1);
-      padding: var(--space-md);
-      border-radius: var(--radius-sm);
-      border-left: 4px solid var(--danger);
-      margin: var(--space-md) 0;
-    }
-    
-    /* Strategy Cards */
-    .strategy-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-    
-    .strategy-card {
-      background: var(--bg-primary);
-      border-radius: var(--radius-md);
-      padding: var(--space-lg);
-      border: 1px solid var(--border-light);
-      transition: all var(--transition-base);
-    }
-    
-    .strategy-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary-light);
-    }
-    
-    .strategy-icon {
-      font-size: 2.5rem;
-      margin-bottom: var(--space-sm);
-    }
-    
-    .strategy-title {
-      font-size: 1.3rem;
-      margin-bottom: var(--space-sm);
-      color: var(--primary-dark);
-    }
-    
-    .strategy-desc {
-      color: var(--text-secondary);
-      margin-bottom: var(--space-md);
-    }
-    
-    /* Table Styles */
-    .strategy-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: var(--space-lg) 0;
-    }
-    
-    .strategy-table th,
-    .strategy-table td {
-      padding: var(--space-sm);
-      text-align: left;
-      border-bottom: 1px solid var(--border-light);
-    }
-    
-    .strategy-table th {
-      background: var(--bg-tertiary);
-      font-weight: 600;
-      color: var(--primary-dark);
-    }
-    
-    .strategy-table tr:hover {
-      background: var(--bg-tertiary);
-    }
-    
-    /* Quick Guide Sidebar */
-    .quick-guide {
-      position: sticky;
-      top: 120px;
-      background: var(--bg-primary);
-      border-radius: var(--radius-md);
-      padding: var(--space-lg);
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow-md);
-    }
-    
-    .quick-guide h3 {
-      margin-bottom: var(--space-md);
-      color: var(--primary-dark);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    
-    .quick-links {
-      list-style: none;
-    }
-    
-    .quick-links li {
-      margin-bottom: 8px;
-    }
-    
-    .quick-links a {
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: color var(--transition-fast);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 6px;
-    }
-    
-    .quick-links a:hover {
-      color: var(--primary);
-      background: rgba(46, 125, 50, 0.05);
+    .warning-box strong {
+      color: var(--warning);
     }
     
     /* ==========================================================================
@@ -618,19 +507,11 @@
       }
       
       .guide-section h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
       }
       
       .guide-section h3 {
-        font-size: 1.2rem;
-      }
-      
-      .guide-section h4 {
         font-size: 1.1rem;
-      }
-      
-      .strategy-grid {
-        grid-template-columns: 1fr;
       }
       
       .nav-list {
@@ -640,11 +521,6 @@
       .nav-link {
         padding: 10px;
         font-size: 0.9rem;
-      }
-      
-      .quick-guide {
-        position: static;
-        margin-bottom: var(--space-lg);
       }
     }
     
@@ -717,7 +593,6 @@
     <div class="container">
       <ul class="nav-list">
         <li class="nav-item"><a href="index.html" class="nav-link"><span>🏠</span> Home</a></li>
-        <li class="nav-item"><a href="index.html#tools" class="nav-link"><span>🛠️</span> Other Tools</a></li>
         <li class="nav-item"><a href="guides.html" class="nav-link active"><span>📚</span> Guides</a></li>
       </ul>
     </div>
@@ -726,339 +601,211 @@
   <!-- Main Content -->
   <main id="main-content">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1fr 300px; gap: var(--space-xl);">
-        <!-- Main Guide Content -->
-        <div>
-          <!-- Page Header -->
-          <div class="page-header">
-            <h1 class="page-title">Comprehensive Lottery Strategy Guides</h1>
-            <p class="page-subtitle">Master statistical pattern analysis, number selection techniques, and proven strategies for smarter lottery play.</p>
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">Lottery Strategy Guides</h1>
+        <p class="page-subtitle">Master pattern analysis, number selection techniques, and statistical approaches for smarter lottery play</p>
+      </div>
+
+      <div class="guide-content">
+        <!-- Introduction -->
+        <div class="guide-section">
+          <h2>1. Understanding Lottery Probability</h2>
+          <p>Lotteries are games of pure chance, but understanding probability can help you make more informed decisions about your number selections.</p>
+          
+          <h3>1.1 Basic Probability Principles</h3>
+          <p>Every lottery draw is independent - past results don't influence future outcomes. However, statistical analysis can reveal patterns in number frequency and distribution.</p>
+          
+          <div class="tip-box">
+            <p><strong>Key Insight:</strong> While each number has an equal probability of being drawn in any single event, over many draws, numbers tend to appear with roughly equal frequency.</p>
           </div>
+          
+          <h3>1.2 The Law of Large Numbers</h3>
+          <p>This statistical principle states that as the number of trials increases, the actual ratio of outcomes will converge on the theoretical probability.</p>
+          
+          <ul>
+            <li>In a 6/49 lottery, each number should appear about 1 in 49 draws</li>
+            <li>Over thousands of draws, all numbers should appear with similar frequency</li>
+            <li>Short-term "hot" and "cold" streaks are normal statistical variations</li>
+          </ul>
+        </div>
 
-          <div class="guide-content">
-            <!-- Introduction -->
-            <div class="guide-section">
-              <h2>Understanding Lottery Mathematics & Probability</h2>
-              
-              <p>Lottery games are mathematical systems governed by probability and statistics. While all outcomes are random and each draw is independent, understanding the mathematical principles behind lottery games can help you make more informed choices about how you play.</p>
-              
-              <div class="guide-tip">
-                <p><strong>Key Insight:</strong> No system can predict specific winning numbers, but statistical analysis can help identify patterns and optimize your number selection strategy.</p>
-              </div>
-              
-              <h3>1.1 Basic Probability Concepts</h3>
-              <p>Every lottery game has specific odds determined by the number of possible combinations. For example:</p>
-              <ul>
-                <li><strong>Powerball:</strong> 1 in 292,201,338 for jackpot</li>
-                <li><strong>Mega Millions:</strong> 1 in 302,575,350 for jackpot</li>
-                <li><strong>EuroMillions:</strong> 1 in 139,838,160 for jackpot</li>
-              </ul>
-              
-              <p>Understanding these odds is crucial for responsible play. The probability of winning any prize (not just the jackpot) is much higher, often ranging from 1 in 24 to 1 in 8 depending on the game.</p>
-              
-              <h3>1.2 Randomness vs. Patterns</h3>
-              <p>Lottery machines and random number generators produce truly random results. However, human brains are pattern-seeking machines, and we often see patterns where none exist. True randomness means:</p>
-              <ul>
-                <li>Each number has an equal chance in every draw</li>
-                <li>Past results don't influence future draws</li>
-                <li>Patterns that appear are statistical artifacts, not predictive indicators</li>
-              </ul>
-            </div>
-
-            <!-- Pattern Analysis Strategies -->
-            <div class="guide-section">
-              <h2>Advanced Pattern Analysis Strategies</h2>
-              
-              <p>Pattern analysis involves studying historical draw results to identify statistical tendencies, though these don't predict future outcomes. Here are effective analysis techniques:</p>
-              
-              <div class="strategy-grid">
-                <div class="strategy-card">
-                  <div class="strategy-icon">📊</div>
-                  <h3 class="strategy-title">Frequency Analysis</h3>
-                  <p class="strategy-desc">Track how often each number appears over time. "Hot" numbers appear frequently, while "cold" numbers appear less often.</p>
-                  <ul>
-                    <li>Best for: Short-term number selection</li>
-                    <li>Limitation: Past frequency ≠ future probability</li>
-                    <li>Implementation: Use our heatmap tool</li>
-                  </ul>
-                </div>
-                
-                <div class="strategy-card">
-                  <div class="strategy-icon">⚖️</div>
-                  <h3 class="strategy-title">Balanced Distribution</h3>
-                  <p class="strategy-desc">Select numbers across the entire range rather than clustering in one area.</p>
-                  <ul>
-                    <li>Benefit: Covers more statistical ground</li>
-                    <li>Technique: Mix high, mid, and low numbers</li>
-                    <li>Result: More mathematically balanced sets</li>
-                  </ul>
-                </div>
-                
-                <div class="strategy-card">
-                  <div class="strategy-icon">🎯</div>
-                  <h3 class="strategy-title">Odd-Even Balance</h3>
-                  <p class="strategy-desc">Most winning combinations have a mix of odd and even numbers.</p>
-                  <ul>
-                    <li>Optimal ratio: 3 odd/2 even or 2 odd/3 even</li>
-                    <li>Avoid: All odd or all even numbers</li>
-                    <li>Statistical basis: Matches historical distribution</li>
-                  </ul>
-                </div>
-                
-                <div class="strategy-card">
-                  <div class="strategy-icon">🔢</div>
-                  <h3 class="strategy-title">Sum Total Analysis</h3>
-                  <p class="strategy-desc">Winning numbers typically sum to a specific range.</p>
-                  <ul>
-                    <li>Powerball: Typical sum range 100-175</li>
-                    <li>Mega Millions: Typical sum range 120-185</li>
-                    <li>Calculation: Add all numbers in your set</li>
-                  </ul>
-                </div>
-              </div>
-              
-              <div class="guide-note">
-                <p><strong>Important:</strong> These patterns describe what has happened historically, not what will happen in future draws. They help create statistically representative number sets, but don't increase your chances of winning.</p>
-              </div>
-            </div>
-
-            <!-- Number Selection Methods -->
-            <div class="guide-section">
-              <h2>Proven Number Selection Methods</h2>
-              
-              <h3>3.1 The Wheel System</h3>
-              <p>Number wheeling involves selecting more numbers than required and creating multiple combinations to cover more possibilities. This is effective for syndicates or players who buy multiple tickets.</p>
-              
-              <h4>How Wheel Systems Work:</h4>
-              <ol>
-                <li>Select 12-15 numbers you want to play</li>
-                <li>Use a wheeling system to generate all possible combinations</li>
-                <li>Play these combinations across multiple tickets</li>
-                <li>If your selected numbers come up, you're guaranteed to win something</li>
-              </ol>
-              
-              <div class="guide-tip">
-                <p><strong>Tip:</strong> Full wheel systems are expensive. Consider abbreviated wheels that guarantee smaller prizes for fewer tickets.</p>
-              </div>
-              
-              <h3>3.2 Delta System</h3>
-              <p>The Delta System involves selecting numbers based on differences between consecutive numbers rather than the numbers themselves.</p>
-              
-              <h4>Delta System Steps:</h4>
-              <ol>
-                <li>Choose a low number (1-5) as your first Delta</li>
-                <li>Add this Delta to get your first lottery number</li>
-                <li>Choose another low number as your second Delta</li>
-                <li>Add this to your first lottery number to get your second</li>
-                <li>Repeat until you have all your numbers</li>
-                <li>Keep Deltas under 10 for balanced distribution</li>
-              </ol>
-              
-              <h3>3.3 Quick Pick vs. Personal Numbers</h3>
-              
-              <table class="strategy-table">
-                <thead>
-                  <tr>
-                    <th>Aspect</th>
-                    <th>Quick Pick (Random)</th>
-                    <th>Personal Numbers</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>Randomness</strong></td>
-                    <td>Mathematically pure random</td>
-                    <td>Human bias may reduce randomness</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Popularity</strong></td>
-                    <td>~70% of tickets sold</td>
-                    <td>~30% of tickets sold</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Jackpot Sharing</strong></td>
-                    <td>Higher chance of sharing</td>
-                    <td>Lower chance of sharing</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Psychological Factor</strong></td>
-                    <td>No emotional attachment</td>
-                    <td>Personal meaning attached</td>
-                  </tr>
-                </tbody>
-              </table>
-              
-              <div class="guide-warning">
-                <p><strong>Warning:</strong> Personal numbers (birthdays, anniversaries) limit your range to 1-31, reducing mathematical coverage and potentially increasing jackpot sharing if they win.</p>
-              </div>
-            </div>
-
-            <!-- Game-Specific Strategies -->
-            <div class="guide-section">
-              <h2>Game-Specific Strategy Guide</h2>
-              
-              <h3>4.1 Powerball Strategy (USA)</h3>
-              <p>Powerball uses a 5/69 + 1/26 matrix. Key considerations:</p>
-              
-              <h4>Optimal Powerball Selection:</h4>
-              <ul>
-                <li><strong>White Balls (1-69):</strong> Aim for 2-3 numbers from each third of the range</li>
-                <li><strong>Powerball (1-26):</strong> Consider numbers above 13 to reduce sharing risk</li>
-                <li><strong>Sum Range:</strong> Target 100-175 for the 5 white balls</li>
-                <li><strong>Odd/Even:</strong> 3/2 or 2/3 split historically wins 68% of jackpots</li>
-              </ul>
-              
-              <h3>4.2 Mega Millions Strategy (USA)</h3>
-              <p>Mega Millions uses a 5/70 + 1/25 matrix. Strategic approach:</p>
-              
-              <h4>Mega Millions Optimization:</h4>
-              <ul>
-                <li><strong>Number Spread:</strong> Ensure numbers cover at least 3 of the 4 quartiles</li>
-                <li><strong>Mega Ball:</strong> Less popular numbers (2, 21, 23) reduce sharing</li>
-                <li><strong>Consecutive Numbers:</strong> Include at least one pair (occurs in 30% of draws)</li>
-                <li><strong>Multiple Ending Digits:</strong> Avoid numbers all ending in same digit</li>
-              </ul>
-              
-              <h3>4.3 EuroMillions Strategy (Europe)</h3>
-              <p>EuroMillions uses a 5/50 + 2/12 matrix with different dynamics:</p>
-              
-              <h4>EuroMillions Specifics:</h4>
-              <ul>
-                <li><strong>Main Numbers:</strong> Favor numbers 31-50 (historically underrepresented)</li>
-                <li><strong>Lucky Stars:</strong> Star numbers have independent probability</li>
-                <li><strong>Transnational Game:</strong> Consider playing less popular days</li>
-                <li><strong>Jackpot Cap:</strong> Understand rollover rules and cap limits</li>
-              </ul>
-            </div>
-
-            <!-- Advanced Statistical Techniques -->
-            <div class="guide-section">
-              <h2>Advanced Statistical Techniques</h2>
-              
-              <h3>5.1 Monte Carlo Simulation</h3>
-              <p>Using computer simulations to generate millions of random draws and analyze patterns that emerge from pure randomness.</p>
-              
-              <h4>What Monte Carlo Reveals:</h4>
-              <ul>
-                <li>Expected frequency distributions</li>
-                <li>Statistical anomalies that look like patterns</li>
-                <li>Probability of various outcomes over time</li>
-                <li>Confirmation that all patterns are within random expectation</li>
-              </ul>
-              
-              <h3>5.2 Poisson Distribution Analysis</h3>
-              <p>Analyzing the frequency of number appearances using Poisson distribution to identify statistically significant deviations.</p>
-              
-              <h4>Poisson Applications:</h4>
-              <ul>
-                <li>Determine if a number is truly "due" or just within normal variation</li>
-                <li>Calculate confidence intervals for number frequency</li>
-                <li>Identify outliers in draw history</li>
-                <li>Validate random number generator quality</li>
-              </ul>
-              
-              <div class="guide-tip">
-                <p><strong>Expert Insight:</strong> Advanced statistical analysis confirms that lottery draws exhibit true randomness. Any patterns are coincidental and not predictive of future results.</p>
-              </div>
-            </div>
-
-            <!-- Responsible Play Guidelines -->
-            <div class="guide-section">
-              <h2>Responsible Lottery Play Guidelines</h2>
-              
-              <div class="guide-warning">
-                <p><strong>Critical Reminder:</strong> Lottery games are a form of entertainment, not an investment strategy. The house always has a mathematical edge.</p>
-              </div>
-              
-              <h3>6.1 Setting Financial Limits</h3>
-              <ul>
-                <li><strong>Entertainment Budget:</strong> Allocate lottery spending as entertainment, not investment</li>
-                <li><strong>Weekly Maximum:</strong> Never exceed what you can comfortably lose</li>
-                <li><strong>No Chasing Losses:</strong> Losing tickets are gone - don't try to recover losses</li>
-                <li><strong>Emergency Fund First:</strong> Ensure basic needs are covered before lottery spending</li>
-              </ul>
-              
-              <h3>6.2 Psychological Considerations</h3>
-              <ul>
-                <li><strong>Gambler's Fallacy:</strong> Understand that past results don't affect future draws</li>
-                <li><strong>Near Miss Effect:</strong> Almost winning doesn't mean you're "close" to winning</li>
-                <li><strong>Optimism Bias:</strong> Don't overestimate your chances of winning</li>
-                <li><strong>Entitlement Mentality:</strong> You're not "due" a win no matter how long you've played</li>
-              </ul>
-              
-              <h3>6.3 When to Seek Help</h3>
-              <p>If you experience any of these warning signs, consider seeking help:</p>
-              <ul>
-                <li>Spending more than you can afford on lottery tickets</li>
-                <li>Borrowing money to play the lottery</li>
-                <li>Neglecting responsibilities to play</li>
-                <li>Feeling anxious or irritable when not playing</li>
-                <li>Trying unsuccessfully to cut back or stop</li>
-              </ul>
-              
-              <p><strong>Resources for Help:</strong> National Council on Problem Gambling (1-800-522-4700), Gamblers Anonymous, local mental health services.</p>
-            </div>
-
-            <!-- Conclusion -->
-            <div class="guide-section">
-              <h2>Conclusion & Final Recommendations</h2>
-              
-              <p>Lottery strategy is about making informed choices within a random system. While no method can guarantee wins, smart approaches can optimize your play experience.</p>
-              
-              <h3>7.1 Top Recommendations</h3>
-              <ol>
-                <li><strong>Use Statistical Tools:</strong> Our pattern analyzer provides data-driven insights for number selection</li>
-                <li><strong>Balance Your Numbers:</strong> Create sets with good distribution across the range</li>
-                <li><strong>Consider Syndicates:</strong> Pooling resources increases purchasing power without increasing individual risk</li>
-                <li><strong>Play Consistently:</strong> If you have a system, stick with it rather than constantly changing</li>
-                <li><strong>Document Your Plays:</strong> Keep records of numbers played and results for analysis</li>
-              </ol>
-              
-              <h3>7.2 The Reality Check</h3>
-              <p>Remember these fundamental truths about lottery games:</p>
-              <ul>
-                <li>All outcomes are random and independent</li>
-                <li>The expected value of a lottery ticket is negative</li>
-                <li>Any win is a statistical anomaly, not validation of a system</li>
-                <li>The primary purpose should be entertainment, not income generation</li>
-              </ul>
-              
-              <div class="guide-tip">
-                <p><strong>Final Wisdom:</strong> The healthiest approach to lottery play is to view it as affordable entertainment with a tiny chance of a life-changing reward, not as a financial strategy or reliable income source.</p>
-              </div>
-            </div>
+        <!-- Pattern Analysis -->
+        <div class="guide-section">
+          <h2>2. Pattern Analysis Techniques</h2>
+          <p>Pattern analysis involves studying historical draw data to identify trends and distributions that might inform your number selection strategy.</p>
+          
+          <h3>2.1 Number Frequency Analysis</h3>
+          <p>Track how often each number appears in historical draws. Our analyzer shows this visually with heatmaps:</p>
+          
+          <ul>
+            <li><strong>Hot Numbers:</strong> Numbers that have appeared frequently in recent draws</li>
+            <li><strong>Cold Numbers:</strong> Numbers that haven't appeared for many draws</li>
+            <li><strong>Due Numbers:</strong> Numbers statistically "due" to appear based on historical frequency</li>
+          </ul>
+          
+          <h3>2.2 Number Distribution Patterns</h3>
+          <p>Look at how numbers are distributed across the number range:</p>
+          
+          <ul>
+            <li><strong>Low/High Balance:</strong> Mix of low and high numbers</li>
+            <li><strong>Odd/Even Balance:</strong> Mix of odd and even numbers</li>
+            <li><strong>Number Sum Analysis:</strong> Total sum of selected numbers</li>
+            <li><strong>Consecutive Numbers:</strong> Pairs or triples of consecutive numbers</li>
+          </ul>
+          
+          <div class="tip-box">
+            <p><strong>Strategy Tip:</strong> Most winning combinations have a balanced mix of low/high and odd/even numbers. Pure patterns (all even, all high, etc.) are statistically rare.</p>
           </div>
         </div>
 
-        <!-- Quick Guide Sidebar -->
-        <div class="quick-guide">
-          <h3><span>🚀</span> Quick Navigation</h3>
-          <ul class="quick-links">
-            <li><a href="#main-content"><span>📖</span> Introduction</a></li>
-            <li><a href="#pattern-analysis"><span>📊</span> Pattern Analysis</a></li>
-            <li><a href="#number-selection"><span>🎯</span> Number Selection</a></li>
-            <li><a href="#game-strategies"><span>🎰</span> Game Strategies</a></li>
-            <li><a href="#advanced-techniques"><span>🔬</span> Advanced Techniques</a></li>
-            <li><a href="#responsible-play"><span>⚠️</span> Responsible Play</a></li>
-            <li><a href="#conclusion"><span>🎓</span> Conclusion</a></li>
+        <!-- Number Selection Strategies -->
+        <div class="guide-section">
+          <h2>3. Number Selection Strategies</h2>
+          <p>Different approaches to selecting lottery numbers, each with their own philosophy and statistical basis.</p>
+          
+          <h3>3.1 Random Selection Methods</h3>
+          <ul>
+            <li><strong>Quick Picks:</strong> Computer-generated random numbers</li>
+            <li><strong>True Random:</strong> Using random number generators with no pattern</li>
+            <li><strong>Pros:</strong> Matches the true random nature of lottery draws</li>
+            <li><strong>Cons:</strong> May produce statistically unlikely combinations</li>
           </ul>
           
-          <div style="margin-top: var(--space-lg); padding-top: var(--space-md); border-top: 1px solid var(--border-light);">
-            <h3 style="font-size: 1.1rem; margin-bottom: var(--space-sm);"><span>💡</span> Quick Tips</h3>
-            <ul style="font-size: 0.9rem; color: var(--text-secondary);">
-              <li style="margin-bottom: 6px;">✅ Mix odd and even numbers</li>
-              <li style="margin-bottom: 6px;">✅ Cover high and low ranges</li>
-              <li style="margin-bottom: 6px;">✅ Avoid birthday-only numbers</li>
-              <li style="margin-bottom: 6px;">✅ Set a budget and stick to it</li>
-              <li>✅ Play for fun, not as investment</li>
-            </ul>
-          </div>
+          <h3>3.2 Pattern-Based Selection</h3>
+          <p>Using historical patterns to guide number selection:</p>
           
-          <div style="margin-top: var(--space-lg);">
-            <a href="index.html#analyzer" class="btn btn-primary w-100" style="display: block; text-align: center;">
-              <span>🎯</span> Try Pattern Analyzer
-            </a>
+          <ul>
+            <li>Select numbers based on historical frequency</li>
+            <li>Choose numbers that fit common distribution patterns</li>
+            <li>Balance your selection across the entire number range</li>
+            <li>Avoid obvious patterns that others might avoid</li>
+          </ul>
+          
+          <h3>3.3 Personal Number Strategies</h3>
+          <p>Many players use personal numbers with special meaning:</p>
+          
+          <ul>
+            <li>Birthdates and anniversaries</li>
+            <li>Address numbers and ages</li>
+            <li>Lucky numbers and superstitions</li>
+          </ul>
+          
+          <div class="warning-box">
+            <p><strong>Caution:</strong> Personal numbers often cluster in low ranges (1-31) and may lead to duplicate combinations if many players use similar dates.</p>
           </div>
+        </div>
+
+        <!-- Game-Specific Strategies -->
+        <div class="guide-section">
+          <h2>4. Game-Specific Strategies</h2>
+          <p>Different lottery games have different rules and probabilities. Tailor your strategy accordingly.</p>
+          
+          <h3>4.1 Powerball Strategy</h3>
+          <p>Powerball (USA): 5 numbers from 1-69 + 1 Powerball from 1-26</p>
+          
+          <ul>
+            <li>Odds: 1 in 292,201,338</li>
+            <li>Strategy: Balance main numbers and consider Powerball separately</li>
+            <li>Common patterns: Mix of low/high numbers with varied Powerball</li>
+          </ul>
+          
+          <h3>4.2 Mega Millions Strategy</h3>
+          <p>Mega Millions (USA): 5 numbers from 1-70 + 1 Mega Ball from 1-25</p>
+          
+          <ul>
+            <li>Odds: 1 in 302,575,350</li>
+            <li>Strategy: Similar to Powerball but with different number ranges</li>
+            <li>Note: Slightly better odds than Powerball for jackpot</li>
+          </ul>
+          
+          <h3>4.3 EuroMillions Strategy</h3>
+          <p>EuroMillions (Europe): 5 numbers from 1-50 + 2 Lucky Stars from 1-12</p>
+          
+          <ul>
+            <li>Odds: 1 in 139,838,160</li>
+            <li>Strategy: Better odds than US games, consider Lucky Star patterns</li>
+            <li>European draws often show different number distribution patterns</li>
+          </ul>
+        </div>
+
+        <!-- Advanced Techniques -->
+        <div class="guide-section">
+          <h2>5. Advanced Analysis Techniques</h2>
+          <p>For those who want to dive deeper into lottery statistics and pattern analysis.</p>
+          
+          <h3>5.1 Wheel Systems</h3>
+          <p>Cover more combinations with fewer tickets:</p>
+          
+          <ul>
+            <li><strong>Full Wheel:</strong> Cover all possible combinations of selected numbers</li>
+            <li><strong>Abbreviated Wheel:</strong> Guarantee minimum matches with fewer tickets</li>
+            <li><strong>Pros:</strong> Increases chances of winning smaller prizes</li>
+            <li><strong>Cons:</strong> Can be expensive and doesn't improve jackpot odds significantly</li>
+          </ul>
+          
+          <h3>5.2 Frequency Deviation Analysis</h3>
+          <p>Track how actual frequencies deviate from expected probabilities:</p>
+          
+          <ul>
+            <li>Identify numbers that are significantly over or under their expected frequency</li>
+            <li>Look for regression to the mean opportunities</li>
+            <li>Combine with other statistical measures</li>
+          </ul>
+          
+          <h3>5.3 Pattern Recognition Algorithms</h3>
+          <p>Using computational methods to identify subtle patterns:</p>
+          
+          <ul>
+            <li>Cluster analysis of winning numbers</li>
+            <li>Time-series analysis of number appearances</li>
+            <li>Correlation between different number positions</li>
+          </ul>
+        </div>
+
+        <!-- Responsible Play -->
+        <div class="guide-section">
+          <h2>6. Responsible Lottery Play</h2>
+          <p>Lotteries should be played for entertainment, not as a financial strategy.</p>
+          
+          <h3>6.1 Setting Limits</h3>
+          <ul>
+            <li><strong>Budget:</strong> Set a monthly lottery budget and stick to it</li>
+            <li><strong>Frequency:</strong> Decide how often you'll play and don't exceed it</li>
+            <li><strong>Expectations:</strong> Understand the extremely low probability of winning big</li>
+          </ul>
+          
+          <h3>6.2 Avoiding Common Pitfalls</h3>
+          <p>Common mistakes lottery players make:</p>
+          
+          <ul>
+            <li><strong>Chasing Losses:</strong> Increasing spending after losses</li>
+            <li><strong>Gambler's Fallacy:</strong> Believing past outcomes affect future ones</li>
+            <li><strong>Over-Confidence:</strong> Believing systems can "beat" the lottery</li>
+            <li><strong>Superstition:</strong> Putting too much faith in lucky numbers or rituals</li>
+          </ul>
+          
+          <div class="warning-box">
+            <p><strong>Important:</strong> If you or someone you know has a gambling problem, seek help from professional organizations like the National Council on Problem Gambling (1-800-522-4700) or Gamblers Anonymous.</p>
+          </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="guide-section">
+          <h2>7. Conclusion</h2>
+          <p>While no strategy can guarantee a lottery win (the games are designed to be random), understanding probability and patterns can make your play more informed and potentially more enjoyable.</p>
+          
+          <p>Remember these key points:</p>
+          
+          <ul>
+            <li>Lotteries are games of chance with extremely low odds</li>
+            <li>Statistical analysis can inform but not predict outcomes</li>
+            <li>Balance and variety in number selection is statistically sound</li>
+            <li>Play responsibly and within your means</li>
+            <li>Enjoy the game as entertainment, not an investment</li>
+          </ul>
+          
+          <p>Use our <a href="index.html">Pattern Analyzer tool</a> to apply these strategies with your own number selections.</p>
         </div>
       </div>
     </div>
@@ -1072,9 +819,6 @@
           <h3>Quick Links</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#tools">Other Tools</a></li>
-            <li><a href="guides.html">Guides</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
           </ul>
         </div>
         
@@ -1142,24 +886,7 @@
       });
     }
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-    
-    // Toast notification function
+    // Toast notification function (for theme changes)
     function showToast(message) {
       // Create toast container if it doesn't exist
       let container = document.querySelector('.toast-container');
@@ -1189,24 +916,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       initTheme();
       setCurrentYear();
-      
-      // Add IDs to sections for navigation
-      const sections = document.querySelectorAll('.guide-section');
-      const sectionIds = [
-        'pattern-analysis',
-        'number-selection',
-        'game-strategies',
-        'advanced-techniques',
-        'responsible-play',
-        'conclusion'
-      ];
-      
-      sections.forEach((section, index) => {
-        if (index > 0 && index - 1 < sectionIds.length) {
-          section.id = sectionIds[index - 1];
-        }
-      });
     });
   </script>
 </body>
-  </html>
+</html>
