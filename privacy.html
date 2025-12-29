@@ -416,28 +416,6 @@
       margin: 0 auto;
     }
     
-    /* Privacy Commitment Banner */
-    .privacy-banner {
-      background: linear-gradient(135deg, var(--primary-light), var(--primary));
-      color: white;
-      padding: var(--space-xl);
-      border-radius: var(--radius-lg);
-      text-align: center;
-      margin-bottom: var(--space-xl);
-    }
-    
-    .privacy-banner h2 {
-      font-size: 2rem;
-      margin-bottom: var(--space-sm);
-    }
-    
-    .privacy-banner p {
-      font-size: 1.2rem;
-      max-width: 800px;
-      margin: 0 auto;
-      opacity: 0.9;
-    }
-    
     /* Content Sections */
     .content-section {
       margin-bottom: var(--space-xl);
@@ -492,42 +470,16 @@
       line-height: 1.6;
     }
     
-    .privacy-note {
-      background: rgba(76, 175, 80, 0.1);
-      padding: var(--space-md);
-      border-radius: var(--radius-sm);
-      border-left: 4px solid var(--success);
-      margin: var(--space-md) 0;
-    }
-    
-    .privacy-note strong {
-      color: var(--success);
-    }
-    
-    .warning-note {
-      background: rgba(255, 193, 7, 0.1);
+    .legal-note {
+      background: var(--bg-tertiary);
       padding: var(--space-md);
       border-radius: var(--radius-sm);
       border-left: 4px solid var(--warning);
       margin: var(--space-md) 0;
     }
     
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: var(--space-lg) 0;
-    }
-    
-    .data-table th,
-    .data-table td {
-      padding: var(--space-sm);
-      text-align: left;
-      border-bottom: 1px solid var(--border-light);
-    }
-    
-    .data-table th {
-      background: var(--bg-tertiary);
-      font-weight: 600;
+    .legal-note strong {
+      color: var(--warning);
     }
     
     .last-updated {
@@ -551,25 +503,12 @@
         font-size: 2rem;
       }
       
-      .privacy-banner h2 {
-        font-size: 1.5rem;
-      }
-      
-      .privacy-banner p {
-        font-size: 1rem;
-      }
-      
       .legal-section h2 {
         font-size: 1.3rem;
       }
       
       .legal-section h3 {
         font-size: 1.1rem;
-      }
-      
-      .data-table {
-        display: block;
-        overflow-x: auto;
       }
       
       .nav-list {
@@ -591,10 +530,6 @@
         font-size: 1.75rem;
       }
       
-      .privacy-banner {
-        padding: var(--space-lg);
-      }
-      
       .legal-section {
         padding: var(--space-md);
       }
@@ -614,11 +549,6 @@
       .card {
         box-shadow: none !important;
         border: 1px solid #ddd !important;
-      }
-      
-      .privacy-banner {
-        background: #f0f0f0 !important;
-        color: black !important;
       }
       
       a {
@@ -660,8 +590,6 @@
     <div class="container">
       <ul class="nav-list">
         <li class="nav-item"><a href="index.html" class="nav-link"><span>🏠</span> Home</a></li>
-        <li class="nav-item"><a href="index.html#tools" class="nav-link"><span>🛠️</span> Other Tools</a></li>
-        <li class="nav-item"><a href="index.html#guides" class="nav-link"><span>📚</span> Guides</a></li>
         <li class="nav-item"><a href="privacy.html" class="nav-link active"><span>🔒</span> Privacy</a></li>
       </ul>
     </div>
@@ -673,242 +601,181 @@
       <!-- Page Header -->
       <div class="page-header">
         <h1 class="page-title">Privacy Policy</h1>
-        <p class="page-subtitle">Your privacy is our top priority. Learn how we protect your data and what information we collect (spoiler: almost none).</p>
-      </div>
-
-      <!-- Privacy Commitment Banner -->
-      <div class="privacy-banner">
-        <h2>🔒 No Data Collection. Guaranteed.</h2>
-        <p>We don't collect personal information. We don't use tracking cookies. We don't sell data. Your privacy is protected by design.</p>
+        <p class="page-subtitle">We don't collect personal data. Your privacy is our priority.</p>
       </div>
 
       <div class="legal-content">
         <!-- Introduction -->
         <div class="legal-section">
           <h2>1. Introduction</h2>
-          <p>Welcome to Lottery Pattern Analyzer. We are committed to protecting your privacy and being transparent about our data practices. This Privacy Policy explains how we handle information when you use our Service.</p>
+          <p>Welcome to Lottery Pattern Analyzer. We are committed to protecting your privacy and ensuring that your personal information is handled in a safe and responsible manner. This Privacy Policy outlines how we collect, use, and protect information when you use our Service.</p>
           
-          <div class="privacy-note">
-            <p><strong>Key Principle:</strong> Our Service is designed to run entirely in your browser. We don't collect personal data, and we don't send your information to our servers.</p>
-          </div>
+          <p>Our core privacy principle is simple: <strong>We don't collect your personal data.</strong> This policy explains what minimal information we might access and how we protect your privacy.</p>
         </div>
 
         <!-- Information We Don't Collect -->
         <div class="legal-section">
-          <h2>2. Information We Don't Collect</h2>
-          <p>To make it absolutely clear, here's what we <strong>DO NOT</strong> collect:</p>
+          <h2>2. Information We DON'T Collect</h2>
+          <p>To be perfectly clear, Lottery Pattern Analyzer does NOT collect:</p>
           
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Type of Data</th>
-                <th>Why We Don't Collect It</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Personal Information</strong><br>Name, email, address, phone</td>
-                <td>No registration required. No accounts. No need for personal details.</td>
-              </tr>
-              <tr>
-                <td><strong>Financial Information</strong><br>Payment details, credit cards</td>
-                <td>Our Service is 100% free. No payments, no financial data.</td>
-              </tr>
-              <tr>
-                <td><strong>Location Data</strong><br>GPS, IP address, location</td>
-                <td>We don't track your location. No geolocation services used.</td>
-              </tr>
-              <tr>
-                <td><strong>Usage Analytics</strong><br>Page views, clicks, session data</td>
-                <td>No tracking cookies. No analytics. No behavioral tracking.</td>
-              </tr>
-              <tr>
-                <td><strong>Generated Numbers</strong><br>Numbers you create</td>
-                <td>Numbers stay in your browser. Not sent to our servers.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Information Processed Locally -->
-        <div class="legal-section">
-          <h2>3. Information Processed Locally</h2>
-          <p>Our Service runs entirely in your web browser. Here's what happens locally:</p>
-          
-          <h3>3.1 Browser Storage</h3>
-          <p>We use your browser's local storage to save:</p>
           <ul>
-            <li><strong>Theme Preference:</strong> Your dark/light mode choice</li>
-            <li><strong>Settings:</strong> Your preferred generator settings</li>
-            <li><strong>Saved Numbers:</strong> Numbers you choose to save (optional)</li>
+            <li><strong>Personal identification information:</strong> Name, email address, phone number, physical address</li>
+            <li><strong>Financial information:</strong> Credit card numbers, bank account information, payment details</li>
+            <li><strong>Location data:</strong> GPS coordinates, IP-based location tracking</li>
+            <li><strong>Biometric data:</strong> Fingerprints, facial recognition data</li>
+            <li><strong>Sensitive personal data:</strong> Race, ethnicity, political opinions, religious beliefs</li>
+            <li><strong>Social media information:</strong> Social media profiles, contacts, connections</li>
+            <li><strong>Health information:</strong> Medical history, health conditions</li>
           </ul>
           
-          <div class="privacy-note">
-            <p><strong>Important:</strong> This data stays on your device. We cannot access it. You can clear it anytime using your browser's settings.</p>
+          <div class="legal-note">
+            <p><strong>Important:</strong> We don't require accounts, registration, or any personal information to use our Service. Everything works anonymously.</p>
           </div>
-          
-          <h3>3.2 Temporary Processing</h3>
-          <p>While using the Service, your browser temporarily processes:</p>
-          <ul>
-            <li>Number generation algorithms</li>
-            <li>Statistical calculations</li>
-            <li>Heatmap visualizations</li>
-          </ul>
-          <p>All processing happens in your browser and is discarded when you close the tab.</p>
         </div>
 
-        <!-- Cookies and Tracking -->
+        <!-- Technical Information -->
         <div class="legal-section">
-          <h2>4. Cookies and Tracking Technologies</h2>
+          <h2>3. Technical Information (Minimal)</h2>
+          <p>When you use our Service, some technical information is automatically collected by your web browser and hosting provider. This information is standard for all websites and includes:</p>
+          
+          <h3>3.1 Server Logs</h3>
+          <p>Our hosting provider may collect:</p>
+          <ul>
+            <li>IP address (anonymized where possible)</li>
+            <li>Browser type and version</li>
+            <li>Operating system</li>
+            <li>Pages visited and time spent</li>
+            <li>Referral source (what site brought you here)</li>
+            <li>Date and time of access</li>
+          </ul>
+          
+          <p>This information is used for:</p>
+          <ul>
+            <li>Maintaining service security and stability</li>
+            <li>Diagnosing technical issues</li>
+            <li>Improving service performance</li>
+            <li>Preventing abuse and attacks</li>
+          </ul>
+          
+          <h3>3.2 Local Storage</h3>
+          <p>We use browser localStorage to store:</p>
+          <ul>
+            <li>Your theme preference (light/dark mode)</li>
+            <li>Your selected lottery game settings</li>
+            <li>Your number generation history (stored locally on your device only)</li>
+          </ul>
+          
+          <p>This data never leaves your device and is deleted when you clear your browser cache.</p>
+        </div>
+
+        <!-- Cookies -->
+        <div class="legal-section">
+          <h2>4. Cookies and Tracking</h2>
           <p>We use minimal, essential cookies only:</p>
           
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Cookie Type</th>
-                <th>Purpose</th>
-                <th>Duration</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Theme Preference</strong></td>
-                <td>Remember your dark/light mode choice</td>
-                <td>1 year</td>
-              </tr>
-              <tr>
-                <td><strong>Settings Storage</strong></td>
-                <td>Remember your generator preferences</td>
-                <td>1 year</td>
-              </tr>
-            </tbody>
-          </table>
-          
-          <div class="privacy-note">
-            <p><strong>No Tracking Cookies:</strong> We don't use analytics cookies, advertising cookies, or any third-party tracking technologies.</p>
-          </div>
-          
-          <p>You can control cookies through your browser settings. Most browsers allow you to refuse cookies or delete them. However, disabling cookies may affect some functionality of our Service.</p>
-        </div>
-
-        <!-- Third-Party Services -->
-        <div class="legal-section">
-          <h2>5. Third-Party Services</h2>
-          <p>We keep third-party services to an absolute minimum:</p>
-          
-          <h3>5.1 Web Hosting</h3>
-          <p>Our website is hosted on standard web hosting services. These providers may collect basic server logs (IP address, browser type, access times) for security and maintenance purposes.</p>
-          
-          <h3>5.2 No External Analytics</h3>
-          <p>We don't use Google Analytics, Facebook Pixel, or any other analytics services.</p>
-          
-          <h3>5.3 No Social Media Plugins</h3>
-          <p>We don't embed social media widgets or plugins that could track you.</p>
-          
-          <h3>5.4 No Advertising Networks</h3>
-          <p>We don't display ads, so there are no ad networks tracking your activity.</p>
-        </div>
-
-        <!-- Data Security -->
-        <div class="legal-section">
-          <h2>6. Data Security</h2>
-          <p>We implement security measures designed to protect your information:</p>
-          
-          <h3>6.1 Technical Measures</h3>
           <ul>
-            <li><strong>HTTPS Encryption:</strong> All communication is encrypted</li>
-            <li><strong>Security Headers:</strong> Modern web security headers implemented</li>
-            <li><strong>No Data Transmission:</strong> Your data doesn't leave your browser</li>
+            <li><strong>No advertising cookies:</strong> We don't show ads, so no ad-tracking cookies</li>
+            <li><strong>No analytics cookies:</strong> We don't use Google Analytics or similar tracking</li>
+            <li><strong>No social media cookies:</strong> No Facebook, Twitter, or other social trackers</li>
+            <li><strong>No third-party cookies:</strong> We don't embed content that sets third-party cookies</li>
           </ul>
           
-          <h3>6.2 Organizational Measures</h3>
+          <p>The only "cookies" we use are:</p>
           <ul>
-            <li><strong>Privacy by Design:</strong> Built with privacy as a core principle</li>
-            <li><strong>Minimal Data:</strong> Collect only what's absolutely necessary</li>
-            <li><strong>Transparency:</strong> Clear communication about data practices</li>
+            <li><strong>Session cookies:</strong> Temporary cookies that help the site function (deleted when you close your browser)</li>
+            <li><strong>Preference cookies:</strong> Remember your theme and settings (optional)</li>
           </ul>
           
-          <div class="warning-note">
-            <p><strong>Important:</strong> While we take reasonable security measures, no method of transmission over the Internet or electronic storage is 100% secure. We cannot guarantee absolute security.</p>
-          </div>
+          <p>You can disable cookies in your browser settings, though some features may not work properly.</p>
+        </div>
+
+        <!-- Data Storage -->
+        <div class="legal-section">
+          <h2>5. Data Storage and Security</h2>
+          
+          <h3>5.1 Where Your Data Is Stored</h3>
+          <p><strong>Locally on your device:</strong> Your preferences and generated numbers stay on your computer/phone.</p>
+          <p><strong>Anonymous server logs:</strong> Temporarily stored on our secure servers and regularly purged.</p>
+          
+          <h3>5.2 Data Security</h3>
+          <p>We implement security measures including:</p>
+          <ul>
+            <li>HTTPS encryption for all data transmission</li>
+            <li>Secure server infrastructure</li>
+            <li>Regular security updates</li>
+            <li>Minimal data collection (best security is not collecting data at all)</li>
+          </ul>
+          
+          <h3>5.3 Data Retention</h3>
+          <p>We don't retain personal data because we don't collect it. Server logs are typically retained for 30 days for security monitoring, then automatically deleted.</p>
+        </div>
+
+        <!-- Third Parties -->
+        <div class="legal-section">
+          <h2>6. Third-Party Services</h2>
+          <p>We don't share data with third parties because we don't collect personal data. However, note that:</p>
+          
+          <ul>
+            <li><strong>Hosting Provider:</strong> Our hosting company has access to server logs (standard for all websites)</li>
+            <li><strong>Email Service:</strong> If you contact us, your email goes through our email provider</li>
+          </ul>
+          
+          <p>We use privacy-focused, reputable providers who have their own privacy policies. We don't use third-party analytics, advertising networks, or social media integrations.</p>
         </div>
 
         <!-- Your Rights -->
         <div class="legal-section">
           <h2>7. Your Privacy Rights</h2>
-          <p>Depending on your location, you may have certain rights regarding your personal information:</p>
+          <p>Even though we don't collect personal data, you have rights under privacy laws:</p>
           
-          <h3>7.1 Access and Control</h3>
-          <p>Since we don't collect personal data, there's no personal information for us to provide, modify, or delete. However, you can:</p>
           <ul>
-            <li>Clear your browser's local storage to remove saved settings</li>
-            <li>Use private/incognito browsing mode</li>
-            <li>Disable cookies in your browser settings</li>
+            <li><strong>Right to Access:</strong> You can ask what data we have (answer: none)</li>
+            <li><strong>Right to Deletion:</strong> You can ask us to delete data (answer: we don't have your data to delete)</li>
+            <li><strong>Right to Correction:</strong> You can correct inaccurate data (not applicable)</li>
+            <li><strong>Right to Object:</strong> You can object to processing (we don't process personal data)</li>
+            <li><strong>Right to Portability:</strong> You can request your data (we have none to give)</li>
           </ul>
           
-          <h3>7.2 Data Portability</h3>
-          <p>You can export any numbers you generate using our built-in export feature. The data is saved as a JSON file on your device.</p>
-          
-          <h3>7.3 Right to Be Forgotten</h3>
-          <p>Since we don't store your personal data, there's nothing for us to delete from our servers. Any data stored locally on your device can be cleared through your browser settings.</p>
+          <p>To exercise these rights or ask privacy questions, contact us at <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
         </div>
 
         <!-- Children's Privacy -->
         <div class="legal-section">
           <h2>8. Children's Privacy</h2>
-          <p>Our Service is not intended for individuals under the age of 18 ("Children").</p>
+          <p>Our Service is not intended for children under 18. We don't knowingly collect data from children.</p>
           
-          <p>We do not knowingly collect personal information from Children. If you are a parent or guardian and you believe your child has provided us with personal information, please contact us.</p>
+          <p>Since we don't collect age information and don't require registration, we rely on parents and guardians to monitor children's internet usage.</p>
           
-          <p>Since our Service involves lottery number generation, it is intended for adults of legal gambling age in their jurisdiction.</p>
+          <p>If you believe a child has provided us with personal data, please contact us immediately at <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a> and we'll take appropriate action (though we likely don't have any data to delete).</p>
         </div>
 
-        <!-- International Transfers -->
+        <!-- Changes to Policy -->
         <div class="legal-section">
-          <h2>9. International Data Transfers</h2>
-          <p>Since we don't collect personal data, there are no international data transfers to worry about.</p>
+          <h2>9. Changes to This Privacy Policy</h2>
+          <p>We may update this Privacy Policy occasionally. We'll notify you of any changes by:</p>
           
-          <p>Our Service is accessible worldwide, but all data processing happens locally in your browser. No personal information crosses international borders.</p>
-        </div>
-
-        <!-- Changes to Privacy Policy -->
-        <div class="legal-section">
-          <h2>10. Changes to This Privacy Policy</h2>
-          <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date.</p>
+          <ul>
+            <li>Posting the new Privacy Policy on this page</li>
+            <li>Updating the "Last Updated" date</li>
+          </ul>
           
-          <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+          <p>You're advised to review this Privacy Policy periodically for any changes. Changes are effective immediately upon posting.</p>
           
-          <p>If we make material changes to this policy, we will make reasonable efforts to notify you through a notice on our website.</p>
+          <p>If we ever start collecting personal data (which we don't plan to), we'll:</p>
+          <ul>
+            <li>Clearly notify users</li>
+            <li>Get explicit consent where required</li>
+            <li>Update this policy with detailed information about data collection</li>
+          </ul>
         </div>
 
         <!-- Contact Information -->
         <div class="legal-section">
-          <h2>11. Contact Us</h2>
-          <p>If you have any questions about this Privacy Policy, please contact us:</p>
+          <h2>10. Contact Information</h2>
+          <p>If you have questions about this Privacy Policy, contact us at:</p>
           
           <p><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
           <p><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
-          
-          <p>We typically respond to privacy-related inquiries within 24-48 hours.</p>
-          
-          <div class="privacy-note">
-            <p><strong>Data Protection Officer:</strong> Since we don't process personal data on a large scale, we don't have a formal Data Protection Officer. However, we take all privacy inquiries seriously and will respond promptly.</p>
-          </div>
-        </div>
-
-        <!-- Compliance -->
-        <div class="legal-section">
-          <h2>12. Compliance with Laws</h2>
-          <p>We strive to comply with applicable privacy laws and regulations, including:</p>
-          
-          <ul>
-            <li><strong>GDPR (General Data Protection Regulation):</strong> European Union</li>
-            <li><strong>CCPA (California Consumer Privacy Act):</strong> California, USA</li>
-            <li><strong>PIPEDA (Personal Information Protection):</strong> Canada</li>
-            <li><strong>Other applicable privacy laws</strong></li>
-          </ul>
-          
-          <p>If you believe we have not adhered to these laws or have concerns about our data practices, please contact us immediately.</p>
         </div>
 
         <!-- Last Updated -->
@@ -928,10 +795,6 @@
           <h3>Quick Links</h3>
           <ul class="footer-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#tools">Other Tools</a></li>
-            <li><a href="index.html#guides">Guides</a></li>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
           </ul>
         </div>
         
