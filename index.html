@@ -18,6 +18,9 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://lotteryupdate000.space/" />
   
+  <!-- Sitemap Reference -->
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+  
   <!-- Open Graph -->
   <meta property="og:title" content="Free Lottery Pattern Analyzer & Number Generator">
   <meta property="og:description" content="Generate smart lottery numbers with statistical pattern analysis">
@@ -1168,7 +1171,7 @@
       <div class="container">
         <ul class="nav-list">
           <li class="nav-item"><a href="/" class="nav-link active"><span>🏠</span> Home</a></li>
-          <li class="nav-item"><a href="#tutorial" class="nav-link"><span>📖</span> Guides</a></li>
+          <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
         </ul>
       </div>
     </nav>
@@ -1505,7 +1508,7 @@
             <h3>Quick Links</h3>
             <ul class="footer-links">
               <li><a href="/">Home</a></li>
-              <li><a href="#tutorial">Guides</a></li>
+              <li><a href="guides.html">Guides</a></li>
             </ul>
           </div>
           
@@ -1592,6 +1595,9 @@
         
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Check if guides.html exists, if not show toast
+        this.checkGuidesPage();
       },
       
       // Event Listeners
@@ -1654,6 +1660,55 @@
             this.scrollToAnalyzer();
           });
         });
+        
+        // Guides link redirect
+        document.querySelectorAll('a[href="guides.html"]').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.redirectToGuides();
+          });
+        });
+      },
+      
+      // Check if guides page exists
+      async checkGuidesPage() {
+        try {
+          const response = await fetch('guides.html', { method: 'HEAD' });
+          if (!response.ok) {
+            // Guides page doesn't exist, update navigation
+            document.querySelectorAll('a[href="guides.html"]').forEach(link => {
+              link.href = '#tutorial';
+              link.title = 'View Tutorial';
+            });
+          }
+        } catch (error) {
+          // Guides page doesn't exist
+          document.querySelectorAll('a[href="guides.html"]').forEach(link => {
+            link.href = '#tutorial';
+            link.title = 'View Tutorial';
+          });
+        }
+      },
+      
+      // Redirect to guides page or show tutorial
+      redirectToGuides() {
+        // Check if guides.html exists
+        fetch('guides.html', { method: 'HEAD' })
+          .then(response => {
+            if (response.ok) {
+              // Guides page exists, redirect
+              window.location.href = 'guides.html';
+            } else {
+              // Guides page doesn't exist, show tutorial section
+              this.scrollToTutorial();
+              this.showToast('Guides page coming soon! View our tutorial instead.', 'info');
+            }
+          })
+          .catch(() => {
+            // Guides page doesn't exist, show tutorial section
+            this.scrollToTutorial();
+            this.showToast('Guides page coming soon! View our tutorial instead.', 'info');
+          });
       },
       
       // Theme Functions
