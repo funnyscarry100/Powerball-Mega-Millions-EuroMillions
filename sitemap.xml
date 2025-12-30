@@ -1,33 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://lotteryupdate000.space/</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://lotteryupdate000.space/about.html</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://lotteryupdate000.space/contact.html</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://lotteryupdate000.space/terms.html</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://lotteryupdate000.space/privacy.html</loc>
-    <lastmod>2024-12-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<?php
+header('Content-Type: application/xml; charset=utf-8');
+echo '<?xml version="1.0" encoding="UTF-8"?>';
+?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <?php
+  // Get current date in YYYY-MM-DD format
+  $lastmod = date('Y-m-d');
+  
+  // Array of URLs with their metadata
+  $urls = [
+    [
+      'loc' => 'https://lotteryupdate000.space/',
+      'priority' => '1.0',
+      'changefreq' => 'daily',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/#analyzer',
+      'priority' => '0.9',
+      'changefreq' => 'weekly',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/#tutorial',
+      'priority' => '0.8',
+      'changefreq' => 'monthly',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/?preset=powerball',
+      'priority' => '0.9',
+      'changefreq' => 'daily',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/?preset=megamillions',
+      'priority' => '0.9',
+      'changefreq' => 'daily',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/?preset=euromillions',
+      'priority' => '0.9',
+      'changefreq' => 'daily',
+    ],
+    // Future pages (commented out until created)
+    /*
+    [
+      'loc' => 'https://lotteryupdate000.space/guides.html',
+      'priority' => '0.7',
+      'changefreq' => 'monthly',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/about.html',
+      'priority' => '0.6',
+      'changefreq' => 'monthly',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/terms.html',
+      'priority' => '0.5',
+      'changefreq' => 'yearly',
+    ],
+    [
+      'loc' => 'https://lotteryupdate000.space/privacy.html',
+      'priority' => '0.5',
+      'changefreq' => 'yearly',
+    ],
+    */
+  ];
+  
+  // Generate XML for each URL
+  foreach ($urls as $url) {
+    ?>
+    <url>
+      <loc><?= htmlspecialchars($url['loc']) ?></loc>
+      <lastmod><?= $lastmod ?></lastmod>
+      <changefreq><?= $url['changefreq'] ?></changefreq>
+      <priority><?= $url['priority'] ?></priority>
+      <xhtml:link rel="alternate" hreflang="en" href="<?= htmlspecialchars($url['loc']) ?>"/>
+    </url>
+    <?php
+  }
+  ?>
+  
 </urlset>
