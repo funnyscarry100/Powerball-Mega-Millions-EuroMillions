@@ -1,35 +1,114 @@
+# ===========================================
+# robots.txt - Lottery Pattern Analyzer
+# Generated: December 31, 2025
+# ===========================================
+
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search/
+Disallow: /*?*
+Allow: /*?game=*
+Allow: /*?preset=*
+
+# Crawl delay for all bots
+Crawl-delay: 1
 
 # Sitemap location
 Sitemap: https://lotteryupdate000.space/sitemap.xml
 
-# Crawl delay (optional)
-Crawl-delay: 1
+# ===========================================
+# Specific Bot Instructions
+# ===========================================
 
-# Host (optional)
-Host: lotteryupdate000.space
-
-# Allow specific bots
+# Google
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 1
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
 
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: Googlebot-Mobile
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Bing
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 1
 
+# Yandex
 User-agent: YandexBot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 2
+Clean-param: ref /index.html
 
+# Baidu
 User-agent: Baiduspider
 Allow: /
 Disallow: /admin/
 Crawl-delay: 3
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Facebook
+User-agent: FacebookExternalHit
+Allow: /
+Crawl-delay: 2
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 2
+
+# ===========================================
+# Bad Bots to Block
+# ===========================================
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: dotbot
+Disallow: /
+
+User-agent: MauiBot
+Disallow: /
+
+# ===========================================
+# Host & Other Directives
+# ===========================================
+
+# Preferred host (if you have multiple domains)
+Host: lotteryupdate000.space
+
+# Visit-time (if you have maintenance windows)
+# Visit-time: 0000-0600
+
+# Request-rate (additional rate limiting)
+# Request-rate: 1/10  # 1 page every 10 seconds
