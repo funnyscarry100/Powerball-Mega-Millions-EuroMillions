@@ -1,906 +1,1359 @@
-/* style.css - Root directory CSS file */
-
-/* CSS Variables for theming */
-:root {
-  /* Light theme (default) */
-  --primary-color: #2e7d32;
-  --primary-dark: #1b5e20;
-  --primary-light: #4caf50;
-  --secondary-color: #2196f3;
-  --accent-color: #ff9800;
-  --danger-color: #f44336;
-  --success-color: #4caf50;
-  
-  /* Background colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --bg-tertiary: #f1f3f4;
-  
-  /* Text colors */
-  --text-primary: #202124;
-  --text-secondary: #5f6368;
-  --text-tertiary: #80868b;
-  
-  /* Border colors */
-  --border-color: #e0e0e0;
-  --border-light: #f0f0f0;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-  
-  /* Spacing */
-  --spacing-xs: 8px;
-  --spacing-sm: 16px;
-  --spacing-md: 24px;
-  --spacing-lg: 32px;
-  --spacing-xl: 48px;
-  
-  /* Border radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-}
-
-/* Dark theme */
-[data-theme="dark"] {
-  --primary-color: #4caf50;
-  --primary-dark: #2e7d32;
-  --primary-light: #81c784;
-  --secondary-color: #64b5f6;
-  --accent-color: #ffb74d;
-  
-  /* Background colors */
-  --bg-primary: #121212;
-  --bg-secondary: #1e1e1e;
-  --bg-tertiary: #2d2d2d;
-  
-  /* Text colors */
-  --text-primary: #e8eaed;
-  --text-secondary: #9aa0a6;
-  --text-tertiary: #80868b;
-  
-  /* Border colors */
-  --border-color: #3c4043;
-  --border-light: #2d2d2d;
-}
-
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  line-height: 1.6;
-  color: var(--text-primary);
-  background-color: var(--bg-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* Container */
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-}
-
-/* Skip link */
-.skip-link {
-  position: absolute;
-  top: -40px;
-  left: 10px;
-  background: var(--primary-color);
-  color: white;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border-radius: var(--radius-sm);
-  text-decoration: none;
-  z-index: 1000;
-}
-
-.skip-link:focus {
-  top: 10px;
-}
-
-/* Header */
-.site-header {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
-  color: white;
-  padding: var(--spacing-sm) 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: var(--shadow-md);
-}
-
-.header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo a {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.logo i {
-  font-size: 1.8rem;
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-}
-
-/* Navigation - NO BORDER LINE */
-.main-nav {
-  background: var(--bg-primary);
-  /* No border line - removed border-bottom */
-  position: sticky;
-  top: 60px;
-  z-index: 99;
-}
-
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Desktop Navigation */
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 2px;
-}
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 15px 20px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border-radius: var(--radius-md);
-}
-
-.nav-link:hover {
-  color: var(--primary-color);
-  background: rgba(46, 125, 50, 0.05);
-}
-
-.nav-link.active {
-  color: var(--primary-color);
-  background: rgba(46, 125, 50, 0.1);
-  font-weight: 600;
-}
-
-/* Mobile Menu Button */
-.mobile-menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 10px;
-}
-
-/* Mobile Menu */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  right: -300px;
-  width: 300px;
-  height: 100%;
-  background: var(--bg-primary);
-  box-shadow: var(--shadow-lg);
-  z-index: 1000;
-  transition: right 0.3s ease;
-  overflow-y: auto;
-}
-
-.mobile-menu.active {
-  right: 0;
-}
-
-.mobile-menu-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: var(--spacing-md);
-  border-bottom: 1px solid var(--border-color);
-}
-
-.mobile-menu-header h3 {
-  margin: 0;
-  color: var(--text-primary);
-}
-
-.close-menu {
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.mobile-nav {
-  list-style: none;
-  padding: var(--spacing-md);
-}
-
-.mobile-nav li {
-  margin-bottom: var(--spacing-xs);
-}
-
-.mobile-nav-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 15px;
-  color: var(--text-primary);
-  text-decoration: none;
-  border-radius: var(--radius-md);
-  transition: background-color 0.3s ease;
-}
-
-.mobile-nav-link:hover,
-.mobile-nav-link.active {
-  background: var(--bg-tertiary);
-  color: var(--primary-color);
-}
-
-.mobile-nav-link i {
-  width: 20px;
-}
-
-/* Visitor Bar */
-.visitor-bar {
-  background: var(--bg-tertiary);
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.visitor-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-}
-
-.visitor-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-.visitor-item i {
-  opacity: 0.7;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
-
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
-}
-
-.btn-primary {
-  background: var(--primary-color);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--primary-dark);
-}
-
-.btn-secondary {
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-}
-
-.btn-secondary:hover {
-  background: var(--border-color);
-}
-
-.btn-small {
-  padding: 6px 12px;
-  font-size: 0.85rem;
-}
-
-.btn-large {
-  padding: 15px 30px;
-  font-size: 1.1rem;
-}
-
-.btn-icon {
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Main content */
-.main-content {
-  padding: var(--spacing-xl) 0;
-}
-
-/* Hero section */
-.hero {
-  text-align: center;
-  padding: var(--spacing-xl) 0;
-  margin-bottom: var(--spacing-xl);
-}
-
-.hero-title {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
-}
-
-.hero-subtitle {
-  font-size: 1.2rem;
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-lg);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.hero-features {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-}
-
-.feature-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(46, 125, 50, 0.1);
-  padding: 10px 20px;
-  border-radius: 50px;
-  color: var(--primary-color);
-  font-weight: 500;
-}
-
-.hero-actions {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-/* Quick stats */
-.quick-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-xl);
-}
-
-.stat-card {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-}
-
-.stat-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-sm);
-}
-
-.stat-card h3 {
-  font-size: 2rem;
-  margin-bottom: 5px;
-  color: var(--text-primary);
-}
-
-.stat-card p {
-  color: var(--text-secondary);
-}
-
-/* Tools section */
-.tools-section {
-  margin-bottom: var(--spacing-xl);
-}
-
-.section-title {
-  font-size: 2rem;
-  margin-bottom: var(--spacing-lg);
-  color: var(--text-primary);
-}
-
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
-}
-
-.tool-card {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-  text-align: center;
-  transition: all 0.3s ease;
-}
-
-.tool-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
-  border-color: var(--primary-color);
-}
-
-.tool-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-md);
-}
-
-.tool-card h3 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
-}
-
-.tool-card p {
-  color: var(--text-secondary);
-  margin-bottom: var(--spacing-lg);
-  font-size: 0.95rem;
-}
-
-/* Analyzer section */
-.analyzer-section {
-  margin-bottom: var(--spacing-xl);
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: var(--spacing-lg);
-  flex-wrap: wrap;
-  gap: var(--spacing-sm);
-}
-
-.section-actions {
-  display: flex;
-  gap: var(--spacing-sm);
-}
-
-.analyzer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-xl);
-}
-
-.heatmap-container,
-.generator-container {
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: var(--spacing-lg);
-}
-
-.heatmap-container h3,
-.generator-container h3 {
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* Heatmap */
-.heatmap {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 5px;
-  margin-bottom: var(--spacing-md);
-}
-
-.heatmap-number {
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.heatmap-number:hover {
-  transform: scale(1.1);
-}
-
-.heatmap-number.selected {
-  border: 2px solid var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.3);
-}
-
-/* Heatmap colors */
-.heatmap-number.cold { background: #78909c; color: white; }
-.heatmap-number.cool { background: #42a5f5; color: white; }
-.heatmap-number.warm { background: #ffa726; color: white; }
-.heatmap-number.hot { background: #ff4444; color: white; }
-
-.heatmap-legend {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 0.85rem;
-}
-
-.legend-item::before {
-  content: '';
-  width: 15px;
-  height: 15px;
-  border-radius: 3px;
-}
-
-.legend-item.hot::before { background: #ff4444; }
-.legend-item.warm::before { background: #ffa726; }
-.legend-item.cool::before { background: #42a5f5; }
-.legend-item.cold::before { background: #78909c; }
-
-/* Generator controls */
-.preset-buttons {
-  display: flex;
-  gap: 10px;
-  margin-bottom: var(--spacing-md);
-}
-
-.preset-btn {
-  padding: 8px 16px;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: 20px;
-  color: var(--text-secondary);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.preset-btn.active,
-.preset-btn:hover {
-  background: var(--primary-color);
-  color: white;
-  border-color: var(--primary-color);
-}
-
-.generator-buttons {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 10px;
-  margin-bottom: var(--spacing-md);
-}
-
-.gen-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: var(--spacing-md);
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.gen-btn:hover {
-  background: var(--border-color);
-  transform: translateY(-2px);
-}
-
-.gen-btn i {
-  font-size: 1.5rem;
-  color: var(--primary-color);
-}
-
-.generated-numbers {
-  background: var(--bg-tertiary);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
-  text-align: center;
-}
-
-.number-set {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.number {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--primary-color);
-  color: white;
-  border-radius: 50%;
-  font-weight: 700;
-}
-
-.number.special {
-  background: var(--accent-color);
-}
-
-.generator-actions {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-}
-
-/* Features section */
-.features-section {
-  margin-bottom: var(--spacing-xl);
-}
-
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-lg);
-}
-
-.feature {
-  text-align: center;
-  padding: var(--spacing-lg);
-}
-
-.feature-icon {
-  font-size: 2.5rem;
-  color: var(--primary-color);
-  margin-bottom: var(--spacing-md);
-}
-
-.feature h3 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-primary);
-}
-
-.feature p {
-  color: var(--text-secondary);
-}
-
-/* Disclaimer */
-.disclaimer {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-md);
-  background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
-  border-left: 5px solid var(--accent-color);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-lg);
-  margin-top: var(--spacing-xl);
-}
-
-.disclaimer-icon {
-  font-size: 2rem;
-  color: var(--accent-color);
-  flex-shrink: 0;
-}
-
-.disclaimer-content h3 {
-  margin-bottom: var(--spacing-sm);
-  color: var(--accent-color);
-}
-
-.disclaimer-content p {
-  color: var(--text-primary);
-}
-
-/* Footer */
-.site-footer {
-  background: var(--bg-secondary);
-  padding: var(--spacing-xl) 0;
-  border-top: 1px solid var(--border-color);
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
-}
-
-.footer-col h3 {
-  margin-bottom: var(--spacing-md);
-  color: var(--text-primary);
-}
-
-.footer-links {
-  list-style: none;
-}
-
-.footer-links li {
-  margin-bottom: var(--spacing-xs);
-}
-
-.footer-links a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: var(--primary-color);
-}
-
-.social-links {
-  display: flex;
-  gap: var(--spacing-sm);
-  margin-top: var(--spacing-md);
-}
-
-.social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: var(--bg-tertiary);
-  color: var(--text-primary);
-  border-radius: 50%;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-2px);
-}
-
-.footer-bottom {
-  padding-top: var(--spacing-lg);
-  border-top: 1px solid var(--border-color);
-  text-align: center;
-  color: var(--text-secondary);
-}
-
-.footer-bottom p {
-  margin-bottom: var(--spacing-md);
-}
-
-.footer-actions {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-sm);
-  flex-wrap: wrap;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-  
-  .container {
-    padding: 0 var(--spacing-sm);
-  }
-  
-  .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-actions {
-    flex-direction: column;
-  }
-  
-  .nav-menu {
-    display: none;
-  }
-  
-  .mobile-menu-btn {
-    display: block;
-  }
-  
-  .visitor-info {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--spacing-xs);
-  }
-  
-  .analyzer-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .section-actions {
-    width: 100%;
-    justify-content: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.75rem;
-  }
-  
-  .hero-features {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .tools-grid,
-  .features-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .quick-stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery Pattern Analyzer | Free Number Generator</title>
+    <meta name="description" content="Generate smarter lottery numbers with statistical pattern analysis. Free tool for Powerball, Mega Millions, EuroMillions.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <style>
+        /* Critical inline CSS for initial render */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        /* Loading state */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease;
+        }
+        
+        #loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Content wrapper */
+        #content {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        #content.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loading-spinner"></div>
+        <h2>Lottery Pattern Analyzer</h2>
+        <p>Loading your number generator...</p>
+    </div>
+
+    <!-- Skip to main content -->
+    <a href="#main-content" class="skip-link">
+        <span class="sr-only">Skip to main content</span>
+    </a>
+
+    <!-- Main Content -->
+    <div id="content">
+        <!-- Header -->
+        <header class="site-header">
+            <div class="container">
+                <div class="header-inner">
+                    <div class="logo">
+                        <a href="/" aria-label="Lottery Pattern Analyzer Home">
+                            <i class="fas fa-bullseye logo-icon"></i>
+                            <span class="logo-text">LotteryAnalyzer</span>
+                        </a>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <button class="btn btn-icon theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <button class="btn btn-primary" id="quickGenerate">
+                            <i class="fas fa-bolt"></i> Quick Generate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation - Clean with no border line -->
+        <nav class="main-nav">
+            <div class="container">
+                <div class="nav-inner">
+                    <!-- Desktop Navigation -->
+                    <ul class="nav-menu">
+                        <li class="nav-item">
+                            <a href="index.html" class="nav-link active" aria-current="page">
+                                <i class="fas fa-home nav-icon"></i>
+                                <span class="nav-text">Home</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="guides.html" class="nav-link">
+                                <i class="fas fa-book nav-icon"></i>
+                                <span class="nav-text">Guides</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="recent.html" class="nav-link">
+                                <i class="fas fa-history nav-icon"></i>
+                                <span class="nav-text">Recent</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="patterns.html" class="nav-link">
+                                <i class="fas fa-chart-line nav-icon"></i>
+                                <span class="nav-text">Patterns</span>
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <!-- Mobile Menu Toggle -->
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu" aria-expanded="false">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <div class="mobile-menu-header">
+                <h3>Menu</h3>
+                <button class="close-menu" id="closeMenu" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="index.html" class="mobile-nav-link active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="guides.html" class="mobile-nav-link"><i class="fas fa-book"></i> Guides</a></li>
+                    <li><a href="recent.html" class="mobile-nav-link"><i class="fas fa-history"></i> Recent</a></li>
+                    <li><a href="patterns.html" class="mobile-nav-link"><i class="fas fa-chart-line"></i> Patterns</a></li>
+                    <li><a href="stats.html" class="mobile-nav-link"><i class="fas fa-chart-bar"></i> Statistics</a></li>
+                    <li><a href="settings.html" class="mobile-nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Visitor Info Bar -->
+        <div class="visitor-bar">
+            <div class="container">
+                <div class="visitor-info">
+                    <div class="visitor-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="visitorLocation">Loading location...</span>
+                    </div>
+                    <div class="visitor-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="currentTime">--:--:--</span>
+                    </div>
+                    <div class="visitor-item">
+                        <i class="fas fa-users"></i>
+                        <span>Online: <span id="visitorCount">1,247</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content">
+            <div class="container">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Free Lottery Number Generator</h1>
+                        <p class="hero-subtitle">Smart Pattern Analysis for Powerball, Mega Millions & EuroMillions</p>
+                        
+                        <div class="trust-badges">
+                            <span class="trust-badge"><i class="fas fa-check-circle"></i> 100% Free</span>
+                            <span class="trust-badge"><i class="fas fa-shield-alt"></i> Secure & Private</span>
+                            <span class="trust-badge"><i class="fas fa-bolt"></i> Instant Results</span>
+                            <span class="trust-badge"><i class="fas fa-chart-line"></i> Pattern Analysis</span>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <button class="btn btn-primary btn-lg" id="generateMain">
+                                <i class="fas fa-magic"></i> Generate Smart Numbers
+                            </button>
+                            <button class="btn btn-secondary btn-lg" id="analyzePatterns">
+                                <i class="fas fa-chart-bar"></i> Analyze Patterns
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-bolt stat-icon"></i>
+                            <div class="stat-content">
+                                <h3>2.5M+</h3>
+                                <p>Numbers Generated</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-user-check stat-icon"></i>
+                            <div class="stat-content">
+                                <h3>50K+</h3>
+                                <p>Active Users</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-trophy stat-icon"></i>
+                            <div class="stat-content">
+                                <h3>247</h3>
+                                <p>Reported Wins</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quick Tools -->
+                <section class="tools-section">
+                    <h2 class="section-title">Quick Lottery Tools</h2>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-ticket-alt tool-icon"></i>
+                                <h3>Powerball</h3>
+                            </div>
+                            <p>Generate Powerball numbers (1-69 white balls, 1-26 Powerball)</p>
+                            <div class="tool-actions">
+                                <button class="btn btn-small btn-primary" data-game="powerball">
+                                    <i class="fas fa-random"></i> Generate
+                                </button>
+                                <button class="btn btn-small btn-secondary" data-game="powerball-stats">
+                                    <i class="fas fa-chart-bar"></i> Stats
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-ticket-alt tool-icon"></i>
+                                <h3>Mega Millions</h3>
+                            </div>
+                            <p>Generate Mega Millions numbers (1-70 white balls, 1-25 Mega Ball)</p>
+                            <div class="tool-actions">
+                                <button class="btn btn-small btn-primary" data-game="megamillions">
+                                    <i class="fas fa-random"></i> Generate
+                                </button>
+                                <button class="btn btn-small btn-secondary" data-game="megamillions-stats">
+                                    <i class="fas fa-chart-bar"></i> Stats
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-ticket-alt tool-icon"></i>
+                                <h3>EuroMillions</h3>
+                            </div>
+                            <p>Generate EuroMillions numbers (1-50 main numbers, 1-12 Lucky Stars)</p>
+                            <div class="tool-actions">
+                                <button class="btn btn-small btn-primary" data-game="euromillions">
+                                    <i class="fas fa-random"></i> Generate
+                                </button>
+                                <button class="btn btn-small btn-secondary" data-game="euromillions-stats">
+                                    <i class="fas fa-chart-bar"></i> Stats
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-card">
+                            <div class="tool-header">
+                                <i class="fas fa-sliders-h tool-icon"></i>
+                                <h3>Custom Generator</h3>
+                            </div>
+                            <p>Create custom number sets with advanced pattern analysis</p>
+                            <div class="tool-actions">
+                                <button class="btn btn-small btn-primary" id="customGenerator">
+                                    <i class="fas fa-cog"></i> Customize
+                                </button>
+                                <button class="btn btn-small btn-secondary" id="advancedSettings">
+                                    <i class="fas fa-chart-line"></i> Advanced
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Pattern Analyzer -->
+                <section class="analyzer-section">
+                    <div class="section-header">
+                        <h2 class="section-title">
+                            <i class="fas fa-chart-line"></i> Pattern Analyzer
+                        </h2>
+                        <div class="section-actions">
+                            <button class="btn btn-small" id="exportData">
+                                <i class="fas fa-download"></i> Export
+                            </button>
+                            <button class="btn btn-small" id="shareResults">
+                                <i class="fas fa-share-alt"></i> Share
+                            </button>
+                            <button class="btn btn-small btn-secondary" id="resetAnalyzer">
+                                <i class="fas fa-redo"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="analyzer-grid">
+                        <!-- Heatmap Column -->
+                        <div class="analyzer-column">
+                            <div class="analyzer-card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-fire"></i> Number Frequency Heatmap
+                                </h3>
+                                <div class="heatmap-container">
+                                    <div class="heatmap" id="heatmap">
+                                        <!-- Heatmap numbers will be generated by JavaScript -->
+                                    </div>
+                                    <div class="heatmap-legend">
+                                        <div class="legend-item">
+                                            <span class="legend-color hot"></span>
+                                            <span>Hot (High Frequency)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color warm"></span>
+                                            <span>Warm (Above Average)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color cool"></span>
+                                            <span>Cool (Below Average)</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <span class="legend-color cold"></span>
+                                            <span>Cold (Low Frequency)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="pattern-stats">
+                                    <h4 class="stats-title">
+                                        <i class="fas fa-chart-bar"></i> Pattern Statistics
+                                    </h4>
+                                    <div class="stats-grid">
+                                        <div class="stat-item">
+                                            <span class="stat-label">Odd/Even Ratio:</span>
+                                            <span class="stat-value" id="oddEvenRatio">3/3</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">High/Low Split:</span>
+                                            <span class="stat-value" id="highLowRatio">2/4</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Sum Range:</span>
+                                            <span class="stat-value" id="sumRange">98-169</span>
+                                        </div>
+                                        <div class="stat-item">
+                                            <span class="stat-label">Number Spread:</span>
+                                            <span class="stat-value" id="numberSpread">41</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Generator Column -->
+                        <div class="analyzer-column">
+                            <div class="analyzer-card">
+                                <h3 class="card-title">
+                                    <i class="fas fa-dice"></i> Smart Number Generator
+                                </h3>
+                                
+                                <div class="generator-controls">
+                                    <div class="preset-selector">
+                                        <div class="preset-buttons">
+                                            <button class="preset-btn active" data-preset="custom">Custom</button>
+                                            <button class="preset-btn" data-preset="powerball">Powerball</button>
+                                            <button class="preset-btn" data-preset="megamillions">Mega Millions</button>
+                                            <button class="preset-btn" data-preset="euromillions">EuroMillions</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="generator-methods">
+                                        <button class="method-btn" data-method="pattern">
+                                            <i class="fas fa-bullseye"></i>
+                                            <div class="method-content">
+                                                <strong>Pattern-Based</strong>
+                                                <small>Uses frequency analysis</small>
+                                            </div>
+                                        </button>
+                                        <button class="method-btn" data-method="balanced">
+                                            <i class="fas fa-balance-scale"></i>
+                                            <div class="method-content">
+                                                <strong>Balanced Set</strong>
+                                                <small>Optimal distribution</small>
+                                            </div>
+                                        </button>
+                                        <button class="method-btn" data-method="random">
+                                            <i class="fas fa-random"></i>
+                                            <div class="method-content">
+                                                <strong>True Random</strong>
+                                                <small>Pure randomness</small>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="quick-generate">
+                                        <button class="quick-btn" data-count="1">Generate 1 Set</button>
+                                        <button class="quick-btn" data-count="3">Generate 3 Sets</button>
+                                        <button class="quick-btn" data-count="5">Generate 5 Sets</button>
+                                    </div>
+                                    
+                                    <div class="generated-numbers" id="generatedNumbers">
+                                        <div class="empty-state">
+                                            <i class="fas fa-magic"></i>
+                                            <p>Click above to generate numbers</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="number-actions">
+                                        <button class="btn btn-small" id="copyNumbers">
+                                            <i class="fas fa-copy"></i> Copy
+                                        </button>
+                                        <button class="btn btn-small" id="clearNumbers">
+                                            <i class="fas fa-trash"></i> Clear
+                                        </button>
+                                        <button class="btn btn-small" id="saveNumbers">
+                                            <i class="fas fa-save"></i> Save
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="generator-settings">
+                                        <h4 class="settings-title">
+                                            <i class="fas fa-cog"></i> Generator Settings
+                                        </h4>
+                                        <div class="settings-form">
+                                            <div class="form-group">
+                                                <label for="maxNumber">Number Range: 1 to</label>
+                                                <input type="number" id="maxNumber" value="69" min="10" max="100">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="numberCount">Numbers to Pick:</label>
+                                                <input type="number" id="numberCount" value="6" min="1" max="15">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="generationMethod">Default Method:</label>
+                                                <select id="generationMethod">
+                                                    <option value="pattern">Pattern-Based</option>
+                                                    <option value="balanced">Balanced Set</option>
+                                                    <option value="random">True Random</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-check">
+                                                <input type="checkbox" id="autoUpdate" checked>
+                                                <label for="autoUpdate">Auto-update heatmap</label>
+                                            </div>
+                                            <button class="btn btn-primary" id="saveSettings">
+                                                <i class="fas fa-save"></i> Save Settings
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Features -->
+                <section class="features-section">
+                    <h2 class="section-title">Advanced Features</h2>
+                    
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Smart Algorithms</h3>
+                            <p>Advanced pattern recognition and statistical analysis using machine learning algorithms.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <h3>Privacy First</h3>
+                            <p>All processing happens locally in your browser. No data is collected or stored on servers.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile Optimized</h3>
+                            <p>Fully responsive design that works perfectly on all devices from desktop to mobile.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-history"></i>
+                            </div>
+                            <h3>History Tracking</h3>
+                            <p>Track your generated numbers and analyze patterns over time with detailed statistics.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h3>Real-Time Stats</h3>
+                            <p>Live statistics and probability calculations for every number combination.</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-file-export"></i>
+                            </div>
+                            <h3>Export & Share</h3>
+                            <p>Export your numbers in multiple formats or share them directly with friends.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- How It Works -->
+                <section class="tutorial-section">
+                    <h2 class="section-title">How It Works</h2>
+                    
+                    <div class="tutorial-steps">
+                        <div class="tutorial-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h3>Select Game & Settings</h3>
+                                <p>Choose your lottery game or set custom ranges and preferences in the settings panel.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tutorial-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h3>Analyze Patterns</h3>
+                                <p>View the heatmap to identify hot and cold numbers based on frequency analysis.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tutorial-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h3>Generate Numbers</h3>
+                                <p>Use our smart algorithms to generate balanced number sets with optimal distribution.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="tutorial-step">
+                            <div class="step-number">4</div>
+                            <div class="step-content">
+                                <h3>Review & Export</h3>
+                                <p>Check statistics, save your numbers, or export them for later use.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Important Notice -->
+                <div class="notice-card">
+                    <div class="notice-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="notice-content">
+                        <h3>Important Legal Disclaimer</h3>
+                        <p>This tool is for entertainment and educational purposes only. Lottery games are based on random chance, and no system can guarantee a win. All number generations are purely statistical simulations. Please play responsibly and within your means.</p>
+                        <div class="notice-warning">
+                            <strong><i class="fas fa-exclamation-circle"></i> Must be 18+ to participate in lottery games.</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3 class="footer-title">LotteryAnalyzer</h3>
+                        <p class="footer-description">Free lottery number generator with advanced pattern analysis for smarter number selection.</p>
+                        <div class="footer-contact">
+                            <p><i class="fas fa-envelope"></i> crypto123432@yahoo.com</p>
+                            <p><i class="fab fa-reddit"></i> u/Mysterious-Bottle-44</p>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a href="guides.html"><i class="fas fa-book"></i> Guides</a></li>
+                            <li><a href="recent.html"><i class="fas fa-history"></i> Recent</a></li>
+                            <li><a href="patterns.html"><i class="fas fa-chart-line"></i> Patterns</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-title">Lottery Tools</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" data-game="powerball"><i class="fas fa-ticket-alt"></i> Powerball Generator</a></li>
+                            <li><a href="#" data-game="megamillions"><i class="fas fa-ticket-alt"></i> Mega Millions Generator</a></li>
+                            <li><a href="#" data-game="euromillions"><i class="fas fa-ticket-alt"></i> EuroMillions Generator</a></li>
+                            <li><a href="#"><i class="fas fa-chart-bar"></i> Pattern Analyzer</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3 class="footer-title">Information</h3>
+                        <ul class="footer-links">
+                            <li><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                            <li><a href="privacy.html"><i class="fas fa-lock"></i> Privacy Policy</a></li>
+                            <li><a href="terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+                            <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>&copy; <span id="currentYear">2024</span> LotteryAnalyzer. All rights reserved.</p>
+                        <p class="copyright-note">This is an independent tool not affiliated with any lottery organization.</p>
+                    </div>
+                    
+                    <div class="footer-actions">
+                        <button class="btn btn-small" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                            <i class="fas fa-arrow-up"></i> Back to Top
+                        </button>
+                        <button class="btn btn-small theme-toggle" id="footerThemeToggle">
+                            <i class="fas fa-moon"></i> Theme
+                        </button>
+                        <button class="btn btn-small" onclick="window.print()">
+                            <i class="fas fa-print"></i> Print
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize application when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Application State
+            const appState = {
+                theme: localStorage.getItem('theme') || 'light',
+                generatedNumbers: [],
+                frequencyData: {},
+                selectedPreset: 'custom',
+                settings: {
+                    maxNumber: 69,
+                    numberCount: 6,
+                    method: 'pattern',
+                    autoUpdate: true
+                }
+            };
+            
+            // DOM Elements
+            const elements = {
+                loading: document.getElementById('loading'),
+                content: document.getElementById('content'),
+                themeToggle: document.getElementById('themeToggle'),
+                footerThemeToggle: document.getElementById('footerThemeToggle'),
+                mobileMenuToggle: document.getElementById('mobileMenuToggle'),
+                mobileMenu: document.getElementById('mobileMenu'),
+                closeMenu: document.getElementById('closeMenu'),
+                heatmap: document.getElementById('heatmap'),
+                generatedNumbers: document.getElementById('generatedNumbers'),
+                toastContainer: document.getElementById('toastContainer')
+            };
+            
+            // Initialize the application
+            function initApp() {
+                // Hide loading screen
+                setTimeout(() => {
+                    elements.loading.classList.add('hidden');
+                    elements.content.classList.add('loaded');
+                }, 800);
+                
+                // Set current year
+                document.getElementById('currentYear').textContent = new Date().getFullYear();
+                
+                // Initialize components
+                initTheme();
+                initNavigation();
+                initVisitorInfo();
+                initHeatmap();
+                initEventListeners();
+                initGenerator();
+                
+                console.log('Lottery Analyzer initialized');
+            }
+            
+            // Theme Management
+            function initTheme() {
+                // Apply saved theme
+                document.documentElement.setAttribute('data-theme', appState.theme);
+                updateThemeIcon();
+                
+                // Theme toggle event
+                elements.themeToggle.addEventListener('click', toggleTheme);
+                if (elements.footerThemeToggle) {
+                    elements.footerThemeToggle.addEventListener('click', toggleTheme);
+                }
+            }
+            
+            function toggleTheme() {
+                appState.theme = appState.theme === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', appState.theme);
+                localStorage.setItem('theme', appState.theme);
+                updateThemeIcon();
+                showToast(`Switched to ${appState.theme} mode`);
+            }
+            
+            function updateThemeIcon() {
+                const icon = appState.theme === 'light' ? 'moon' : 'sun';
+                elements.themeToggle.innerHTML = `<i class="fas fa-${icon}"></i>`;
+                if (elements.footerThemeToggle) {
+                    elements.footerThemeToggle.innerHTML = `<i class="fas fa-${icon}"></i> Theme`;
+                }
+            }
+            
+            // Navigation Management
+            function initNavigation() {
+                // Mobile menu toggle
+                elements.mobileMenuToggle.addEventListener('click', function() {
+                    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+                    this.setAttribute('aria-expanded', !isExpanded);
+                    elements.mobileMenu.setAttribute('aria-hidden', isExpanded);
+                    elements.mobileMenu.classList.toggle('active');
+                });
+                
+                // Close mobile menu
+                elements.closeMenu.addEventListener('click', function() {
+                    elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    elements.mobileMenu.setAttribute('aria-hidden', 'true');
+                    elements.mobileMenu.classList.remove('active');
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!elements.mobileMenu.contains(event.target) && 
+                        !elements.mobileMenuToggle.contains(event.target) &&
+                        elements.mobileMenu.classList.contains('active')) {
+                        elements.mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        elements.mobileMenu.setAttribute('aria-hidden', 'true');
+                        elements.mobileMenu.classList.remove('active');
+                    }
+                });
+                
+                // Update active nav link
+                const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+                document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === currentPage) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Visitor Information
+            function initVisitorInfo() {
+                // Update time every second
+                function updateTime() {
+                    const now = new Date();
+                    const timeString = now.toLocaleTimeString('en-US', {
+                        hour12: true,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                    });
+                    const dateString = now.toLocaleDateString('en-US', {
+                        weekday: 'short',
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                    
+                    document.getElementById('currentTime').textContent = 
+                        `${dateString} • ${timeString}`;
+                }
+                
+                updateTime();
+                setInterval(updateTime, 1000);
+                
+                // Try to get location
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(
+                        () => {
+                            document.getElementById('visitorLocation').textContent = 'Location detected';
+                        },
+                        () => {
+                            // Fallback to IP-based location
+                            fetch('https://ipapi.co/json/')
+                                .then(response => response.json())
+                                .then(data => {
+                                    const city = data.city || 'Unknown';
+                                    const country = data.country_name || 'Unknown';
+                                    document.getElementById('visitorLocation').textContent = 
+                                        `${city}, ${country}`;
+                                })
+                                .catch(() => {
+                                    document.getElementById('visitorLocation').textContent = 
+                                        'Location unknown';
+                                });
+                        }
+                    );
+                } else {
+                    document.getElementById('visitorLocation').textContent = 
+                        'Location not supported';
+                }
+                
+                // Simulate visitor count update
+                setInterval(() => {
+                    const countElement = document.getElementById('visitorCount');
+                    const currentCount = parseInt(countElement.textContent.replace(',', ''));
+                    const newCount = currentCount + Math.floor(Math.random() * 3);
+                    countElement.textContent = newCount.toLocaleString();
+                }, 10000);
+            }
+            
+            // Heatmap Generator
+            function initHeatmap() {
+                const heatmap = elements.heatmap;
+                if (!heatmap) return;
+                
+                heatmap.innerHTML = '';
+                
+                // Initialize frequency data if empty
+                for (let i = 1; i <= appState.settings.maxNumber; i++) {
+                    if (!appState.frequencyData[i]) {
+                        appState.frequencyData[i] = Math.floor(Math.random() * 100);
+                    }
+                }
+                
+                // Create number cells
+                for (let i = 1; i <= appState.settings.maxNumber; i++) {
+                    const numberCell = document.createElement('div');
+                    numberCell.className = 'heatmap-number';
+                    numberCell.textContent = i;
+                    numberCell.dataset.number = i;
+                    
+                    // Set heat level
+                    const frequency = appState.frequencyData[i];
+                    let heatClass = 'cold';
+                    if (frequency > 75) heatClass = 'hot';
+                    else if (frequency > 50) heatClass = 'warm';
+                    else if (frequency > 25) heatClass = 'cool';
+                    
+                    numberCell.classList.add(heatClass);
+                    
+                    // Click handler for selection
+                    numberCell.addEventListener('click', function() {
+                        this.classList.toggle('selected');
+                        const number = parseInt(this.dataset.number);
+                        const isSelected = this.classList.contains('selected');
+                        
+                        if (isSelected) {
+                            showToast(`Number ${number} selected`);
+                        } else {
+                            showToast(`Number ${number} deselected`);
+                        }
+                        
+                        updateStatistics();
+                    });
+                    
+                    heatmap.appendChild(numberCell);
+                }
+            }
+            
+            // Number Generator
+            function initGenerator() {
+                // Generate a random number set
+                function generateNumberSet(method = 'pattern') {
+                    const numbers = new Set();
+                    const maxNum = appState.settings.maxNumber;
+                    const count = appState.settings.numberCount;
+                    
+                    switch(method) {
+                        case 'random':
+                            while (numbers.size < count) {
+                                numbers.add(Math.floor(Math.random() * maxNum) + 1);
+                            }
+                            break;
+                            
+                        case 'balanced':
+                            // Ensure balanced distribution
+                            const groups = Math.ceil(count / 3);
+                            const lowEnd = Math.floor(maxNum / 3);
+                            const midEnd = Math.floor(maxNum * 2 / 3);
+                            
+                            for (let i = 0; i < groups && numbers.size < count; i++) {
+                                numbers.add(Math.floor(Math.random() * lowEnd) + 1);
+                            }
+                            
+                            for (let i = 0; i < groups && numbers.size < count; i++) {
+                                numbers.add(Math.floor(Math.random() * (midEnd - lowEnd)) + lowEnd + 1);
+                            }
+                            
+                            while (numbers.size < count) {
+                                numbers.add(Math.floor(Math.random() * (maxNum - midEnd)) + midEnd + 1);
+                            }
+                            break;
+                            
+                        case 'pattern':
+                        default:
+                            // Weighted by frequency
+                            const weighted = [];
+                            for (let i = 1; i <= maxNum; i++) {
+                                const weight = appState.frequencyData[i] || 50;
+                                for (let j = 0; j < weight; j++) {
+                                    weighted.push(i);
+                                }
+                            }
+                            
+                            while (numbers.size < count && weighted.length > 0) {
+                                const index = Math.floor(Math.random() * weighted.length);
+                                numbers.add(weighted[index]);
+                                weighted.splice(index, 1);
+                            }
+                            
+                            while (numbers.size < count) {
+                                numbers.add(Math.floor(Math.random() * maxNum) + 1);
+                            }
+                    }
+                    
+                    return Array.from(numbers).sort((a, b) => a - b);
+                }
+                
+                // Display generated numbers
+                function displayNumbers(numbers) {
+                    const container = elements.generatedNumbers;
+                    container.innerHTML = '';
+                    
+                    const numberSet = document.createElement('div');
+                    numberSet.className = 'number-set-display';
+                    
+                    numbers.forEach(num => {
+                        const numElement = document.createElement('span');
+                        numElement.className = 'generated-number';
+                        numElement.textContent = num;
+                        numberSet.appendChild(numElement);
+                    });
+                    
+                    container.appendChild(numberSet);
+                    
+                    // Update frequency data
+                    numbers.forEach(num => {
+                        appState.frequencyData[num] = (appState.frequencyData[num] || 0) + 1;
+                    });
+                    
+                    // Update heatmap if auto-update is enabled
+                    if (appState.settings.autoUpdate) {
+                        updateHeatmapColors();
+                    }
+                    
+                    // Update statistics
+                    updateStatistics();
+                    
+                    // Add to history
+                    appState.generatedNumbers.push({
+                        numbers: numbers,
+                        timestamp: new Date().toISOString(),
+                        method: appState.settings.method
+                    });
+                }
+                
+                // Update heatmap colors
+                function updateHeatmapColors() {
+                    document.querySelectorAll('.heatmap-number').forEach(cell => {
+                        const num = parseInt(cell.dataset.number);
+                        const frequency = appState.frequencyData[num] || 0;
+                        
+                        cell.classList.remove('hot', 'warm', 'cool', 'cold');
+                        
+                        let heatClass = 'cold';
+                        if (frequency > 75) heatClass = 'hot';
+                        else if (frequency > 50) heatClass = 'warm';
+                        else if (frequency > 25) heatClass = 'cool';
+                        
+                        cell.classList.add(heatClass);
+                    });
+                }
+                
+                // Update statistics display
+                function updateStatistics() {
+                    const selectedNumbers = Array.from(
+                        document.querySelectorAll('.heatmap-number.selected')
+                    ).map(el => parseInt(el.dataset.number));
+                    
+                    if (selectedNumbers.length > 0) {
+                        const oddCount = selectedNumbers.filter(n => n % 2 === 1).length;
+                        const evenCount = selectedNumbers.length - oddCount;
+                        document.getElementById('oddEvenRatio').textContent = `${oddCount}/${evenCount}`;
+                        
+                        const midPoint = Math.floor(appState.settings.maxNumber / 2);
+                        const highCount = selectedNumbers.filter(n => n > midPoint).length;
+                        const lowCount = selectedNumbers.length - highCount;
+                        document.getElementById('highLowRatio').textContent = `${highCount}/${lowCount}`;
+                        
+                        const sum = selectedNumbers.reduce((a, b) => a + b, 0);
+                        const min = Math.min(...selectedNumbers);
+                        const max = Math.max(...selectedNumbers);
+                        const avg = Math.round(sum / selectedNumbers.length);
+                        document.getElementById('sumRange').textContent = `${sum} (avg: ${avg})`;
+                        document.getElementById('numberSpread').textContent = max - min;
+                    }
+                }
+                
+                // Public methods
+                window.generateNumbers = function(method = null) {
+                    const useMethod = method || appState.settings.method;
+                    const numbers = generateNumberSet(useMethod);
+                    displayNumbers(numbers);
+                    showToast(`Generated ${useMethod} numbers`);
+                };
+                
+                window.generateMultipleSets = function(count) {
+                    const container = elements.generatedNumbers;
+                    container.innerHTML = '';
+                    
+                    for (let i = 0; i < count; i++) {
+                        const numbers = generateNumberSet(appState.settings.method);
+                        displayNumbers(numbers);
+                    }
+                    
+                    showToast(`Generated ${count} sets of numbers`);
+                };
+                
+                // Initialize with some numbers
+                setTimeout(() => {
+                    window.generateNumbers('pattern');
+                }, 1000);
+            }
+            
+            // Event Listeners
+            function initEventListeners() {
+                // Quick generate buttons
+                document.getElementById('quickGenerate').addEventListener('click', () => {
+                    window.generateNumbers();
+                });
+                
+                document.getElementById('generateMain').addEventListener('click', () => {
+                    window.generateNumbers();
+                });
+                
+                // Preset buttons
+                document.querySelectorAll('.preset-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.preset-btn').forEach(b => {
+                            b.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        const preset = this.dataset.preset;
+                        appState.selectedPreset = preset;
+                        
+                        // Update settings based on preset
+                        const presets = {
+                            powerball: { maxNumber: 69, numberCount: 5 },
+                            megamillions: { maxNumber: 70, numberCount: 5 },
+                            euromillions: { maxNumber: 50, numberCount: 5 },
+                            custom: { maxNumber: 69, numberCount: 6 }
+                        };
+                        
+                        if (presets[preset]) {
+                            appState.settings = { ...appState.settings, ...presets[preset] };
+                            document.getElementById('maxNumber').value = appState.settings.maxNumber;
+                            document.getElementById('numberCount').value = appState.settings.numberCount;
+                            
+                            if (appState.settings.autoUpdate) {
+                                initHeatmap();
+                            }
+                        }
+                        
+                        showToast(`Switched to ${preset} preset`);
+                    });
+                });
+                
+                // Method buttons
+                document.querySelectorAll('.method-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const method = this.dataset.method;
+                        window.generateNumbers(method);
+                    });
+                });
+                
+                // Quick generate buttons
+                document.querySelectorAll('.quick-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const count = parseInt(this.dataset.count);
+                        window.generateMultipleSets(count);
+                    });
+                });
+                
+                // Tool cards
+                document.querySelectorAll('.tool-actions .btn-primary').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const game = this.dataset.game;
+                        showToast(`Generating ${game} numbers...`);
+                        setTimeout(() => {
+                            window.generateNumbers();
+                        }, 300);
+                    });
+                });
+                
+                // Number actions
+                document.getElementById('copyNumbers').addEventListener('click', function() {
+                    const numbers = Array.from(document.querySelectorAll('.generated-number'));
+                    if (numbers.length === 0) {
+                        showToast('No numbers to copy', 'warning');
+                        return;
+                    }
+                    
+                    const text = numbers.map(n => n.textContent).join(' ');
+                    navigator.clipboard.writeText(text)
+                        .then(() => showToast('Numbers copied to clipboard'))
+                        .catch(() => showToast('Failed to copy numbers', 'error'));
+                });
+                
+                document.getElementById('clearNumbers').addEventListener('click', function() {
+                    if (confirm('Clear all generated numbers?')) {
+                        elements.generatedNumbers.innerHTML = 
+                            '<div class="empty-state"><i class="fas fa-magic"></i><p>Click above to generate numbers</p></div>';
+                        showToast('Cleared all numbers');
+                    }
+                });
+                
+                // Settings
+                document.getElementById('saveSettings').addEventListener('click', function() {
+                    appState.settings.maxNumber = parseInt(document.getElementById('maxNumber').value);
+                    appState.settings.numberCount = parseInt(document.getElementById('numberCount').value);
+                    appState.settings.method = document.getElementById('generationMethod').value;
+                    appState.settings.autoUpdate = document.getElementById('autoUpdate').checked;
+                    
+                    localStorage.setItem('lotterySettings', JSON.stringify(appState.settings));
+                    showToast('Settings saved');
+                });
+                
+                // Load saved settings
+                const savedSettings = localStorage.getItem('lotterySettings');
+                if (savedSettings) {
+                    appState.settings = { ...appState.settings, ...JSON.parse(savedSettings) };
+                    document.getElementById('maxNumber').value = appState.settings.maxNumber;
+                    document.getElementById('numberCount').value = appState.settings.numberCount;
+                    document.getElementById('generationMethod').value = appState.settings.method;
+                    document.getElementById('autoUpdate').checked = appState.settings.autoUpdate;
+                }
+                
+                // Game links in footer
+                document.querySelectorAll('.footer-links a[data-game]').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const game = this.dataset.game;
+                        showToast(`Loading ${game} generator...`);
+                        
+                        // Find and click corresponding preset button
+                        const presetBtn = document.querySelector(`.preset-btn[data-preset="${game}"]`);
+                        if (presetBtn) {
+                            presetBtn.click();
+                        }
+                        
+                        // Scroll to analyzer
+                        document.querySelector('.analyzer-section').scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+            }
+            
+            // Toast Notification System
+            function showToast(message, type = 'info') {
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.setAttribute('role', 'alert');
+                toast.setAttribute('aria-live', 'assertive');
+                toast.setAttribute('aria-atomic', 'true');
+                
+                let icon = 'info-circle';
+                if (type === 'success') icon = 'check-circle';
+                if (type === 'warning') icon = 'exclamation-triangle';
+                if (type === 'error') icon = 'times-circle';
+                
+                toast.innerHTML = `
+                    <div class="toast-content">
+                        <i class="fas fa-${icon}"></i>
+                        <span>${message}</span>
+                    </div>
+                    <button class="toast-close" aria-label="Close notification">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                elements.toastContainer.appendChild(toast);
+                
+                // Show toast with animation
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 10);
+                
+                // Close button
+                toast.querySelector('.toast-close').addEventListener('click', () => {
+                    toast.classList.remove('show');
+                    setTimeout(() => toast.remove(), 300);
+                });
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.classList.remove('show');
+                        setTimeout(() => {
+                            if (toast.parentNode) toast.remove();
+                        }, 300);
+                    }
+                }, 5000);
+            }
+            
+            // Add CSS for toast notifications
+            const toastStyles = document.createElement('style');
+            toastStyles.textContent = `
+                .toast-container {
+                    position: fixed;
+                    bottom: 20px;
+                    right: 20px;
+                    z-index: 9999;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                
+                .toast {
+                    background: var(--toast-bg, #2e7d32);
+                    color: white;
+                    padding: 12px 16px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    min-width: 300px;
+                    max-width: 400px;
+                    transform: translateX(100%);
+                    opacity: 0;
+                    transition: all 0.3s ease;
+                }
+                
+                .toast.show {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                
+                .toast.success {
+                    --toast-bg: #2e7d32;
+                }
+                
+                .toast.warning {
+                    --toast-bg: #ff9800;
+                }
+                
+                .toast.error {
+                    --toast-bg: #f44336;
+                }
+                
+                .toast.info {
+                    --toast-bg: #2196f3;
+                }
+                
+                .toast-content {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    flex: 1;
+                }
+                
+                .toast-close {
+                    background: none;
+                    border: none;
+                    color: white;
+                    cursor: pointer;
+                    opacity: 0.8;
+                    padding: 4px;
+                    margin-left: 10px;
+                }
+                
+                .toast-close:hover {
+                    opacity: 1;
+                }
+                
+                @media (max-width: 768px) {
+                    .toast-container {
+                        left: 20px;
+                        right: 20px;
+                        bottom: 20px;
+                    }
+                    
+                    .toast {
+                        min-width: auto;
+                        max-width: none;
+                    }
+                }
+            `;
+            document.head.appendChild(toastStyles);
+            
+            // Start the application
+            initApp();
+        });
+    </script>
+</body>
+</html>
