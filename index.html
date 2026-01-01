@@ -1074,8 +1074,11 @@
     <nav>
       <div class="container">
         <ul class="nav-list">
-          <li class="nav-item"><a href="index.html" class="nav-link active"><span>🏠</span> Home</a></li>
-          <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
+          <li class="nav-item"><a href="#home" class="nav-link active"><span>🏠</span> Home</a></li>
+          <li class="nav-item"><a href="#guides" class="nav-link"><span>📖</span> Guides</a></li>
+          <li class="nav-item"><a href="#analyzer" class="nav-link"><span>🔍</span> Analyzer</a></li>
+          <li class="nav-item"><a href="#tutorial" class="nav-link"><span>📚</span> Tutorial</a></li>
+          <li class="nav-item"><a href="#footer" class="nav-link"><span>📞</span> Contact</a></li>
         </ul>
       </div>
     </nav>
@@ -1099,7 +1102,7 @@
     <main>
       <div class="container">
         <!-- Hero Section - Updated for mobile -->
-        <div class="hero">
+        <div class="hero" id="home">
           <h1 class="hero-title">Free Lottery Pattern Analyzer & Number Generator</h1>
           
           <div class="trust-indicators">
@@ -1299,6 +1302,56 @@
           </div>
         </div>
 
+        <!-- Guides Section -->
+        <div class="card" id="guides">
+          <h2 style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+            <span>📖</span> Lottery Guides & Strategies
+          </h2>
+          
+          <div style="margin-bottom: 20px;">
+            <p style="color: var(--text-secondary); margin-bottom: 15px;">
+              Learn about different lottery strategies and how to use the pattern analyzer effectively.
+            </p>
+          </div>
+          
+          <div class="features-grid">
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">🎯</div>
+              <h3 style="margin-bottom: 8px;">Hot & Cold Numbers</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 12px;">Understanding frequency analysis and how to use hot/cold number patterns in your strategy.</p>
+              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
+            </div>
+            
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">⚖️</div>
+              <h3 style="margin-bottom: 8px;">Balanced Selection</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 12px;">Learn why balanced odd/even and high/low ratios can improve your number distribution.</p>
+              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
+            </div>
+            
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">📊</div>
+              <h3 style="margin-bottom: 8px;">Pattern Recognition</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 12px;">How to identify and use statistical patterns in lottery number generation.</p>
+              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
+            </div>
+            
+            <div class="feature-card">
+              <div style="font-size: 2.5rem; margin-bottom: 12px;">💰</div>
+              <h3 style="margin-bottom: 8px;">Responsible Play</h3>
+              <p style="color: var(--text-secondary); margin-bottom: 12px;">Important guidelines for playing lottery games responsibly and within your means.</p>
+              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
+            </div>
+          </div>
+          
+          <div style="background: rgba(46, 125, 50, 0.05); border-radius: var(--radius-md); padding: 20px; margin-top: 20px; border-left: 4px solid var(--primary);">
+            <h4 style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+              <span>💡</span> Quick Tip
+            </h4>
+            <p style="color: var(--text-secondary);">Remember that all lottery games are based on random chance. Use these strategies for entertainment and to make the game more interesting, not as a guaranteed way to win.</p>
+          </div>
+        </div>
+
         <!-- Tutorial Section -->
         <div class="card" id="tutorial">
           <h2 style="display: flex; align-items: center; gap: 10px;">
@@ -1389,17 +1442,19 @@
           <div class="footer-section">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="guides.html">Guides</a></li>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#guides">Guides</a></li>
+              <li><a href="#analyzer">Analyzer</a></li>
+              <li><a href="#tutorial">Tutorial</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
             <h3>Information</h3>
             <ul class="footer-links">
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="terms.html">Terms of Service</a></li>
-              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="#" onclick="LotteryApp.showToast('About page coming soon!')">About Us</a></li>
+              <li><a href="#" onclick="LotteryApp.showToast('Terms page coming soon!')">Terms of Service</a></li>
+              <li><a href="#" onclick="LotteryApp.showToast('Privacy page coming soon!')">Privacy Policy</a></li>
             </ul>
           </div>
           
@@ -1417,7 +1472,7 @@
             <h3>Contact Info</h3>
             <div>
               <p style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
-              <p style="margin-bottom: 8px;"><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
+              <p style="margin-bottom: 8px;"><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/" target="_blank">u/Mysterious-Bottle-44</a></p>
             </div>
           </div>
         </div>
@@ -1477,6 +1532,9 @@
         
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+        
+        // Setup navigation
+        this.setupNavigation();
       },
       
       // Event Listeners
@@ -1537,6 +1595,49 @@
             e.preventDefault();
             this.setPreset(e.target.dataset.preset);
             this.scrollToAnalyzer();
+          });
+        });
+      },
+      
+      // Navigation setup
+      setupNavigation() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section, .card, .hero');
+        
+        // Update active nav link on scroll
+        const updateActiveNav = () => {
+          let current = '';
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 100) {
+              current = section.getAttribute('id');
+            }
+          });
+          
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('active');
+            }
+          });
+        };
+        
+        window.addEventListener('scroll', updateActiveNav);
+        
+        // Smooth scrolling for nav links
+        navLinks.forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+              
+              // Update active nav link
+              navLinks.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+            }
           });
         });
       },
