@@ -1678,7 +1678,7 @@
            target="_blank" 
            rel="noopener noreferrer" 
            class="coagrip-popup-cta"
-           onclick="trackCoagripClick()">
+           onclick="LotteryApp.trackCoagripClick()">
           🔥 Get Premium Tools
         </a>
         
@@ -2376,6 +2376,9 @@
         });
       }
     };
+    
+    // Make LotteryApp available globally for onclick handlers
+    window.LotteryApp = LotteryApp;
     
     // Initialize app
     document.addEventListener('DOMContentLoaded', () => {
