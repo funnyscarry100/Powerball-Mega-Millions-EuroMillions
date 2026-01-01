@@ -1253,7 +1253,7 @@
       <div class="container">
         <div class="header-content">
           <div class="brand">
-            <a href="/" aria-label="Lottery Pattern Analyzer">
+            <a href="index.html" aria-label="Lottery Pattern Analyzer">
               <span>🎯</span> lotteryupdate000.space
             </a>
           </div>
@@ -1273,8 +1273,8 @@
     <nav>
       <div class="container">
         <ul class="nav-list">
-          <li class="nav-item"><a href="/" class="nav-link active"><span>🏠</span> Home</a></li>
-          <li class="nav-item"><a href="#tutorial" class="nav-link"><span>📖</span> Guides</a></li>
+          <li class="nav-item"><a href="index.html" class="nav-link active"><span>🏠</span> Home</a></li>
+          <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
         </ul>
       </div>
     </nav>
@@ -1315,9 +1315,9 @@
             <button class="btn btn-primary" id="generate-now">
               <span>🎯</span> Generate Numbers Now
             </button>
-            <button class="btn btn-secondary" id="show-tutorial">
+            <a href="guides.html" class="btn btn-secondary">
               <span>📚</span> How to Use
-            </button>
+            </a>
           </div>
         </div>
 
@@ -1537,6 +1537,12 @@
               </div>
             </div>
           </div>
+          
+          <div style="text-align: center; margin-top: 30px;">
+            <a href="guides.html" class="btn btn-primary">
+              <span>📖</span> Read Complete Guide
+            </a>
+          </div>
         </div>
 
         <!-- Features Section -->
@@ -1610,15 +1616,15 @@
           <div class="footer-section">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-              <li><a href="/">Home</a></li>
-              <li><a href="#tutorial">Guides</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="guides.html">Guides</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
             <h3>Information</h3>
             <ul class="footer-links">
-              <li><a href="#footer">About Us</a></li>
+              <li><a href="index.html#footer">About Us</a></li>
               <li><a href="#disclaimer">Terms of Service</a></li>
               <li><a href="#disclaimer">Privacy Policy</a></li>
             </ul>
@@ -1627,10 +1633,10 @@
           <div class="footer-section">
             <h3>Lottery Tools</h3>
             <ul class="footer-links">
-              <li><a href="#analyzer">Pattern Analyzer</a></li>
-              <li><a href="#" class="preset-link" data-preset="powerball">Powerball Generator</a></li>
-              <li><a href="#" class="preset-link" data-preset="megamillions">Mega Millions Generator</a></li>
-              <li><a href="#" class="preset-link" data-preset="euromillions">EuroMillions Generator</a></li>
+              <li><a href="index.html#analyzer">Pattern Analyzer</a></li>
+              <li><a href="index.html" onclick="LotteryApp.setPreset('powerball'); return false;">Powerball Generator</a></li>
+              <li><a href="index.html" onclick="LotteryApp.setPreset('megamillions'); return false;">Mega Millions Generator</a></li>
+              <li><a href="index.html" onclick="LotteryApp.setPreset('euromillions'); return false;">EuroMillions Generator</a></li>
             </ul>
           </div>
           
@@ -1741,7 +1747,6 @@
         
         // Navigation
         document.getElementById('generate-now').addEventListener('click', () => this.scrollToAnalyzer());
-        document.getElementById('show-tutorial').addEventListener('click', () => this.scrollToTutorial());
         
         // Generator buttons
         document.getElementById('generate-pattern').addEventListener('click', () => this.generateNumbers('pattern'));
@@ -1785,12 +1790,18 @@
           this.settings.autoUpdate = e.target.checked;
         });
         
-        // Preset links in footer
-        document.querySelectorAll('.preset-link').forEach(link => {
+        // Footer preset links
+        document.querySelectorAll('.footer-links a[onclick]').forEach(link => {
           link.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.setPreset(e.target.dataset.preset);
-            this.scrollToAnalyzer();
+            const onclickAttr = e.target.getAttribute('onclick');
+            if (onclickAttr && onclickAttr.includes('setPreset')) {
+              // Extract preset name from onclick
+              const match = onclickAttr.match(/setPreset\('([^']+)'/);
+              if (match && match[1]) {
+                this.setPreset(match[1]);
+                this.scrollToAnalyzer();
+              }
+            }
           });
         });
       },
@@ -2270,10 +2281,6 @@
       // UI Functions
       scrollToAnalyzer() {
         document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
-      },
-      
-      scrollToTutorial() {
-        document.getElementById('tutorial').scrollIntoView({ behavior: 'smooth' });
       },
       
       showContent() {
