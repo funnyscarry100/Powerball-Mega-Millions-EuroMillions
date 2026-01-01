@@ -253,7 +253,7 @@
       gap: 10px;
     }
     
-    /* Navigation */
+    /* Navigation - UPDATED FOR MOBILE */
     nav {
       background: var(--bg-primary);
       border-bottom: 1px solid var(--border-light);
@@ -262,19 +262,37 @@
       z-index: 99;
     }
     
+    .nav-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-primary);
+      padding: 8px;
+      border-radius: 4px;
+    }
+    
+    .nav-toggle:hover {
+      background: var(--bg-tertiary);
+    }
+    
     .nav-list {
       display: flex;
       list-style: none;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    
-    .nav-list::-webkit-scrollbar {
-      display: none;
+      margin: 0;
+      padding: 0;
     }
     
     .nav-item {
-      flex-shrink: 0;
+      margin: 0;
     }
     
     .nav-link {
@@ -286,6 +304,7 @@
       color: var(--text-secondary);
       transition: all var(--transition-fast);
       border-bottom: 3px solid transparent;
+      white-space: nowrap;
     }
     
     .nav-link:hover,
@@ -438,7 +457,7 @@
       font-size: 0.875rem;
     }
     
-    /* Hero Section - Updated for mobile */
+    /* Hero Section */
     .hero {
       display: flex;
       flex-direction: column;
@@ -938,11 +957,50 @@
     }
     
     /* ==========================================================================
-       Responsive Design
+       Responsive Design - UPDATED NAVIGATION
        ========================================================================== */
     @media (max-width: 768px) {
       html {
         font-size: 14px;
+      }
+      
+      /* Mobile Navigation Styles */
+      .nav-toggle {
+        display: block;
+      }
+      
+      .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        display: none;
+        box-shadow: var(--shadow-lg);
+        border-top: 1px solid var(--border-light);
+        z-index: 100;
+      }
+      
+      .nav-list.active {
+        display: flex;
+      }
+      
+      .nav-item {
+        width: 100%;
+        border-bottom: 1px solid var(--border-light);
+      }
+      
+      .nav-link {
+        padding: 15px 20px;
+        border-bottom: 3px solid transparent;
+        border-left: 3px solid transparent;
+      }
+      
+      .nav-link:hover,
+      .nav-link.active {
+        border-left-color: var(--primary);
+        background: rgba(46, 125, 50, 0.05);
       }
       
       .hero-title {
@@ -951,15 +1009,6 @@
       
       .footer-content {
         grid-template-columns: 1fr;
-      }
-      
-      .nav-list {
-        justify-content: space-between;
-      }
-      
-      .nav-link {
-        padding: 10px;
-        font-size: 0.9rem;
       }
       
       .hero-cta {
@@ -986,6 +1035,12 @@
       .card-header h2 {
         width: 100%;
         text-align: center;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .nav-list {
+        display: flex !important;
       }
     }
     
@@ -1070,16 +1125,18 @@
       </div>
     </header>
 
-    <!-- Navigation -->
+    <!-- Navigation - UPDATED FOR MOBILE RESPONSIVENESS -->
     <nav>
       <div class="container">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="#home" class="nav-link active"><span>🏠</span> Home</a></li>
-          <li class="nav-item"><a href="#guides" class="nav-link"><span>📖</span> Guides</a></li>
-          <li class="nav-item"><a href="#analyzer" class="nav-link"><span>🔍</span> Analyzer</a></li>
-          <li class="nav-item"><a href="#tutorial" class="nav-link"><span>📚</span> Tutorial</a></li>
-          <li class="nav-item"><a href="#footer" class="nav-link"><span>📞</span> Contact</a></li>
-        </ul>
+        <div class="nav-container">
+          <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+            <span id="nav-toggle-icon">☰</span>
+          </button>
+          <ul class="nav-list" id="nav-list">
+            <li class="nav-item"><a href="index.html" class="nav-link active"><span>🏠</span> Home</a></li>
+            <li class="nav-item"><a href="guides.html" class="nav-link"><span>📖</span> Guides</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
 
@@ -1101,8 +1158,8 @@
 
     <main>
       <div class="container">
-        <!-- Hero Section - Updated for mobile -->
-        <div class="hero" id="home">
+        <!-- Hero Section -->
+        <div class="hero">
           <h1 class="hero-title">Free Lottery Pattern Analyzer & Number Generator</h1>
           
           <div class="trust-indicators">
@@ -1302,56 +1359,6 @@
           </div>
         </div>
 
-        <!-- Guides Section -->
-        <div class="card" id="guides">
-          <h2 style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;">
-            <span>📖</span> Lottery Guides & Strategies
-          </h2>
-          
-          <div style="margin-bottom: 20px;">
-            <p style="color: var(--text-secondary); margin-bottom: 15px;">
-              Learn about different lottery strategies and how to use the pattern analyzer effectively.
-            </p>
-          </div>
-          
-          <div class="features-grid">
-            <div class="feature-card">
-              <div style="font-size: 2.5rem; margin-bottom: 12px;">🎯</div>
-              <h3 style="margin-bottom: 8px;">Hot & Cold Numbers</h3>
-              <p style="color: var(--text-secondary); margin-bottom: 12px;">Understanding frequency analysis and how to use hot/cold number patterns in your strategy.</p>
-              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
-            </div>
-            
-            <div class="feature-card">
-              <div style="font-size: 2.5rem; margin-bottom: 12px;">⚖️</div>
-              <h3 style="margin-bottom: 8px;">Balanced Selection</h3>
-              <p style="color: var(--text-secondary); margin-bottom: 12px;">Learn why balanced odd/even and high/low ratios can improve your number distribution.</p>
-              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
-            </div>
-            
-            <div class="feature-card">
-              <div style="font-size: 2.5rem; margin-bottom: 12px;">📊</div>
-              <h3 style="margin-bottom: 8px;">Pattern Recognition</h3>
-              <p style="color: var(--text-secondary); margin-bottom: 12px;">How to identify and use statistical patterns in lottery number generation.</p>
-              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
-            </div>
-            
-            <div class="feature-card">
-              <div style="font-size: 2.5rem; margin-bottom: 12px;">💰</div>
-              <h3 style="margin-bottom: 8px;">Responsible Play</h3>
-              <p style="color: var(--text-secondary); margin-bottom: 12px;">Important guidelines for playing lottery games responsibly and within your means.</p>
-              <button class="btn btn-sm" onclick="LotteryApp.showToast('Guide coming soon!')">Read More</button>
-            </div>
-          </div>
-          
-          <div style="background: rgba(46, 125, 50, 0.05); border-radius: var(--radius-md); padding: 20px; margin-top: 20px; border-left: 4px solid var(--primary);">
-            <h4 style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-              <span>💡</span> Quick Tip
-            </h4>
-            <p style="color: var(--text-secondary);">Remember that all lottery games are based on random chance. Use these strategies for entertainment and to make the game more interesting, not as a guaranteed way to win.</p>
-          </div>
-        </div>
-
         <!-- Tutorial Section -->
         <div class="card" id="tutorial">
           <h2 style="display: flex; align-items: center; gap: 10px;">
@@ -1442,19 +1449,17 @@
           <div class="footer-section">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#guides">Guides</a></li>
-              <li><a href="#analyzer">Analyzer</a></li>
-              <li><a href="#tutorial">Tutorial</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="guides.html">Guides</a></li>
             </ul>
           </div>
           
           <div class="footer-section">
             <h3>Information</h3>
             <ul class="footer-links">
-              <li><a href="#" onclick="LotteryApp.showToast('About page coming soon!')">About Us</a></li>
-              <li><a href="#" onclick="LotteryApp.showToast('Terms page coming soon!')">Terms of Service</a></li>
-              <li><a href="#" onclick="LotteryApp.showToast('Privacy page coming soon!')">Privacy Policy</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
             </ul>
           </div>
           
@@ -1472,7 +1477,7 @@
             <h3>Contact Info</h3>
             <div>
               <p style="margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:crypto123432@yahoo.com">crypto123432@yahoo.com</a></p>
-              <p style="margin-bottom: 8px;"><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/" target="_blank">u/Mysterious-Bottle-44</a></p>
+              <p style="margin-bottom: 8px;"><strong>Reddit:</strong> <a href="https://www.reddit.com/user/Mysterious-Bottle-44/">u/Mysterious-Bottle-44</a></p>
             </div>
           </div>
         </div>
@@ -1532,9 +1537,6 @@
         
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
-        
-        // Setup navigation
-        this.setupNavigation();
       },
       
       // Event Listeners
@@ -1542,6 +1544,25 @@
         // Theme toggle
         document.getElementById('theme-toggle').addEventListener('click', () => this.toggleTheme());
         document.getElementById('theme-toggle-footer').addEventListener('click', () => this.toggleTheme());
+        
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navList = document.getElementById('nav-list');
+        if (navToggle && navList) {
+          navToggle.addEventListener('click', () => {
+            navList.classList.toggle('active');
+            const icon = navList.classList.contains('active') ? '✕' : '☰';
+            document.getElementById('nav-toggle-icon').textContent = icon;
+          });
+          
+          // Close mobile menu when clicking outside
+          document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navList.contains(e.target) && navList.classList.contains('active')) {
+              navList.classList.remove('active');
+              document.getElementById('nav-toggle-icon').textContent = '☰';
+            }
+          });
+        }
         
         // Navigation
         document.getElementById('generate-now').addEventListener('click', () => this.scrollToAnalyzer());
@@ -1595,48 +1616,6 @@
             e.preventDefault();
             this.setPreset(e.target.dataset.preset);
             this.scrollToAnalyzer();
-          });
-        });
-      },
-      
-      // Navigation setup
-      setupNavigation() {
-        const navLinks = document.querySelectorAll('.nav-link');
-        
-        // Smooth scrolling for nav links
-        navLinks.forEach(link => {
-          link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth' });
-              
-              // Update active nav link
-              navLinks.forEach(l => l.classList.remove('active'));
-              link.classList.add('active');
-            }
-          });
-        });
-        
-        // Highlight active section on scroll
-        window.addEventListener('scroll', () => {
-          let current = '';
-          const sections = document.querySelectorAll('.hero, .card');
-          
-          sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (window.scrollY >= sectionTop - 100) {
-              current = section.getAttribute('id');
-            }
-          });
-          
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-              link.classList.add('active');
-            }
           });
         });
       },
