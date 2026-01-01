@@ -1602,28 +1602,6 @@
       // Navigation setup
       setupNavigation() {
         const navLinks = document.querySelectorAll('.nav-link');
-        const sections = document.querySelectorAll('section, .card, .hero');
-        
-        // Update active nav link on scroll
-        const updateActiveNav = () => {
-          let current = '';
-          sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            if (scrollY >= sectionTop - 100) {
-              current = section.getAttribute('id');
-            }
-          });
-          
-          navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-              link.classList.add('active');
-            }
-          });
-        };
-        
-        window.addEventListener('scroll', updateActiveNav);
         
         // Smooth scrolling for nav links
         navLinks.forEach(link => {
@@ -1636,6 +1614,27 @@
               
               // Update active nav link
               navLinks.forEach(l => l.classList.remove('active'));
+              link.classList.add('active');
+            }
+          });
+        });
+        
+        // Highlight active section on scroll
+        window.addEventListener('scroll', () => {
+          let current = '';
+          const sections = document.querySelectorAll('.hero, .card');
+          
+          sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (window.scrollY >= sectionTop - 100) {
+              current = section.getAttribute('id');
+            }
+          });
+          
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
               link.classList.add('active');
             }
           });
