@@ -1,536 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lottery Update - Tools and Guides</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: #f5f7fa;
-            color: #333;
-            line-height: 1.6;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        
-        body.dark-mode {
-            background-color: #121212;
-            color: #f0f0f0;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        
-        .logo i {
-            font-size: 1.8rem;
-        }
-        
-        /* Navigation Styles */
-        nav {
-            display: flex;
-        }
-        
-        .nav-tabs {
-            display: flex;
-            list-style: none;
-            gap: 1px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .nav-tabs li {
-            margin: 0;
-        }
-        
-        .nav-tabs a {
-            display: block;
-            padding: 12px 24px;
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        .nav-tabs a:hover, .nav-tabs a.active {
-            background-color: rgba(255, 255, 255, 0.25);
-        }
-        
-        /* Theme Toggle */
-        .theme-toggle {
-            background: rgba(255, 255, 255, 0.2);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 15px;
-            transition: background 0.3s;
-        }
-        
-        .theme-toggle:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        /* Main Content */
-        .main-content {
-            min-height: 70vh;
-            padding: 40px 0;
-        }
-        
-        .page-title {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #2c3e50;
-        }
-        
-        body.dark-mode .page-title {
-            color: #ecf0f1;
-        }
-        
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        body.dark-mode .card {
-            background: #1e1e1e;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card h3 {
-            color: #6a11cb;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        body.dark-mode .card h3 {
-            color: #8a2be2;
-        }
-        
-        .card p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        
-        body.dark-mode .card p {
-            color: #ccc;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: linear-gradient(to right, #6a11cb, #2575fc);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-        
-        .btn:hover {
-            opacity: 0.9;
-        }
-        
-        /* Footer Styles */
-        footer {
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            padding: 40px 0 20px;
-            margin-top: 50px;
-        }
-        
-        body.dark-mode footer {
-            background-color: #0d1117;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-section h3 {
-            color: #3498db;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 2px;
-            background: #3498db;
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .footer-links a {
-            color: #bdc3c7;
-            text-decoration: none;
-            transition: color 0.3s, padding-left 0.3s;
-            display: block;
-        }
-        
-        .footer-links a:hover {
-            color: #3498db;
-            padding-left: 5px;
-        }
-        
-        .contact-info {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            color: #bdc3c7;
-        }
-        
-        .contact-info i {
-            margin-right: 10px;
-            color: #3498db;
-            width: 20px;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #95a5a6;
-        }
-        
-        .footer-tools {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .print-btn, .back-to-top {
-            background: rgba(255, 255, 255, 0.1);
-            border: none;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-        
-        .print-btn:hover, .back-to-top:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .nav-tabs {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-tools {
-                justify-content: center;
-            }
-        }
-        
-        @media print {
-            .theme-toggle,
-            .print-btn,
-            .back-to-top {
-                display: none !important;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Header with Navigation -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-dice"></i>
-                <span>LotteryUpdate</span>
-            </div>
-            
-            <nav>
-                <ul class="nav-tabs">
-                    <li><a href="home.html" class="active">Home</a></li>
-                    <li><a href="guides.html">Guides</a></li>
-                    <li><a href="information.html">Information</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                </ul>
-                <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
-            </nav>
-        </div>
-    </header>
+// script.js - JavaScript for Lottery Update Website
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <h1 class="page-title">Welcome to LotteryUpdate</h1>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px;">Your independent source for lottery tools, guides, and information. Not affiliated with any official lottery organization.</p>
-            
-            <div class="content-grid">
-                <div class="card">
-                    <h3><i class="fas fa-chart-line"></i> Pattern Analyzer</h3>
-                    <p>Advanced tool to analyze lottery number patterns and frequencies to help you make informed choices.</p>
-                    <a href="pattern-analyzer.html" class="btn">Use Analyzer</a>
-                </div>
-                
-                <div class="card">
-                    <h3><i class="fas fa-bolt"></i> Powerball Generator</h3>
-                    <p>Generate random Powerball numbers or create sets based on your preferred patterns and criteria.</p>
-                    <a href="powerball-generator.html" class="btn">Generate Numbers</a>
-                </div>
-                
-                <div class="card">
-                    <h3><i class="fas fa-globe-americas"></i> Mega Millions Generator</h3>
-                    <p>Create random Mega Millions number combinations with options for hot/cold number filtering.</p>
-                    <a href="megamillions-generator.html" class="btn">Generate Numbers</a>
-                </div>
-                
-                <div class="card">
-                    <h3><i class="fas fa-euro-sign"></i> EuroMillions Generator</h3>
-                    <p>Specialized generator for EuroMillions lottery with support for lucky stars and number patterns.</p>
-                    <a href="euromillions-generator.html" class="btn">Generate Numbers</a>
-                </div>
-            </div>
-        </div>
-    </main>
+// DOM Elements
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+const printBtn = document.getElementById('printBtn');
+const backToTop = document.getElementById('backToTop');
+const navLinks = document.querySelectorAll('.nav-tabs a');
+const footerLinks = document.querySelectorAll('.footer-links a');
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="home.html">Home</a></li>
-                        <li><a href="guides.html">Guides</a></li>
-                        <li><a href="information.html">Information</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="terms.html">Terms of Service</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Lottery Tools</h3>
-                    <ul class="footer-links">
-                        <li><a href="pattern-analyzer.html">Pattern Analyzer</a></li>
-                        <li><a href="powerball-generator.html">Powerball Generator</a></li>
-                        <li><a href="megamillions-generator.html">Mega Millions Generator</a></li>
-                        <li><a href="euromillions-generator.html">EuroMillions Generator</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <div class="contact-info">
-                        <i class="fas fa-envelope"></i>
-                        <span>Email: crypto123432@yahoo.com</span>
-                    </div>
-                    <div class="contact-info">
-                        <i class="fab fa-reddit"></i>
-                        <span>Reddit: u/Mysterious-Bottle-44</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-tools">
-                <button class="print-btn" id="printBtn" title="Print this page">
-                    <i class="fas fa-print"></i>
-                </button>
-                <button class="back-to-top" id="backToTop" title="Back to top">
-                    <i class="fas fa-arrow-up"></i>
-                </button>
-            </div>
-            
-            <div class="copyright">
-                <p>© 2026 lotteryupdate000.space — All rights reserved.</p>
-                <p>This is an independent tool not affiliated with any lottery organization.</p>
-            </div>
-        </div>
-    </footer>
+// Theme Toggle Functionality
+function initTheme() {
+    // Check for saved theme preference or default to light
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+}
 
-    <script>
-        // Theme Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('i');
-        
-        // Check for saved theme preference or default to light
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        if (currentTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcon.classList.remove('fa-moon');
-            themeIcon.classList.add('fa-sun');
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Print Functionality
+printBtn.addEventListener('click', () => {
+    window.print();
+});
+
+// Back to Top Functionality
+backToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Set active navigation tab
+function setActiveNav() {
+    const currentPage = window.location.pathname.split('/').pop() || 'home.html';
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || (currentPage === '' && linkPage === 'home.html')) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
         }
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
+    });
+}
+
+// Navigation simulation (for demo purposes)
+function setupNavigation() {
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // If it's an external link, let it work normally
+            if (this.getAttribute('href').startsWith('http')) return;
             
-            if (document.body.classList.contains('dark-mode')) {
-                themeIcon.classList.remove('fa-moon');
-                themeIcon.classList.add('fa-sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.remove('fa-sun');
-                themeIcon.classList.add('fa-moon');
-                localStorage.setItem('theme', 'light');
+            e.preventDefault();
+            const pageName = this.getAttribute('href');
+            
+            // Update active state
+            navLinks.forEach(link => link.classList.remove('active'));
+            this.classList.add('active');
+            
+            // In a real application, this would navigate to the actual page
+            // For this demo, we'll update the page title and show a message
+            const pageTitle = pageName.replace('.html', '').replace('-', ' ');
+            const titleElement = document.querySelector('.page-title');
+            
+            // Update page title based on the clicked link
+            if (pageName === 'home.html') {
+                titleElement.textContent = 'Welcome to LotteryUpdate';
+                document.querySelector('.page-subtitle').textContent = 'Your independent source for lottery tools, guides, and information. Not affiliated with any official lottery organization.';
+            } else if (pageName === 'guides.html') {
+                titleElement.textContent = 'Lottery Guides';
+                document.querySelector('.page-subtitle').textContent = 'Learn about different lottery strategies, tips, and best practices.';
+            } else if (pageName === 'information.html') {
+                titleElement.textContent = 'Lottery Information';
+                document.querySelector('.page-subtitle').textContent = 'Important information about various lotteries worldwide.';
+            } else if (pageName === 'about.html') {
+                titleElement.textContent = 'About Us';
+                document.querySelector('.page-subtitle').textContent = 'Learn more about LotteryUpdate and our mission.';
+            } else if (pageName.includes('generator') || pageName.includes('analyzer')) {
+                titleElement.textContent = pageName.replace('.html', '').replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                document.querySelector('.page-subtitle').textContent = `This is the ${pageName.replace('.html', '').replace('-', ' ')} page.`;
+            }
+            
+            // Show notification for demo purposes
+            showNotification(`Loading ${pageName}...`);
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        });
+    });
+}
+
+// Footer links functionality (for demo)
+function setupFooterLinks() {
+    footerLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // If it's an external link, let it work normally
+            if (this.getAttribute('href').startsWith('http')) return;
+            
+            e.preventDefault();
+            const pageName = this.getAttribute('href');
+            
+            // In a real application, this would navigate to the actual page
+            // For this demo, we'll show a notification
+            showNotification(`Would navigate to: ${pageName}`);
+        });
+    });
+}
+
+// Show notification (for demo purposes)
+function showNotification(message) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #3498db;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 5px;
+        z-index: 10000;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        animation: slideIn 0.3s ease;
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Add CSS for notifications
+const notificationStyles = document.createElement('style');
+notificationStyles.textContent = `
+    @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+    }
+`;
+document.head.appendChild(notificationStyles);
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    setActiveNav();
+    setupNavigation();
+    setupFooterLinks();
+    
+    // Add smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
             }
         });
-        
-        // Print Functionality
-        document.getElementById('printBtn').addEventListener('click', () => {
-            window.print();
-        });
-        
-        // Back to Top Functionality
-        document.getElementById('backToTop').addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Set active navigation tab
-        const currentPage = window.location.pathname.split('/').pop() || 'home.html';
-        const navLinks = document.querySelectorAll('.nav-tabs a');
-        
-        navLinks.forEach(link => {
-            const linkPage = link.getAttribute('href');
-            if (linkPage === currentPage || (currentPage === '' && linkPage === 'home.html')) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-        
-        // Simulate navigation (for demo purposes)
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('http')) return;
-                
-                e.preventDefault();
-                const pageName = this.getAttribute('href');
-                
-                // Update active state
-                navLinks.forEach(link => link.classList.remove('active'));
-                this.classList.add('active');
-                
-                // In a real application, this would navigate to the actual page
-                // For this demo, we'll just show an alert
-                alert(`Navigating to ${pageName} - In a real implementation, this would load the ${pageName} page.`);
-                
-                // Update page title
-                const pageTitle = pageName.replace('.html', '').replace('-', ' ');
-                document.querySelector('.page-title').textContent = pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1);
-                
-                // Scroll to top
-                window.scrollTo(0, 0);
-            });
-        });
-        
-        // Footer links functionality (for demo)
-        const footerLinks = document.querySelectorAll('.footer-links a');
-        footerLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                if (this.getAttribute('href').startsWith('http')) return;
-                
-                e.preventDefault();
-                const pageName = this.getAttribute('href');
-                
-                // In a real application, this would navigate to the actual page
-                alert(`Navigating to ${pageName} - In a real implementation, this would load the ${pageName} page.`);
-            });
-        });
-    </script>
-</body>
-</html>
+    });
+});
