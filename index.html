@@ -713,7 +713,7 @@
 
     <!-- JavaScript -->
     <script>
-        // Initialize when DOM is loaded
+        // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Application state
             const state = {
@@ -729,30 +729,79 @@
                 }
             };
             
-            // DOM elements cache
-            const elements = {
-                loading: document.getElementById('loading'),
-                content: document.getElementById('content'),
-                themeToggle: document.getElementById('themeToggle'),
-                footerThemeToggle: document.getElementById('footerThemeToggle'),
-                mobileMenuBtn: document.getElementById('mobileMenuBtn'),
-                mobileMenu: document.getElementById('mobileMenu'),
-                closeMobileMenu: document.getElementById('closeMobileMenu'),
-                heatmapGrid: document.getElementById('heatmapGrid'),
-                generatedNumbers: document.getElementById('generatedNumbers'),
-                toastContainer: document.getElementById('toastContainer')
-            };
+            // Toast notification system
+            function showToast(message, type = 'info') {
+                const toastContainer = document.getElementById('toastContainer');
+                if (!toastContainer) return;
+                
+                const toast = document.createElement('div');
+                toast.className = `toast ${type}`;
+                toast.setAttribute('role', 'alert');
+                
+                let icon = 'info-circle';
+                if (type === 'success') icon = 'check-circle';
+                if (type === 'warning') icon = 'exclamation-triangle';
+                if (type === 'error') icon = 'times-circle';
+                
+                toast.innerHTML = `
+                    <div class="toast-content">
+                        <i class="fas fa-${icon}"></i>
+                        <span>${message}</span>
+                    </div>
+                    <button class="toast-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                
+                toastContainer.appendChild(toast);
+                
+                // Show toast with animation
+                setTimeout(() => toast.classList.add('show'), 10);
+                
+                // Close button
+                toast.querySelector('.toast-close').addEventListener('click', () => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        if (toast.parentNode) toast.remove();
+                    }, 300);
+                });
+                
+                // Auto remove after 5 seconds
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.classList.remove('show');
+                        setTimeout(() => {
+                            if (toast.parentNode) toast.remove();
+                        }, 300);
+                    }
+                }, 5000);
+            }
             
             // Initialize application
             function initApp() {
+                console.log('🚀 Initializing Lottery Analyzer...');
+                
                 // Hide loading screen
                 setTimeout(() => {
-                    elements.loading.style.display = 'none';
-                    document.getElementById('content').classList.add('loaded');
+                    const loading = document.getElementById('loading');
+                    if (loading) {
+                        loading.style.opacity = '0';
+                        setTimeout(() => {
+                            loading.style.display = 'none';
+                        }, 300);
+                    }
+                    
+                    const content = document.getElementById('main-content');
+                    if (content) {
+                        content.classList.add('loaded');
+                    }
                 }, 800);
                 
-                // Set current year
-                document.getElementById('currentYear').textContent = new Date().getFullYear();
+                // Set current year in footer
+                const yearElement = document.getElementById('currentYear');
+                if (yearElement) {
+                    yearElement.textContent = new Date().getFullYear();
+                }
                 
                 // Initialize components
                 initTheme();
@@ -763,18 +812,25 @@
                 initGenerator();
                 
                 console.log('✅ Lottery Analyzer initialized successfully');
+                showToast('Application loaded successfully!', 'success');
             }
             
             // Theme management
             function initTheme() {
+                const themeToggle = document.getElementById('themeToggle');
+                const footerThemeToggle = document.getElementById('footerThemeToggle');
+                
                 // Apply saved theme
                 document.documentElement.setAttribute('data-theme', state.theme);
                 updateThemeIcon();
                 
                 // Theme toggle events
-                elements.themeToggle.addEventListener('click', toggleTheme);
-                if (elements.footerThemeToggle) {
-                    elements.footerThemeToggle.addEventListener('click', toggleTheme);
+                if (themeToggle) {
+                    themeToggle.addEventListener('click', toggleTheme);
+                }
+                
+                if (footerThemeToggle) {
+                    footerThemeToggle.addEventListener('click', toggleTheme);
                 }
             }
             
@@ -788,8 +844,8 @@
             
             function updateThemeIcon() {
                 const icon = state.theme === 'light' ? 'moon' : 'sun';
-                const themeIcon = elements.themeToggle.querySelector('i');
-                const footerIcon = elements.footerThemeToggle?.querySelector('i');
+                const themeIcon = document.querySelector('#themeToggle i');
+                const footerIcon = document.querySelector('#footerThemeToggle i');
                 
                 if (themeIcon) themeIcon.className = `fas fa-${icon}`;
                 if (footerIcon) footerIcon.className = `fas fa-${icon}`;
@@ -797,30 +853,36 @@
             
             // Navigation management
             function initNavigation() {
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                const closeMobileMenu = document.getElementById('closeMobileMenu');
+                
+                if (!mobileMenuBtn || !mobileMenu || !closeMobileMenu) return;
+                
                 // Mobile menu toggle
-                elements.mobileMenuBtn.addEventListener('click', function() {
-                    elements.mobileMenu.style.display = 'block';
+                mobileMenuBtn.addEventListener('click', function() {
+                    mobileMenu.style.display = 'block';
                     setTimeout(() => {
-                        elements.mobileMenu.classList.add('active');
+                        mobileMenu.classList.add('active');
                     }, 10);
                 });
                 
                 // Close mobile menu
-                elements.closeMobileMenu.addEventListener('click', function() {
-                    elements.mobileMenu.classList.remove('active');
+                closeMobileMenu.addEventListener('click', function() {
+                    mobileMenu.classList.remove('active');
                     setTimeout(() => {
-                        elements.mobileMenu.style.display = 'none';
+                        mobileMenu.style.display = 'none';
                     }, 300);
                 });
                 
                 // Close menu when clicking outside
                 document.addEventListener('click', function(event) {
-                    if (!elements.mobileMenu.contains(event.target) && 
-                        !elements.mobileMenuBtn.contains(event.target) &&
-                        elements.mobileMenu.classList.contains('active')) {
-                        elements.mobileMenu.classList.remove('active');
+                    if (!mobileMenu.contains(event.target) && 
+                        !mobileMenuBtn.contains(event.target) &&
+                        mobileMenu.classList.contains('active')) {
+                        mobileMenu.classList.remove('active');
                         setTimeout(() => {
-                            elements.mobileMenu.style.display = 'none';
+                            mobileMenu.style.display = 'none';
                         }, 300);
                     }
                 });
@@ -830,58 +892,50 @@
             function initVisitorInfo() {
                 // Update time
                 function updateTime() {
-                    const now = new Date();
-                    const timeString = now.toLocaleTimeString('en-US', {
-                        hour12: true,
-                        hour: '2-digit',
-                        minute: '2-digit',
-                        second: '2-digit'
-                    });
-                    document.getElementById('currentTime').textContent = timeString;
+                    const timeElement = document.getElementById('currentTime');
+                    if (timeElement) {
+                        const now = new Date();
+                        const timeString = now.toLocaleTimeString('en-US', {
+                            hour12: true,
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            second: '2-digit'
+                        });
+                        timeElement.textContent = timeString;
+                    }
                 }
                 
                 updateTime();
                 setInterval(updateTime, 1000);
                 
-                // Get location
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(
-                        () => {
-                            document.getElementById('visitorLocation').textContent = 'Location detected';
-                        },
-                        () => {
-                            fetch('https://ipapi.co/json/')
-                                .then(response => response.json())
-                                .then(data => {
-                                    const location = data.city && data.country_name ? 
-                                        `${data.city}, ${data.country_name}` : 'Unknown location';
-                                    document.getElementById('visitorLocation').textContent = location;
-                                })
-                                .catch(() => {
-                                    document.getElementById('visitorLocation').textContent = 'Unknown';
-                                });
-                        }
-                    );
+                // Get location (simulated for privacy)
+                const locationElement = document.getElementById('visitorLocation');
+                if (locationElement) {
+                    const locations = ['United States', 'Canada', 'United Kingdom', 'Australia', 'Germany', 'France'];
+                    const randomLocation = locations[Math.floor(Math.random() * locations.length)];
+                    locationElement.textContent = randomLocation;
                 }
                 
                 // Update visitor count randomly
                 setInterval(() => {
                     const countElement = document.getElementById('visitorCount');
-                    const current = parseInt(countElement.textContent.replace(',', ''));
-                    const change = Math.floor(Math.random() * 10) - 3; // -3 to +6
-                    const newCount = Math.max(1000, current + change);
-                    countElement.textContent = newCount.toLocaleString();
+                    if (countElement) {
+                        const current = parseInt(countElement.textContent.replace(',', '')) || 1247;
+                        const change = Math.floor(Math.random() * 10) - 3;
+                        const newCount = Math.max(1000, current + change);
+                        countElement.textContent = newCount.toLocaleString();
+                    }
                 }, 15000);
             }
             
             // Heatmap initialization
             function initHeatmap() {
-                const heatmap = elements.heatmapGrid;
-                if (!heatmap) return;
+                const heatmapGrid = document.getElementById('heatmapGrid');
+                if (!heatmapGrid) return;
                 
-                heatmap.innerHTML = '';
+                heatmapGrid.innerHTML = '';
                 
-                // Initialize frequency data
+                // Initialize frequency data with random values for demo
                 for (let i = 1; i <= state.settings.maxNumber; i++) {
                     if (!state.frequencyData[i]) {
                         state.frequencyData[i] = Math.floor(Math.random() * 100);
@@ -912,7 +966,7 @@
                         updateStats();
                     });
                     
-                    heatmap.appendChild(cell);
+                    heatmapGrid.appendChild(cell);
                 }
             }
             
@@ -973,7 +1027,9 @@
                 
                 // Display numbers
                 function displayNumbers(numbers) {
-                    const container = elements.generatedNumbers;
+                    const container = document.getElementById('generatedNumbers');
+                    if (!container) return;
+                    
                     container.innerHTML = '';
                     
                     const numberSet = document.createElement('div');
@@ -1034,19 +1090,31 @@
                     if (selected.length > 0) {
                         const odd = selected.filter(n => n % 2 === 1).length;
                         const even = selected.length - odd;
-                        document.getElementById('oddEvenRatio').textContent = `${odd}/${even}`;
+                        const oddEvenElement = document.getElementById('oddEvenRatio');
+                        if (oddEvenElement) {
+                            oddEvenElement.textContent = `${odd}/${even}`;
+                        }
                         
                         const mid = Math.floor(state.settings.maxNumber / 2);
                         const high = selected.filter(n => n > mid).length;
                         const low = selected.length - high;
-                        document.getElementById('highLowRatio').textContent = `${high}/${low}`;
+                        const highLowElement = document.getElementById('highLowRatio');
+                        if (highLowElement) {
+                            highLowElement.textContent = `${high}/${low}`;
+                        }
                         
                         const sum = selected.reduce((a, b) => a + b, 0);
                         const avg = Math.round(sum / selected.length);
-                        document.getElementById('sumRange').textContent = `${sum} (avg: ${avg})`;
+                        const sumRangeElement = document.getElementById('sumRange');
+                        if (sumRangeElement) {
+                            sumRangeElement.textContent = `${sum} (avg: ${avg})`;
+                        }
                         
                         const spread = Math.max(...selected) - Math.min(...selected);
-                        document.getElementById('numberSpread').textContent = spread;
+                        const numberSpreadElement = document.getElementById('numberSpread');
+                        if (numberSpreadElement) {
+                            numberSpreadElement.textContent = spread;
+                        }
                     }
                 }
                 
@@ -1059,14 +1127,18 @@
                 };
                 
                 window.generateMultipleSets = function(count) {
-                    const container = elements.generatedNumbers;
+                    const container = document.getElementById('generatedNumbers');
+                    if (!container) return;
+                    
                     container.innerHTML = '';
                     
                     for (let i = 0; i < count; i++) {
                         const numbers = generateNumberSet(state.settings.method);
                         
                         if (i > 0) {
-                            container.appendChild(document.createElement('br'));
+                            const separator = document.createElement('hr');
+                            separator.style.margin = '10px 0';
+                            container.appendChild(separator);
                         }
                         
                         const numberSet = document.createElement('div');
@@ -1089,8 +1161,15 @@
             // Event listeners
             function initEventListeners() {
                 // Quick generate buttons
-                document.getElementById('quickGenerateBtn').addEventListener('click', () => window.generateNumbers());
-                document.getElementById('generateHeroBtn').addEventListener('click', () => window.generateNumbers());
+                const quickGenerateBtn = document.getElementById('quickGenerateBtn');
+                if (quickGenerateBtn) {
+                    quickGenerateBtn.addEventListener('click', () => window.generateNumbers());
+                }
+                
+                const generateHeroBtn = document.getElementById('generateHeroBtn');
+                if (generateHeroBtn) {
+                    generateHeroBtn.addEventListener('click', () => window.generateNumbers());
+                }
                 
                 // Preset buttons
                 document.querySelectorAll('.preset-btn').forEach(btn => {
@@ -1110,13 +1189,15 @@
                         };
                         
                         if (presets[preset]) {
-                            state.settings = { ...state.settings, ...presets[preset] };
-                            document.getElementById('maxNumberInput').value = state.settings.maxNumber;
-                            document.getElementById('numberCountInput').value = state.settings.numberCount;
+                            Object.assign(state.settings, presets[preset]);
+                            const maxNumberInput = document.getElementById('maxNumberInput');
+                            const numberCountInput = document.getElementById('numberCountInput');
                             
-                            if (state.settings.autoUpdate) {
-                                initHeatmap();
-                            }
+                            if (maxNumberInput) maxNumberInput.value = state.settings.maxNumber;
+                            if (numberCountInput) numberCountInput.value = state.settings.numberCount;
+                            
+                            // Reinitialize heatmap with new settings
+                            initHeatmap();
                         }
                         
                         showToast(`Switched to ${preset} preset`);
@@ -1140,56 +1221,115 @@
                 });
                 
                 // Number actions
-                document.getElementById('copyNumbersBtn').addEventListener('click', function() {
-                    const numbers = document.querySelectorAll('.number-bubble');
-                    if (numbers.length === 0) {
-                        showToast('No numbers to copy', 'warning');
-                        return;
-                    }
-                    
-                    const text = Array.from(numbers).map(n => n.textContent).join(' ');
-                    navigator.clipboard.writeText(text)
-                        .then(() => showToast('Copied to clipboard'))
-                        .catch(() => showToast('Failed to copy', 'error'));
-                });
+                const copyNumbersBtn = document.getElementById('copyNumbersBtn');
+                if (copyNumbersBtn) {
+                    copyNumbersBtn.addEventListener('click', function() {
+                        const numbers = document.querySelectorAll('.number-bubble');
+                        if (numbers.length === 0) {
+                            showToast('No numbers to copy', 'warning');
+                            return;
+                        }
+                        
+                        const text = Array.from(numbers).map(n => n.textContent).join(' ');
+                        navigator.clipboard.writeText(text)
+                            .then(() => showToast('Copied to clipboard'))
+                            .catch(() => showToast('Failed to copy', 'error'));
+                    });
+                }
                 
-                document.getElementById('clearNumbersBtn').addEventListener('click', function() {
-                    if (confirm('Clear all generated numbers?')) {
-                        elements.generatedNumbers.innerHTML = 
-                            '<div class="empty-state"><i class="fas fa-magic"></i><p>Click above to generate numbers</p></div>';
-                        showToast('Cleared all numbers');
-                    }
-                });
+                const clearNumbersBtn = document.getElementById('clearNumbersBtn');
+                if (clearNumbersBtn) {
+                    clearNumbersBtn.addEventListener('click', function() {
+                        if (confirm('Clear all generated numbers?')) {
+                            const generatedNumbers = document.getElementById('generatedNumbers');
+                            if (generatedNumbers) {
+                                generatedNumbers.innerHTML = 
+                                    '<div class="empty-state"><i class="fas fa-magic"></i><p>Click above to generate numbers</p></div>';
+                            }
+                            showToast('Cleared all numbers');
+                        }
+                    });
+                }
                 
                 // Settings
-                document.getElementById('saveSettingsBtn').addEventListener('click', function() {
-                    state.settings.maxNumber = parseInt(document.getElementById('maxNumberInput').value);
-                    state.settings.numberCount = parseInt(document.getElementById('numberCountInput').value);
-                    state.settings.method = document.getElementById('methodSelect').value;
-                    state.settings.autoUpdate = document.getElementById('autoUpdateCheck').checked;
-                    
-                    localStorage.setItem('lotterySettings', JSON.stringify(state.settings));
-                    showToast('Settings saved');
-                });
+                const saveSettingsBtn = document.getElementById('saveSettingsBtn');
+                if (saveSettingsBtn) {
+                    saveSettingsBtn.addEventListener('click', function() {
+                        const maxNumberInput = document.getElementById('maxNumberInput');
+                        const numberCountInput = document.getElementById('numberCountInput');
+                        const methodSelect = document.getElementById('methodSelect');
+                        const autoUpdateCheck = document.getElementById('autoUpdateCheck');
+                        
+                        if (maxNumberInput) state.settings.maxNumber = parseInt(maxNumberInput.value);
+                        if (numberCountInput) state.settings.numberCount = parseInt(numberCountInput.value);
+                        if (methodSelect) state.settings.method = methodSelect.value;
+                        if (autoUpdateCheck) state.settings.autoUpdate = autoUpdateCheck.checked;
+                        
+                        localStorage.setItem('lotterySettings', JSON.stringify(state.settings));
+                        showToast('Settings saved');
+                        
+                        // Reinitialize heatmap with new maxNumber
+                        initHeatmap();
+                    });
+                }
                 
                 // Load saved settings
-                const saved = localStorage.getItem('lotterySettings');
-                if (saved) {
-                    state.settings = { ...state.settings, ...JSON.parse(saved) };
-                    document.getElementById('maxNumberInput').value = state.settings.maxNumber;
-                    document.getElementById('numberCountInput').value = state.settings.numberCount;
-                    document.getElementById('methodSelect').value = state.settings.method;
-                    document.getElementById('autoUpdateCheck').checked = state.settings.autoUpdate;
+                try {
+                    const saved = localStorage.getItem('lotterySettings');
+                    if (saved) {
+                        Object.assign(state.settings, JSON.parse(saved));
+                        const maxNumberInput = document.getElementById('maxNumberInput');
+                        const numberCountInput = document.getElementById('numberCountInput');
+                        const methodSelect = document.getElementById('methodSelect');
+                        const autoUpdateCheck = document.getElementById('autoUpdateCheck');
+                        
+                        if (maxNumberInput) maxNumberInput.value = state.settings.maxNumber;
+                        if (numberCountInput) numberCountInput.value = state.settings.numberCount;
+                        if (methodSelect) methodSelect.value = state.settings.method;
+                        if (autoUpdateCheck) autoUpdateCheck.checked = state.settings.autoUpdate;
+                    }
+                } catch (e) {
+                    console.warn('Failed to load settings:', e);
                 }
                 
                 // Back to top
-                document.getElementById('backToTop').addEventListener('click', function() {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
+                const backToTop = document.getElementById('backToTop');
+                if (backToTop) {
+                    backToTop.addEventListener('click', function() {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    });
+                }
                 
                 // Print page
-                document.getElementById('printPage').addEventListener('click', function() {
-                    window.print();
+                const printPage = document.getElementById('printPage');
+                if (printPage) {
+                    printPage.addEventListener('click', function() {
+                        window.print();
+                    });
+                }
+                
+                // Tool buttons
+                document.querySelectorAll('.tool-actions button').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const game = this.dataset.game;
+                        if (game.includes('powerball')) {
+                            const presetBtn = document.querySelector('.preset-btn[data-preset="powerball"]');
+                            if (presetBtn) presetBtn.click();
+                        } else if (game.includes('megamillions')) {
+                            const presetBtn = document.querySelector('.preset-btn[data-preset="megamillions"]');
+                            if (presetBtn) presetBtn.click();
+                        } else if (game.includes('euromillions')) {
+                            const presetBtn = document.querySelector('.preset-btn[data-preset="euromillions"]');
+                            if (presetBtn) presetBtn.click();
+                        }
+                        
+                        if (this.classList.contains('btn-primary')) {
+                            window.generateNumbers();
+                        }
+                        
+                        // Scroll to analyzer
+                        document.querySelector('.analyzer-section').scrollIntoView({ behavior: 'smooth' });
+                    });
                 });
                 
                 // Game links in footer
@@ -1204,56 +1344,47 @@
                         }
                     });
                 });
+                
+                // Reset analyzer
+                const resetAnalyzerBtn = document.getElementById('resetAnalyzerBtn');
+                if (resetAnalyzerBtn) {
+                    resetAnalyzerBtn.addEventListener('click', function() {
+                        if (confirm('Reset all analyzer data?')) {
+                            state.frequencyData = {};
+                            state.generatedSets = [];
+                            initHeatmap();
+                            const generatedNumbers = document.getElementById('generatedNumbers');
+                            if (generatedNumbers) {
+                                generatedNumbers.innerHTML = 
+                                    '<div class="empty-state"><i class="fas fa-magic"></i><p>Click above to generate numbers</p></div>';
+                            }
+                            
+                            // Reset stats
+                            ['oddEvenRatio', 'highLowRatio', 'sumRange', 'numberSpread'].forEach(id => {
+                                const element = document.getElementById(id);
+                                if (element) element.textContent = '-';
+                            });
+                            
+                            showToast('Analyzer reset');
+                        }
+                    });
+                }
             }
             
-            // Toast notification system
-            function showToast(message, type = 'info') {
-                const toast = document.createElement('div');
-                toast.className = `toast ${type}`;
-                toast.setAttribute('role', 'alert');
+            // Initialize the app
+            try {
+                initApp();
+            } catch (error) {
+                console.error('Failed to initialize app:', error);
+                showToast('Failed to initialize application. Please refresh the page.', 'error');
                 
-                let icon = 'info-circle';
-                if (type === 'success') icon = 'check-circle';
-                if (type === 'warning') icon = 'exclamation-triangle';
-                if (type === 'error') icon = 'times-circle';
-                
-                toast.innerHTML = `
-                    <div class="toast-content">
-                        <i class="fas fa-${icon}"></i>
-                        <span>${message}</span>
-                    </div>
-                    <button class="toast-close">
-                        <i class="fas fa-times"></i>
-                    </button>
-                `;
-                
-                elements.toastContainer.appendChild(toast);
-                
-                // Show
-                setTimeout(() => toast.classList.add('show'), 10);
-                
-                // Close button
-                toast.querySelector('.toast-close').addEventListener('click', () => {
-                    toast.classList.remove('show');
-                    setTimeout(() => toast.remove(), 300);
-                });
-                
-                // Auto remove
-                setTimeout(() => {
-                    if (toast.parentNode) {
-                        toast.classList.remove('show');
-                        setTimeout(() => {
-                            if (toast.parentNode) toast.remove();
-                        }, 300);
-                    }
-                }, 5000);
+                // Ensure loading screen is hidden even on error
+                const loading = document.getElementById('loading');
+                if (loading) {
+                    loading.style.display = 'none';
+                }
             }
-            
-            // Initialize
-            initApp();
         });
     </script>
 </body>
 </html>
-
-
