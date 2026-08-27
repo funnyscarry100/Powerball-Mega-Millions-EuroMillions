@@ -1,0 +1,25 @@
+xml version=1.0 encoding=UTF-8
+urlset 
+  xmlns=httpwww.sitemaps.orgschemassitemap0.9
+  
+  url
+    lochttpslotteryupdate000.spaceloc
+    lastmod2025-10-19lastmod
+    changefreqdailychangefreq
+    priority1.0priority
+  url
+
+  url
+    lochttpslotteryupdate000.spaceterms.htmlloc
+    lastmod2025-10-19lastmod
+    changefreqmonthlychangefreq
+    priority0.6priority
+  url
+
+  url
+    lochttpslotteryupdate000.spaceprivacy.htmlloc
+    lastmod2025-10-19lastmod
+    changefreqmonthlychangefreq
+    priority0.6priority
+  url
+urlset
