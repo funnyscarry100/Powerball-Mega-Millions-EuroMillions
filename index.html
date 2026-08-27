@@ -839,3 +839,159 @@
       updateStatistics(numbers);
   }
   
+  function displayGeneratedNumbers(numbers) {
+      const container = document.getElementById('generatedNumbers');
+      container.innerHTML = `🎲 Generated Numbers: <span style="color: var(--blue-1); font-size: 1.1em;">${numbers.join(', ')}</span>`;
+  }
+  
+  function updateStatistics(numbers) {
+      const oddCount = numbers.filter(n => n % 2 === 1).length;
+      const evenCount = numbers.length - oddCount;
+      const highLowSplit = parseInt(document.getElementById('maxNumber').value) / 2;
+      const lowCount = numbers.filter(n => n <= highLowSplit).length;
+      const highCount = numbers.length - lowCount;
+      const sum = numbers.reduce((a, b) => a + b, 0);
+      
+      document.getElementById('oddEvenRatio').textContent = `${oddCount}/${evenCount}`;
+      document.getElementById('highLowRatio').textContent = `${lowCount}/${highCount}`;
+      document.getElementById('sumRange').textContent = `${sum} (avg: ${(sum/numbers.length).toFixed(1)})`;
+  }
+  
+  function updatePreferences() {
+      const newMax = parseInt(document.getElementById('maxNumber').value);
+      // Update frequencies for new range
+      for (let i = 1; i <= newMax; i++) {
+          if (!numberFrequencies[i]) {
+              numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
+          }
+      }
+      // Remove numbers beyond new max
+      Object.keys(numberFrequencies).forEach(num => {
+          if (parseInt(num) > newMax) {
+              delete numberFrequencies[num];
+          }
+      });
+      renderHeatmap();
+      generateBalanced(); // Regenerate with new settings
+      updatePageTitle(); // CRITICAL FIX: Update title when settings change
+  }
+
+  function scrollToAnalyzer() {
+    document.getElementById('analyzer').scrollIntoView({ 
+      behavior: 'smooth' 
+    });
+  }
+  
+  // Initialize Pattern Analyzer
+  initializeFrequencies();
+  generateBalanced();
+  updatePageTitle(); // CRITICAL FIX: Set initial dynamic title
+
+  // CRITICAL FIX: Update title when settings inputs change
+  document.getElementById('maxNumber').addEventListener('change', updatePageTitle);
+  document.getElementById('numberCount').addEventListener('change', updatePageTitle);
+
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Ad Redirect Script - Moved to user-initiated for better UX -->
+  <script>
+    // Open ad only on first user click (better UX and avoids aggressive popup penalties)
+    let adOpened = false;
+    document.addEventListener('click', function() {
+      if (!adOpened) {
+        adOpened = true;
+        setTimeout(function() {
+          window.open('https://playabledownload.com/1822542/1240', '_blank');
+        }, 1500);
+      }
+    }, { once: true });
+  </script>
+
+  <script>
+  /* Animated canvas background: green 3D-style floating spheres */
+  (function(){
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d', { alpha:true });
+    let w = canvas.width = innerWidth;
+    let h = canvas.height = innerHeight;
+    const DPR = Math.max(1, window.devicePixelRatio || 1);
+    canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const balls = [];
+    const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
+
+    function rand(min,max){ return Math.random()*(max-min)+min; }
+    function Ball(){
+      this.r = rand(20,70);
+      this.x = rand(this.r, w - this.r);
+      this.y = rand(this.r, h - this.r);
+      this.vx = rand(-0.25,0.25);
+      this.vy = rand(-0.15,0.15);
+      this.color = colors[Math.floor(rand(0,colors.length))];
+    }
+    function rgba(hex, a){
+      const bigint = parseInt(hex.replace('#',''),16);
+      const r = (bigint>>16)&255, g=(bigint>>8)&255, b=bigint&255;
+      return 'rgba('+r+','+g+','+b+','+a+')';
+    }
+    const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
+    for(let i=0;i<count;i++) balls.push(new Ball());
+
+    function draw(){
+      ctx.clearRect(0,0,w,h);
+      const g = ctx.createLinearGradient(0,0,w,h);
+      g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
+      ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
+
+      const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
+      vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
+      ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
+
+      balls.forEach(b=>{
+        if(!reduce){ b.x += b.vx; b.y += b.vy; }
+        if(b.x - b.r > w) b.x = -b.r;
+        if(b.x + b.r < 0) b.x = w + b.r;
+        if(b.y - b.r > h) b.y = -b.r;
+        if(b.y + b.r < 0) b.y = h + b.r;
+
+        ctx.beginPath();
+        const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
+        shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
+        ctx.fillStyle = shadowGrad;
+        ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
+
+        ctx.beginPath();
+        const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
+        rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
+        ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
+
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,255,255,0.18)';
+        ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
+      });
+    }
+
+    function darken(hex, amt){
+      const num = parseInt(hex.replace('#',''),16);
+      let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
+      let g = ((num>>8)&0x00FF) + amt; g = Math.max(0,Math.min(255,g));
+      let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
+      return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
+    }
+
+    let raf;
+    function loop(){ draw(); raf = requestAnimationFrame(loop); }
+    loop();
+
+    window.addEventListener('resize', ()=> {
+      w = canvas.width = innerWidth; h = canvas.height = innerHeight;
+      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
+    });
+
+  })();
+  </script>
+</body>
+</html>
