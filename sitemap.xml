@@ -1,1 +1,92 @@
-https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage - Highest Priority -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Pattern Analyzer Tool -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/#analyzer</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Powerball Generator -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/?game=powerball</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Mega Millions Generator -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/?game=mega-millions</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- EuroMillions Generator -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/?game=euromillions</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Custom Generator -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/?game=custom</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Heatmap -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/#heatmap</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Generator Section -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/#generator</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Statistics -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/#statistics</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Terms of Service -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/terms.html</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+  <!-- Privacy Policy -->
+  <url>
+    <loc>https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/privacy.html</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  
+</urlset>
