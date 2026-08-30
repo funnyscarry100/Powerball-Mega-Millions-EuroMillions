@@ -1,5 +1,7 @@
-# robots.txt for LotteryUpdate000
-# https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+# ===========================================
+# robots.txt - Lottery Pattern Analyzer
+# Domain: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+# ===========================================
 
 User-agent: *
 Allow: /
@@ -13,22 +15,81 @@ Disallow: /*?*
 Allow: /*?game=*
 Allow: /*?preset=*
 
-# Allow Semrush
+# Crawl delay for all bots
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
+
+# ===========================================
+# Specific Bot Instructions
+# ===========================================
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: Googlebot-Mobile
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+Clean-param: ref /index.html
+
+# Baidu
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin/
+Crawl-delay: 3
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Facebook
+User-agent: FacebookExternalHit
+Allow: /
+Crawl-delay: 2
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 2
+
+# Semrush - IMPORTANT: Allow for site audit
 User-agent: SemrushBot
 Allow: /
 Crawl-delay: 5
 
-# Allow Google
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
+# ===========================================
+# Bad Bots to Block
+# ===========================================
 
-# Allow Bing
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-# Block aggressive bots
 User-agent: AhrefsBot
 Disallow: /
 
@@ -41,5 +102,9 @@ Disallow: /
 User-agent: MauiBot
 Disallow: /
 
-# Sitemap location - MUST match your actual URL
-Sitemap: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
+# ===========================================
+# Host & Other Directives
+# ===========================================
+
+# Preferred host
+Host: funnyscarry100.github.io
