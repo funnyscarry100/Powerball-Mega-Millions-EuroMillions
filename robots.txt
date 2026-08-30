@@ -1,7 +1,5 @@
-# ===========================================
-# robots.txt - Lottery Pattern Analyzer
-# For GitHub Pages
-# ===========================================
+# robots.txt for LotteryUpdate000
+# https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
 
 User-agent: *
 Allow: /
@@ -15,7 +13,7 @@ Disallow: /*?*
 Allow: /*?game=*
 Allow: /*?preset=*
 
-# Allow Semrush for site audit (IMPORTANT)
+# Allow Semrush
 User-agent: SemrushBot
 Allow: /
 Crawl-delay: 5
@@ -43,5 +41,5 @@ Disallow: /
 User-agent: MauiBot
 Disallow: /
 
-# Sitemap location
+# Sitemap location - MUST match your actual URL
 Sitemap: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
