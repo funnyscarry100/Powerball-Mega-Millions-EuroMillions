@@ -17,3 +17,11 @@
 - Pattern-Based Number Generation
 - Balanced Set Generation
 - Customizable Settings for Powerball, Mega Millions, EuroMillions
+
+## SEO Information
+- Keywords: lottery numbers, pattern analyzer, Powerball, Mega Millions, EuroMillions, number generator
+- Meta Description: Analyze lottery number patterns, view frequency heatmaps, and generate balanced number sets for Powerball, Mega Millions, and EuroMillions.
+- Last Updated: 2026-01-01
+
+## Contact
+- Email: cryptodr987@gmail.com
