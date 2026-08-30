@@ -1,0 +1,19 @@
+# llms.txt for LotteryUpdate000
+# https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+
+## Site Information
+- Name: LotteryUpdate000
+- Description: Free lottery pattern analysis and number generation tools
+- URL: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+
+## Main Pages
+- Home: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/index.html
+- Terms of Service: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/terms.html
+- Privacy Policy: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/privacy.html
+- About: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/about.html
+
+## Key Features
+- Number Frequency Heatmap
+- Pattern-Based Number Generation
+- Balanced Set Generation
+- Customizable Settings for Powerball, Mega Millions, EuroMillions
