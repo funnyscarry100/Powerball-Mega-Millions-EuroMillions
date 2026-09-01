@@ -1,3 +1,91 @@
+# ===========================================
+# robots.txt - Lottery Pattern Analyzer
+# For GitHub Pages
+# ===========================================
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search/
+Disallow: /*?*
+Allow: /*?game=*
+Allow: /*?preset=*
+
+# ===========================================
+# AI Bots
+# ===========================================
+
+# OpenAI SearchBot (crawls for AI training)
+User-agent: OAI-SearchBot
+Allow: /
+Crawl-delay: 5
+
+# OpenAI ChatGPT User Bot
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 5
+
+# Google AI Bot
+User-agent: Google-Extended
+Allow: /
+Crawl-delay: 5
+
+# ===========================================
+# Allow Semrush for site audit
+# ===========================================
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 5
+
+# ===========================================
+# Search Engines
+# ===========================================
+
+# Google
+User-agent: Googlebot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# Yandex
+User-agent: YandexBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 1
+
+# ===========================================
+# Social Media Bots
+# ===========================================
+
+User-agent: FacebookExternalHit
+Allow: /
+Crawl-delay: 2
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 2
+
+# ===========================================
+# Bad Bots to Block
+# ===========================================
+
 User-agent: AhrefsBot
 Disallow: /
 
@@ -11,8 +99,13 @@ User-agent: MauiBot
 Disallow: /
 
 # ===========================================
-# Host & Other Directives
+# Sitemap
 # ===========================================
 
-# Preferred host
+Sitemap: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
+
+# ===========================================
+# Host
+# ===========================================
+
 Host: funnyscarry100.github.io
