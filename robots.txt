@@ -102,7 +102,7 @@ Disallow: /
 # Sitemap
 # ===========================================
 
-Sitemap: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
+Sitemap: https://github.com/funnyscarry100/Powerball-Mega-Millions-EuroMillions/blob/lotteryupdate000/sitemap.xml
 
 # ===========================================
 # Host
