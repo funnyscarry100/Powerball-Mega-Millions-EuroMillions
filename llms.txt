@@ -1,10 +1,10 @@
 # llms.txt for LotteryUpdate000
-# https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+# https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/index.html
 
 ## Site Information
 - Name: LotteryUpdate000
 - Description: Free lottery pattern analysis and number generation tools
-- URL: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+- URL: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/index.html
 
 ## Main Pages
 - Home: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/index.html
@@ -19,7 +19,7 @@
 - Customizable Settings for Powerball, Mega Millions, EuroMillions
 
 ## SEO Information
-- Keywords: lottery numbers, pattern analyzer, Powerball, Mega Millions, EuroMillions, number generator
+- Keywords: winning lotto numbers, winning numbers, lotto numbers, lotto numbers generator, lottery pattern analyzer, number generator, lottery statistics, number patterns, lottery analysis, smart number generator, balanced number sets, frequency analysis, lottery tips, Powerball numbers, Mega Millions, EuroMillions, lottery strategies, hot numbers, cold numbers, number frequency, lottery calculator, how to win the lottery, how to pick lottery numbers, best lottery numbers to play, lottery tips and tricks, most common lottery numbers
 - Meta Description: Analyze lottery number patterns, view frequency heatmaps, and generate balanced number sets for Powerball, Mega Millions, and EuroMillions.
 - Last Updated: 2026-01-01
 
