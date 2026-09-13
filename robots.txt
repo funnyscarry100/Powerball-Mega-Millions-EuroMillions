@@ -1,8 +1,12 @@
 # ===========================================
 # robots.txt - Lottery Pattern Analyzer
-# For GitHub Pages
+# Website: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+# Last Updated: 2026-09-13
 # ===========================================
 
+# -------------------------------------------
+# DEFAULT RULE - Allow all legitimate bots
+# -------------------------------------------
 User-agent: *
 Allow: /
 Disallow: /admin/
@@ -11,67 +15,154 @@ Disallow: /cgi-bin/
 Disallow: /wp-admin/
 Disallow: /wp-includes/
 Disallow: /search/
-Disallow: /*?*
+Disallow: /*?*$
 Allow: /*?game=*
 Allow: /*?preset=*
 
-# ===========================================
-# AI Bots
-# ===========================================
+# Crawl delay for all bots
+Crawl-delay: 1
 
-# OpenAI SearchBot (crawls for AI training)
-User-agent: OAI-SearchBot
-Allow: /
-Crawl-delay: 5
-
-# OpenAI ChatGPT User Bot
-User-agent: ChatGPT-User
-Allow: /
-Crawl-delay: 5
-
-# Google AI Bot
-User-agent: Google-Extended
-Allow: /
-Crawl-delay: 5
+# Sitemap location
+Sitemap: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
 
 # ===========================================
-# Allow Semrush for site audit
+# WORLDWIDE SEARCH ENGINES
 # ===========================================
 
-User-agent: SemrushBot
-Allow: /
-Crawl-delay: 5
-
-# ===========================================
-# Search Engines
-# ===========================================
-
+# -------------------------------------------
 # Google
+# -------------------------------------------
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 1
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
 
-# Bing
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: Googlebot-News
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: Googlebot-Video
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: Google-InspectionTool
+Allow: /
+Crawl-delay: 1
+
+User-agent: GoogleOther
+Allow: /
+Crawl-delay: 1
+
+User-agent: Google-CloudVertexBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Google-Extended
+Allow: /
+Allow: /llms.txt
+Crawl-delay: 5
+
+# -------------------------------------------
+# Microsoft Bing
+# -------------------------------------------
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 1
 
-# Yandex
-User-agent: YandexBot
+User-agent: msnbot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 2
 
+# -------------------------------------------
+# Yandex (Russia)
+# -------------------------------------------
+User-agent: YandexBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+Clean-param: ref /index.html
+
+User-agent: YandexImages
+Allow: /
+Crawl-delay: 2
+
+# -------------------------------------------
+# Baidu (China)
+# -------------------------------------------
+User-agent: Baiduspider
+Allow: /
+Disallow: /admin/
+Crawl-delay: 3
+
+User-agent: Baiduspider-image
+Allow: /
+Crawl-delay: 3
+
+# -------------------------------------------
+# Naver (South Korea)
+# -------------------------------------------
+User-agent: Yeti
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: NaverBot
+Allow: /
+Crawl-delay: 2
+
+# -------------------------------------------
+# Seznam (Czech Republic)
+# -------------------------------------------
+User-agent: SeznamBot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+# -------------------------------------------
 # DuckDuckGo
+# -------------------------------------------
 User-agent: DuckDuckBot
 Allow: /
 Disallow: /admin/
 Crawl-delay: 1
 
+# -------------------------------------------
+# Yahoo
+# -------------------------------------------
+User-agent: Slurp
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+# -------------------------------------------
+# Apple (Siri, Spotlight)
+# -------------------------------------------
+User-agent: Applebot
+Allow: /
+Disallow: /admin/
+Crawl-delay: 2
+
+User-agent: Applebot-Extended
+Allow: /
+Allow: /llms.txt
+Crawl-delay: 5
+
 # ===========================================
-# Social Media Bots
+# SOCIAL MEDIA & LINK PREVIEW BOTS
 # ===========================================
 
 User-agent: FacebookExternalHit
@@ -82,30 +173,187 @@ User-agent: Twitterbot
 Allow: /
 Crawl-delay: 2
 
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Pinterestbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: TelegramBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 2
+
+User-agent: Discordbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Slackbot
+Allow: /
+Crawl-delay: 2
+
 # ===========================================
-# Bad Bots to Block
+# AI CRAWLERS & LLM TRAINING BOTS
 # ===========================================
+
+# -------------------------------------------
+# OpenAI
+# -------------------------------------------
+User-agent: GPTBot
+Allow: /
+Allow: /llms.txt
+Crawl-delay: 5
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llms.txt
+Crawl-delay: 2
+
+User-agent: OAI-SearchBot
+Allow: /
+Allow: /llms.txt
+Crawl-delay: 2
+
+# -------------------------------------------
+# Anthropic (Claude)
+# -------------------------------------------
+User-agent: ClaudeBot
+Allow: /
+Allow: /llms.txt
+Crawl-delay: 5
+
+User-agent: Claude-User
+Allow: /
+Crawl-delay: 2
+
+User-agent: Claude-SearchBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: anthropic-ai
+Disallow: /
+
+# -------------------------------------------
+# Perplexity AI
+# -------------------------------------------
+User-agent: PerplexityBot
+Allow: /
+Allow: /llms.txt
+Crawl-delay: 2
+
+User-agent: Perplexity-User
+Allow: /
+Crawl-delay: 2
+
+# -------------------------------------------
+# Common Crawl (used by many AI models)
+# -------------------------------------------
+User-agent: CCBot
+Allow: /
+Crawl-delay: 5
+
+# -------------------------------------------
+# Google Gemini / AI Features
+# -------------------------------------------
+# (Already covered by Google-Extended above)
+
+# -------------------------------------------
+# Meta AI
+# -------------------------------------------
+User-agent: meta-externalagent
+Allow: /
+Crawl-delay: 5
+
+User-agent: FacebookBot
+Allow: /
+Crawl-delay: 3
+
+# -------------------------------------------
+# ByteDance / TikTok
+# -------------------------------------------
+User-agent: Bytespider
+Allow: /
+Crawl-delay: 5
+
+# -------------------------------------------
+# Amazon
+# -------------------------------------------
+User-agent: Amazonbot
+Allow: /
+Crawl-delay: 5
+
+# -------------------------------------------
+# Apple Intelligence
+# -------------------------------------------
+# (Already covered by Applebot-Extended above)
+
+# -------------------------------------------
+# Cohere
+# -------------------------------------------
+User-agent: cohere-ai
+Disallow: /
+
+# -------------------------------------------
+# You.com
+# -------------------------------------------
+User-agent: YouBot
+Allow: /
+Crawl-delay: 3
+
+# -------------------------------------------
+# Diffbot
+# -------------------------------------------
+User-agent: Diffbot
+Allow: /
+Crawl-delay: 5
+
+# ===========================================
+# SEO TOOLS (allow for site audits)
+# ===========================================
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 5
 
 User-agent: AhrefsBot
-Disallow: /
+Allow: /
+Crawl-delay: 5
 
 User-agent: MJ12bot
-Disallow: /
+Allow: /
+Crawl-delay: 5
 
-User-agent: dotbot
-Disallow: /
+User-agent: DotBot
+Allow: /
+Crawl-delay: 5
+
+# ===========================================
+# BAD BOTS TO BLOCK
+# ===========================================
 
 User-agent: MauiBot
 Disallow: /
 
+User-agent: PiplBot
+Disallow: /
+
+User-agent: SemrushBot-OCOB
+Disallow: /
+
 # ===========================================
-# Sitemap
+# HOST & OTHER DIRECTIVES
 # ===========================================
 
-Sitemap: https://github.com/funnyscarry100/Powerball-Mega-Millions-EuroMillions/blob/lotteryupdate000/sitemap.xml
-
-# ===========================================
-# Host
-# ===========================================
-
+# Preferred host
 Host: funnyscarry100.github.io
+
+# Visit-time (maintenance windows)
+# Visit-time: 0000-0600
+
+# Request-rate (rate limiting)
+# Request-rate: 1/10
