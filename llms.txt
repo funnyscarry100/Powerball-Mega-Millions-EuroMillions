@@ -1,5 +1,5 @@
 # llms.txt for LotteryUpdate000
-# https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+# https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/llms.txt
 
 ## Site Information
 - Name: LotteryUpdate000
