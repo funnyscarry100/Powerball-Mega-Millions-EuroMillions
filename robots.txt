@@ -1,6 +1,6 @@
 # ===========================================
 # robots.txt - Lottery Pattern Analyzer
-# Website: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
+# Website: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/robots.txt
 # Last Updated: 2026-09-13
 # ===========================================
 
