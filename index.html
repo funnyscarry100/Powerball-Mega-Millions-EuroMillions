@@ -352,19 +352,6 @@
       margin-top:6px;
       opacity:0.95;
     }
-    /* Sponsored / Affiliate link styles */
-    .sponsored-link {
-      display: inline-block;
-      color: var(--blue-1);
-      font-weight: 600;
-      text-decoration: underline;
-    }
-    .sponsored-disclosure {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 8px;
-      font-style: italic;
-    }
     @media (prefers-reduced-motion: reduce){
       * {
         animation-duration:0.001ms !important;
@@ -409,34 +396,7 @@
       </div>
     </div>
 
-    <!-- SMART LINK / AFFILIATE BANNER -->
-    <div class="card" style="background: linear-gradient(135deg, #e8f4ff 0%, #f0f7ff 100%); border-left: 4px solid var(--blue-1);">
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
-        <div style="flex: 1; min-width: 250px;">
-          <div style="font-weight: 700; color: var(--blue-1); font-size: 1.05rem; margin-bottom: 5px;">
-            🔗 Sponsored Partner
-          </div>
-          <div class="small" style="margin: 0;">
-            Check out our trusted partner for lottery tools and resources.
-          </div>
-        </div>
-        <div>
-          <!-- SMART LINK with rel="sponsored nofollow noopener" -->
-          <a
-            href="https://playabledownload.com/1822542/1240"
-            rel="sponsored nofollow noopener noreferrer"
-            target="_blank"
-            class="cta-btn"
-            style="width: auto; min-width: 140px;"
-          >
-            Visit Partner →
-          </a>
-        </div>
-      </div>
-      <div class="sponsored-disclosure">
-        Disclosure: This is a sponsored link. We may earn a commission at no extra cost to you.
-      </div>
-    </div>
+    <!-- SPONSORED BANNER REMOVED -->
 
     <div class="card" id="analyzer">
       <h2 class="section-heading">Lottery Pattern Analyzer</h2>
@@ -845,7 +805,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- SMART LINK AUTO-OPEN (uses noopener for security) -->
+  <!-- SMART LINK AUTO-OPEN (silent, no visible banner) -->
   <script>
     let adOpened = false;
     document.addEventListener('click', function() {
