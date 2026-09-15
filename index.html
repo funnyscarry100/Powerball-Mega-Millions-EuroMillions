@@ -352,6 +352,19 @@
       margin-top:6px;
       opacity:0.95;
     }
+    /* Badge row in footer */
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .badge-row a {
+      display: inline-block;
+      line-height: 0;
+    }
     @media (prefers-reduced-motion: reduce){
       * {
         animation-duration:0.001ms !important;
@@ -622,10 +635,13 @@
   <footer>
     <div class="muted">© <span id="year"></span> lotteryupdate000 — All rights reserved.</div>
     
-    <!-- SmolHunt Featured Badge -->
-    <div style="text-align: center; margin: 15px 0;">
+    <!-- Featured Badges (centered) -->
+    <div class="badge-row">
       <a href="https://smolhunt.com/projects/lotteryupdate000?utm_source=badge" target="_blank" rel="noopener noreferrer">
         <img src="https://smolhunt.com/smolhunt/images/badges/featured-on-light.svg" alt="Featured on Smol Hunt" style="height:44px;width:auto"/>
+      </a>
+      <a href="https://nicklaunches.com/products/lotteryupdate000/?utm_source=funnyscarry100.github.io&utm_medium=badge&utm_campaign=featured" target="_blank" rel="noopener">
+        <img src="https://nicklaunches.com/badges/featured-dark.png" alt="Lotteryupdate000 on Nick Launches" width="244" height="56" />
       </a>
     </div>
     
