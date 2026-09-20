@@ -52,12 +52,55 @@
       color:#fff;
       padding:16px 12px;
       text-align:center;
+      position: relative;
     }
     header .brand{
       font-weight:700;
       font-size:1.25rem;
       letter-spacing:0.2px;
     }
+
+    /* ============================================ */
+    /* BANNER 1: 160x600 near "lotteryupdate000" brand */
+    /* Positioned absolutely to the right of header  */
+    /* ============================================ */
+    .banner-160-near-brand {
+      display: none;
+    }
+    @media (min-width: 1400px) {
+      .banner-160-near-brand {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 20px;
+        width: 160px;
+        height: 600px;
+        z-index: 100;
+      }
+    }
+
+    /* ============================================ */
+    /* BANNER 2: 160x600 sticky on scroll (right side) */
+    /* ============================================ */
+    .banner-160-sticky {
+      display: none;
+    }
+    @media (min-width: 1400px) {
+      .banner-160-sticky {
+        display: block;
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        width: 160px;
+        height: 600px;
+        z-index: 999;
+        background: rgba(255,255,255,0.95);
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        overflow: hidden;
+      }
+    }
+
     nav{
       background:#003c99;
       padding:8px 0;
@@ -96,7 +139,6 @@
       padding:0 15px;
       width: 100%;
     }
-    /* Ad containers */
     .ad-container {
       text-align: center;
       margin: 25px auto;
@@ -388,6 +430,27 @@
 <body>
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
+  <!-- ============================================ -->
+  <!-- BANNER 1: 160x600 near "lotteryupdate000" brand -->
+  <!-- Positioned absolutely in header top-right    -->
+  <!-- Desktop only (1400px+)                      -->
+  <!-- ============================================ -->
+  <div class="banner-160-near-brand">
+    <!-- PASTE YOUR 160x600 AD CODE HERE -->
+    <!-- Example (replace key with your 160x600 ad key):
+    <script>
+      atOptions = {
+        'key' : 'YOUR_160x600_KEY',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highrevenueformat.com/YOUR_160x600_KEY/invoke.js"></script>
+    -->
+  </div>
+
   <header>
     <div class="brand">lotteryupdate000</div>
   </header>
@@ -400,6 +463,27 @@
       <li><a href="about.html" id="nav-about">About</a></li>
     </ul>
   </nav>
+
+  <!-- ============================================ -->
+  <!-- BANNER 2: 160x600 sticky on scroll           -->
+  <!-- Fixed position right side, follows user      -->
+  <!-- Desktop only (1400px+)                      -->
+  <!-- ============================================ -->
+  <div class="banner-160-sticky">
+    <!-- PASTE YOUR 160x600 AD CODE HERE -->
+    <!-- Example (replace key with your 160x600 ad key):
+    <script>
+      atOptions = {
+        'key' : 'YOUR_STICKY_KEY',
+        'format' : 'iframe',
+        'height' : 600,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script src="https://www.highrevenueformat.com/YOUR_STICKY_KEY/invoke.js"></script>
+    -->
+  </div>
 
   <main class="wrap" id="content">
     <div class="hero">
@@ -419,10 +503,7 @@
       </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- AD SLOT 1: HighRevenueFormat (Standalone) -->
-    <!-- Placement: After hero section (above the fold area) -->
-    <!-- ============================================ -->
+    <!-- AD SLOT: HighRevenueFormat (Standalone) -->
     <div class="ad-container">
       <script src="https://www.highrevenueformat.com/6ebd274d4fb79fabc7ed19dac3266d22/invoke.js"></script>
     </div>
@@ -492,11 +573,7 @@
       </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- AD SLOT 2: HighRevenueFormat (with atOptions) -->
-    <!-- Placement: Between analyzer and FAQ (mid-content) -->
-    <!-- CRITICAL: atOptions MUST be immediately followed by invoke.js -->
-    <!-- ============================================ -->
+    <!-- AD SLOT: HighRevenueFormat (with atOptions) -->
     <div class="ad-container">
       <script>
         atOptions = {
@@ -866,11 +943,7 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- ============================================ -->
-  <!-- AD SLOT 3: Profitableratecpmnetwork (Script Type) -->
-  <!-- Placement: End of body (popunder/interstitial) -->
-  <!-- This script loads silently and doesn't require a container div -->
-  <!-- ============================================ -->
+  <!-- AD SLOT: Profitableratecpmnetwork (Popunder) -->
   <script src="https://pl31425215.profitableratecpmnetwork.com/ef/74/7d/ef747d3843effd01ea6ac27d8806589d.js"></script>
 
   <script>
