@@ -99,12 +99,13 @@
     /* Ad containers */
     .ad-container {
       text-align: center;
-      margin: 20px auto;
-      min-height: 250px;
+      margin: 25px auto;
+      min-height: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      max-width: 100%;
     }
     .hero{
       background:var(--card-bg);
@@ -418,10 +419,12 @@
       </div>
     </div>
 
-    <!-- Ad: Profitableratecpmnetwork -->
+    <!-- ============================================ -->
+    <!-- AD SLOT 1: HighRevenueFormat (Standalone) -->
+    <!-- Placement: After hero section (above the fold area) -->
+    <!-- ============================================ -->
     <div class="ad-container">
-      <script async="async" data-cfasync="false" src="https://pl31425216.profitableratecpmnetwork.com/09292434d18674232df995b56104f28a/invoke.js"></script>
-      <div id="container-09292434d18674232df995b56104f28a"></div>
+      <script src="https://www.highrevenueformat.com/6ebd274d4fb79fabc7ed19dac3266d22/invoke.js"></script>
     </div>
 
     <div class="card" id="analyzer">
@@ -487,6 +490,24 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- AD SLOT 2: HighRevenueFormat (with atOptions) -->
+    <!-- Placement: Between analyzer and FAQ (mid-content) -->
+    <!-- CRITICAL: atOptions MUST be immediately followed by invoke.js -->
+    <!-- ============================================ -->
+    <div class="ad-container">
+      <script>
+        atOptions = {
+          'key' : 'aecf4d45c0bf589531a03257b10b3eec',
+          'format' : 'iframe',
+          'height' : 90,
+          'width' : 728,
+          'params' : {}
+        };
+      </script>
+      <script src="https://www.highrevenueformat.com/aecf4d45c0bf589531a03257b10b3eec/invoke.js"></script>
     </div>
 
     <div class="card">
@@ -844,6 +865,13 @@
 
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
+  <!-- ============================================ -->
+  <!-- AD SLOT 3: Profitableratecpmnetwork (Script Type) -->
+  <!-- Placement: End of body (popunder/interstitial) -->
+  <!-- This script loads silently and doesn't require a container div -->
+  <!-- ============================================ -->
+  <script src="https://pl31425215.profitableratecpmnetwork.com/ef/74/7d/ef747d3843effd01ea6ac27d8806589d.js"></script>
 
   <script>
   (function(){
