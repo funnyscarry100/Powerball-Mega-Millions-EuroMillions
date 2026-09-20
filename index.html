@@ -35,6 +35,12 @@
       --muted: #666;
     }
     * { box-sizing: border-box; }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
     body {
       background: #f8f9fa;
       height:100%;
@@ -96,7 +102,10 @@
       padding:0 15px;
       width: 100%;
     }
-    /* Ad containers */
+
+    /* =========================================== */
+    /* AD CONTAINERS - Universal                    */
+    /* =========================================== */
     .ad-container {
       text-align: center;
       margin: 25px auto;
@@ -106,7 +115,36 @@
       align-items: center;
       overflow: hidden;
       max-width: 100%;
+      width: 100%;
     }
+
+    /* Mobile: constrain ad iframes so they fit */
+    .ad-container iframe,
+    .ad-container img,
+    .ad-container ins {
+      max-width: 100% !important;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* =========================================== */
+    /* DESKTOP-ONLY ADS (HighRevenueFormat 728x90) */
+    /* Hidden on mobile/tablet (< 1024px)           */
+    /* =========================================== */
+    @media (max-width: 1023px) {
+      .ad-container.ad-desktop-only {
+        display: none !important;
+      }
+    }
+
+    /* =========================================== */
+    /* MOBILE-FRIENDLY ADS (Native banner)          */
+    /* Shown on ALL devices                         */
+    /* =========================================== */
+    .ad-container.ad-mobile-ok {
+      display: flex !important;
+    }
+
     .hero{
       background:var(--card-bg);
       border-radius:12px;
@@ -421,8 +459,9 @@
 
     <!-- ============================================ -->
     <!-- AD SLOT 1: HighRevenueFormat (Standalone) -->
+    <!-- DESKTOP ONLY (728x90 too wide for mobile) -->
     <!-- ============================================ -->
-    <div class="ad-container">
+    <div class="ad-container ad-desktop-only">
       <script src="https://www.highrevenueformat.com/6ebd274d4fb79fabc7ed19dac3266d22/invoke.js"></script>
     </div>
 
@@ -493,16 +532,18 @@
 
     <!-- ============================================ -->
     <!-- AD SLOT 2: Native Banner (Profitableratecpmnetwork) -->
+    <!-- MOBILE + DESKTOP (mobile-friendly format) -->
     <!-- ============================================ -->
-    <div class="ad-container">
+    <div class="ad-container ad-mobile-ok">
       <script async="async" data-cfasync="false" src="https://pl31425216.profitableratecpmnetwork.com/09292434d18674232df995b56104f28a/invoke.js"></script>
       <div id="container-09292434d18674232df995b56104f28a"></div>
     </div>
 
     <!-- ============================================ -->
     <!-- AD SLOT 3: HighRevenueFormat (with atOptions) -->
+    <!-- DESKTOP ONLY (728x90 too wide for mobile) -->
     <!-- ============================================ -->
-    <div class="ad-container">
+    <div class="ad-container ad-desktop-only">
       <script>
         atOptions = {
           'key' : 'aecf4d45c0bf589531a03257b10b3eec',
@@ -872,7 +913,8 @@
   </script>
 
   <!-- ============================================ -->
-  <!-- AD SLOT 4: Social Banner (Profitableratecpmnetwork) -->
+  <!-- AD SLOT 4: Social Banner / Popunder -->
+  <!-- MOBILE + DESKTOP (works on all devices) -->
   <!-- ============================================ -->
   <script src="https://pl31425215.profitableratecpmnetwork.com/ef/74/7d/ef747d3843effd01ea6ac27d8806589d.js"></script>
 
