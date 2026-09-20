@@ -12,33 +12,11 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="MNFWB2xx2UeF19Ts2lChRzG6RV8GLkpxVTFHCSzA3yg" />
-
-  <!-- Shortened Meta Description (150 chars) -->
-  <meta name="description" content="Free lotto number generator with pattern analysis. Generate balanced sets for Powerball, Mega Millions & EuroMillions. Analyze hot and cold numbers.">
-
-  <!-- Canonical Tag -->
-  <link rel="canonical" href="https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/index.html" />
-
-  <!-- Dynamic Title -->
-  <title id="pageTitle">Lottery Pattern Analyzer - Free Online Tool</title>
-
-  <meta name="keywords" content="winning lotto numbers, winning numbers, lotto numbers, lotto numbers generator, lottery pattern analyzer, number generator, lottery statistics, number patterns, lottery analysis, smart number generator, balanced number sets, frequency analysis, lottery tips, Powerball numbers, Mega Millions, EuroMillions, lottery strategies, hot numbers, cold numbers, number frequency, lottery calculator, how to win the lottery, how to pick lottery numbers, best lottery numbers to play, lottery tips and tricks, most common lottery numbers">
-
-  <!-- Ad Network 1: HighRevenueFormat - atOptions MUST be defined before invoke.js -->
-  <script>
-    atOptions = {
-      'key' : 'aecf4d45c0bf589531a03257b10b3eec',
-      'format' : 'iframe',
-      'height' : 90,
-      'width' : 728,
-      'params' : {}
-    };
-  </script>
-  <script src="https://www.highrevenueformat.com/aecf4d45c0bf589531a03257b10b3eec/invoke.js"></script>
-
+  <meta name="description" content="Learn about Lottery Pattern Analyzer's mission to provide free, data-driven lottery insights for enthusiasts worldwide.">
+  
+  <link rel="canonical" href="https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/about.html" />
+  
+  <title>About Us - LotteryUpdate000</title>
   <style>
     :root {
       --blue-1: #0066cc;
@@ -49,9 +27,9 @@
     * { box-sizing: border-box; }
     body {
       background: #f8f9fa;
-      height:100%;
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     #bg-canvas{
       position:fixed;
@@ -108,16 +86,6 @@
       padding:0 15px;
       width: 100%;
     }
-    /* Ad containers */
-    .ad-container {
-      text-align: center;
-      margin: 20px auto;
-      min-height: 90px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-    }
     .hero{
       background:var(--card-bg);
       border-radius:12px;
@@ -133,10 +101,6 @@
       .hero { flex-direction: row; align-items: flex-start; }
     }
     .hero-left{ flex:1; width: 100%; }
-    .hero-right{ width: 100%; text-align:center; }
-    @media (min-width: 768px) {
-      .hero-right { width: 240px; flex-shrink: 0; }
-    }
     .hero h1{
       margin:0 0 10px 0;
       font-size:1.5rem;
@@ -151,21 +115,6 @@
       color:var(--muted);
       line-height: 1.5;
     }
-    .cta-btn{
-      display:inline-block;
-      background:linear-gradient(180deg,var(--blue-2),var(--blue-1));
-      color:#fff;
-      padding:12px 20px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:700;
-      box-shadow:0 6px 16px rgba(0,60,153,0.18);
-      width: 100%;
-      margin-top: 10px;
-    }
-    @media (min-width: 768px) {
-      .cta-btn { width: auto; }
-    }
     .card{
       background:var(--card-bg);
       border-radius:12px;
@@ -179,155 +128,42 @@
       color:var(--muted);
       line-height: 1.4;
     }
-    .analyzer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin: 20px 0;
-    }
-    @media (min-width: 992px) {
-      .analyzer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-    }
-    .chart-container {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #dee2e6;
-    }
-    .number-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 6px;
-      margin: 15px 0;
-      justify-content: center;
-    }
-    @media (min-width: 480px) {
-      .number-grid { grid-template-columns: repeat(8, 1fr); gap: 6px; }
-    }
-    @media (min-width: 768px) {
-      .number-grid { grid-template-columns: repeat(10, 1fr); gap: 5px; }
-    }
-    .number-cell {
-      width: 100%;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #ddd;
-      border-radius: 50%;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 14px;
-      max-width: 45px;
-      margin: 0 auto;
-    }
-    @media (min-width: 480px) {
-      .number-cell { max-width: 40px; font-size: 13px; }
-    }
-    .number-cell:hover { transform: scale(1.1); }
-    .hot { background: #ff6b6b; color: white; }
-    .warm { background: #ffa500; color: white; }
-    .cool { background: #4ecdc4; color: white; }
-    .cold { background: #45b7d1; color: white; }
-    .stat-card {
-      background: white;
-      padding: 18px;
-      margin: 15px 0;
-      border-radius: 10px;
-      border-left: 4px solid var(--blue-1);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .analyzer-controls {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 20px 0;
-      justify-content: center;
-    }
-    @media (min-width: 480px) {
-      .analyzer-controls { justify-content: flex-start; }
-    }
-    .analyzer-btn {
-      padding: 12px 18px;
-      background: var(--blue-1);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-weight: 600;
-      flex: 1;
-      min-width: 140px;
-    }
-    @media (min-width: 480px) {
-      .analyzer-btn { flex: none; }
-    }
-    .analyzer-btn:hover {
-      background: var(--blue-2);
-      transform: translateY(-1px);
-    }
-    .generated-numbers {
-      font-size: 1.1rem;
-      font-weight: bold;
+    .content-section { margin-bottom: 30px; }
+    .content-section h2 {
       color: var(--blue-1);
-      margin: 20px 0;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 8px;
-      text-align: center;
-      border: 2px dashed #dee2e6;
-    }
-    @media (min-width: 768px) {
-      .generated-numbers { font-size: 1.3rem; }
-    }
-    .settings-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin: 15px 0;
-    }
-    @media (min-width: 480px) {
-      .settings-controls { flex-direction: row; align-items: center; flex-wrap: wrap; }
-    }
-    .settings-controls label {
-      font-weight: 600;
-      color: var(--blue-1);
-      white-space: nowrap;
-    }
-    .settings-controls input {
-      padding: 8px 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      width: 70px;
-      text-align: center;
-    }
-    .settings-controls button {
-      padding: 8px 16px;
-      background: var(--blue-1);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    .section-heading {
-      color: var(--blue-1);
-      margin: 0 0 15px 0;
+      margin: 25px 0 15px 0;
       font-size: 1.3rem;
-      border-bottom: 2px solid #eef2f7;
-      padding-bottom: 8px;
     }
-    @media (min-width: 768px) {
-      .section-heading { font-size: 1.5rem; }
-    }
-    .subsection-heading {
+    .content-section h3 {
       color: var(--blue-1);
-      margin: 0 0 12px 0;
+      margin: 20px 0 10px 0;
       font-size: 1.1rem;
     }
-    @media (min-width: 768px) {
-      .subsection-heading { font-size: 1.2rem; }
+    .content-section p {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+    .content-section ul, .content-section ol {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+    .content-section li {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid var(--blue-1);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .ad-disclosure {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
     }
     .feature-grid {
       display: grid;
@@ -368,12 +204,6 @@
       font-weight: 600;
     }
     .contact-email a:hover { text-decoration: underline; }
-    .verif{
-      font-size:0.8rem;
-      color:rgba(255,255,255,0.9);
-      margin-top:6px;
-      opacity:0.95;
-    }
     .badge-row {
       display: flex;
       justify-content: center;
@@ -391,8 +221,6 @@
         animation-duration:0.001ms !important;
         transition-duration:0.001ms !important;
       }
-      .number-cell:hover { transform: none; }
-      .analyzer-btn:hover { transform: none; }
     }
   </style>
 </head>
@@ -405,272 +233,103 @@
 
   <nav aria-label="Main navigation">
     <ul class="nav-list">
-      <li><a href="index.html" class="active" id="nav-home">Home</a></li>
+      <li><a href="index.html" id="nav-home">Home</a></li>
       <li><a href="terms.html" id="nav-terms">Terms</a></li>
       <li><a href="privacy.html" id="nav-privacy">Privacy</a></li>
-      <li><a href="about.html" id="nav-about">About</a></li>
+      <li><a href="about.html" class="active" id="nav-about">About</a></li>
     </ul>
   </nav>
 
   <main class="wrap" id="content">
     <div class="hero">
       <div class="hero-left">
-        <h1>Lottery Pattern Analyzer — Free Online Tool</h1>
-        <p>Advanced number pattern analysis and generation tools. Analyze frequency patterns and generate balanced number sets using statistical insights.</p>
-        <p class="small">Past performance doesn't guarantee future results.</p>
-      </div>
-      <div class="hero-right">
-        <div style="background:#fff;border-radius:10px;padding:15px;box-shadow:0 6px 16px rgba(0,0,0,0.06); height: 100%; display: flex; flex-direction: column; justify-content: center;">
-          <div style="font-weight:700;color:var(--blue-1); font-size: 1.1rem;">Tool Status</div>
-          <div id="latest-time" class="small" style="margin-top:8px;">Active & Ready</div>
-          <div style="margin-top:12px;">
-            <a class="cta-btn" href="#analyzer">Start Analyzing</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ad Network: Profitableratecpmnetwork -->
-    <div class="ad-container">
-      <script async="async" data-cfasync="false" src="https://pl31425216.profitableratecpmnetwork.com/09292434d18674232df995b56104f28a/invoke.js"></script>
-      <div id="container-09292434d18674232df995b56104f28a"></div>
-    </div>
-
-    <div class="card" id="analyzer">
-      <h2 class="section-heading">Lottery Pattern Analyzer</h2>
-      <p class="small" style="margin-bottom: 25px;">Analyze number patterns and generate balanced number sets based on statistical frequency analysis. Click any number to include it in your generated set.</p>
-
-      <div class="analyzer-grid">
-        <div>
-          <h3 class="subsection-heading">Number Frequency Heatmap</h3>
-          <div class="number-grid" id="heatmap"></div>
-          
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Pattern Analysis</h4>
-            <div id="patternStats" style="font-size: 0.95rem;">
-              <p><strong>Odd/Even Ratio:</strong> <span id="oddEvenRatio">-</span></p>
-              <p><strong>High/Low Ratio:</strong> <span id="highLowRatio">-</span></p>
-              <p><strong>Sum Range:</strong> <span id="sumRange">-</span></p>
-            </div>
-          </div>
-        </div>
-        
-        <div>
-          <h3 class="subsection-heading">Smart Number Generator</h3>
-          <div class="analyzer-controls">
-            <button class="analyzer-btn" onclick="generatePatternBased()">
-              🎯 Pattern-Based
-            </button>
-            <button class="analyzer-btn" onclick="generateBalanced()">
-              ⚖️ Balanced Set
-            </button>
-          </div>
-          
-          <div id="generatedNumbers" class="generated-numbers">
-            Click above to generate numbers
-          </div>
-          
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
-            <div class="settings-controls">
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <label for="maxNumber">Range: 1 to</label>
-                <input type="number" id="maxNumber" value="69" min="10" max="100">
-              </div>
-              <div style="display: flex; align-items: center; gap: 8px;">
-                <label for="numberCount">Count:</label>
-                <input type="number" id="numberCount" value="6" min="1" max="15">
-              </div>
-              <button onclick="updatePreferences()" style="padding: 8px 16px;">Update Settings</button>
-            </div>
-          </div>
-
-          <div class="stat-card">
-            <h4 class="subsection-heading" style="margin-top: 0;">Statistical Insights</h4>
-            <div id="statisticalInsights" style="font-size: 0.9rem; line-height: 1.5;">
-              <p>🔴 <strong>Hot Numbers</strong>: Frequently appearing numbers</p>
-              <p>🟠 <strong>Warm Numbers</strong>: Above average frequency</p>
-              <p>🔵 <strong>Cool Numbers</strong>: Below average frequency</p>
-              <p>🔷 <strong>Cold Numbers</strong>: Rarely appearing numbers</p>
-              <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
-                <strong>⚠️ Important:</strong> Lottery outcomes are completely random and cannot be predicted.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Ad Network: HighRevenueFormat -->
-    <div class="ad-container">
-      <script type="text/javascript">
-        atOptions = {
-          'key' : 'aecf4d45c0bf589531a03257b10b3eec',
-          'format' : 'iframe',
-          'height' : 90,
-          'width' : 728,
-          'params' : {}
-        };
-      </script>
-      <script src="https://www.highrevenueformat.com/aecf4d45c0bf589531a03257b10b3eec/invoke.js"></script>
-    </div>
-
-    <div class="card">
-      <h2 class="section-heading">Frequently Asked Questions About Lottery Pattern Analysis</h2>
-      
-      <div style="display: grid; gap: 20px;">
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">How does the lottery pattern analyzer work?</h3>
-          <p>Our analyzer uses statistical frequency analysis to track how often each number appears in historical lottery draws. It then assigns a "hot" or "cold" status to each number based on its appearance frequency. The tool uses this data to generate number sets that follow observed patterns, though it's important to remember that lottery outcomes are entirely random and past results do not guarantee future outcomes.</p>
-        </div>
-        
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">What's the difference between Pattern-Based and Balanced generation?</h3>
-          <p><strong>Pattern-Based generation</strong> weights number selection toward frequently appearing "hot" numbers, giving them a 70% chance of being selected. This is useful for testing frequency theories. <strong>Balanced generation</strong>, on the other hand, ensures an even distribution of odd/even and high/low numbers, preventing number clustering. This is the most commonly used strategy among lottery players who believe in spreading their picks across the entire number range.</p>
-        </div>
-        
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">Can this tool predict winning lottery numbers?</h3>
-          <p>No, this tool cannot predict winning numbers. Lotteries are games of pure chance, and no algorithm or pattern analysis can guarantee a win. The tool is designed for entertainment and educational purposes only, helping you understand number distributions and test different selection strategies. Always play responsibly and within your budget.</p>
-        </div>
-        
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">Which lottery games does this tool support?</h3>
-          <p>You can adapt the tool for any lottery game by adjusting the number range and count settings. Presets include Powerball (1-69, choose 5 numbers), Mega Millions (1-70, choose 5 numbers), and EuroMillions (1-50, choose 5 numbers). The tool also supports custom configurations for regional lotteries with different number ranges.</p>
-        </div>
-        
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">What do the different heatmap colors mean?</h3>
-          <p>The heatmap color-coding helps visualize number frequency at a glance. <strong>Red (Hot)</strong> numbers appear most frequently, <strong>Orange (Warm)</strong> numbers are above average, <strong>Teal (Cool)</strong> numbers are below average, and <strong>Blue (Cold)</strong> numbers appear least frequently. You can click any number to include it in your generated set, combining strategy with personal preferences like birthdays or lucky numbers.</p>
-        </div>
-        
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">What is the best strategy for choosing lottery numbers?</h3>
-          <p>There is no "best" strategy because lottery draws are completely random. However, many players prefer balanced sets that mix odd and even numbers, as well as high and low numbers. Others enjoy following pattern-based approaches that favor frequently appearing numbers. The most important advice is to play for fun, set a budget, and never spend more than you can afford to lose.</p>
-        </div>
+        <h1>About LotteryUpdate000</h1>
+        <p>Learn more about our mission, tools, and commitment to responsible lottery analysis.</p>
       </div>
     </div>
 
     <div class="card">
-      <h2 class="section-heading">💡 Tips for Using the Pattern Analyzer</h2>
-      
-      <div class="feature-grid">
-        <div class="feature-item">
-          <div class="feature-icon">🎯</div>
-          <h3>Pattern-Based Generation</h3>
-          <p><strong>Best for:</strong> Following historical number trends</p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Uses frequency data to weight number selection</li>
-            <li>70% chance to pick "hot" numbers</li>
-            <li>30% chance for random selection</li>
-            <li>Good for testing frequency theories</li>
-          </ul>
-        </div>
+      <div class="content-section">
+        <h2>Our Mission</h2>
+        <p>LotteryUpdate000 was created to provide lottery enthusiasts with advanced pattern analysis tools and statistical insights. Our goal is to offer a comprehensive platform for exploring number patterns while emphasizing the random nature of lottery games.</p>
         
-        <div class="feature-item">
-          <div class="feature-icon">⚖️</div>
-          <h3>Balanced Set Generation</h3>
-          <p><strong>Best for:</strong> Well-distributed number combinations</p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Ensures mix of odd and even numbers</li>
-            <li>Balances high and low numbers</li>
-            <li>Prevents number clustering</li>
-            <li>Most common strategy used</li>
-          </ul>
-        </div>
+        <h2>What We Offer</h2>
+        <p>Our platform includes several powerful tools for lottery analysis:</p>
         
-        <div class="feature-item">
-          <div class="feature-icon">🔢</div>
-          <h3>Click to Include Numbers</h3>
-          <p><strong>Personal preference:</strong> Include your lucky numbers</p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Click any number in the heatmap</li>
-            <li>Tool generates sets including your choice</li>
-            <li>Combine strategy with personal picks</li>
-            <li>Great for birthdays or lucky numbers</li>
-          </ul>
-        </div>
-        
-        <div class="feature-item">
-          <div class="feature-icon">⚙️</div>
-          <h3>Customize Settings</h3>
-          <p><strong>Flexibility:</strong> Adapt to different lottery games</p>
-          <ul style="font-size: 0.85rem; margin-top: 10px;">
-            <li>Adjust number range (1-69, 1-49, etc.)</li>
-            <li>Change how many numbers to generate</li>
-            <li>Works for Powerball, Mega Millions, etc.</li>
-            <li>Update settings for each game type</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stat-card" style="margin-top: 20px;">
-        <h4 class="subsection-heading" style="margin-top: 0;">🎲 Recommended Strategies</h4>
-        <div style="font-size: 0.9rem;">
-          <p><strong>For Powerball (5/69 + 1/26):</strong></p>
-          <ul>
-            <li>Set range to 69, count to 5 for main numbers</li>
-            <li>Use balanced sets for better distribution</li>
-            <li>Consider including 1-2 "hot" numbers</li>
-          </ul>
+        <div class="feature-grid">
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <h3>Pattern Analyzer</h3>
+            <p>Our signature tool that visualizes number frequencies through an interactive heatmap, helping users identify patterns in historical lottery data.</p>
+          </div>
           
-          <p><strong>For Mega Millions (5/70 + 1/25):</strong></p>
-          <ul>
-            <li>Set range to 70, count to 5 for main numbers</li>
-            <li>Pattern-based can highlight frequent numbers</li>
-            <li>Balance ensures good number spread</li>
-          </ul>
+          <div class="feature-item">
+            <div class="feature-icon">🎲</div>
+            <h3>Smart Number Generator</h3>
+            <p>Generate number sets using different strategies including pattern-based and balanced approaches.</p>
+          </div>
           
-          <p><strong>For EuroMillions (5/50 + 2/12):</strong></p>
-          <ul>
-            <li>Set range to 50, count to 5 for main numbers</li>
-            <li>Use click feature for preferred numbers</li>
-            <li>Balanced sets work well for main numbers</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="stat-card" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
-        <h4 class="subsection-heading" style="margin-top: 0;">📊 Understanding the Heatmap</h4>
-        <div style="font-size: 0.9rem;">
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
-            <span><strong>Red (Hot):</strong> Most frequently appearing numbers</span>
+          <div class="feature-item">
+            <div class="feature-icon">📈</div>
+            <h3>Statistical Insights</h3>
+            <p>Detailed analysis of generated number sets, including odd/even ratios, high/low distribution, and sum ranges.</p>
           </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ffa500;"></div>
-            <span><strong>Orange (Warm):</strong> Above average frequency</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #4ecdc4;"></div>
-            <span><strong>Teal (Cool):</strong> Below average frequency</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #45b7d1;"></div>
-            <span><strong>Blue (Cold):</strong> Least frequently appearing numbers</span>
+          
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <h3>Strategy Tips</h3>
+            <p>Comprehensive guidance on different lottery strategies and how to use our tools effectively.</p>
           </div>
         </div>
-      </div>
-
-      <div class="stat-card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
-        <h4 class="subsection-heading" style="margin-top: 0;">🎯 Pro Tips</h4>
-        <div style="font-size: 0.9rem;">
-          <ul>
-            <li><strong>Generate multiple sets</strong> and compare the statistics</li>
-            <li><strong>Mix strategies</strong> - try both pattern-based and balanced</li>
-            <li><strong>Use the analysis</strong> to understand number distribution</li>
-            <li><strong>Remember:</strong> All lotteries are random</li>
-          </ul>
+        
+        <h2>Our Philosophy</h2>
+        <p>We believe in transparency and responsible gaming. While we provide advanced analytical tools, we consistently emphasize that:</p>
+        <ul>
+          <li>Lottery outcomes are completely random and cannot be predicted</li>
+          <li>Past performance does not guarantee future results</li>
+          <li>Our tools are for entertainment and informational purposes only</li>
+          <li>Responsible gaming should always be practiced</li>
+        </ul>
+        
+        <div class="highlight-box">
+          <p><strong>Important Disclaimer:</strong> Our tools do not increase your chances of winning any lottery. All lottery games are based on random chance, and no system can guarantee wins. Please play responsibly.</p>
         </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 20px;">
-        <button class="analyzer-btn" onclick="scrollToAnalyzer()" style="padding: 12px 30px; font-size: 1.1rem;">
-          🚀 Start Using the Tool
-        </button>
+        
+        <h2>How We Keep This Site Free</h2>
+        
+        <div class="ad-disclosure">
+          <p><strong>⚠️ Advertising Disclosure:</strong> This website is <strong>ad-supported</strong>. We display advertisements from third-party advertising networks to keep our tools free for all users.</p>
+        </div>
+        
+        <p>Running a website involves ongoing costs for hosting, development, and maintenance. To keep LotteryUpdate000 completely free for everyone, we partner with the following advertising networks:</p>
+        <ul>
+          <li><strong>Profitableratecpmnetwork</strong> — Display advertising network</li>
+          <li><strong>HighRevenueFormat</strong> — Display advertising network</li>
+          <li><strong>Google Analytics</strong> — Website traffic analysis</li>
+        </ul>
+        
+        <p>These advertisements help us cover our costs and continue improving the tools we offer. We do not endorse or guarantee any product, service, or website linked through advertisements. For details on how these networks handle data, please read our <a href="privacy.html" style="color: var(--blue-1); font-weight: 600;">Privacy Policy</a>.</p>
+        
+        <h2>Our Commitment</h2>
+        <p>We are committed to:</p>
+        <ul>
+          <li>Providing accurate and transparent statistical information</li>
+          <li>Maintaining user privacy and data security</li>
+          <li>Continuously improving our tools and user experience</li>
+          <li>Promoting responsible lottery participation</li>
+          <li>Keeping our core tools free and accessible to everyone</li>
+        </ul>
+        
+        <h2>Contact Us</h2>
+        <p>We value your feedback and questions. If you need to reach out to us for any reason, please contact:</p>
+        <p><strong>Email:</strong> cryptodr987@gmail.com</p>
+        <p>We strive to respond to all inquiries within 48 hours.</p>
+        
+        <div class="highlight-box">
+          <p><strong>Note:</strong> LotteryUpdate000 is an independent platform not affiliated with any official lottery organizations. All trademarks and game names are property of their respective owners.</p>
+        </div>
       </div>
     </div>
-
   </main>
 
   <footer>
@@ -696,179 +355,7 @@
   </footer>
 
   <script>
-  function updatePageTitle() {
-      const maxNum = parseInt(document.getElementById('maxNumber').value);
-      let gameName = 'Lottery';
-      if (maxNum === 69) gameName = 'Powerball';
-      else if (maxNum === 70) gameName = 'Mega Millions';
-      else if (maxNum === 50) gameName = 'EuroMillions';
-      
-      document.getElementById('pageTitle').textContent = 
-          `${gameName} Pattern Analyzer - Free Online Tool`;
-  }
-
-  const maxNumber = 69;
-  let numberFrequencies = {};
-  
-  function initializeFrequencies() {
-      for (let i = 1; i <= maxNumber; i++) {
-          numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
-      }
-      renderHeatmap();
-  }
-  
-  function renderHeatmap() {
-      const heatmap = document.getElementById('heatmap');
-      heatmap.innerHTML = '';
-      
-      const frequencies = Object.values(numberFrequencies);
-      const maxFreq = Math.max(...frequencies);
-      const minFreq = Math.min(...frequencies);
-      const range = maxFreq - minFreq;
-      
-      for (let i = 1; i <= maxNumber; i++) {
-          const freq = numberFrequencies[i];
-          const normalized = (freq - minFreq) / range;
-          
-          let heatClass = 'cold';
-          if (normalized > 0.75) heatClass = 'hot';
-          else if (normalized > 0.5) heatClass = 'warm';
-          else if (normalized > 0.25) heatClass = 'cool';
-          
-          const cell = document.createElement('div');
-          cell.className = `number-cell ${heatClass}`;
-          cell.textContent = i;
-          cell.title = `Frequency: ${freq}`;
-          cell.onclick = () => generateWithPreference(i);
-          heatmap.appendChild(cell);
-      }
-  }
-  
-  function generatePatternBased() {
-      const count = parseInt(document.getElementById('numberCount').value);
-      const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [];
-      const allNumbers = Object.keys(numberFrequencies).map(Number);
-      
-      while (numbers.length < count) {
-          let num;
-          if (Math.random() < 0.7) {
-              const hotNumbers = allNumbers.filter(n => 
-                  numberFrequencies[n] > Object.values(numberFrequencies).reduce((a, b) => a + b) / maxNumber
-              );
-              num = hotNumbers[Math.floor(Math.random() * hotNumbers.length)];
-          } else {
-              num = Math.floor(Math.random() * maxNum) + 1;
-          }
-          
-          if (!numbers.includes(num) && num <= maxNum) {
-              numbers.push(num);
-          }
-      }
-      
-      displayGeneratedNumbers(numbers.sort((a, b) => a - b));
-      updateStatistics(numbers);
-  }
-  
-  function generateBalanced() {
-      const count = parseInt(document.getElementById('numberCount').value);
-      const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [];
-      
-      while (numbers.length < count) {
-          const num = Math.floor(Math.random() * maxNum) + 1;
-          if (!numbers.includes(num)) {
-              numbers.push(num);
-          }
-      }
-      
-      const balancedNumbers = ensureBalance(numbers, maxNum);
-      displayGeneratedNumbers(balancedNumbers.sort((a, b) => a - b));
-      updateStatistics(balancedNumbers);
-  }
-  
-  function ensureBalance(numbers, maxNum) {
-      const oddCount = numbers.filter(n => n % 2 === 1).length;
-      const highLowSplit = maxNum / 2;
-      const lowCount = numbers.filter(n => n <= highLowSplit).length;
-      
-      if (oddCount === 0 || oddCount === numbers.length) {
-          const replaceIndex = Math.floor(Math.random() * numbers.length);
-          let newNum;
-          do {
-              newNum = Math.floor(Math.random() * maxNum) + 1;
-          } while (numbers.includes(newNum) || (newNum % 2 === 1) === (oddCount === 0));
-          numbers[replaceIndex] = newNum;
-      }
-      
-      return numbers;
-  }
-  
-  function generateWithPreference(preferredNumber) {
-      const count = parseInt(document.getElementById('numberCount').value);
-      const maxNum = parseInt(document.getElementById('maxNumber').value);
-      const numbers = [preferredNumber];
-      
-      while (numbers.length < count) {
-          const num = Math.floor(Math.random() * maxNum) + 1;
-          if (!numbers.includes(num)) {
-              numbers.push(num);
-          }
-      }
-      
-      displayGeneratedNumbers(numbers.sort((a, b) => a - b));
-      updateStatistics(numbers);
-  }
-  
-  function displayGeneratedNumbers(numbers) {
-      const container = document.getElementById('generatedNumbers');
-      container.innerHTML = `🎲 Generated Numbers: <span style="color: var(--blue-1); font-size: 1.1em;">${numbers.join(', ')}</span>`;
-  }
-  
-  function updateStatistics(numbers) {
-      const oddCount = numbers.filter(n => n % 2 === 1).length;
-      const evenCount = numbers.length - oddCount;
-      const highLowSplit = parseInt(document.getElementById('maxNumber').value) / 2;
-      const lowCount = numbers.filter(n => n <= highLowSplit).length;
-      const highCount = numbers.length - lowCount;
-      const sum = numbers.reduce((a, b) => a + b, 0);
-      
-      document.getElementById('oddEvenRatio').textContent = `${oddCount}/${evenCount}`;
-      document.getElementById('highLowRatio').textContent = `${lowCount}/${highCount}`;
-      document.getElementById('sumRange').textContent = `${sum} (avg: ${(sum/numbers.length).toFixed(1)})`;
-  }
-  
-  function updatePreferences() {
-      const newMax = parseInt(document.getElementById('maxNumber').value);
-      for (let i = 1; i <= newMax; i++) {
-          if (!numberFrequencies[i]) {
-              numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
-          }
-      }
-      Object.keys(numberFrequencies).forEach(num => {
-          if (parseInt(num) > newMax) {
-              delete numberFrequencies[num];
-          }
-      });
-      renderHeatmap();
-      generateBalanced();
-      updatePageTitle();
-  }
-
-  function scrollToAnalyzer() {
-    document.getElementById('analyzer').scrollIntoView({ 
-      behavior: 'smooth' 
-    });
-  }
-  
-  initializeFrequencies();
-  generateBalanced();
-  updatePageTitle();
-
-  document.getElementById('maxNumber').addEventListener('change', updatePageTitle);
-  document.getElementById('numberCount').addEventListener('change', updatePageTitle);
-
-  document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
   <script>
