@@ -158,6 +158,13 @@
       margin: 20px 0;
       border-radius: 0 8px 8px 0;
     }
+    .ad-disclosure {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
     footer{
       margin-top:40px;
       text-align:center;
@@ -181,6 +188,18 @@
       font-weight: 600;
     }
     .contact-email a:hover { text-decoration: underline; }
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin: 15px 0;
+    }
+    .badge-row a {
+      display: inline-block;
+      line-height: 0;
+    }
     @media (prefers-reduced-motion: reduce){
       * {
         animation-duration:0.001ms !important;
@@ -230,12 +249,62 @@
           <li>Pages you visit on our site</li>
           <li>Time and date of your visit</li>
           <li>Time spent on those pages</li>
+          <li>Referring website addresses</li>
+          <li>Device type and operating system</li>
         </ul>
         
-        <h3>Cookies and Tracking Technologies</h3>
+        <h2>2. Cookies and Tracking Technologies</h2>
         <p>We use cookies and similar tracking technologies to track activity on our Service and hold certain information. Cookies are files with a small amount of data which may include an anonymous unique identifier.</p>
         
-        <h2>2. How We Use Your Information</h2>
+        <h3>Types of Cookies We Use</h3>
+        <ul>
+          <li><strong>Essential Cookies:</strong> Required for the website to function properly</li>
+          <li><strong>Analytics Cookies:</strong> Help us understand how visitors interact with our site (Google Analytics)</li>
+          <li><strong>Advertising Cookies:</strong> Used by third-party ad networks to display relevant ads</li>
+          <li><strong>Preference Cookies:</strong> Remember your settings and preferences</li>
+        </ul>
+        
+        <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
+        
+        <h2>3. Third-Party Advertising Networks</h2>
+        
+        <div class="ad-disclosure">
+          <p><strong>⚠️ Advertising Disclosure:</strong> This website uses third-party advertising networks to display ads. These networks may use cookies, web beacons, and similar technologies to collect information about your visits to this and other websites to provide targeted advertisements.</p>
+        </div>
+        
+        <p>We work with the following third-party advertising partners:</p>
+        <ul>
+          <li><strong>Profitableratecpmnetwork</strong> — Display advertising network</li>
+          <li><strong>HighRevenueFormat</strong> — Display advertising network</li>
+          <li><strong>Google Analytics</strong> — Website traffic analysis</li>
+        </ul>
+        
+        <h3>What These Networks Collect</h3>
+        <p>Our advertising partners may collect:</p>
+        <ul>
+          <li>Your IP address</li>
+          <li>Browser type and device information</li>
+          <li>Pages you visit and time spent</li>
+          <li>Click data on advertisements</li>
+          <li>Cookies from previously visited websites</li>
+        </ul>
+        
+        <h3>Personalized Advertising</h3>
+        <p>These third-party ad networks may use cookies and similar technologies to serve personalized ads based on your browsing behavior. They may also use data collected from other websites to display ads on our site that are relevant to your interests.</p>
+        
+        <h3>Opting Out of Personalized Advertising</h3>
+        <p>You can opt out of personalized advertising from many ad networks by visiting:</p>
+        <ul>
+          <li><a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer">Digital Advertising Alliance (DAA)</a></li>
+          <li><a href="https://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer">Network Advertising Initiative (NAI)</a></li>
+          <li><a href="https://www.youronlinechoices.com/" target="_blank" rel="noopener noreferrer">Your Online Choices (EU)</a></li>
+          <li><a href="https://adssettings.google.com/" target="_blank" rel="noopener noreferrer">Google Ads Settings</a></li>
+        </ul>
+        
+        <h3>Do Not Track Signals</h3>
+        <p>Some browsers have a "Do Not Track" feature. Our site does not currently respond to Do Not Track signals, but you can control tracking through the opt-out links above.</p>
+        
+        <h2>4. How We Use Your Information</h2>
         <p>We use the collected information for various purposes:</p>
         <ul>
           <li>To provide and maintain our Service</li>
@@ -244,21 +313,34 @@
           <li>To gather analysis or valuable information so that we can improve our Service</li>
           <li>To monitor the usage of our Service</li>
           <li>To detect, prevent and address technical issues</li>
+          <li>To serve relevant advertisements through our ad partners</li>
         </ul>
         
-        <h2>3. Data Security</h2>
+        <h2>5. Data Security</h2>
         <p>The security of your data is important to us, but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Information, we cannot guarantee its absolute security.</p>
         
-        <h2>4. Third-Party Services</h2>
+        <h2>6. Third-Party Services</h2>
         <p>We may employ third-party companies and individuals to facilitate our Service, provide the Service on our behalf, perform Service-related services, or assist us in analyzing how our Service is used. These third parties have access to your Personal Information only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
         
-        <h2>5. Children's Privacy</h2>
+        <h2>7. Children's Privacy</h2>
         <p>Our Service does not address anyone under the age of 18. We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your child has provided us with Personal Information, please contact us.</p>
         
-        <h2>6. Changes to This Privacy Policy</h2>
+        <h2>8. Your Rights (GDPR & CCPA)</h2>
+        <p>Depending on your location, you may have the following rights regarding your personal data:</p>
+        <ul>
+          <li><strong>Right to Access:</strong> Request copies of your personal data</li>
+          <li><strong>Right to Rectification:</strong> Request correction of inaccurate data</li>
+          <li><strong>Right to Erasure:</strong> Request deletion of your data</li>
+          <li><strong>Right to Restrict Processing:</strong> Request limitation of data processing</li>
+          <li><strong>Right to Data Portability:</strong> Request transfer of your data</li>
+          <li><strong>Right to Object:</strong> Object to our processing of your data</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us at the email below.</p>
+        
+        <h2>9. Changes to This Privacy Policy</h2>
         <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "last updated" date.</p>
         
-        <h2>7. Contact Us</h2>
+        <h2>10. Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us:</p>
         <p><strong>Email:</strong> cryptodr987@gmail.com</p>
       </div>
@@ -267,6 +349,20 @@
 
   <footer>
     <div class="muted">© <span id="year"></span> lotteryupdate000 — All rights reserved.</div>
+    
+    <!-- Featured Badges (centered) -->
+    <div class="badge-row">
+      <a href="https://smolhunt.com/projects/lotteryupdate000?utm_source=badge" target="_blank" rel="noopener noreferrer">
+        <img src="https://smolhunt.com/smolhunt/images/badges/featured-on-light.svg" alt="Featured on Smol Hunt" style="height:44px;width:auto"/>
+      </a>
+      <a href="https://nicklaunches.com/products/lotteryupdate000/?utm_source=funnyscarry100.github.io&utm_medium=badge&utm_campaign=featured" target="_blank" rel="noopener">
+        <img src="https://nicklaunches.com/badges/featured-dark.png" alt="Lotteryupdate000 on Nick Launches" width="244" height="56" />
+      </a>
+      <a href="https://saashunt.best/projects/lottery-pattern-analyzer?utm_source=badge" target="_blank" rel="noopener noreferrer">
+        <img src="https://saashunt.best/images/badges/featured-on-dark.svg" alt="Featured on SaasHunt" style="height:44px;width:auto"/>
+      </a>
+    </div>
+    
     <div class="contact-email">
       <strong>Contact Us:</strong> 
       <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>
