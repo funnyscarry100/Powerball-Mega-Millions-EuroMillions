@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Consent Mode v2 - MUST BE FIRST -->
+  <script data-cookieconsent="ignore">
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag("consent", "default", {
+      ad_personalization: "denied",
+      ad_storage: "denied",
+      ad_user_data: "denied",
+      analytics_storage: "denied",
+      functionality_storage: "denied",
+      personalization_storage: "denied",
+      security_storage: "granted",
+      wait_for_update: 500,
+    });
+    gtag("set", "ads_data_redaction", true);
+    gtag("set", "url_passthrough", false);
+  </script>
+
+  <!-- Cookiebot CMP Banner -->
+  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f0d7a615-7e0e-49f8-ba58-bacb36b1c61b" data-blockingmode="auto" type="text/javascript"></script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLBWGH8Y4T"></script>
   <script>
@@ -13,11 +34,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Favicons -->
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=20261006" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261006" />
+  <link rel="shortcut icon" href="favicon.ico?v=20261006" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=20261006" />
+  <link rel="manifest" href="site.webmanifest?v=20261006" />
+
+  <meta name="theme-color" content="#0066cc">
+
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="MNFWB2xx2UeF19Ts2lChRzG6RV8GLkpxVTFHCSzA3yg" />
 
-  <!-- Seznam Webmaster Verification -->
-  <meta name="seznam-wmt" content="mKrsYZJaXszOMnQ9AmUBunpPzv2Ukpkw" />
+  <!-- Bing Webmaster Verification -->
+  <meta name="msvalidate.01" content="mKrsYZJaXszOMnQ9AmUBunpPzv2Ukpkw" />
 
   <!-- Shortened Meta Description (150 chars) -->
   <meta name="description" content="Free lotto number generator with pattern analysis. Generate balanced sets for Powerball, Mega Millions & EuroMillions. Analyze hot and cold numbers.">
@@ -106,6 +136,7 @@
       width: 100%;
     }
 
+    /* Ad containers */
     .ad-container {
       text-align: center;
       margin: 25px auto;
@@ -205,12 +236,6 @@
     }
     @media (min-width: 992px) {
       .analyzer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-    }
-    .chart-container {
-      background: #f8f9fa;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #dee2e6;
     }
     .number-grid {
       display: grid;
@@ -386,12 +411,6 @@
       font-weight: 600;
     }
     .contact-email a:hover { text-decoration: underline; }
-    .verif{
-      font-size:0.8rem;
-      color:rgba(255,255,255,0.9);
-      margin-top:6px;
-      opacity:0.95;
-    }
     .badge-row {
       display: flex;
       justify-content: center;
@@ -403,6 +422,14 @@
     .badge-row a {
       display: inline-block;
       line-height: 0;
+    }
+    /* Cookie Declaration container */
+    #CookieDeclaration {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 20px 0;
+      box-shadow: 0 6px 20px rgba(6,30,60,0.06);
     }
     @media (prefers-reduced-motion: reduce){
       * {
@@ -692,6 +719,11 @@
           🚀 Start Using the Tool
         </button>
       </div>
+    </div>
+
+    <!-- Cookie Declaration (Cookiebot) -->
+    <div id="CookieDeclaration">
+      <script id="CookieDeclaration" src="https://consent.cookiebot.com/f0d7a615-7e0e-49f8-ba58-bacb36b1c61b/cd.js" type="text/javascript" async></script>
     </div>
 
   </main>
