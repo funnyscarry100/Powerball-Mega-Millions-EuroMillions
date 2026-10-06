@@ -1,0 +1,18 @@
+# ads.txt for funnyscarry100.github.io
+# Authorized Digital Sellers
+# Last Updated: 2026-10-06
+
+# Google AdSense / Ad Manager (if you use them)
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Profitableratecpmnetwork
+profitableratecpmnetwork.com, pub-09292434d18674232df995b56104f28a, DIRECT
+profitableratecpmnetwork.com, pub-ef747d3843effd01ea6ac27d8806589d, DIRECT
+
+# HighRevenueFormat
+highrevenueformat.com, pub-6ebd274d4fb79fabc7ed19dac3266d22, DIRECT
+highrevenueformat.com, pub-aecf4d45c0bf589531a03257b10b3eec, DIRECT
+
+# Adsterra (Adsterra does not provide ads.txt - these are placeholder entries)
+# Contact Adsterra support for your specific publisher ID if needed
+# adsterra.com, pub-XXXXXXXXXX, DIRECT
