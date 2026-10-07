@@ -1,27 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Consent Mode v2 - MUST BE FIRST -->
-  <script data-cookieconsent="ignore">
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("consent", "default", {
-      ad_personalization: "denied",
-      ad_storage: "denied",
-      ad_user_data: "denied",
-      analytics_storage: "denied",
-      functionality_storage: "denied",
-      personalization_storage: "denied",
-      security_storage: "granted",
-      wait_for_update: 500,
-    });
-    gtag("set", "ads_data_redaction", true);
-    gtag("set", "url_passthrough", false);
-  </script>
-
-  <!-- Cookiebot CMP Banner -->
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="f0d7a615-7e0e-49f8-ba58-bacb36b1c61b" data-blockingmode="auto" type="text/javascript"></script>
-
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLBWGH8Y4T"></script>
   <script>
@@ -47,7 +26,7 @@
   <meta name="google-site-verification" content="MNFWB2xx2UeF19Ts2lChRzG6RV8GLkpxVTFHCSzA3yg" />
 
   <!-- Bing Webmaster Verification -->
-  <meta name="msvalidate.01" content="RmKrsYZJaXszOMnQ9AmUBunpPzv2Ukpkw" />
+  <meta name="msvalidate.01" content="REPLACE_WITH_YOUR_BING_VERIFICATION_CODE" />
 
   <!-- Shortened Meta Description (150 chars) -->
   <meta name="description" content="Free lotto number generator with pattern analysis. Generate balanced sets for Powerball, Mega Millions & EuroMillions. Analyze hot and cold numbers.">
@@ -423,13 +402,63 @@
       display: inline-block;
       line-height: 0;
     }
-    /* Cookie Declaration container - FIXED: uses class, not id */
-    .cookie-declaration-wrap {
-      background: #ffffff;
-      padding: 20px;
-      border-radius: 12px;
-      margin: 20px 0;
-      box-shadow: 0 6px 20px rgba(6,30,60,0.06);
+    /* Cookie Consent Banner */
+    #cookie-banner {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #003c99;
+      color: #fff;
+      padding: 15px 20px;
+      z-index: 9999;
+      box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
+      font-family: inherit;
+    }
+    #cookie-banner .cookie-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    #cookie-banner p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      flex: 1;
+      min-width: 240px;
+    }
+    #cookie-banner a {
+      color: #fff;
+      text-decoration: underline;
+    }
+    #cookie-banner .cookie-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    #cookie-banner button {
+      padding: 10px 22px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 0.9rem;
+      border: none;
+      transition: opacity 0.2s;
+    }
+    #cookie-banner button:hover { opacity: 0.9; }
+    #cookie-accept {
+      background: #fff;
+      color: #003c99;
+    }
+    #cookie-reject {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #fff;
     }
     @media (prefers-reduced-motion: reduce){
       * {
@@ -721,11 +750,6 @@
       </div>
     </div>
 
-    <!-- Cookie Declaration (Cookiebot) - FIXED: uses class, not id -->
-    <div class="cookie-declaration-wrap">
-      <script id="CookieDeclaration" src="https://consent.cookiebot.com/f0d7a615-7e0e-49f8-ba58-bacb36b1c61b/cd.js" type="text/javascript" async></script>
-    </div>
-
   </main>
 
   <footer>
@@ -758,6 +782,49 @@
       <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>
     </div>
   </footer>
+
+  <!-- ============================================ -->
+  <!-- DIY Cookie Consent Banner -->
+  <!-- ============================================ -->
+  <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <div class="cookie-content">
+      <p>🍪 We use cookies to improve your experience and to display relevant ads. By clicking "Accept", you consent to our use of cookies. Read our <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="cookie-buttons">
+        <button id="cookie-accept" onclick="acceptCookies()">Accept</button>
+        <button id="cookie-reject" onclick="rejectCookies()">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (!consent) {
+      document.getElementById('cookie-banner').style.display = 'block';
+    }
+  })();
+
+  function acceptCookies() {
+    localStorage.setItem('cookieConsent', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+    // Update Google Analytics consent if Consent Mode is active
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        ad_personalization: 'granted',
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        analytics_storage: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'granted'
+      });
+    }
+  }
+
+  function rejectCookies() {
+    localStorage.setItem('cookieConsent', 'rejected');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+  </script>
 
   <script>
   function updatePageTitle() {
