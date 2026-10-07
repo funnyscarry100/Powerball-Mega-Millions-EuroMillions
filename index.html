@@ -402,7 +402,7 @@
       display: inline-block;
       line-height: 0;
     }
-    /* Cookie Consent Banner */
+    /* DIY Cookie Consent Banner */
     #cookie-banner {
       display: none;
       position: fixed;
@@ -783,9 +783,7 @@
     </div>
   </footer>
 
-  <!-- ============================================ -->
   <!-- DIY Cookie Consent Banner -->
-  <!-- ============================================ -->
   <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <div class="cookie-content">
       <p>🍪 We use cookies to improve your experience and to display relevant ads. By clicking "Accept", you consent to our use of cookies. Read our <a href="privacy.html">Privacy Policy</a>.</p>
@@ -807,7 +805,6 @@
   function acceptCookies() {
     localStorage.setItem('cookieConsent', 'accepted');
     document.getElementById('cookie-banner').style.display = 'none';
-    // Update Google Analytics consent if Consent Mode is active
     if (typeof gtag === 'function') {
       gtag('consent', 'update', {
         ad_personalization: 'granted',
