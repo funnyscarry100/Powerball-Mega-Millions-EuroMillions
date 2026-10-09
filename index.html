@@ -112,32 +112,6 @@
       padding:0 15px;
       width: 100%;
     }
-
-    /* Ad containers */
-    .ad-container {
-      text-align: center;
-      margin: 25px auto;
-      min-height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      max-width: 100%;
-      width: 100%;
-    }
-    .ad-container iframe,
-    .ad-container img,
-    .ad-container ins {
-      max-width: 100% !important;
-      display: block;
-      margin: 0 auto;
-    }
-    @media (max-width: 1023px) {
-      .ad-container.ad-desktop-only { display: none !important; }
-    }
-    .ad-container.ad-mobile-ok { display: flex !important; }
-
-    /* Hero Section */
     .hero{
       background:var(--card-bg);
       border-radius:12px;
@@ -186,8 +160,6 @@
     @media (min-width: 768px) {
       .cta-btn { width: auto; }
     }
-
-    /* Cards */
     .card{
       background:var(--card-bg);
       border-radius:12px;
@@ -201,8 +173,87 @@
       color:var(--muted);
       line-height: 1.4;
     }
-
-    /* Analyzer Grid */
+    /* Content sections (from terms.html) */
+    .content-section { margin-bottom: 30px; }
+    .content-section h2 {
+      color: var(--blue-1);
+      margin: 25px 0 15px 0;
+      font-size: 1.3rem;
+    }
+    .content-section h3 {
+      color: var(--blue-1);
+      margin: 20px 0 10px 0;
+      font-size: 1.1rem;
+    }
+    .content-section p {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+    .content-section ul, .content-section ol {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+    .content-section li {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid var(--blue-1);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .ad-disclosure {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    /* Section headings */
+    .section-heading {
+      color: var(--blue-1);
+      margin: 0 0 15px 0;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #eef2f7;
+      padding-bottom: 8px;
+    }
+    @media (min-width: 768px) {
+      .section-heading { font-size: 1.5rem; }
+    }
+    .subsection-heading {
+      color: var(--blue-1);
+      margin: 0 0 12px 0;
+      font-size: 1.1rem;
+    }
+    @media (min-width: 768px) {
+      .subsection-heading { font-size: 1.2rem; }
+    }
+    /* Ad containers */
+    .ad-container {
+      text-align: center;
+      margin: 25px auto;
+      min-height: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      max-width: 100%;
+      width: 100%;
+    }
+    .ad-container iframe,
+    .ad-container img,
+    .ad-container ins {
+      max-width: 100% !important;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (max-width: 1023px) {
+      .ad-container.ad-desktop-only { display: none !important; }
+    }
+    .ad-container.ad-mobile-ok { display: flex !important; }
+    /* Analyzer-specific styles */
     .analyzer-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -329,67 +380,6 @@
       cursor: pointer;
       font-weight: 600;
     }
-
-    /* Section Headings */
-    .section-heading {
-      color: var(--blue-1);
-      margin: 0 0 15px 0;
-      font-size: 1.3rem;
-      border-bottom: 2px solid #eef2f7;
-      padding-bottom: 8px;
-    }
-    @media (min-width: 768px) {
-      .section-heading { font-size: 1.5rem; }
-    }
-    .subsection-heading {
-      color: var(--blue-1);
-      margin: 0 0 12px 0;
-      font-size: 1.1rem;
-    }
-    @media (min-width: 768px) {
-      .subsection-heading { font-size: 1.2rem; }
-    }
-
-    /* Content Sections (same as terms.html) */
-    .content-section { margin-bottom: 30px; }
-    .content-section h2 {
-      color: var(--blue-1);
-      margin: 25px 0 15px 0;
-      font-size: 1.3rem;
-    }
-    .content-section h3 {
-      color: var(--blue-1);
-      margin: 20px 0 10px 0;
-      font-size: 1.1rem;
-    }
-    .content-section p {
-      margin: 12px 0;
-      line-height: 1.6;
-    }
-    .content-section ul, .content-section ol {
-      margin: 15px 0;
-      padding-left: 25px;
-    }
-    .content-section li {
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-    .highlight-box {
-      background: #f8f9fa;
-      border-left: 4px solid var(--blue-1);
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
-    }
-    .ad-disclosure {
-      background: #fff3cd;
-      border-left: 4px solid #ffc107;
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
-    }
-
-    /* Feature Grid */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -406,7 +396,6 @@
       font-size: 2rem;
       margin-bottom: 10px;
     }
-
     /* Footer */
     footer{
       margin-top:40px;
@@ -443,8 +432,7 @@
       display: inline-block;
       line-height: 0;
     }
-
-    /* Cookie Consent Banner */
+    /* Cookie Banner */
     #cookie-banner {
       display: none;
       position: fixed;
@@ -495,7 +483,6 @@
     #cookie-banner button:hover { opacity: 0.9; }
     #cookie-accept { background: #fff; color: #003c99; }
     #cookie-reject { background: transparent; color: #fff; border: 1px solid #fff; }
-
     @media (prefers-reduced-motion: reduce){
       * {
         animation-duration:0.001ms !important;
@@ -540,7 +527,7 @@
       </div>
     </div>
 
-    <!-- AD SLOT 1: HighRevenueFormat (Standalone) - DESKTOP ONLY -->
+    <!-- AD SLOT 1 -->
     <div class="ad-container ad-desktop-only">
       <script src="https://www.highrevenueformat.com/6ebd274d4fb79fabc7ed19dac3266d22/invoke.js"></script>
     </div>
@@ -567,17 +554,11 @@
         <div>
           <h3 class="subsection-heading">Smart Number Generator</h3>
           <div class="analyzer-controls">
-            <button class="analyzer-btn" onclick="generatePatternBased()">
-              🎯 Pattern-Based
-            </button>
-            <button class="analyzer-btn" onclick="generateBalanced()">
-              ⚖️ Balanced Set
-            </button>
+            <button class="analyzer-btn" onclick="generatePatternBased()">🎯 Pattern-Based</button>
+            <button class="analyzer-btn" onclick="generateBalanced()">⚖️ Balanced Set</button>
           </div>
           
-          <div id="generatedNumbers" class="generated-numbers">
-            Click above to generate numbers
-          </div>
+          <div id="generatedNumbers" class="generated-numbers">Click above to generate numbers</div>
           
           <div class="stat-card">
             <h4 class="subsection-heading" style="margin-top: 0;">Generator Settings</h4>
@@ -596,12 +577,12 @@
 
           <div class="stat-card">
             <h4 class="subsection-heading" style="margin-top: 0;">Statistical Insights</h4>
-            <div id="statisticalInsights" style="font-size: 0.9rem; line-height: 1.5;">
+            <div class="content-section">
               <p>🔴 <strong>Hot Numbers</strong>: Frequently appearing numbers</p>
               <p>🟠 <strong>Warm Numbers</strong>: Above average frequency</p>
               <p>🔵 <strong>Cool Numbers</strong>: Below average frequency</p>
               <p>🔷 <strong>Cold Numbers</strong>: Rarely appearing numbers</p>
-              <div class="small" style="margin-top: 12px; padding: 10px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
+              <div class="ad-disclosure">
                 <strong>⚠️ Important:</strong> Lottery outcomes are completely random and cannot be predicted.
               </div>
             </div>
@@ -610,13 +591,13 @@
       </div>
     </div>
 
-    <!-- AD SLOT 2: Native Banner (Profitableratecpmnetwork) - MOBILE + DESKTOP -->
+    <!-- AD SLOT 2 -->
     <div class="ad-container ad-mobile-ok">
       <script async="async" data-cfasync="false" src="https://pl31425216.profitableratecpmnetwork.com/09292434d18674232df995b56104f28a/invoke.js"></script>
       <div id="container-09292434d18674232df995b56104f28a"></div>
     </div>
 
-    <!-- AD SLOT 3: HighRevenueFormat (with atOptions) - DESKTOP ONLY -->
+    <!-- AD SLOT 3 -->
     <div class="ad-container ad-desktop-only">
       <script>
         atOptions = {
@@ -630,6 +611,7 @@
       <script src="https://www.highrevenueformat.com/aecf4d45c0bf589531a03257b10b3eec/invoke.js"></script>
     </div>
 
+    <!-- FAQ Card -->
     <div class="card">
       <h2 class="section-heading">Frequently Asked Questions About Lottery Pattern Analysis</h2>
       
@@ -654,6 +636,7 @@
       </div>
     </div>
 
+    <!-- Tips Card -->
     <div class="card">
       <h2 class="section-heading">💡 Tips for Using the Pattern Analyzer</h2>
       
@@ -779,7 +762,6 @@
   <footer>
     <div class="muted">© <span id="year"></span> lotteryupdate000 — All rights reserved.</div>
     
-    <!-- Featured Badges -->
     <div class="badge-row">
       <a href="https://smolhunt.com/projects/lotteryupdate000?utm_source=badge" target="_blank" rel="noopener noreferrer">
         <img src="https://smolhunt.com/smolhunt/images/badges/featured-on-light.svg" alt="Featured on Smol Hunt" style="height:44px;width:auto"/>
@@ -791,10 +773,7 @@
         <img src="https://saashunt.best/images/badges/featured-on-dark.svg" alt="Featured on SaasHunt" style="height:44px;width:auto"/>
       </a>
       <a href="https://alternativeto.net/software/lotteryupdate000/about/?utm_source=badge&utm_medium=referral" target="_blank" rel="noopener noreferrer">
-        <img src="https://alternativeto.net/static/badges/badge-compact-light.svg"
-             alt="Lotteryupdate000 | AlternativeTo"
-             width="171" height="58"
-             style="width: 171px; height: 58px;" />
+        <img src="https://alternativeto.net/static/badges/badge-compact-light.svg" alt="Lotteryupdate000 | AlternativeTo" width="171" height="58" style="width: 171px; height: 58px;" />
       </a>
       <a href="https://www.producthunt.com/products/lotteryupdate000/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-lotteryupdate000" target="_blank" rel="noopener noreferrer">
         <img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1309118&theme=dark" alt="Lotteryupdate000 - Lottery Pattern Analyzer — Free Online Tool | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
@@ -821,26 +800,18 @@
   <script>
   (function() {
     const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      document.getElementById('cookie-banner').style.display = 'block';
-    }
+    if (!consent) { document.getElementById('cookie-banner').style.display = 'block'; }
   })();
-
   function acceptCookies() {
     localStorage.setItem('cookieConsent', 'accepted');
     document.getElementById('cookie-banner').style.display = 'none';
     if (typeof gtag === 'function') {
       gtag('consent', 'update', {
-        ad_personalization: 'granted',
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        analytics_storage: 'granted',
-        functionality_storage: 'granted',
-        personalization_storage: 'granted'
+        ad_personalization: 'granted', ad_storage: 'granted', ad_user_data: 'granted',
+        analytics_storage: 'granted', functionality_storage: 'granted', personalization_storage: 'granted'
       });
     }
   }
-
   function rejectCookies() {
     localStorage.setItem('cookieConsent', 'rejected');
     document.getElementById('cookie-banner').style.display = 'none';
@@ -854,9 +825,7 @@
       if (maxNum === 69) gameName = 'Powerball';
       else if (maxNum === 70) gameName = 'Mega Millions';
       else if (maxNum === 50) gameName = 'EuroMillions';
-      
-      document.getElementById('pageTitle').textContent = 
-          `${gameName} Pattern Analyzer - Free Online Tool`;
+      document.getElementById('pageTitle').textContent = `${gameName} Pattern Analyzer - Free Online Tool`;
   }
 
   const maxNumber = 69;
@@ -872,7 +841,6 @@
   function renderHeatmap() {
       const heatmap = document.getElementById('heatmap');
       heatmap.innerHTML = '';
-      
       const frequencies = Object.values(numberFrequencies);
       const maxFreq = Math.max(...frequencies);
       const minFreq = Math.min(...frequencies);
@@ -881,7 +849,6 @@
       for (let i = 1; i <= maxNumber; i++) {
           const freq = numberFrequencies[i];
           const normalized = (freq - minFreq) / range;
-          
           let heatClass = 'cold';
           if (normalized > 0.75) heatClass = 'hot';
           else if (normalized > 0.5) heatClass = 'warm';
@@ -912,12 +879,8 @@
           } else {
               num = Math.floor(Math.random() * maxNum) + 1;
           }
-          
-          if (!numbers.includes(num) && num <= maxNum) {
-              numbers.push(num);
-          }
+          if (!numbers.includes(num) && num <= maxNum) numbers.push(num);
       }
-      
       displayGeneratedNumbers(numbers.sort((a, b) => a - b));
       updateStatistics(numbers);
   }
@@ -926,14 +889,10 @@
       const count = parseInt(document.getElementById('numberCount').value);
       const maxNum = parseInt(document.getElementById('maxNumber').value);
       const numbers = [];
-      
       while (numbers.length < count) {
           const num = Math.floor(Math.random() * maxNum) + 1;
-          if (!numbers.includes(num)) {
-              numbers.push(num);
-          }
+          if (!numbers.includes(num)) numbers.push(num);
       }
-      
       const balancedNumbers = ensureBalance(numbers, maxNum);
       displayGeneratedNumbers(balancedNumbers.sort((a, b) => a - b));
       updateStatistics(balancedNumbers);
@@ -943,7 +902,6 @@
       const oddCount = numbers.filter(n => n % 2 === 1).length;
       const highLowSplit = maxNum / 2;
       const lowCount = numbers.filter(n => n <= highLowSplit).length;
-      
       if (oddCount === 0 || oddCount === numbers.length) {
           const replaceIndex = Math.floor(Math.random() * numbers.length);
           let newNum;
@@ -952,7 +910,6 @@
           } while (numbers.includes(newNum) || (newNum % 2 === 1) === (oddCount === 0));
           numbers[replaceIndex] = newNum;
       }
-      
       return numbers;
   }
   
@@ -960,14 +917,10 @@
       const count = parseInt(document.getElementById('numberCount').value);
       const maxNum = parseInt(document.getElementById('maxNumber').value);
       const numbers = [preferredNumber];
-      
       while (numbers.length < count) {
           const num = Math.floor(Math.random() * maxNum) + 1;
-          if (!numbers.includes(num)) {
-              numbers.push(num);
-          }
+          if (!numbers.includes(num)) numbers.push(num);
       }
-      
       displayGeneratedNumbers(numbers.sort((a, b) => a - b));
       updateStatistics(numbers);
   }
@@ -984,7 +937,6 @@
       const lowCount = numbers.filter(n => n <= highLowSplit).length;
       const highCount = numbers.length - lowCount;
       const sum = numbers.reduce((a, b) => a + b, 0);
-      
       document.getElementById('oddEvenRatio').textContent = `${oddCount}/${evenCount}`;
       document.getElementById('highLowRatio').textContent = `${lowCount}/${highCount}`;
       document.getElementById('sumRange').textContent = `${sum} (avg: ${(sum/numbers.length).toFixed(1)})`;
@@ -993,14 +945,10 @@
   function updatePreferences() {
       const newMax = parseInt(document.getElementById('maxNumber').value);
       for (let i = 1; i <= newMax; i++) {
-          if (!numberFrequencies[i]) {
-              numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
-          }
+          if (!numberFrequencies[i]) numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
       }
       Object.keys(numberFrequencies).forEach(num => {
-          if (parseInt(num) > newMax) {
-              delete numberFrequencies[num];
-          }
+          if (parseInt(num) > newMax) delete numberFrequencies[num];
       });
       renderHeatmap();
       generateBalanced();
@@ -1008,22 +956,18 @@
   }
 
   function scrollToAnalyzer() {
-    document.getElementById('analyzer').scrollIntoView({ 
-      behavior: 'smooth' 
-    });
+    document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
   }
   
   initializeFrequencies();
   generateBalanced();
   updatePageTitle();
-
   document.getElementById('maxNumber').addEventListener('change', updatePageTitle);
   document.getElementById('numberCount').addEventListener('change', updatePageTitle);
-
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- AD SLOT 4: Social Banner / Popunder - MOBILE + DESKTOP -->
+  <!-- AD SLOT 4 -->
   <script src="https://pl31425215.profitableratecpmnetwork.com/ef/74/7d/ef747d3843effd01ea6ac27d8806589d.js"></script>
 
   <script>
@@ -1034,11 +978,9 @@
     let h = canvas.height = innerHeight;
     const DPR = Math.max(1, window.devicePixelRatio || 1);
     canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
-
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const balls = [];
     const colors = ['#0f766e','#10b981','#34d399','#059669','#047857'];
-
     function rand(min,max){ return Math.random()*(max-min)+min; }
     function Ball(){
       this.r = rand(20,70);
@@ -1055,41 +997,34 @@
     }
     const count = Math.max(6, Math.round(Math.min(16, (w*h)/120000)));
     for(let i=0;i<count;i++) balls.push(new Ball());
-
     function draw(){
       ctx.clearRect(0,0,w,h);
       const g = ctx.createLinearGradient(0,0,w,h);
       g.addColorStop(0,'#071b10'); g.addColorStop(1,'#0b2a20');
       ctx.fillStyle = g; ctx.globalAlpha = 0.85; ctx.fillRect(0,0,w,h); ctx.globalAlpha = 1;
-
       const vg = ctx.createRadialGradient(w/2,h/2,Math.min(w,h)*0.2,w/2,h/2,Math.max(w,h));
       vg.addColorStop(0,'rgba(6,30,20,0)'); vg.addColorStop(1,'rgba(6,30,20,0.45)');
       ctx.fillStyle = vg; ctx.fillRect(0,0,w,h);
-
       balls.forEach(b=>{
         if(!reduce){ b.x += b.vx; b.y += b.vy; }
         if(b.x - b.r > w) b.x = -b.r;
         if(b.x + b.r < 0) b.x = w + b.r;
         if(b.y - b.r > h) b.y = -b.r;
         if(b.y + b.r < 0) b.y = h + b.r;
-
         ctx.beginPath();
         const shadowGrad = ctx.createRadialGradient(b.x + b.r*0.1, b.y + b.r*0.6, b.r*0.1, b.x, b.y + b.r*0.9, b.r*1.6);
         shadowGrad.addColorStop(0, rgba('#000',0.08)); shadowGrad.addColorStop(1, 'rgba(0,0,0,0)');
         ctx.fillStyle = shadowGrad;
         ctx.ellipse(b.x, b.y + b.r*0.8, b.r*0.95, b.r*0.55, 0, 0, Math.PI*2); ctx.fill();
-
         ctx.beginPath();
         const rg = ctx.createRadialGradient(b.x - b.r*0.3, b.y - b.r*0.5, b.r*0.1, b.x, b.y, b.r);
         rg.addColorStop(0, 'rgba(255,255,255,0.22)'); rg.addColorStop(0.18, b.color); rg.addColorStop(1, rgba(darken(b.color, -12),0.95));
         ctx.fillStyle = rg; ctx.arc(b.x, b.y, b.r, 0, Math.PI*2); ctx.fill();
-
         ctx.beginPath();
         ctx.fillStyle = 'rgba(255,255,255,0.18)';
         ctx.ellipse(b.x - b.r*0.28, b.y - b.r*0.45, b.r*0.45, b.r*0.3, -0.6, 0, Math.PI*2); ctx.fill();
       });
     }
-
     function darken(hex, amt){
       const num = parseInt(hex.replace('#',''),16);
       let r = (num>>16) + amt; r = Math.max(0,Math.min(255,r));
@@ -1097,16 +1032,13 @@
       let b = (num&0x0000FF) + amt; b = Math.max(0,Math.min(255,b));
       return '#'+( (1<<24) + (r<<16) + (g<<8) + b ).toString(16).slice(1);
     }
-
     let raf;
     function loop(){ draw(); raf = requestAnimationFrame(loop); }
     loop();
-
     window.addEventListener('resize', ()=> {
       w = canvas.width = innerWidth; h = canvas.height = innerHeight;
       canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w+'px'; canvas.style.height = h+'px'; ctx.scale(DPR,DPR);
     });
-
   })();
   </script>
 </body>
