@@ -28,7 +28,7 @@
   <!-- Bing Webmaster Verification -->
   <meta name="msvalidate.01" content="mKrsYZJaXszOMnQ9AmUBunpPzv2Ukpkw" />
 
-  <!-- Shortened Meta Description (150 chars) -->
+  <!-- Meta Description -->
   <meta name="description" content="Free lotto number generator with pattern analysis. Generate balanced sets for Powerball, Mega Millions & EuroMillions. Analyze hot and cold numbers.">
 
   <!-- Canonical Tag -->
@@ -47,17 +47,15 @@
       --muted: #666;
     }
     * { box-sizing: border-box; }
-
     html, body {
       overflow-x: hidden;
       max-width: 100vw;
     }
-
     body {
       background: #f8f9fa;
-      height:100%;
-      margin:0;
-      font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
     #bg-canvas{
       position:fixed;
@@ -127,7 +125,6 @@
       max-width: 100%;
       width: 100%;
     }
-
     .ad-container iframe,
     .ad-container img,
     .ad-container ins {
@@ -135,17 +132,12 @@
       display: block;
       margin: 0 auto;
     }
-
     @media (max-width: 1023px) {
-      .ad-container.ad-desktop-only {
-        display: none !important;
-      }
+      .ad-container.ad-desktop-only { display: none !important; }
     }
+    .ad-container.ad-mobile-ok { display: flex !important; }
 
-    .ad-container.ad-mobile-ok {
-      display: flex !important;
-    }
-
+    /* Hero Section */
     .hero{
       background:var(--card-bg);
       border-radius:12px;
@@ -194,6 +186,8 @@
     @media (min-width: 768px) {
       .cta-btn { width: auto; }
     }
+
+    /* Cards */
     .card{
       background:var(--card-bg);
       border-radius:12px;
@@ -207,6 +201,8 @@
       color:var(--muted);
       line-height: 1.4;
     }
+
+    /* Analyzer Grid */
     .analyzer-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -333,6 +329,8 @@
       cursor: pointer;
       font-weight: 600;
     }
+
+    /* Section Headings */
     .section-heading {
       color: var(--blue-1);
       margin: 0 0 15px 0;
@@ -351,6 +349,47 @@
     @media (min-width: 768px) {
       .subsection-heading { font-size: 1.2rem; }
     }
+
+    /* Content Sections (same as terms.html) */
+    .content-section { margin-bottom: 30px; }
+    .content-section h2 {
+      color: var(--blue-1);
+      margin: 25px 0 15px 0;
+      font-size: 1.3rem;
+    }
+    .content-section h3 {
+      color: var(--blue-1);
+      margin: 20px 0 10px 0;
+      font-size: 1.1rem;
+    }
+    .content-section p {
+      margin: 12px 0;
+      line-height: 1.6;
+    }
+    .content-section ul, .content-section ol {
+      margin: 15px 0;
+      padding-left: 25px;
+    }
+    .content-section li {
+      margin: 8px 0;
+      line-height: 1.5;
+    }
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid var(--blue-1);
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .ad-disclosure {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    /* Feature Grid */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -367,6 +406,8 @@
       font-size: 2rem;
       margin-bottom: 10px;
     }
+
+    /* Footer */
     footer{
       margin-top:40px;
       text-align:center;
@@ -402,7 +443,8 @@
       display: inline-block;
       line-height: 0;
     }
-    /* DIY Cookie Consent Banner */
+
+    /* Cookie Consent Banner */
     #cookie-banner {
       display: none;
       position: fixed;
@@ -451,15 +493,9 @@
       transition: opacity 0.2s;
     }
     #cookie-banner button:hover { opacity: 0.9; }
-    #cookie-accept {
-      background: #fff;
-      color: #003c99;
-    }
-    #cookie-reject {
-      background: transparent;
-      color: #fff;
-      border: 1px solid #fff;
-    }
+    #cookie-accept { background: #fff; color: #003c99; }
+    #cookie-reject { background: transparent; color: #fff; border: 1px solid #fff; }
+
     @media (prefers-reduced-motion: reduce){
       * {
         animation-duration:0.001ms !important;
@@ -597,36 +633,24 @@
     <div class="card">
       <h2 class="section-heading">Frequently Asked Questions About Lottery Pattern Analysis</h2>
       
-      <div style="display: grid; gap: 20px;">
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">How does the lottery pattern analyzer work?</h3>
-          <p>Our analyzer uses statistical frequency analysis to track how often each number appears in historical lottery draws. It then assigns a "hot" or "cold" status to each number based on its appearance frequency. The tool uses this data to generate number sets that follow observed patterns, though it's important to remember that lottery outcomes are entirely random and past results do not guarantee future outcomes.</p>
-        </div>
+      <div class="content-section">
+        <h3>How does the lottery pattern analyzer work?</h3>
+        <p>Our analyzer uses statistical frequency analysis to track how often each number appears in historical lottery draws. It then assigns a "hot" or "cold" status to each number based on its appearance frequency. The tool uses this data to generate number sets that follow observed patterns, though it's important to remember that lottery outcomes are entirely random and past results do not guarantee future outcomes.</p>
         
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">What's the difference between Pattern-Based and Balanced generation?</h3>
-          <p><strong>Pattern-Based generation</strong> weights number selection toward frequently appearing "hot" numbers, giving them a 70% chance of being selected. This is useful for testing frequency theories. <strong>Balanced generation</strong>, on the other hand, ensures an even distribution of odd/even and high/low numbers, preventing number clustering. This is the most commonly used strategy among lottery players who believe in spreading their picks across the entire number range.</p>
-        </div>
+        <h3>What's the difference between Pattern-Based and Balanced generation?</h3>
+        <p><strong>Pattern-Based generation</strong> weights number selection toward frequently appearing "hot" numbers, giving them a 70% chance of being selected. This is useful for testing frequency theories. <strong>Balanced generation</strong>, on the other hand, ensures an even distribution of odd/even and high/low numbers, preventing number clustering. This is the most commonly used strategy among lottery players who believe in spreading their picks across the entire number range.</p>
         
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">Can this tool predict winning lottery numbers?</h3>
-          <p>No, this tool cannot predict winning numbers. Lotteries are games of pure chance, and no algorithm or pattern analysis can guarantee a win. The tool is designed for entertainment and educational purposes only, helping you understand number distributions and test different selection strategies. Always play responsibly and within your budget.</p>
-        </div>
+        <h3>Can this tool predict winning lottery numbers?</h3>
+        <p>No, this tool cannot predict winning numbers. Lotteries are games of pure chance, and no algorithm or pattern analysis can guarantee a win. The tool is designed for entertainment and educational purposes only, helping you understand number distributions and test different selection strategies. Always play responsibly and within your budget.</p>
         
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">Which lottery games does this tool support?</h3>
-          <p>You can adapt the tool for any lottery game by adjusting the number range and count settings. Presets include Powerball (1-69, choose 5 numbers), Mega Millions (1-70, choose 5 numbers), and EuroMillions (1-50, choose 5 numbers). The tool also supports custom configurations for regional lotteries with different number ranges.</p>
-        </div>
+        <h3>Which lottery games does this tool support?</h3>
+        <p>You can adapt the tool for any lottery game by adjusting the number range and count settings. Presets include Powerball (1-69, choose 5 numbers), Mega Millions (1-70, choose 5 numbers), and EuroMillions (1-50, choose 5 numbers). The tool also supports custom configurations for regional lotteries with different number ranges.</p>
         
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">What do the different heatmap colors mean?</h3>
-          <p>The heatmap color-coding helps visualize number frequency at a glance. <strong>Red (Hot)</strong> numbers appear most frequently, <strong>Orange (Warm)</strong> numbers are above average, <strong>Teal (Cool)</strong> numbers are below average, and <strong>Blue (Cold)</strong> numbers appear least frequently. You can click any number to include it in your generated set, combining strategy with personal preferences like birthdays or lucky numbers.</p>
-        </div>
+        <h3>What do the different heatmap colors mean?</h3>
+        <p>The heatmap color-coding helps visualize number frequency at a glance. <strong>Red (Hot)</strong> numbers appear most frequently, <strong>Orange (Warm)</strong> numbers are above average, <strong>Teal (Cool)</strong> numbers are below average, and <strong>Blue (Cold)</strong> numbers appear least frequently. You can click any number to include it in your generated set, combining strategy with personal preferences like birthdays or lucky numbers.</p>
         
-        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
-          <h3 style="color: var(--blue-1);">What is the best strategy for choosing lottery numbers?</h3>
-          <p>There is no "best" strategy because lottery draws are completely random. However, many players prefer balanced sets that mix odd and even numbers, as well as high and low numbers. Others enjoy following pattern-based approaches that favor frequently appearing numbers. The most important advice is to play for fun, set a budget, and never spend more than you can afford to lose.</p>
-        </div>
+        <h3>What is the best strategy for choosing lottery numbers?</h3>
+        <p>There is no "best" strategy because lottery draws are completely random. However, many players prefer balanced sets that mix odd and even numbers, as well as high and low numbers. Others enjoy following pattern-based approaches that favor frequently appearing numbers. The most important advice is to play for fun, set a budget, and never spend more than you can afford to lose.</p>
       </div>
     </div>
 
@@ -685,7 +709,7 @@
 
       <div class="stat-card" style="margin-top: 20px;">
         <h4 class="subsection-heading" style="margin-top: 0;">🎲 Recommended Strategies</h4>
-        <div style="font-size: 0.9rem;">
+        <div class="content-section">
           <p><strong>For Powerball (5/69 + 1/26):</strong></p>
           <ul>
             <li>Set range to 69, count to 5 for main numbers</li>
@@ -711,7 +735,7 @@
 
       <div class="stat-card" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
         <h4 class="subsection-heading" style="margin-top: 0;">📊 Understanding the Heatmap</h4>
-        <div style="font-size: 0.9rem;">
+        <div class="content-section">
           <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
             <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
             <span><strong>Red (Hot):</strong> Most frequently appearing numbers</span>
@@ -733,7 +757,7 @@
 
       <div class="stat-card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
         <h4 class="subsection-heading" style="margin-top: 0;">🎯 Pro Tips</h4>
-        <div style="font-size: 0.9rem;">
+        <div class="content-section">
           <ul>
             <li><strong>Generate multiple sets</strong> and compare the statistics</li>
             <li><strong>Mix strategies</strong> - try both pattern-based and balanced</li>
@@ -755,7 +779,7 @@
   <footer>
     <div class="muted">© <span id="year"></span> lotteryupdate000 — All rights reserved.</div>
     
-    <!-- Featured Badges (centered) -->
+    <!-- Featured Badges -->
     <div class="badge-row">
       <a href="https://smolhunt.com/projects/lotteryupdate000?utm_source=badge" target="_blank" rel="noopener noreferrer">
         <img src="https://smolhunt.com/smolhunt/images/badges/featured-on-light.svg" alt="Featured on Smol Hunt" style="height:44px;width:auto"/>
