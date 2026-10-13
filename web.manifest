@@ -1,0 +1,20 @@
+{
+  "name": "Lottery Pattern Analyzer - LotteryUpdate000",
+  "short_name": "Lotto Analyzer",
+  "description": "Free lotto number generator with pattern analysis for Powerball, Mega Millions & EuroMillions.",
+  "start_url": "/Powerball-Mega-Millions-EuroMillions/",
+  "scope": "/Powerball-Mega-Millions-EuroMillions/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f8f9fa",
+  "theme_color": "#0066cc",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["utilities", "productivity", "entertainment"],
+  "icons": [
+    { "src": "favicon-96x96.png", "sizes": "96x96", "type": "image/png", "purpose": "any" },
+    { "src": "apple-touch-icon.png", "sizes": "180x180", "type": "image/png", "purpose": "any" },
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "prefer_related_applications": false
+}
