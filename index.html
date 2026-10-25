@@ -22,10 +22,7 @@
 
   <meta name="theme-color" content="#0066cc">
 
-  <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="MNFWB2xx2UeF19Ts2lChRzG6RV8GLkpxVTFHCSzA3yg" />
-
-  <!-- Bing Webmaster Verification -->
   <meta name="msvalidate.01" content="mKrsYZJaXszOMnQ9AmUBunpPzv2Ukpkw" />
 
   <meta name="description" content="Free lotto number generator with pattern analysis. Generate balanced sets for Powerball, Mega Millions & EuroMillions. Analyze hot and cold numbers.">
@@ -35,422 +32,89 @@
   <meta name="keywords" content="winning lotto numbers, winning numbers, lotto numbers, lotto numbers generator, lottery pattern analyzer, number generator, lottery statistics, number patterns, lottery analysis, smart number generator, balanced number sets, frequency analysis, lottery tips, Powerball numbers, Mega Millions, EuroMillions, lottery strategies, hot numbers, cold numbers, number frequency, lottery calculator, how to win the lottery, how to pick lottery numbers, best lottery numbers to play, lottery tips and tricks, most common lottery numbers">
 
   <style>
-    :root {
-      --blue-1: #0066cc;
-      --blue-2: #004d99;
-      --card-bg: #ffffff;
-      --muted: #666;
-    }
+    :root { --blue-1: #0066cc; --blue-2: #004d99; --card-bg: #ffffff; --muted: #666; }
     * { box-sizing: border-box; }
-    html, body {
-      overflow-x: hidden;
-      max-width: 100vw;
-    }
-    body {
-      background: #f8f9fa;
-      height: 100%;
-      margin: 0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    #bg-canvas{
-      position:fixed;
-      inset:0;
-      z-index:-1;
-      display:block;
-    }
-    header{
-      background: linear-gradient(90deg,var(--blue-1),var(--blue-2));
-      color:#fff;
-      padding:16px 12px;
-      text-align:center;
-    }
-    header .brand{
-      font-weight:700;
-      font-size:1.25rem;
-      letter-spacing:0.2px;
-    }
-    nav{
-      background:#003c99;
-      padding:8px 0;
-      box-shadow:0 1px 0 rgba(0,0,0,0.05);
-    }
-    .nav-list{
-      display:flex;
-      gap:20px;
-      justify-content:center;
-      align-items:center;
-      margin:0;
-      padding:0 15px;
-      list-style:none;
-      flex-wrap: wrap;
-    }
-    .nav-list a{
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      padding:8px 12px;
-      border-radius:6px;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-    .nav-list a.active{
-      background:rgba(255,255,255,0.08);
-      text-decoration:underline;
-    }
-    .nav-list a:focus{
-      outline:2px solid rgba(255,255,255,0.14);
-      outline-offset:4px;
-    }
-    .wrap{
-      max-width:1200px;
-      margin:20px auto;
-      padding:0 15px;
-      width: 100%;
-    }
-    .hero{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      display:flex;
-      flex-direction: column;
-      gap:20px;
-      align-items:center;
-      box-shadow:0 6px 24px rgba(6,30,60,0.08);
-      margin-bottom: 20px;
-    }
-    @media (min-width: 768px) {
-      .hero { flex-direction: row; align-items: flex-start; }
-    }
+    html, body { overflow-x: hidden; max-width: 100vw; }
+    body { background: #f8f9fa; height: 100%; margin: 0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+    #bg-canvas{ position:fixed; inset:0; z-index:-1; display:block; }
+    header{ background: linear-gradient(90deg,var(--blue-1),var(--blue-2)); color:#fff; padding:16px 12px; text-align:center; }
+    header .brand{ font-weight:700; font-size:1.25rem; letter-spacing:0.2px; }
+    nav{ background:#003c99; padding:8px 0; box-shadow:0 1px 0 rgba(0,0,0,0.05); }
+    .nav-list{ display:flex; gap:20px; justify-content:center; align-items:center; margin:0; padding:0 15px; list-style:none; flex-wrap: wrap; }
+    .nav-list a{ color:#fff; text-decoration:none; font-weight:600; padding:8px 12px; border-radius:6px; font-size: 0.9rem; white-space: nowrap; }
+    .nav-list a.active{ background:rgba(255,255,255,0.08); text-decoration:underline; }
+    .nav-list a:focus{ outline:2px solid rgba(255,255,255,0.14); outline-offset:4px; }
+    .wrap{ max-width:1200px; margin:20px auto; padding:0 15px; width: 100%; }
+    .hero{ background:var(--card-bg); border-radius:12px; padding:20px; display:flex; flex-direction: column; gap:20px; align-items:center; box-shadow:0 6px 24px rgba(6,30,60,0.08); margin-bottom: 20px; }
+    @media (min-width: 768px) { .hero { flex-direction: row; align-items: flex-start; } }
     .hero-left{ flex:1; width: 100%; }
-    .hero h1{
-      margin:0 0 10px 0;
-      font-size:1.5rem;
-      color:var(--blue-1);
-      line-height: 1.3;
-    }
-    @media (min-width: 768px) {
-      .hero h1 { font-size: 1.8rem; }
-    }
-    .hero p{
-      margin:8px 0;
-      color:var(--muted);
-      line-height: 1.5;
-    }
-    .card{
-      background:var(--card-bg);
-      border-radius:12px;
-      padding:20px;
-      box-shadow:0 6px 20px rgba(6,30,60,0.06);
-      margin-bottom: 20px;
-      width: 100%;
-    }
-    .small{
-      font-size:0.85rem;
-      color:var(--muted);
-      line-height: 1.4;
-    }
+    .hero h1{ margin:0 0 10px 0; font-size:1.5rem; color:var(--blue-1); line-height: 1.3; }
+    @media (min-width: 768px) { .hero h1 { font-size: 1.8rem; } }
+    .hero p{ margin:8px 0; color:var(--muted); line-height: 1.5; }
+    .card{ background:var(--card-bg); border-radius:12px; padding:20px; box-shadow:0 6px 20px rgba(6,30,60,0.06); margin-bottom: 20px; width: 100%; }
+    .small{ font-size:0.85rem; color:var(--muted); line-height: 1.4; }
     .content-section { margin-bottom: 30px; }
-    .content-section h2 {
-      color: var(--blue-1);
-      margin: 25px 0 15px 0;
-      font-size: 1.3rem;
-    }
-    .content-section h3 {
-      color: var(--blue-1);
-      margin: 20px 0 10px 0;
-      font-size: 1.1rem;
-    }
-    .content-section p {
-      margin: 12px 0;
-      line-height: 1.6;
-    }
-    .content-section ul, .content-section ol {
-      margin: 15px 0;
-      padding-left: 25px;
-    }
-    .content-section li {
-      margin: 8px 0;
-      line-height: 1.5;
-    }
-    .highlight-box {
-      background: #f8f9fa;
-      border-left: 4px solid var(--blue-1);
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
-    }
-    .ad-disclosure {
-      background: #fff3cd;
-      border-left: 4px solid #ffc107;
-      padding: 15px;
-      margin: 20px 0;
-      border-radius: 0 8px 8px 0;
-    }
-    .section-heading {
-      color: var(--blue-1);
-      margin: 0 0 15px 0;
-      font-size: 1.3rem;
-      border-bottom: 2px solid #eef2f7;
-      padding-bottom: 8px;
-    }
-    @media (min-width: 768px) {
-      .section-heading { font-size: 1.5rem; }
-    }
-    .subsection-heading {
-      color: var(--blue-1);
-      margin: 0 0 12px 0;
-      font-size: 1.1rem;
-    }
-    @media (min-width: 768px) {
-      .subsection-heading { font-size: 1.2rem; }
-    }
-    .ad-container {
-      text-align: center;
-      margin: 25px auto;
-      min-height: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      max-width: 100%;
-      width: 100%;
-    }
-    .ad-container iframe,
-    .ad-container img,
-    .ad-container ins {
-      max-width: 100% !important;
-      display: block;
-      margin: 0 auto;
-    }
-    @media (max-width: 1023px) {
-      .ad-container.ad-desktop-only { display: none !important; }
-    }
+    .content-section h2 { color: var(--blue-1); margin: 25px 0 15px 0; font-size: 1.3rem; }
+    .content-section h3 { color: var(--blue-1); margin: 20px 0 10px 0; font-size: 1.1rem; }
+    .content-section p { margin: 12px 0; line-height: 1.6; }
+    .content-section ul, .content-section ol { margin: 15px 0; padding-left: 25px; }
+    .content-section li { margin: 8px 0; line-height: 1.5; }
+    .highlight-box { background: #f8f9fa; border-left: 4px solid var(--blue-1); padding: 15px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+    .ad-disclosure { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 0 8px 8px 0; }
+    .section-heading { color: var(--blue-1); margin: 0 0 15px 0; font-size: 1.3rem; border-bottom: 2px solid #eef2f7; padding-bottom: 8px; }
+    @media (min-width: 768px) { .section-heading { font-size: 1.5rem; } }
+    .subsection-heading { color: var(--blue-1); margin: 0 0 12px 0; font-size: 1.1rem; }
+    @media (min-width: 768px) { .subsection-heading { font-size: 1.2rem; } }
+    .ad-container { text-align: center; margin: 25px auto; min-height: 100px; display: flex; justify-content: center; align-items: center; overflow: hidden; max-width: 100%; width: 100%; }
+    .ad-container iframe, .ad-container img, .ad-container ins { max-width: 100% !important; display: block; margin: 0 auto; }
+    @media (max-width: 1023px) { .ad-container.ad-desktop-only { display: none !important; } }
     .ad-container.ad-mobile-ok { display: flex !important; }
-    .analyzer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 25px;
-      margin: 20px 0;
-    }
-    @media (min-width: 992px) {
-      .analyzer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
-    }
-    .number-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 6px;
-      margin: 15px 0;
-      justify-content: center;
-    }
-    @media (min-width: 480px) {
-      .number-grid { grid-template-columns: repeat(8, 1fr); gap: 6px; }
-    }
-    @media (min-width: 768px) {
-      .number-grid { grid-template-columns: repeat(10, 1fr); gap: 5px; }
-    }
-    .number-cell {
-      width: 100%;
-      aspect-ratio: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #ddd;
-      border-radius: 50%;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 14px;
-      max-width: 45px;
-      margin: 0 auto;
-    }
-    @media (min-width: 480px) {
-      .number-cell { max-width: 40px; font-size: 13px; }
-    }
+    .analyzer-grid { display: grid; grid-template-columns: 1fr; gap: 25px; margin: 20px 0; }
+    @media (min-width: 992px) { .analyzer-grid { grid-template-columns: 1fr 1fr; gap: 30px; } }
+    .number-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 15px 0; justify-content: center; }
+    @media (min-width: 480px) { .number-grid { grid-template-columns: repeat(8, 1fr); gap: 6px; } }
+    @media (min-width: 768px) { .number-grid { grid-template-columns: repeat(10, 1fr); gap: 5px; } }
+    .number-cell { width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; border: 2px solid #ddd; border-radius: 50%; font-weight: bold; cursor: pointer; transition: all 0.3s; font-size: 14px; max-width: 45px; margin: 0 auto; }
+    @media (min-width: 480px) { .number-cell { max-width: 40px; font-size: 13px; } }
     .number-cell:hover { transform: scale(1.1); }
     .hot { background: #ff6b6b; color: white; }
     .warm { background: #ffa500; color: white; }
     .cool { background: #4ecdc4; color: white; }
     .cold { background: #45b7d1; color: white; }
-    .stat-card {
-      background: white;
-      padding: 18px;
-      margin: 15px 0;
-      border-radius: 10px;
-      border-left: 4px solid var(--blue-1);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .analyzer-controls {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 20px 0;
-      justify-content: center;
-    }
-    @media (min-width: 480px) {
-      .analyzer-controls { justify-content: flex-start; }
-    }
-    .analyzer-btn {
-      padding: 12px 18px;
-      background: var(--blue-1);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-weight: 600;
-      flex: 1;
-      min-width: 140px;
-    }
-    @media (min-width: 480px) {
-      .analyzer-btn { flex: none; }
-    }
-    .analyzer-btn:hover {
-      background: var(--blue-2);
-      transform: translateY(-1px);
-    }
-    .generated-numbers {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: var(--blue-1);
-      margin: 20px 0;
-      padding: 15px;
-      background: #f8f9fa;
-      border-radius: 8px;
-      text-align: center;
-      border: 2px dashed #dee2e6;
-    }
-    @media (min-width: 768px) {
-      .generated-numbers { font-size: 1.3rem; }
-    }
-    .settings-controls {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin: 15px 0;
-    }
-    @media (min-width: 480px) {
-      .settings-controls { flex-direction: row; align-items: center; flex-wrap: wrap; }
-    }
-    .settings-controls label {
-      font-weight: 600;
-      color: var(--blue-1);
-      white-space: nowrap;
-    }
-    .settings-controls input {
-      padding: 8px 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      width: 70px;
-      text-align: center;
-    }
-    .settings-controls button {
-      padding: 8px 16px;
-      background: var(--blue-1);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-    footer{
-      margin-top:40px;
-      text-align:center;
-      color:#fff;
-      padding:25px 18px;
-      background:linear-gradient(90deg,var(--blue-1),var(--blue-2));
-    }
-    footer .muted{
-      color:rgba(255,255,255,0.85);
-      font-size:0.95rem;
-      margin-bottom: 8px;
-    }
-    .contact-email {
-      color: rgba(255,255,255,0.9);
-      font-size: 0.9rem;
-      margin: 10px 0;
-    }
-    .contact-email a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-    }
+    .stat-card { background: white; padding: 18px; margin: 15px 0; border-radius: 10px; border-left: 4px solid var(--blue-1); box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .analyzer-controls { display: flex; gap: 10px; flex-wrap: wrap; margin: 20px 0; justify-content: center; }
+    @media (min-width: 480px) { .analyzer-controls { justify-content: flex-start; } }
+    .analyzer-btn { padding: 12px 18px; background: var(--blue-1); color: white; border: none; border-radius: 6px; cursor: pointer; transition: background 0.3s; font-weight: 600; flex: 1; min-width: 140px; }
+    @media (min-width: 480px) { .analyzer-btn { flex: none; } }
+    .analyzer-btn:hover { background: var(--blue-2); transform: translateY(-1px); }
+    .generated-numbers { font-size: 1.1rem; font-weight: bold; color: var(--blue-1); margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center; border: 2px dashed #dee2e6; }
+    @media (min-width: 768px) { .generated-numbers { font-size: 1.3rem; } }
+    .settings-controls { display: flex; flex-direction: column; gap: 12px; margin: 15px 0; }
+    @media (min-width: 480px) { .settings-controls { flex-direction: row; align-items: center; flex-wrap: wrap; } }
+    .settings-controls label { font-weight: 600; color: var(--blue-1); white-space: nowrap; }
+    .settings-controls input { padding: 8px 10px; border: 1px solid #ddd; border-radius: 5px; width: 70px; text-align: center; }
+    .settings-controls button { padding: 8px 16px; background: var(--blue-1); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: 600; }
+    footer{ margin-top:40px; text-align:center; color:#fff; padding:25px 18px; background:linear-gradient(90deg,var(--blue-1),var(--blue-2)); }
+    footer .muted{ color:rgba(255,255,255,0.85); font-size:0.95rem; margin-bottom: 8px; }
+    .contact-email { color: rgba(255,255,255,0.9); font-size: 0.9rem; margin: 10px 0; }
+    .contact-email a { color: #fff; text-decoration: none; font-weight: 600; }
     .contact-email a:hover { text-decoration: underline; }
-    .badge-row {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin: 15px 0;
-    }
-    .badge-row a {
-      display: inline-block;
-      line-height: 0;
-    }
-    #cookie-banner {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #003c99;
-      color: #fff;
-      padding: 15px 20px;
-      z-index: 9999;
-      box-shadow: 0 -4px 12px rgba(0,0,0,0.2);
-      font-family: inherit;
-    }
-    #cookie-banner .cookie-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    #cookie-banner p {
-      margin: 0;
-      font-size: 0.9rem;
-      line-height: 1.4;
-      flex: 1;
-      min-width: 240px;
-    }
-    #cookie-banner a {
-      color: #fff;
-      text-decoration: underline;
-    }
-    #cookie-banner .cookie-buttons {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    #cookie-banner button {
-      padding: 10px 22px;
-      border-radius: 5px;
-      font-weight: 600;
-      cursor: pointer;
-      font-size: 0.9rem;
-      border: none;
-      transition: opacity 0.2s;
-    }
+    .badge-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 15px; margin: 15px 0; }
+    .badge-row a { display: inline-block; line-height: 0; }
+    #cookie-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: #003c99; color: #fff; padding: 15px 20px; z-index: 9999; box-shadow: 0 -4px 12px rgba(0,0,0,0.2); font-family: inherit; }
+    #cookie-banner .cookie-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+    #cookie-banner p { margin: 0; font-size: 0.9rem; line-height: 1.4; flex: 1; min-width: 240px; }
+    #cookie-banner a { color: #fff; text-decoration: underline; }
+    #cookie-banner .cookie-buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+    #cookie-banner button { padding: 10px 22px; border-radius: 5px; font-weight: 600; cursor: pointer; font-size: 0.9rem; border: none; transition: opacity 0.2s; }
     #cookie-banner button:hover { opacity: 0.9; }
     #cookie-accept { background: #fff; color: #003c99; }
     #cookie-reject { background: transparent; color: #fff; border: 1px solid #fff; }
-    @media (prefers-reduced-motion: reduce){
-      * {
-        animation-duration:0.001ms !important;
-        transition-duration:0.001ms !important;
-      }
-      .number-cell:hover { transform: none; }
-      .analyzer-btn:hover { transform: none; }
-    }
+    @media (prefers-reduced-motion: reduce){ * { animation-duration:0.001ms !important; transition-duration:0.001ms !important; } .number-cell:hover { transform: none; } .analyzer-btn:hover { transform: none; } }
   </style>
 </head>
 <body>
-  <!-- Anti-Adblock Script -->
   <script src="https://rufflefireballcherries.com/c9/b0/69/c9b069d0f8804a6dc9fbd74b0bdd60d3.js"></script>
-
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
   <header>
@@ -475,7 +139,6 @@
       </div>
     </div>
 
-    <!-- AD SLOT 1: HighRevenueFormat (Standalone) - DESKTOP ONLY -->
     <div class="ad-container ad-desktop-only">
       <script src="https://www.highrevenueformat.com/6ebd274d4fb79fabc7ed19dac3266d22/invoke.js"></script>
     </div>
@@ -539,13 +202,11 @@
       </div>
     </div>
 
-    <!-- AD SLOT 2: Native Banner - MOBILE + DESKTOP -->
     <div class="ad-container ad-mobile-ok">
       <script async="async" data-cfasync="false" src="https://pl31425216.profitableratecpmnetwork.com/09292434d18674232df995b56104f28a/invoke.js"></script>
       <div id="container-09292434d18674232df995b56104f28a"></div>
     </div>
 
-    <!-- AD SLOT 3: HighRevenueFormat (with atOptions) - DESKTOP ONLY -->
     <div class="ad-container ad-desktop-only">
       <script>
         atOptions = {
@@ -559,7 +220,6 @@
       <script src="https://www.highrevenueformat.com/aecf4d45c0bf589531a03257b10b3eec/invoke.js"></script>
     </div>
 
-    <!-- FAQ Card -->
     <div class="card">
       <h2 class="section-heading">Frequently Asked Questions About Lottery Pattern Analysis</h2>
       
@@ -584,112 +244,148 @@
       </div>
     </div>
 
-    <!-- Tips Card -->
     <div class="card">
-      <h2 class="section-heading">💡 Tips for Using the Pattern Analyzer</h2>
+      <h2 class="section-heading">💡 Complete Tips for Using the Pattern Analyzer</h2>
       
       <div class="content-section">
-        <h3>Pattern-Based Generation</h3>
-        <p><strong>Best for:</strong> Following historical number trends</p>
-        <ul>
-          <li>Uses frequency data to weight number selection</li>
-          <li>70% chance to pick "hot" numbers</li>
-          <li>30% chance for random selection</li>
-          <li>Good for testing frequency theories</li>
-        </ul>
-        
-        <h3>Balanced Set Generation</h3>
-        <p><strong>Best for:</strong> Well-distributed number combinations</p>
-        <ul>
-          <li>Ensures mix of odd and even numbers</li>
-          <li>Balances high and low numbers</li>
-          <li>Prevents number clustering</li>
-          <li>Most common strategy used</li>
-        </ul>
-        
-        <h3>Click to Include Numbers</h3>
-        <p><strong>Personal preference:</strong> Include your lucky numbers</p>
-        <ul>
-          <li>Click any number in the heatmap</li>
-          <li>Tool generates sets including your choice</li>
-          <li>Combine strategy with personal picks</li>
-          <li>Great for birthdays or lucky numbers</li>
-        </ul>
-        
-        <h3>Customize Settings</h3>
-        <p><strong>Flexibility:</strong> Adapt to different lottery games</p>
-        <ul>
-          <li>Adjust number range (1-69, 1-49, etc.)</li>
-          <li>Change how many numbers to generate</li>
-          <li>Works for Powerball, Mega Millions, etc.</li>
-          <li>Update settings for each game type</li>
-        </ul>
-      </div>
-
-      <div class="stat-card" style="margin-top: 20px;">
-        <h4 class="subsection-heading" style="margin-top: 0;">🎲 Recommended Strategies</h4>
-        <div class="content-section">
-          <p><strong>For Powerball (5/69 + 1/26):</strong></p>
-          <ul>
-            <li>Set range to 69, count to 5 for main numbers</li>
-            <li>Use balanced sets for better distribution</li>
-            <li>Consider including 1-2 "hot" numbers</li>
-          </ul>
-          
-          <p><strong>For Mega Millions (5/70 + 1/25):</strong></p>
-          <ul>
-            <li>Set range to 70, count to 5 for main numbers</li>
-            <li>Pattern-based can highlight frequent numbers</li>
-            <li>Balance ensures good number spread</li>
-          </ul>
-          
-          <p><strong>For EuroMillions (5/50 + 2/12):</strong></p>
-          <ul>
-            <li>Set range to 50, count to 5 for main numbers</li>
-            <li>Use click feature for preferred numbers</li>
-            <li>Balanced sets work well for main numbers</li>
-          </ul>
+        <p>Getting the most out of a lottery pattern analyzer requires understanding what the tool does, how the numbers behave, and how to combine strategies effectively. Below is a complete guide covering everything from basic usage to advanced techniques.</p>
+        <div class="ad-disclosure">
+          <strong>⚠️ Reminder:</strong> No strategy can predict lottery results. All lottery draws are independent random events. Use these tips for entertainment and educational purposes only.
         </div>
       </div>
 
-      <div class="stat-card" style="background: #e3f2fd; border-left: 4px solid #2196f3;">
-        <h4 class="subsection-heading" style="margin-top: 0;">📊 Understanding the Heatmap</h4>
-        <div class="content-section">
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ff6b6b;"></div>
-            <span><strong>Red (Hot):</strong> Most frequently appearing numbers</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #ffa500;"></div>
-            <span><strong>Orange (Warm):</strong> Above average frequency</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #4ecdc4;"></div>
-            <span><strong>Teal (Cool):</strong> Below average frequency</span>
-          </div>
-          <div style="display: flex; align-items: center; gap: 10px; margin: 5px 0;">
-            <div style="width: 20px; height: 20px; border-radius: 50%; background: #45b7d1;"></div>
-            <span><strong>Blue (Cold):</strong> Least frequently appearing numbers</span>
-          </div>
+      <div class="content-section">
+        <h2>1. Getting Started — First-Time User Tips</h2>
+        <h3>Start With the Default Settings</h3>
+        <p>When you first open the tool, it loads with a default range of 1 to 69 and a count of 6 numbers — the standard Powerball configuration. Generate a few sets with these defaults to see how the tool behaves before customizing anything.</p>
+        <h3>Explore the Heatmap First</h3>
+        <p>Before generating numbers, take a moment to look at the heatmap. Red circles indicate "hot" numbers that appear frequently. Blue circles indicate "cold" numbers that rarely appear. Understanding the distribution helps you make informed decisions when you customize settings.</p>
+        <h3>Click a Number to Include It</h3>
+        <p>You can click any number in the heatmap to force it into your generated set. This is useful when you have personal favorites — like birthdays, anniversaries, or lucky numbers — and want the tool to build a balanced set around them.</p>
+        <h3>Choose Your Generation Strategy</h3>
+        <p>Two buttons are available: <strong>Pattern-Based</strong> and <strong>Balanced Set</strong>. Pattern-Based favors hot numbers (70% chance). Balanced Set ensures even distribution across odd/even and high/low. Try both before deciding which fits your style.</p>
+        <h3>Read the Statistics Panel</h3>
+        <p>After each generation, the stats card shows the odd/even ratio, high/low ratio, and sum range. These metrics help you evaluate whether a set is well-distributed or skewed toward one side.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>2. Understanding the Two Generation Modes</h2>
+        <h3>Pattern-Based Generation — When to Use It</h3>
+        <p>Pattern-Based generation weights selection toward numbers that appear most frequently in the heatmap. It gives hot numbers a 70% chance of being picked and reserves a 30% chance for random selection. Choose this mode if:</p>
+        <ul>
+          <li>You want to test frequency-based theories</li>
+          <li>You believe some numbers appear more often historically</li>
+          <li>You want variety with a bias toward "active" numbers</li>
+          <li>You're comparing hot vs. cold strategies</li>
+        </ul>
+        <h3>Balanced Set Generation — When to Use It</h3>
+        <p>Balanced generation ensures an even distribution across odd/even and high/low. Choose this mode if:</p>
+        <ul>
+          <li>You want a well-spread set across the entire number range</li>
+          <li>You want to avoid all-even or all-low number sets</li>
+          <li>You're building multiple sets and want variety</li>
+          <li>You want the "textbook" statistically spread option</li>
+        </ul>
+        <h3>Combining Both Modes</h3>
+        <p>For best results, generate 5 sets with Pattern-Based and 5 sets with Balanced. Compare the statistics side by side. Many players prefer to mix both approaches rather than relying on a single strategy.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>3. Understanding the Heatmap Colors</h2>
+        <h3>🔴 Red — Hot Numbers</h3>
+        <p>Red circles represent numbers that appear most frequently in historical draws. Some players prefer to include at least 1-2 hot numbers in every set.</p>
+        <h3>🟠 Orange — Warm Numbers</h3>
+        <p>Orange circles represent numbers with above-average frequency. They appear more often than average but less often than hot numbers.</p>
+        <h3>🔵 Teal — Cool Numbers</h3>
+        <p>Teal circles represent numbers with below-average frequency. Some players use cool numbers to balance out a set that's heavy on hot numbers.</p>
+        <h3>🔷 Blue — Cold Numbers</h3>
+        <p>Blue circles represent the least frequently appearing numbers. Some players believe cold numbers are "due" to appear, though statistically this is not true — each draw is independent.</p>
+        <div class="highlight-box">
+          <strong>Remember:</strong> The heatmap is based on past draws. Past performance does not predict future results. Each draw is independent and every number has an equal chance of being drawn.
         </div>
       </div>
 
-      <div class="stat-card" style="background: #fff3cd; border-left: 4px solid #ffc107;">
-        <h4 class="subsection-heading" style="margin-top: 0;">🎯 Pro Tips</h4>
-        <div class="content-section">
-          <ul>
-            <li><strong>Generate multiple sets</strong> and compare the statistics</li>
-            <li><strong>Mix strategies</strong> - try both pattern-based and balanced</li>
-            <li><strong>Use the analysis</strong> to understand number distribution</li>
-            <li><strong>Remember:</strong> All lotteries are random</li>
-          </ul>
-        </div>
+      <div class="content-section">
+        <h2>4. Advanced Strategy Tips</h2>
+        <h3>Generate Multiple Sets and Compare</h3>
+        <p>Don't rely on a single generated set. Generate 5-10 sets and compare them. Look for patterns in how the tool distributes numbers.</p>
+        <h3>Use the Sum Range as a Filter</h3>
+        <p>Statistical analysis shows most winning sets have a sum near the middle of the possible range. If your generated set has a sum that's very low or very high, consider regenerating.</p>
+        <h3>Avoid Consecutive Number Clusters</h3>
+        <p>Sets with 3 or more consecutive numbers (like 12, 13, 14) are rare in winning draws. The Balanced Set mode prevents this clustering automatically.</p>
+        <h3>Spread Across the Full Range</h3>
+        <p>Numbers in a well-balanced set should span the entire range. Avoid sets where all numbers are between 1 and 30 or between 40 and 69.</p>
+        <h3>Combine Hot and Cold Strategically</h3>
+        <p>A common advanced approach is to include 2-3 hot numbers plus 2-3 random numbers from anywhere in the range.</p>
       </div>
 
-      <div style="text-align: center; margin-top: 20px;">
-        <button class="analyzer-btn" onclick="scrollToAnalyzer()" style="padding: 12px 30px; font-size: 1.1rem;">
-          🚀 Start Using the Tool
-        </button>
+      <div class="content-section">
+        <h2>5. Game-Specific Recommended Settings</h2>
+        <h3>🎲 Powerball (USA)</h3>
+        <p><strong>Main numbers:</strong> 5 numbers from 1-69</p>
+        <p><strong>Powerball number:</strong> 1 number from 1-26</p>
+        <ul>
+          <li>Set the range to 69 and count to 5 for main numbers</li>
+          <li>Use Balanced Set generation for well-distributed picks</li>
+          <li>Consider 1-2 "hot" numbers from the heatmap</li>
+          <li>Jackpot odds: 1 in 292,201,338</li>
+        </ul>
+        <h3>🎲 Mega Millions (USA)</h3>
+        <p><strong>Main numbers:</strong> 5 numbers from 1-70</p>
+        <p><strong>Mega Ball:</strong> 1 number from 1-25</p>
+        <ul>
+          <li>Set the range to 70 and count to 5 for main numbers</li>
+          <li>Pattern-based can highlight frequency trends</li>
+          <li>Jackpot odds: 1 in 302,575,350</li>
+        </ul>
+        <h3>🎲 EuroMillions (Europe)</h3>
+        <p><strong>Main numbers:</strong> 5 numbers from 1-50</p>
+        <p><strong>Lucky Stars:</strong> 2 numbers from 1-12</p>
+        <ul>
+          <li>Set the range to 50 and count to 5 for main numbers</li>
+          <li>Use the click feature to include preferred numbers</li>
+          <li>Jackpot odds: 1 in 139,838,160</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>6. Common Mistakes to Avoid</h2>
+        <h3>Mistake 1: Trusting a Single Generation</h3>
+        <p>Never rely on just one generated set. Always generate multiple sets and pick from the best options.</p>
+        <h3>Mistake 2: Over-Customizing Settings</h3>
+        <p>Changing too many settings at once makes it hard to understand what's working. Change one setting at a time.</p>
+        <h3>Mistake 3: Believing "Due" Numbers Exist</h3>
+        <p>There is no such thing as a number being "due" to appear. Each lottery draw is a completely independent random event.</p>
+        <h3>Mistake 4: Overspending on Lottery Tickets</h3>
+        <p>No strategy increases the odds of winning the jackpot. Set a strict budget and never spend money you can't afford to lose.</p>
+        <h3>Mistake 5: Using the Tool to Gamble Compulsively</h3>
+        <p>If you find yourself spending significant time or money on the lottery, take a step back. The tool is for entertainment, not a gambling aid.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>7. Mobile Tips</h2>
+        <h3>Works on All Devices</h3>
+        <p>The tool is fully responsive. On a phone, the number grid adjusts to 6 columns. On a tablet, it uses 8 columns. On desktop, it uses 10 columns.</p>
+        <h3>Tap Numbers to Include Them</h3>
+        <p>On mobile, simply tap any number in the heatmap to include it in your generated set.</p>
+        <h3>Landscape Mode for Wider View</h3>
+        <p>Rotating your phone to landscape gives you more horizontal space for the number grid and stats panel.</p>
+      </div>
+
+      <div class="content-section">
+        <h2>8. Frequently Missed Features</h2>
+        <h3>Dynamic Page Title</h3>
+        <p>As you change the range setting, the browser tab title updates automatically. This helps you identify which game configuration you're using.</p>
+        <h3>Clickable Heatmap Numbers</h3>
+        <p>Every number circle in the heatmap is clickable — not just decorative. Clicking generates a new set with that number included.</p>
+        <h3>Persistent Settings</h3>
+        <p>Within a single session, your range and count settings persist across multiple generations.</p>
+        <h3>Instant Regeneration</h3>
+        <p>You can regenerate a new set as many times as you want by clicking the buttons repeatedly. There's no daily limit.</p>
+      </div>
+
+      <div class="highlight-box">
+        <strong>Final Reminder:</strong> This tool is provided for entertainment and educational purposes only. No strategy, algorithm, or analysis can predict lottery outcomes. Play responsibly, set a budget, and never spend money you can't afford to lose.
       </div>
     </div>
 
@@ -708,9 +404,6 @@
       <a href="https://saashunt.best/projects/lottery-pattern-analyzer?utm_source=badge" target="_blank" rel="noopener noreferrer">
         <img src="https://saashunt.best/images/badges/featured-on-dark.svg" alt="Featured on SaasHunt" style="height:44px;width:auto"/>
       </a>
-      <a href="https://alternativeto.net/software/lotteryupdate000/about/?utm_source=badge&utm_medium=referral" target="_blank" rel="noopener noreferrer">
-        <img src="https://alternativeto.net/static/badges/badge-compact-light.svg" alt="Lotteryupdate000 | AlternativeTo" width="171" height="58" style="width: 171px; height: 58px;" />
-      </a>
       <a href="https://www.producthunt.com/products/lotteryupdate000/reviews/new?utm_source=badge-product_review&utm_medium=badge&utm_source=badge-lotteryupdate000" target="_blank" rel="noopener noreferrer">
         <img src="https://api.producthunt.com/widgets/embed-image/v1/product_review.svg?product_id=1309118&theme=dark" alt="Lotteryupdate000 - Lottery Pattern Analyzer — Free Online Tool | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" />
       </a>
@@ -722,7 +415,6 @@
     </div>
   </footer>
 
-  <!-- DIY Cookie Consent Banner -->
   <div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
     <div class="cookie-content">
       <p>🍪 We use cookies to improve your experience and to display relevant ads. By clicking "Accept", you consent to our use of cookies. Read our <a href="privacy.html">Privacy Policy</a>.</p>
@@ -903,7 +595,6 @@
   document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
-  <!-- AD SLOT 4: Social Banner / Popunder -->
   <script src="https://pl31425215.profitableratecpmnetwork.com/ef/74/7d/ef747d3843effd01ea6ac27d8806589d.js"></script>
 
   <script>
