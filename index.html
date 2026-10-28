@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MLBWGH8Y4T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -13,7 +12,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png?v=20261006" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=20261006" />
   <link rel="shortcut icon" href="favicon.ico?v=20261006" />
@@ -21,13 +19,22 @@
   <link rel="manifest" href="site.webmanifest?v=20261006" />
 
   <meta name="theme-color" content="#0066cc">
-
   <meta name="google-site-verification" content="MNFWB2xx2UeF19Ts2lChRzG6RV8GLkpxVTFHCSzA3yg" />
   <meta name="msvalidate.01" content="mKrsYZJaXszOMnQ9AmUBunpPzv2Ukpkw" />
 
   <meta name="description" content="Free lotto number generator with pattern analysis. Generate balanced sets for Powerball, Mega Millions & EuroMillions. Analyze hot and cold numbers.">
   <link rel="canonical" href="https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/index.html" />
   <title id="pageTitle">Lottery Pattern Analyzer - Free Online Tool</title>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LotteryUpdate000">
+  <meta property="og:title" content="Lottery Pattern Analyzer - Free Online Tool">
+  <meta property="og:description" content="Free lotto number generator with pattern analysis. Generate balanced sets for Powerball, Mega Millions & EuroMillions.">
+  <meta property="og:url" content="https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/index.html">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Lottery Pattern Analyzer - Free Online Tool">
+  <meta name="twitter:description" content="Free lotto number generator with pattern analysis for Powerball, Mega Millions & EuroMillions.">
 
   <meta name="keywords" content="winning lotto numbers, winning numbers, lotto numbers, lotto numbers generator, lottery pattern analyzer, number generator, lottery statistics, number patterns, lottery analysis, smart number generator, balanced number sets, frequency analysis, lottery tips, Powerball numbers, Mega Millions, EuroMillions, lottery strategies, hot numbers, cold numbers, number frequency, lottery calculator, how to win the lottery, how to pick lottery numbers, best lottery numbers to play, lottery tips and tricks, most common lottery numbers">
 
@@ -409,6 +416,10 @@
       </a>
     </div>
     
+    <div style="margin-top: 12px;">
+      <a href="https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;">🏠 Home</a>
+    </div>
+    
     <div class="contact-email">
       <strong>Contact Us:</strong> 
       <a href="mailto:cryptodr987@gmail.com">cryptodr987@gmail.com</a>
@@ -434,10 +445,7 @@
     localStorage.setItem('cookieConsent', 'accepted');
     document.getElementById('cookie-banner').style.display = 'none';
     if (typeof gtag === 'function') {
-      gtag('consent', 'update', {
-        ad_personalization: 'granted', ad_storage: 'granted', ad_user_data: 'granted',
-        analytics_storage: 'granted', functionality_storage: 'granted', personalization_storage: 'granted'
-      });
+      gtag('consent', 'update', { ad_personalization: 'granted', ad_storage: 'granted', ad_user_data: 'granted', analytics_storage: 'granted', functionality_storage: 'granted', personalization_storage: 'granted' });
     }
   }
   function rejectCookies() {
@@ -460,9 +468,7 @@
   let numberFrequencies = {};
   
   function initializeFrequencies() {
-      for (let i = 1; i <= maxNumber; i++) {
-          numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
-      }
+      for (let i = 1; i <= maxNumber; i++) { numberFrequencies[i] = Math.floor(Math.random() * 100) + 1; }
       renderHeatmap();
   }
   
@@ -500,9 +506,7 @@
       while (numbers.length < count) {
           let num;
           if (Math.random() < 0.7) {
-              const hotNumbers = allNumbers.filter(n => 
-                  numberFrequencies[n] > Object.values(numberFrequencies).reduce((a, b) => a + b) / maxNumber
-              );
+              const hotNumbers = allNumbers.filter(n => numberFrequencies[n] > Object.values(numberFrequencies).reduce((a, b) => a + b) / maxNumber);
               num = hotNumbers[Math.floor(Math.random() * hotNumbers.length)];
           } else {
               num = Math.floor(Math.random() * maxNum) + 1;
@@ -533,9 +537,7 @@
       if (oddCount === 0 || oddCount === numbers.length) {
           const replaceIndex = Math.floor(Math.random() * numbers.length);
           let newNum;
-          do {
-              newNum = Math.floor(Math.random() * maxNum) + 1;
-          } while (numbers.includes(newNum) || (newNum % 2 === 1) === (oddCount === 0));
+          do { newNum = Math.floor(Math.random() * maxNum) + 1; } while (numbers.includes(newNum) || (newNum % 2 === 1) === (oddCount === 0));
           numbers[replaceIndex] = newNum;
       }
       return numbers;
@@ -572,20 +574,14 @@
   
   function updatePreferences() {
       const newMax = parseInt(document.getElementById('maxNumber').value);
-      for (let i = 1; i <= newMax; i++) {
-          if (!numberFrequencies[i]) numberFrequencies[i] = Math.floor(Math.random() * 100) + 1;
-      }
-      Object.keys(numberFrequencies).forEach(num => {
-          if (parseInt(num) > newMax) delete numberFrequencies[num];
-      });
+      for (let i = 1; i <= newMax; i++) { if (!numberFrequencies[i]) numberFrequencies[i] = Math.floor(Math.random() * 100) + 1; }
+      Object.keys(numberFrequencies).forEach(num => { if (parseInt(num) > newMax) delete numberFrequencies[num]; });
       renderHeatmap();
       generateBalanced();
       updatePageTitle();
   }
 
-  function scrollToAnalyzer() {
-    document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
-  }
+  function scrollToAnalyzer() { document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' }); }
   
   initializeFrequencies();
   generateBalanced();
