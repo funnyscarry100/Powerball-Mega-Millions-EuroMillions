@@ -26,13 +26,14 @@
   <link rel="canonical" href="https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/privacy.html" />
   <title>Privacy Policy - LotteryUpdate000</title>
 
-  <!-- Open Graph -->
+  <!-- Open Graph / Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="LotteryUpdate000">
   <meta property="og:title" content="Privacy Policy - LotteryUpdate000">
   <meta property="og:description" content="Learn how Lottery Pattern Analyzer collects, uses, and protects your data. Read our full privacy policy for details.">
   <meta property="og:url" content="https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/privacy.html">
   <meta property="og:locale" content="en_US">
+  
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Privacy Policy - LotteryUpdate000">
@@ -155,12 +156,12 @@
         </ul>
         
         <h3>Opting Out of Personalized Advertising</h3>
-        <p>You can opt out of personalized advertising from many ad networks by visiting:</p>
+        <p>You can opt out of personalized advertising by visiting these organizations directly:</p>
         <ul>
-          <li><a href="https://optout.aboutads.info/" target="_blank" rel="nofollow noopener noreferrer">Digital Advertising Alliance (DAA)</a></li>
-          <li><a href="https://www.networkadvertising.org/choices" target="_blank" rel="nofollow noopener noreferrer">Network Advertising Initiative (NAI)</a></li>
-          <li><a href="https://www.youronlinechoices.com/" target="_blank" rel="nofollow noopener noreferrer">Your Online Choices (EU)</a></li>
-          <li><a href="https://myaccount.google.com/" target="_blank" rel="nofollow noopener noreferrer">Google Account Settings</a></li>
+          <li><strong>Digital Advertising Alliance (DAA)</strong> — aboutads.info</li>
+          <li><strong>Network Advertising Initiative (NAI)</strong> — networkadvertising.org</li>
+          <li><strong>Your Online Choices (EU)</strong> — youronlinechoices.com</li>
+          <li><strong>Google Advertising</strong> — policies.google.com/technologies/ads</li>
         </ul>
         
         <h2>4. How We Use Your Information</h2>
@@ -251,7 +252,10 @@
     localStorage.setItem('cookieConsent', 'accepted');
     document.getElementById('cookie-banner').style.display = 'none';
     if (typeof gtag === 'function') {
-      gtag('consent', 'update', { ad_personalization: 'granted', ad_storage: 'granted', ad_user_data: 'granted', analytics_storage: 'granted', functionality_storage: 'granted', personalization_storage: 'granted' });
+      gtag('consent', 'update', {
+        ad_personalization: 'granted', ad_storage: 'granted', ad_user_data: 'granted',
+        analytics_storage: 'granted', functionality_storage: 'granted', personalization_storage: 'granted'
+      });
     }
   }
   function rejectCookies() {
@@ -259,7 +263,9 @@
     document.getElementById('cookie-banner').style.display = 'none';
   }
   document.getElementById('year').textContent = new Date().getFullYear();
-  document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('privacy-date').textContent = new Date().toLocaleDateString('en-US', { 
+    year: 'numeric', month: 'long', day: 'numeric' 
+  });
   </script>
 
   <script>
