@@ -1,21 +1,34 @@
 # ===========================================
 # robots.txt - Lottery Pattern Analyzer
 # Website: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/
-# Last Updated: 2026-10-13
+# Last Updated: 2026-11-08
 # ===========================================
 
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /search/
 Crawl-delay: 1
 
+# Sitemap location
 Sitemap: https://funnyscarry100.github.io/Powerball-Mega-Millions-EuroMillions/sitemap.xml
+
+# ===========================================
+# Search Engines
+# ===========================================
 
 # Google
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 2
 
 # Bing
 User-agent: Bingbot
@@ -42,7 +55,20 @@ User-agent: SeznamBot
 Allow: /
 Crawl-delay: 2
 
+# Naver
+User-agent: Yeti
+Allow: /
+Crawl-delay: 2
+
+# Apple
+User-agent: Applebot
+Allow: /
+Crawl-delay: 2
+
+# ===========================================
 # AI Crawlers
+# ===========================================
+
 User-agent: GPTBot
 Allow: /
 Crawl-delay: 5
@@ -75,7 +101,38 @@ User-agent: Applebot-Extended
 Allow: /
 Crawl-delay: 5
 
-# SEO Tools (allow for audit)
+User-agent: meta-externalagent
+Allow: /
+Crawl-delay: 5
+
+# ===========================================
+# Social Media
+# ===========================================
+
+User-agent: FacebookExternalHit
+Allow: /
+Crawl-delay: 2
+
+User-agent: Twitterbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: LinkedInBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: TelegramBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: WhatsApp
+Allow: /
+Crawl-delay: 2
+
+# ===========================================
+# SEO Tools (allow for site audits)
+# ===========================================
+
 User-agent: SemrushBot
 Allow: /
 Crawl-delay: 5
@@ -84,14 +141,25 @@ User-agent: AhrefsBot
 Allow: /
 Crawl-delay: 5
 
-# Bad Bots to Block
-User-agent: MJ12bot
-Disallow: /
+User-agent: DotBot
+Allow: /
+Crawl-delay: 5
 
-User-agent: dotbot
+# ===========================================
+# Bad Bots to Block
+# ===========================================
+
+User-agent: MJ12bot
 Disallow: /
 
 User-agent: MauiBot
 Disallow: /
+
+User-agent: PiplBot
+Disallow: /
+
+# ===========================================
+# Host
+# ===========================================
 
 Host: funnyscarry100.github.io
